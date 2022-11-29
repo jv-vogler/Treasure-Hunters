@@ -9,12 +9,24 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Node",
+"class": &"BaseState",
+"language": &"GDScript",
+"path": "res://common/state_machine/base_state.gd"
+}, {
+"base": "BaseState",
+"class": &"MoveState",
+"language": &"GDScript",
+"path": "res://player/states/move.gd"
+}, {
 "base": "CharacterBody2D",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://player/player.gd"
 }]
 _global_script_class_icons={
+"BaseState": "",
+"MoveState": "",
 "Player": ""
 }
 
@@ -23,6 +35,10 @@ _global_script_class_icons={
 config/name="Treasure Hunters"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Debugger="*res://_test/debugger.tscn"
 
 [display]
 
@@ -52,7 +68,8 @@ jump={
 }
 attack={
 "deadzone": 0.5,
-"events": []
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
 }
 
 [layer_names]

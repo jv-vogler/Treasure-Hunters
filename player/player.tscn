@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dy5tquxf4ynh3"]
+[gd_scene load_steps=89 format=3 uid="uid://dy5tquxf4ynh3"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -61,37 +61,16 @@
 [ext_resource type="Texture2D" uid="uid://cuhv03wh3rkaf" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/20-Throw Sword/Throw Sword 01.png" id="58_8rq2d"]
 [ext_resource type="Texture2D" uid="uid://buasmjdj07ta4" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/20-Throw Sword/Throw Sword 02.png" id="59_dx4o1"]
 [ext_resource type="Texture2D" uid="uid://cp752j6mbhlbv" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/20-Throw Sword/Throw Sword 03.png" id="60_b03iy"]
+[ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="62_tikvf"]
+[ext_resource type="Script" path="res://player/states/idle.gd" id="63_co0gm"]
+[ext_resource type="Script" path="res://player/states/run.gd" id="64_fam08"]
+[ext_resource type="Script" path="res://player/states/jump.gd" id="65_6c3mu"]
+[ext_resource type="Script" path="res://player/states/fall.gd" id="66_e6j04"]
+[ext_resource type="Script" path="res://player/states/move.gd" id="67_ss008"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxg5k"]
 radius = 7.0
 height = 20.0
-
-[sub_resource type="Animation" id="Animation_pm3pa"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_rwikk")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_kng34"]
 resource_name = "air_attack_1"
@@ -361,6 +340,33 @@ tracks/0/keys = {
 "values": [ExtResource("33_l56b7"), ExtResource("34_qy5c7"), ExtResource("35_cr282")]
 }
 
+[sub_resource type="Animation" id="Animation_pm3pa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_rwikk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:skew")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_g6fc7"]
 resource_name = "run"
 length = 0.6
@@ -413,25 +419,25 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ow3yw"]
 _data = {
+"AirAttack1": SubResource("Animation_kng34"),
+"AirAttack2": SubResource("Animation_i0ywb"),
+"Attack1": SubResource("Animation_up6ct"),
+"Attack2": SubResource("Animation_rm8ff"),
+"Attack3": SubResource("Animation_eixar"),
+"Fall": SubResource("Animation_4l4a3"),
+"FallSword": SubResource("Animation_hcffc"),
+"Ground": SubResource("Animation_rf3ym"),
+"GroundSword": SubResource("Animation_a0j7p"),
+"Hit": SubResource("Animation_vjxs4"),
+"HitSword": SubResource("Animation_5jlnu"),
+"Idle": SubResource("Animation_d65fx"),
+"IdleSword": SubResource("Animation_rthdi"),
+"Jump": SubResource("Animation_v888r"),
+"JumpSword": SubResource("Animation_lxtrb"),
 "RESET": SubResource("Animation_pm3pa"),
-"air_attack_1": SubResource("Animation_kng34"),
-"air_attack_2": SubResource("Animation_i0ywb"),
-"attack_1": SubResource("Animation_up6ct"),
-"attack_2": SubResource("Animation_rm8ff"),
-"attack_3": SubResource("Animation_eixar"),
-"fall": SubResource("Animation_4l4a3"),
-"fall_sword": SubResource("Animation_hcffc"),
-"ground": SubResource("Animation_rf3ym"),
-"ground_sword": SubResource("Animation_a0j7p"),
-"hit": SubResource("Animation_vjxs4"),
-"hit_sword": SubResource("Animation_5jlnu"),
-"idle": SubResource("Animation_d65fx"),
-"idle_sword": SubResource("Animation_rthdi"),
-"jump": SubResource("Animation_v888r"),
-"jump_sword": SubResource("Animation_lxtrb"),
-"run": SubResource("Animation_g6fc7"),
-"run_sword": SubResource("Animation_vqcq3"),
-"throw_sword": SubResource("Animation_qepdc")
+"Run": SubResource("Animation_g6fc7"),
+"RunSword": SubResource("Animation_vqcq3"),
+"ThrowSword": SubResource("Animation_qepdc")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -447,7 +453,40 @@ position = Vector2(-1, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uxg5k")
 
-[node name="Animation" type="AnimationPlayer" parent="."]
+[node name="Animations" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ow3yw")
 }
+
+[node name="States" type="Node" parent="."]
+script = ExtResource("62_tikvf")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource("63_co0gm")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
+
+[node name="Run" type="Node" parent="States"]
+script = ExtResource("64_fam08")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
+idle_node = NodePath("../Idle")
+run_node = NodePath(".")
+
+[node name="Jump" type="Node" parent="States"]
+script = ExtResource("65_6c3mu")
+fall_node = NodePath("../Fall")
+
+[node name="Fall" type="Node" parent="States"]
+script = ExtResource("66_e6j04")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")
+
+[node name="Move" type="Node" parent="States"]
+script = ExtResource("67_ss008")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")

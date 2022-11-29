@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://btt4hrl6ytlpa"]
+[gd_scene load_steps=4 format=3 uid="uid://btt4hrl6ytlpa"]
 
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="1_r2sey"]
 [ext_resource type="PackedScene" uid="uid://dy5tquxf4ynh3" path="res://player/player.tscn" id="2_coce2"]
+[ext_resource type="PackedScene" uid="uid://caguqpsnbtot" path="res://_test/debugger.tscn" id="3_m7ru8"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -11,6 +12,6 @@ format = 2
 layer_0/tile_data = PackedInt32Array(524285, 0, 2, 524286, 65536, 2, 524287, 65536, 2, 458752, 65536, 2, 458753, 65536, 2, 458754, 65536, 2, 458755, 65536, 2, 458756, 65536, 2, 458757, 65536, 2, 458758, 65536, 2, 458759, 65536, 2, 458760, 65536, 2, 458761, 65536, 2, 458762, 65536, 2, 458763, 65536, 2, 458764, 65536, 2, 458765, 65536, 2, 458766, 65536, 2, 458767, 65536, 2, 458768, 131072, 2, 393213, 0, 0, 458749, 0, 1, 393214, 65536, 0, 458750, 65536, 1, 393215, 65536, 0, 458751, 65536, 1, 327680, 65536, 0, 393216, 65536, 1, 327681, 65536, 0, 393217, 65536, 1, 327682, 65536, 0, 393218, 65536, 1, 327683, 65536, 0, 393219, 65536, 1, 327684, 65536, 0, 393220, 65536, 1, 327685, 65536, 0, 393221, 65536, 1, 327686, 65536, 0, 393222, 65536, 1, 327687, 65536, 0, 393223, 65536, 1, 327688, 65536, 0, 393224, 65536, 1, 327689, 65536, 0, 393225, 65536, 1, 327690, 65536, 0, 393226, 65536, 1, 327691, 65536, 0, 393227, 65536, 1, 327692, 65536, 0, 393228, 65536, 1, 327693, 65536, 0, 393229, 65536, 1, 327694, 65536, 0, 393230, 65536, 1, 327695, 65536, 0, 393231, 65536, 1, 327696, 131072, 0, 393232, 131072, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_coce2")]
-position = Vector2(25, 27)
-acceleration = 0.2
-friction = 0.1
+position = Vector2(66, 30)
+
+[node name="Debugger" parent="." instance=ExtResource("3_m7ru8")]
