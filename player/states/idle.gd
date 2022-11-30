@@ -14,7 +14,8 @@ func enter() -> void:
 
 
 func input(_event: InputEvent) -> BaseState:
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+	var direction := Input.get_axis("move_left", "move_right")
+	if direction:
 		return run_state
 	elif Input.is_action_just_pressed("jump"):
 		return jump_state

@@ -33,6 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Treasure Hunters"
+run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
 
@@ -44,6 +45,7 @@ Debugger="*res://_test/debugger.tscn"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
+window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"

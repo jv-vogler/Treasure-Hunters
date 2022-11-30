@@ -168,18 +168,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("15_q3npy")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0349066]
-}
 
 [sub_resource type="Animation" id="Animation_hcffc"]
 resource_name = "fall_sword"
@@ -196,18 +184,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("36_jhpi8")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0349066]
 }
 
 [sub_resource type="Animation" id="Animation_rf3ym"]
@@ -354,18 +330,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("1_rwikk")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:skew")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_g6fc7"]
 resource_name = "run"
@@ -449,7 +413,7 @@ region_rect = Rect2(150, 153, 260, 71)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-1, 5)
+position = Vector2(-1, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uxg5k")
 
@@ -457,6 +421,9 @@ shape = SubResource("CapsuleShape2D_uxg5k")
 libraries = {
 "": SubResource("AnimationLibrary_ow3yw")
 }
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
 
 [node name="States" type="Node" parent="."]
 script = ExtResource("62_tikvf")
@@ -478,6 +445,8 @@ run_node = NodePath(".")
 [node name="Jump" type="Node" parent="States"]
 script = ExtResource("65_6c3mu")
 fall_node = NodePath("../Fall")
+run_node = NodePath("../Run")
+idle_node = NodePath("../Idle")
 
 [node name="Fall" type="Node" parent="States"]
 script = ExtResource("66_e6j04")
@@ -486,7 +455,7 @@ run_node = NodePath("../Run")
 
 [node name="Move" type="Node" parent="States"]
 script = ExtResource("67_ss008")
-jump_node = NodePath("../Jump")
-fall_node = NodePath("../Fall")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")

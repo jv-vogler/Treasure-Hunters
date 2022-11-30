@@ -12,11 +12,11 @@ func enter():
 
 
 func physics_process(delta: float) -> BaseState:
-	if player.is_on_floor():
-		return idle_state if player.velocity.x != 0 else run_state
-
 	var direction := Input.get_axis("move_left", "move_right")
 	player.flip_sprite(direction)
+
+	if player.is_on_floor():
+		return run_state if direction else idle_state
 
 	player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, 0.08)
 	player.velocity.y += player.gravity * delta
