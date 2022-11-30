@@ -19,6 +19,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://main.gd"
 }, {
+"base": "Area2D",
+"class": &"Hitbox",
+"language": &"GDScript",
+"path": "res://common/hitbox/hitbox.gd"
+}, {
+"base": "Area2D",
+"class": &"Hurtbox",
+"language": &"GDScript",
+"path": "res://common/hitbox/hurtbox.gd"
+}, {
 "base": "BaseState",
 "class": &"MoveState",
 "language": &"GDScript",
@@ -32,6 +42,8 @@ _global_script_classes=[{
 _global_script_class_icons={
 "BaseState": "",
 "Game": "",
+"Hitbox": "",
+"Hurtbox": "",
 "MoveState": "",
 "Player": ""
 }
@@ -42,10 +54,6 @@ config/name="Treasure Hunters"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
-
-[autoload]
-
-Debugger="*res://_test/debugger.tscn"
 
 [display]
 
@@ -82,6 +90,7 @@ attack={
 [layer_names]
 
 2d_physics/layer_1="World"
+2d_physics/layer_2="Hitboxes"
 
 [rendering]
 

@@ -2,11 +2,10 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 120.0
-const JUMP_VELOCITY = -350.0
+const JUMP_VELOCITY = -384.0
 
 @export var acceleration: float = 0.2
 @export var friction: float = 0.1
-@export var jump_buffer: float = 0.15
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
