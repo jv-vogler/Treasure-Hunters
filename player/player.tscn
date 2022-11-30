@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dy5tquxf4ynh3"]
+[gd_scene load_steps=83 format=3 uid="uid://dy5tquxf4ynh3"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://ru35sg6wadul" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 02.png" id="13_yree7"]
 [ext_resource type="Texture2D" uid="uid://bt6voii1jwcj5" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="14_t7jbq"]
 [ext_resource type="Texture2D" uid="uid://rvksa4385hpq" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="15_q3npy"]
-[ext_resource type="Texture2D" uid="uid://jm8bwey7x2hx" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="16_1pj3o"]
-[ext_resource type="Texture2D" uid="uid://d05s4pxch4swp" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 02.png" id="17_afhjr"]
 [ext_resource type="Texture2D" uid="uid://ca5ii42i5fmxb" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" id="18_v0ps7"]
 [ext_resource type="Texture2D" uid="uid://cm4t37yt3fabo" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 02.png" id="19_katma"]
 [ext_resource type="Texture2D" uid="uid://bwib7q1yluobs" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="20_w8thn"]
@@ -37,8 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://c1grlqlfnpwpt" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 02.png" id="34_qy5c7"]
 [ext_resource type="Texture2D" uid="uid://by0jlpegyglpd" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/11-Jump Sword/Jump Sword 03.png" id="35_cr282"]
 [ext_resource type="Texture2D" uid="uid://dqrru6p7wo3pj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/12-Fall Sword/Fall Sword 01.png" id="36_jhpi8"]
-[ext_resource type="Texture2D" uid="uid://b6yoiv7i4qtwa" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/13-Ground Sword/Ground Sword 01.png" id="37_2g406"]
-[ext_resource type="Texture2D" uid="uid://2l5ah5yfref3" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/13-Ground Sword/Ground Sword 02.png" id="38_ndo07"]
 [ext_resource type="Texture2D" uid="uid://bbt36ns6l13w1" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 01.png" id="39_goiw3"]
 [ext_resource type="Texture2D" uid="uid://bpe0hrjdgah80" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 02.png" id="40_iaqm5"]
 [ext_resource type="Texture2D" uid="uid://bethdi343il8o" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/Hit Sword 03.png" id="41_akgy3"]
@@ -69,8 +65,8 @@
 [ext_resource type="Script" path="res://player/states/move.gd" id="67_ss008"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxg5k"]
-radius = 7.0
-height = 20.0
+radius = 7.99999
+height = 28.0
 
 [sub_resource type="Animation" id="Animation_kng34"]
 resource_name = "air_attack_1"
@@ -184,38 +180,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("36_jhpi8")]
-}
-
-[sub_resource type="Animation" id="Animation_rf3ym"]
-resource_name = "ground"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("16_1pj3o"), ExtResource("17_afhjr")]
-}
-
-[sub_resource type="Animation" id="Animation_a0j7p"]
-resource_name = "ground_sword"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("37_2g406"), ExtResource("38_ndo07")]
 }
 
 [sub_resource type="Animation" id="Animation_vjxs4"]
@@ -390,8 +354,6 @@ _data = {
 "Attack3": SubResource("Animation_eixar"),
 "Fall": SubResource("Animation_4l4a3"),
 "FallSword": SubResource("Animation_hcffc"),
-"Ground": SubResource("Animation_rf3ym"),
-"GroundSword": SubResource("Animation_a0j7p"),
 "Hit": SubResource("Animation_vjxs4"),
 "HitSword": SubResource("Animation_5jlnu"),
 "Idle": SubResource("Animation_d65fx"),
@@ -413,8 +375,7 @@ region_rect = Rect2(150, 153, 260, 71)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-1, 4)
-rotation = 1.5708
+position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_uxg5k")
 
 [node name="Animations" type="AnimationPlayer" parent="."]
@@ -423,7 +384,9 @@ libraries = {
 }
 
 [node name="Camera" type="Camera2D" parent="."]
-current = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.5
 
 [node name="States" type="Node" parent="."]
 script = ExtResource("62_tikvf")
@@ -437,10 +400,10 @@ fall_node = NodePath("../Fall")
 
 [node name="Run" type="Node" parent="States"]
 script = ExtResource("64_fam08")
-jump_node = NodePath("../Jump")
-fall_node = NodePath("../Fall")
 idle_node = NodePath("../Idle")
 run_node = NodePath(".")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
 
 [node name="Jump" type="Node" parent="States"]
 script = ExtResource("65_6c3mu")
@@ -452,6 +415,7 @@ idle_node = NodePath("../Idle")
 script = ExtResource("66_e6j04")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
 
 [node name="Move" type="Node" parent="States"]
 script = ExtResource("67_ss008")

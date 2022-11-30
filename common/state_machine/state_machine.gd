@@ -21,9 +21,9 @@ func init(player: Player) -> void:
 
 	change_state(get_node(starting_state))
 
-
+# DEBUGGER
 func _process(_delta: float) -> void:
-	Debugger.get_child(0).text = current_state.name
+	Debugger.get_child(0).text = str($Fall.jump_buffer_timer)
 
 
 func physics_process(delta: float) -> void:
