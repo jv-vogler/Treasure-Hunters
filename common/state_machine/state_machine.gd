@@ -33,10 +33,7 @@ func physics_process(delta: float) -> void:
 
 
 func process(delta: float) -> void:
-#	---- DEBUG ----
-	var label = owner.get_node("Debugger")
-	label.debug = str(current_state.name) + " " + str($Attack1.attack_buffer_timer)
-#	---- DEBUG ----
+
 	var new_state = current_state.process(delta)
 	if new_state:
 		change_state(new_state)

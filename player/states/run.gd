@@ -9,7 +9,8 @@ extends MoveState
 
 func enter() -> void:
 	if state_machine.previous_state == fall_state:
-		player.animations.play("Ground")
+		var ground_animation = "GroundSword" if "Sword" in name else "Ground"
+		player.animations.play(ground_animation)
 		await player.animations.animation_finished
 	super.enter()
 
