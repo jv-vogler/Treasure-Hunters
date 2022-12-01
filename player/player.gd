@@ -1,8 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-const SPEED = 140.0
-const JUMP_VELOCITY = -350.0
+const SPEED = 120.0
+const JUMP_VELOCITY = -384.0
 
 @export var acceleration: float = 0.2
 @export var friction: float = 0.1

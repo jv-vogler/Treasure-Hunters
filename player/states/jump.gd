@@ -1,5 +1,6 @@
 extends BaseState
 
+@export var acceleration: float = 0.08
 @export var fall_node: NodePath
 @export var run_node: NodePath
 @export var idle_node: NodePath
@@ -9,7 +10,7 @@ extends BaseState
 @onready var idle_state: BaseState = get_node(idle_node)
 
 
-func enter():
+func enter() -> void:
 	super.enter()
 	player.velocity.y = player.JUMP_VELOCITY
 
@@ -18,7 +19,7 @@ func physics_process(delta: float) -> BaseState:
 	var direction := Input.get_axis("move_left", "move_right")
 	player.flip_sprite(direction)
 
-	player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, 0.08)
+	player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, acceleration)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 
@@ -29,5 +30,4 @@ func physics_process(delta: float) -> BaseState:
 		if direction != 0:
 			return run_state
 		return idle_state
-
 	return null

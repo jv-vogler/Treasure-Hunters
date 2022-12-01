@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://main.gd" id="1_2ixcs"]
 [ext_resource type="PackedScene" uid="uid://btt4hrl6ytlpa" path="res://levels/test_level.tscn" id="2_sj7cv"]
 
-[node name="Main" type="Node2D"]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_2ixcs")
 
 [node name="TestLevel" parent="." instance=ExtResource("2_sj7cv")]

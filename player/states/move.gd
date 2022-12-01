@@ -1,6 +1,7 @@
 class_name MoveState
 extends BaseState
 
+@export var acceleration: float = 0.08
 @export var idle_node: NodePath
 @export var run_node: NodePath
 @export var jump_node: NodePath
@@ -15,7 +16,6 @@ extends BaseState
 func input(_event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("jump"):
 		return jump_state
-
 	return null
 
 
@@ -27,7 +27,7 @@ func physics_process(_delta: float) -> BaseState:
 	player.flip_sprite(direction)
 
 	if direction:
-		player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, 0.08)
+		player.velocity.x = lerp(player.velocity.x, direction * player.SPEED, acceleration)
 	else:
 		return idle_state
 
