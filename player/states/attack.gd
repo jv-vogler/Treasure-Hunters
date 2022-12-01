@@ -16,11 +16,17 @@ extends BaseState
 @onready var next_attack: BaseState
 
 var attack_buffer_timer: float = 0
+var can_attack: bool
+var combo: bool
 
 
 func enter() -> void:
+	can_attack = false
+	combo = false
 	super.enter()
 	attack_buffer_timer = attack_buffer
+	await get_tree().create_timer(0.3).timeout
+	can_attack = true
 
 
 func _ready() -> void:
@@ -31,7 +37,7 @@ func _ready() -> void:
 func input(_event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("attack"):
 		if attack_buffer_timer > 0:
-			if next_attack: return next_attack
+			if next_attack: combo = true
 	if Input.is_action_just_pressed("jump"):
 		return jump_state
 	return null
@@ -43,7 +49,8 @@ func process(delta: float) -> BaseState:
 
 
 func physics_process(delta: float) -> BaseState:
-	if attack_buffer_timer < 0:
+	if can_attack:
+		if combo: return next_attack
 		return run_state if player.direction else idle_state
 
 	player.velocity.x = lerp(
