@@ -20,8 +20,7 @@ func enter() -> void:
 
 
 func input(_event: InputEvent) -> BaseState:
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction:
+	if player.direction:
 		return run_state
 	elif Input.is_action_just_pressed("jump"):
 		return jump_state
