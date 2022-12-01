@@ -8,30 +8,29 @@ const JUMP_VELOCITY = -384.0
 @export var friction: float = 0.1
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var direction: float:
+	get:
+		direction = Input.get_axis("move_left", "move_right")
+		if direction > 0: sprite.scale.x = 1
+		if direction < 0: sprite.scale.x = -1
+		return direction
 
-@onready var states = $States
+@onready var state_machine = $StateMachine
 @onready var animations = $Animations
 @onready var sprite = $Sprite
 
 
 func _ready() -> void:
-	states.init(self)
+	state_machine.init(self)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	states.input(event)
+	state_machine.input(event)
 
 
 func _physics_process(delta: float) -> void:
-	states.physics_process(delta)
+	state_machine.physics_process(delta)
 
 
 func _process(delta: float) -> void:
-	states.process(delta)
-
-
-func flip_sprite(direction) -> void:
-	if direction > 0:
-		sprite.scale.x = 1
-	elif direction < 0:
-		sprite.scale.x = -1
+	state_machine.process(delta)

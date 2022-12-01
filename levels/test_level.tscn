@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://btt4hrl6ytlpa"]
 
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="1_r2sey"]
-[ext_resource type="PackedScene" uid="uid://dy5tquxf4ynh3" path="res://player/player.tscn" id="2_coce2"]
+[ext_resource type="PackedScene" uid="uid://jx8dnl26t4cq" path="res://player/player.tscn" id="2_coce2"]
 
 [node name="TestLevel" type="Node2D"]
 

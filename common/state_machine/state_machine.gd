@@ -10,7 +10,6 @@ func change_state(new_state: BaseState) -> void:
 	if current_state:
 		previous_state = current_state
 		current_state.exit()
-
 	current_state = new_state
 	current_state.enter()
 
@@ -18,14 +17,7 @@ func change_state(new_state: BaseState) -> void:
 func init(player: Player) -> void:
 	for child in get_children():
 		child.player = player
-
 	change_state(get_node(starting_state))
-
-
-func physics_process(delta: float) -> void:
-	var new_state = current_state.physics_process(delta)
-	if new_state:
-		change_state(new_state)
 
 
 func input(event: InputEvent) -> void:
@@ -34,7 +26,17 @@ func input(event: InputEvent) -> void:
 		change_state(new_state)
 
 
+func physics_process(delta: float) -> void:
+	var new_state = current_state.physics_process(delta)
+	if new_state:
+		change_state(new_state)
+
+
 func process(delta: float) -> void:
+#	---- DEBUG ----
+	var label = owner.get_node("Debugger")
+	label.debug = str(current_state.name) + " " + str($Attack1.attack_buffer_timer)
+#	---- DEBUG ----
 	var new_state = current_state.process(delta)
 	if new_state:
 		change_state(new_state)
