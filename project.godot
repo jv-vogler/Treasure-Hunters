@@ -9,10 +9,20 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "BaseState",
+"class": &"AttackState",
+"language": &"GDScript",
+"path": "res://player/states/attack.gd"
+}, {
 "base": "Node",
 "class": &"BaseState",
 "language": &"GDScript",
 "path": "res://common/state_machine/base_state.gd"
+}, {
+"base": "Control",
+"class": &"Debugger",
+"language": &"GDScript",
+"path": "res://_test/debugger.gd"
 }, {
 "base": "Node2D",
 "class": &"Game",
@@ -40,7 +50,9 @@ _global_script_classes=[{
 "path": "res://player/player.gd"
 }]
 _global_script_class_icons={
+"AttackState": "",
 "BaseState": "",
+"Debugger": "",
 "Game": "",
 "Hitbox": "",
 "Hurtbox": "",

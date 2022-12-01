@@ -28,8 +28,7 @@ func enter() -> void:
 func input(_event: InputEvent) -> BaseState:
 	if Input.is_action_pressed("jump"):
 		jump_buffer_timer = jump_buffer
-		if state_machine.previous_state != jump_state:
-			if coyote_jump_timer > 0:
+		if state_machine.previous_state != jump_state and coyote_jump_timer > 0:
 				return jump_state
 	return null
 

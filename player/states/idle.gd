@@ -5,11 +5,13 @@ extends BaseState
 @export var run_node: NodePath
 @export var jump_node: NodePath
 @export var fall_node: NodePath
+@export var first_attack_node: NodePath
 
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var run_state: BaseState = get_node(run_node)
 @onready var jump_state: BaseState = get_node(jump_node)
 @onready var fall_state: BaseState = get_node(fall_node)
+@onready var attack_state: BaseState = get_node(first_attack_node)
 
 
 func enter() -> void:
@@ -24,6 +26,8 @@ func input(_event: InputEvent) -> BaseState:
 		return run_state
 	elif Input.is_action_just_pressed("jump"):
 		return jump_state
+	elif Input.is_action_just_pressed("attack"):
+		return attack_state
 	return null
 
 

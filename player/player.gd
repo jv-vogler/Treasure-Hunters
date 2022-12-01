@@ -15,22 +15,22 @@ var direction: float:
 		if direction < 0: sprite.scale.x = -1
 		return direction
 
-@onready var states = $States
+@onready var state_machine = $StateMachine
 @onready var animations = $Animations
 @onready var sprite = $Sprite
 
 
 func _ready() -> void:
-	states.init(self)
+	state_machine.init(self)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	states.input(event)
+	state_machine.input(event)
 
 
 func _physics_process(delta: float) -> void:
-	states.physics_process(delta)
+	state_machine.physics_process(delta)
 
 
 func _process(delta: float) -> void:
-	states.process(delta)
+	state_machine.process(delta)

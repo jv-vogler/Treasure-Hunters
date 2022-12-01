@@ -20,19 +20,23 @@ func init(player: Player) -> void:
 	change_state(get_node(starting_state))
 
 
-func physics_process(delta: float) -> void:
-	var new_state = current_state.physics_process(delta)
-	if new_state:
-		change_state(new_state)
-
-
 func input(event: InputEvent) -> void:
 	var new_state = current_state.input(event)
 	if new_state:
 		change_state(new_state)
 
 
+func physics_process(delta: float) -> void:
+	var new_state = current_state.physics_process(delta)
+	if new_state:
+		change_state(new_state)
+
+
 func process(delta: float) -> void:
+#	---- DEBUG ----
+	var label = owner.get_node("Debugger")
+	label.debug = str(current_state.name) + " " + str($Attack1.attack_buffer_timer)
+#	---- DEBUG ----
 	var new_state = current_state.process(delta)
 	if new_state:
 		change_state(new_state)
