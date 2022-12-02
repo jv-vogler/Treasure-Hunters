@@ -19,6 +19,8 @@ var direction: float:
 @onready var animations = $Animations
 @onready var sprite = $Sprite
 
+var damage: int = 15
+
 
 func _ready() -> void:
 	state_machine.init(self)

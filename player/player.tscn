@@ -1,10 +1,11 @@
-[gd_scene load_steps=95 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=96 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
 [ext_resource type="Texture2D" uid="uid://yb6e7jqw0s61" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="2_02l5o"]
 [ext_resource type="Texture2D" uid="uid://bmoxpfh043wbk" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_6sjgg"]
-[ext_resource type="Script" path="res://common/hitbox/hitbox.gd" id="3_sl42k"]
+[ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="3_lv1im"]
+[ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="4_0nv2g"]
 [ext_resource type="Script" path="res://_test/debugger.gd" id="4_3enjl"]
 [ext_resource type="Texture2D" uid="uid://c7jo8u87olghm" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_fpy78"]
 [ext_resource type="Texture2D" uid="uid://dww32fh7gtttc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_0da0l"]
@@ -71,14 +72,14 @@
 [ext_resource type="Script" path="res://player/states/move.gd" id="67_ss008"]
 [ext_resource type="Script" path="res://player/states/attack.gd" id="69_n7ofm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ido3g"]
-size = Vector2(19, 15)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gby3t"]
+size = Vector2(18.5, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dy46"]
-size = Vector2(36, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7arpp"]
+size = Vector2(18, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss804"]
-size = Vector2(12, 26.5)
+size = Vector2(18, 24.25)
 
 [sub_resource type="Animation" id="Animation_kng34"]
 resource_name = "air_attack_1"
@@ -95,18 +96,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("52_cdwss"), ExtResource("53_8meed"), ExtResource("54_x14po")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/AirAttackHitbox/Hitbox:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="Animation" id="Animation_i0ywb"]
 resource_name = "air_attack_2"
@@ -122,18 +111,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("55_al8r4"), ExtResource("56_yrxav"), ExtResource("57_kkd6v")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/AirAttackHitbox/Hitbox:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_eixar"]
@@ -154,11 +131,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/AttackHitbox/Hitbox:disabled")
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -182,11 +159,11 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/AttackHitbox/Hitbox:disabled")
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -211,14 +188,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/AttackHitbox/Hitbox:disabled")
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false, true]
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_4l4a3"]
@@ -402,22 +379,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/AttackHitbox/Hitbox:disabled")
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/AirAttackHitbox/Hitbox:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -503,52 +468,42 @@ outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 0.32549)
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 2
 script = ExtResource("1_jwel6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_rwikk")
 region_rect = Rect2(150, 153, 260, 71)
 
-[node name="AttackHitbox" type="Area2D" parent="Sprite"]
-script = ExtResource("3_sl42k")
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_lv1im")
+damage_source = 2
 
-[node name="Hitbox" type="CollisionShape2D" parent="Sprite/AttackHitbox"]
-visible = false
-position = Vector2(23, 4)
-shape = SubResource("RectangleShape2D_ido3g")
+[node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(20.25, -1)
+shape = SubResource("RectangleShape2D_gby3t")
 disabled = true
+debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
-[node name="AirAttackHitbox" type="Area2D" parent="Sprite"]
-script = ExtResource("3_sl42k")
+[node name="Hurtbox" type="Area2D" parent="Sprite"]
+script = ExtResource("4_0nv2g")
+takes_damage_from = 4
 
-[node name="Hitbox" type="CollisionShape2D" parent="Sprite/AirAttackHitbox"]
-visible = false
-position = Vector2(6, 10)
-shape = SubResource("RectangleShape2D_2dy46")
-disabled = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hurtbox"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_7arpp")
+debug_color = Color(0, 0.701961, 0.0392157, 0.419608)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -1.75)
+position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_ss804")
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_ow3yw")
 }
-
-[node name="Camera" type="Camera2D" parent="."]
-current = true
-limit_left = -96
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_vertical_offset = -1.0
-drag_left_margin = 0.3
-drag_top_margin = 0.7
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("62_tikvf")
@@ -613,7 +568,19 @@ state_machine_node = NodePath("..")
 idle_node = NodePath("../IdleSword")
 run_node = NodePath("../RunSword")
 jump_node = NodePath("../JumpSword")
-next_attack_node = NodePath("")
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+limit_left = -96
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_vertical_offset = -1.0
+drag_left_margin = 0.3
+drag_top_margin = 0.7
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="Debugger" type="Label" parent="."]
 unique_name_in_owner = true

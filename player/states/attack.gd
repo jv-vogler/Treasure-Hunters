@@ -1,8 +1,6 @@
 class_name AttackState
 extends BaseState
 
-@export var attack_buffer: float = 0.3
-@export var acceleration: float = 0.09
 @export var state_machine_node: NodePath
 @export var idle_node: NodePath
 @export var run_node: NodePath
@@ -15,6 +13,8 @@ extends BaseState
 @onready var jump_state: BaseState = get_node(jump_node)
 @onready var next_attack: BaseState
 
+var attack_buffer: float = 0.3
+var acceleration: float = 0.09
 var attack_buffer_timer: float = 0
 var can_attack: bool
 var combo: bool
@@ -27,6 +27,10 @@ func enter() -> void:
 	attack_buffer_timer = attack_buffer
 	await get_tree().create_timer(0.3).timeout
 	can_attack = true
+
+
+func exit() -> void:
+	can_attack = false
 
 
 func _ready() -> void:

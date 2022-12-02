@@ -1,3 +1,4 @@
+class_name StateMachine
 extends Node
 
 @export var starting_state: NodePath
@@ -14,7 +15,7 @@ func change_state(new_state: BaseState) -> void:
 	current_state.enter()
 
 
-func init(player: Player) -> void:
+func init(player) -> void:
 	for child in get_children():
 		child.player = player
 	change_state(get_node(starting_state))
