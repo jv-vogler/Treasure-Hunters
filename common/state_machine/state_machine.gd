@@ -15,9 +15,7 @@ func change_state(new_state: BaseState) -> void:
 	current_state.enter()
 
 
-func init(player) -> void:
-	for child in get_children():
-		child.player = player
+func init() -> void:
 	change_state(get_node(starting_state))
 
 

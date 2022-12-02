@@ -1,4 +1,4 @@
-extends MoveState
+extends PlayerMoveState
 
 @export var first_attack_node: NodePath
 @export var state_machine_node: NodePath

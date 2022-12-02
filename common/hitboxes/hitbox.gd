@@ -9,4 +9,3 @@ extends Area2D
 func _ready() -> void:
 	collision_layer = damage_source
 	collision_mask = 0
-	print(collision_layer)

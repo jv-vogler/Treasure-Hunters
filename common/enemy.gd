@@ -1,15 +1,12 @@
-class_name Player
+class_name Enemy
 extends Entity
 
-const SPEED = 120.0
-const JUMP_VELOCITY = -384.0
-
-var direction: float:
-	get:
-		direction = Input.get_axis("move_left", "move_right")
-		if direction > 0: sprite.scale.x = 1
-		if direction < 0: sprite.scale.x = -1
-		return direction
+@export var level: int
+@export var speed: float = 120.0
+@export var jump_velocity: float = -384.0
+@export var staggerable: bool = false
+@export var invincible: bool = false
+@export var loot_table: Array
 
 
 func _ready() -> void:

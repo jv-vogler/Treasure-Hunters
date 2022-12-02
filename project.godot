@@ -9,16 +9,6 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "BaseState",
-"class": &"AttackState",
-"language": &"GDScript",
-"path": "res://player/states/attack.gd"
-}, {
-"base": "CharacterBody2D",
-"class": &"BaseEnemy",
-"language": &"GDScript",
-"path": "res://enemies/base_enemy.gd"
-}, {
 "base": "Node",
 "class": &"BaseState",
 "language": &"GDScript",
@@ -28,6 +18,16 @@ _global_script_classes=[{
 "class": &"Debugger",
 "language": &"GDScript",
 "path": "res://_test/debugger.gd"
+}, {
+"base": "Entity",
+"class": &"Enemy",
+"language": &"GDScript",
+"path": "res://common/enemy.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Entity",
+"language": &"GDScript",
+"path": "res://common/entity.gd"
 }, {
 "base": "Node2D",
 "class": &"Game",
@@ -44,15 +44,15 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://common/hitboxes/hurtbox.gd"
 }, {
-"base": "BaseState",
-"class": &"MoveState",
-"language": &"GDScript",
-"path": "res://player/states/move.gd"
-}, {
-"base": "CharacterBody2D",
+"base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://player/player.gd"
+}, {
+"base": "BaseState",
+"class": &"PlayerMoveState",
+"language": &"GDScript",
+"path": "res://player/states/move.gd"
 }, {
 "base": "Node",
 "class": &"StateMachine",
@@ -60,15 +60,15 @@ _global_script_classes=[{
 "path": "res://common/state_machine/state_machine.gd"
 }]
 _global_script_class_icons={
-"AttackState": "",
-"BaseEnemy": "",
 "BaseState": "",
 "Debugger": "",
+"Enemy": "",
+"Entity": "",
 "Game": "",
 "Hitbox": "",
 "Hurtbox": "",
-"MoveState": "",
 "Player": "",
+"PlayerMoveState": "",
 "StateMachine": ""
 }
 

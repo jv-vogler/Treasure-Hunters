@@ -13,6 +13,7 @@ extends BaseState
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var run_state: BaseState = get_node(run_node)
 @onready var jump_state: BaseState = get_node(jump_node)
+@onready var player: Player = owner
 
 var jump_buffer_timer: float = 0
 var coyote_jump_timer: float = 0

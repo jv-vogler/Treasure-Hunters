@@ -8,6 +8,7 @@ extends BaseState
 @onready var run_state: BaseState = get_node(run_node)
 @onready var fall_state: BaseState = get_node(fall_node)
 @onready var idle_state: BaseState = get_node(idle_node)
+@onready var player: Player = owner
 
 
 func enter() -> void:

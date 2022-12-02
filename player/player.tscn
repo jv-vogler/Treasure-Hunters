@@ -264,22 +264,6 @@ tracks/0/keys = {
 "values": [ExtResource("60_xx4s1"), ExtResource("61_dkrks")]
 }
 
-[sub_resource type="Animation" id="Animation_vjxs4"]
-resource_name = "hit"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("18_v0ps7"), ExtResource("19_katma"), ExtResource("20_w8thn"), ExtResource("21_5t26u")]
-}
-
 [sub_resource type="Animation" id="Animation_5jlnu"]
 resource_name = "hit_sword"
 length = 0.4
@@ -439,6 +423,22 @@ tracks/0/keys = {
 "values": [ExtResource("58_8rq2d"), ExtResource("59_dx4o1"), ExtResource("60_b03iy")]
 }
 
+[sub_resource type="Animation" id="Animation_vjxs4"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("18_v0ps7"), ExtResource("19_katma"), ExtResource("20_w8thn"), ExtResource("21_5t26u")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ow3yw"]
 _data = {
 "AirAttack1": SubResource("Animation_kng34"),
@@ -450,8 +450,8 @@ _data = {
 "FallSword": SubResource("Animation_hcffc"),
 "Ground": SubResource("Animation_cqfhp"),
 "GroundSword": SubResource("Animation_776n0"),
-"Hit": SubResource("Animation_vjxs4"),
 "HitSword": SubResource("Animation_5jlnu"),
+"Hurt": SubResource("Animation_vjxs4"),
 "Idle": SubResource("Animation_d65fx"),
 "IdleSword": SubResource("Animation_rthdi"),
 "Jump": SubResource("Animation_v888r"),
@@ -469,6 +469,7 @@ shadow_color = Color(0, 0, 0, 0.32549)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
+collision_layer = 3
 script = ExtResource("1_jwel6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -528,6 +529,7 @@ fall_node = NodePath("../FallSword")
 script = ExtResource("64_fam08")
 first_attack_node = NodePath("../Attack1")
 state_machine_node = NodePath("..")
+acceleration = null
 idle_node = NodePath("../IdleSword")
 run_node = NodePath(".")
 jump_node = NodePath("../JumpSword")
@@ -580,7 +582,6 @@ drag_vertical_offset = -1.0
 drag_left_margin = 0.3
 drag_top_margin = 0.7
 editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="Debugger" type="Label" parent="."]
 unique_name_in_owner = true

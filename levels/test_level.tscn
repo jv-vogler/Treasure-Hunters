@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="1_r2sey"]
 [ext_resource type="PackedScene" uid="uid://jx8dnl26t4cq" path="res://player/player.tscn" id="2_coce2"]
-[ext_resource type="PackedScene" uid="uid://cvbgtwgysow71" path="res://enemies/fierce_tooth/fierce_tooth.tscn" id="3_6ir7c"]
+[ext_resource type="PackedScene" uid="uid://b4rvum5ob5nf7" path="res://enemies/fierce_tooth/fierce_tooth.tscn" id="3_6ir7c"]
 
 [node name="TestLevel" type="Node2D"]
 metadata/_edit_vertical_guides_ = [-96.0, -163.0]
@@ -14,7 +14,8 @@ layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 393215, 393216, 1, 327690
 
 [node name="Player" parent="." instance=ExtResource("2_coce2")]
 position = Vector2(15, 148)
+acceleration = null
+friction = null
 
-[node name="EnemyEntity" parent="." instance=ExtResource("3_6ir7c")]
-position = Vector2(172, 147)
-z_index = 0
+[node name="FierceTooth" parent="." instance=ExtResource("3_6ir7c")]
+position = Vector2(162, 147)

@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2kehynujh4k7"]
+[gd_scene load_steps=8 format=3 uid="uid://fbo8is8xt1st"]
 
-[ext_resource type="Script" path="res://enemies/base_enemy.gd" id="1_guhfm"]
+[ext_resource type="Script" path="res://common/enemy.gd" id="1_l3cpi"]
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="2_5j730"]
 [ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="2_teq28"]
+[ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="4_b8a66"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
-size = Vector2(24, 26)
+size = Vector2(17, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
 size = Vector2(28, 26)
@@ -15,7 +16,8 @@ height = 24.0
 
 [node name="EnemyEntity" type="CharacterBody2D"]
 z_index = 1
-script = ExtResource("1_guhfm")
+collision_layer = 5
+script = ExtResource("1_l3cpi")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
@@ -43,6 +45,9 @@ debug_color = Color(0, 0.701961, 0.0509804, 0.419608)
 shape = SubResource("CapsuleShape2D_yslpf")
 
 [node name="Animations" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_b8a66")
 
 [node name="LineOfSight" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)

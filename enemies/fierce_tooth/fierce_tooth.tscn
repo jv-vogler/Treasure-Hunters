@@ -1,8 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://cvbgtwgysow71"]
+[gd_scene load_steps=61 format=3 uid="uid://b4rvum5ob5nf7"]
 
-[ext_resource type="PackedScene" uid="uid://d2kehynujh4k7" path="res://enemies/enemy_entity.tscn" id="1_squ15"]
 [ext_resource type="Texture2D" uid="uid://drv8a8yl5gy7a" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 01.png" id="2_10sfm"]
+[ext_resource type="Script" path="res://enemies/fierce_tooth/fierce_tooth.gd" id="2_gka12"]
 [ext_resource type="Texture2D" uid="uid://cxmesyxo1dn8b" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 02.png" id="3_a31s8"]
+[ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="3_hl8um"]
+[ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="4_6piad"]
 [ext_resource type="Texture2D" uid="uid://b3jbtaj24cni6" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 03.png" id="4_qv7xy"]
 [ext_resource type="Texture2D" uid="uid://c0c1rtpxtneoa" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 04.png" id="5_f1ujo"]
 [ext_resource type="Texture2D" uid="uid://svw8kt4g7qbe" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 05.png" id="6_ecbsy"]
@@ -41,6 +43,18 @@
 [ext_resource type="Texture2D" uid="uid://bsacpm4kmr5cl" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 02.png" id="39_8kxtt"]
 [ext_resource type="Texture2D" uid="uid://px4px62nsqxs" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 03.png" id="40_onovf"]
 [ext_resource type="Texture2D" uid="uid://bfintro0boxss" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 04.png" id="41_c4xgr"]
+[ext_resource type="Script" path="res://enemies/fierce_tooth/states/idle.gd" id="42_vg5o2"]
+[ext_resource type="Script" path="res://common/state_machine/base_state.gd" id="42_yqpne"]
+[ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="44_2useo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
+size = Vector2(17, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
+size = Vector2(28, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
+height = 24.0
 
 [sub_resource type="Animation" id="Animation_ald3c"]
 resource_name = "Anticipation"
@@ -247,28 +261,64 @@ _data = {
 "Death": SubResource("Animation_qtuhx"),
 "Fall": SubResource("Animation_vmyfe"),
 "Ground": SubResource("Animation_wf4fm"),
+"Hurt": SubResource("Animation_8q6fx"),
 "Idle": SubResource("Animation_b5ph8"),
 "Jump": SubResource("Animation_qbnc1"),
 "RESET": SubResource("Animation_kbupg"),
-"Run": SubResource("Animation_ewdea"),
-"Stagger": SubResource("Animation_8q6fx")
+"Run": SubResource("Animation_ewdea")
 }
 
-[node name="FierceTooth" instance=ExtResource("1_squ15")]
+[node name="FierceTooth" type="CharacterBody2D"]
+z_index = 1
+script = ExtResource("2_gka12")
 
-[node name="Sprite" parent="." index="0"]
+[node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.85098, 0.321569, 0.305882, 1)
 texture = ExtResource("2_10sfm")
 
-[node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
-position = Vector2(-13, 0)
-disabled = true
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_hl8um")
+damage_source = 4
 
-[node name="Collision" parent="." index="1"]
+[node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
+position = Vector2(-13, 0)
+shape = SubResource("RectangleShape2D_i7jwp")
+disabled = true
+debug_color = Color(0.701961, 0, 0.00392157, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_6piad")
+takes_damage_from = 2
+
+[node name="EnemyHurtbox" type="CollisionShape2D" parent="Sprite/Hurtbox"]
+shape = SubResource("RectangleShape2D_tdtvm")
+debug_color = Color(0, 0.701961, 0.0509804, 0.419608)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(1, 2)
+shape = SubResource("CapsuleShape2D_yslpf")
 
-[node name="Animations" parent="." index="2"]
+[node name="Animations" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vuyso")
 }
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("44_2useo")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("42_vg5o2")
+state_machine_node = NodePath("..")
+fall_node = NodePath("../Fall")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("42_yqpne")
+
+[node name="LineOfSight" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
