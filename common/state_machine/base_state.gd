@@ -1,11 +1,9 @@
 class_name BaseState
 extends Node
 
-var player: Player
-
 
 func enter() -> void:
-	player.animations.play(name)
+	owner.animations.play(name)
 
 func exit() -> void:
 	pass

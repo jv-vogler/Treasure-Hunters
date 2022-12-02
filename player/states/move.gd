@@ -11,6 +11,7 @@ extends BaseState
 @onready var run_state: BaseState = get_node(run_node)
 @onready var jump_state: BaseState = get_node(jump_node)
 @onready var fall_state: BaseState = get_node(fall_node)
+@onready var player: Player = owner
 
 
 func input(_event: InputEvent) -> BaseState:
@@ -24,7 +25,9 @@ func physics_process(_delta: float) -> BaseState:
 		return fall_state
 
 	if player.direction:
-		player.velocity.x = lerp(player.velocity.x, player.direction * player.SPEED, acceleration)
+		player.velocity.x = lerp(
+			player.velocity.x, player.direction * player.SPEED, acceleration
+			)
 	else:
 		return idle_state
 

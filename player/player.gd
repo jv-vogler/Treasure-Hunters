@@ -1,5 +1,5 @@
 class_name Player
-extends CharacterBody2D
+extends Entity
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -384.0
@@ -15,15 +15,11 @@ var direction: float:
 		if direction < 0: sprite.scale.x = -1
 		return direction
 
-@onready var state_machine = $StateMachine
-@onready var animations = $Animations
-@onready var sprite = $Sprite
-
 var damage: int = 15
 
 
 func _ready() -> void:
-	state_machine.init(self)
+	state_machine.init()
 
 
 func _unhandled_input(event: InputEvent) -> void:

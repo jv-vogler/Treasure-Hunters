@@ -12,6 +12,7 @@ extends BaseState
 @onready var jump_state: BaseState = get_node(jump_node)
 @onready var fall_state: BaseState = get_node(fall_node)
 @onready var attack_state: BaseState = get_node(first_attack_node)
+@onready var player: Player = owner
 
 
 func enter() -> void:

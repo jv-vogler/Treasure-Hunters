@@ -12,6 +12,7 @@ extends BaseState
 @onready var run_state: BaseState = get_node(run_node)
 @onready var jump_state: BaseState = get_node(jump_node)
 @onready var next_attack: BaseState
+@onready var player: Player = owner
 
 var attack_buffer: float = 0.3
 var acceleration: float = 0.09
