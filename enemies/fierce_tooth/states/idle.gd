@@ -13,8 +13,4 @@ func enter() -> void:
 	if state_machine.previous_state == fall_state:
 		enemy.animations.play("Ground")
 		await enemy.animations.animation_finished
-	super.enter()
-
-
-#func physics_process(delta: float) -> BaseState:
-#	return null
+	enemy.animations.play("Idle")

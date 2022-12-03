@@ -4,20 +4,26 @@ extends BaseState
 @export var fall_node: NodePath
 @export var run_node: NodePath
 @export var idle_node: NodePath
+@export var hurt_node: NodePath
 @export var animation: String = ""
 
 @onready var run_state: BaseState = get_node(run_node)
 @onready var fall_state: BaseState = get_node(fall_node)
 @onready var idle_state: BaseState = get_node(idle_node)
+@onready var hurt_state: BaseState = get_node(hurt_node)
 @onready var player: Player = owner
 
 
 func enter() -> void:
+	super.enter()
 	player.animations.play(animation)
 	player.velocity.y = player.JUMP_VELOCITY
 
 
 func physics_process(delta: float) -> BaseState:
+	if is_hurt:
+		return hurt_state
+
 	player.velocity.x = lerp(player.velocity.x, player.direction * player.SPEED, acceleration)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
@@ -30,3 +36,7 @@ func physics_process(delta: float) -> BaseState:
 			return run_state
 		return idle_state
 	return null
+
+
+func _on_player_took_damage() -> void:
+	is_hurt = true

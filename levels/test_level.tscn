@@ -14,8 +14,6 @@ layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 393215, 393216, 1, 327690
 
 [node name="Player" parent="." instance=ExtResource("2_coce2")]
 position = Vector2(15, 148)
-current_health = null
 
 [node name="FierceTooth" parent="." instance=ExtResource("3_6ir7c")]
 position = Vector2(162, 147)
-current_health = null

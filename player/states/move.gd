@@ -23,8 +23,7 @@ func input(_event: InputEvent) -> BaseState:
 func physics_process(_delta: float) -> BaseState:
 	if !player.is_on_floor():
 		return fall_state
-
-	if player.direction:
+	elif player.direction:
 		player.velocity.x = lerp(
 			player.velocity.x, player.direction * player.SPEED, acceleration
 			)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=105 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -66,10 +66,20 @@
 [ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="62_tikvf"]
 [ext_resource type="Script" path="res://player/states/idle.gd" id="63_co0gm"]
 [ext_resource type="Script" path="res://player/states/run.gd" id="64_fam08"]
+[ext_resource type="Texture2D" uid="uid://b7oyhdl2unls0" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 01.png" id="64_u07t1"]
 [ext_resource type="Script" path="res://player/states/jump.gd" id="65_6c3mu"]
+[ext_resource type="Texture2D" uid="uid://dwtn6peoc0677" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 02.png" id="65_ixfp3"]
+[ext_resource type="Texture2D" uid="uid://klhci5hkdx03" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 03.png" id="66_5bm8w"]
 [ext_resource type="Script" path="res://player/states/fall.gd" id="66_e6j04"]
 [ext_resource type="Script" path="res://player/states/move.gd" id="67_ss008"]
+[ext_resource type="Texture2D" uid="uid://lef3n5bci08e" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/07-Dead Hit/Dead Hit 04.png" id="67_xtvej"]
+[ext_resource type="Texture2D" uid="uid://bx7ledjn13cxv" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 01.png" id="68_6iw5h"]
 [ext_resource type="Script" path="res://player/states/attack.gd" id="69_n7ofm"]
+[ext_resource type="Texture2D" uid="uid://baie1mwg6a74s" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 02.png" id="69_ppv8q"]
+[ext_resource type="Texture2D" uid="uid://dw2equ8m83u8r" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 03.png" id="70_x2j46"]
+[ext_resource type="Texture2D" uid="uid://l266gl2ddklc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="71_2pick"]
+[ext_resource type="Script" path="res://player/states/hurt.gd" id="71_lhjdy"]
+[ext_resource type="Script" path="res://player/states/dead.gd" id="72_ew5qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby3t"]
 size = Vector2(18.5, 24)
@@ -498,6 +508,46 @@ tracks/0/keys = {
 "values": [ExtResource("58_8rq2d"), ExtResource("59_dx4o1"), ExtResource("60_b03iy")]
 }
 
+[sub_resource type="Animation" id="Animation_026lg"]
+resource_name = "Dead"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("64_u07t1"), ExtResource("65_ixfp3"), ExtResource("66_5bm8w"), ExtResource("67_xtvej"), ExtResource("68_6iw5h"), ExtResource("69_ppv8q"), ExtResource("70_x2j46"), ExtResource("71_2pick")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Hurtbox/PlayerHurtBox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ow3yw"]
 _data = {
 "AirAttack1": SubResource("Animation_kng34"),
@@ -505,6 +555,7 @@ _data = {
 "Attack1": SubResource("Animation_eixar"),
 "Attack2": SubResource("Animation_rm8ff"),
 "Attack3": SubResource("Animation_up6ct"),
+"Dead": SubResource("Animation_026lg"),
 "NoSword_Fall": SubResource("Animation_4l4a3"),
 "NoSword_Ground": SubResource("Animation_cqfhp"),
 "NoSword_Hurt": SubResource("Animation_vjxs4"),
@@ -525,7 +576,6 @@ _data = {
 z_index = 2
 collision_layer = 3
 script = ExtResource("1_jwel6")
-current_health = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_rwikk")
@@ -547,7 +597,7 @@ debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 script = ExtResource("4_0nv2g")
 takes_damage_from = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hurtbox"]
+[node name="PlayerHurtBox" type="CollisionShape2D" parent="Sprite/Hurtbox"]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_7arpp")
 debug_color = Color(0, 0.701961, 0.0392157, 0.419608)
@@ -571,6 +621,7 @@ state_machine_node = NodePath("..")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
 fall_node = NodePath("../Fall")
+hurt_node = NodePath("../Hurt")
 first_attack_node = NodePath("../Attack1")
 animation = "Sword_Idle"
 
@@ -585,6 +636,7 @@ fall_node = NodePath("../Fall")
 script = ExtResource("64_fam08")
 first_attack_node = NodePath("../Attack1")
 state_machine_node = NodePath("..")
+hurt_node = NodePath("../Hurt")
 animation = "Sword_Run"
 idle_node = NodePath("../Idle")
 run_node = NodePath(".")
@@ -596,6 +648,7 @@ script = ExtResource("65_6c3mu")
 fall_node = NodePath("../Fall")
 run_node = NodePath("../Run")
 idle_node = NodePath("../Idle")
+hurt_node = NodePath("../Hurt")
 animation = "Sword_Jump"
 
 [node name="Fall" type="Node" parent="StateMachine"]
@@ -604,6 +657,7 @@ state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
+hurt_node = NodePath("../Hurt")
 animation = "Sword_Fall"
 
 [node name="Attack1" type="Node" parent="StateMachine"]
@@ -612,6 +666,7 @@ state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
+hurt_node = NodePath("../Hurt")
 next_attack_node = NodePath("../Attack2")
 animation = "Attack1"
 
@@ -621,6 +676,7 @@ state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
+hurt_node = NodePath("../Hurt")
 next_attack_node = NodePath("../Attack3")
 animation = "Attack2"
 
@@ -630,7 +686,18 @@ state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
+hurt_node = NodePath("../Hurt")
 animation = "Attack3"
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("71_lhjdy")
+idle_node = NodePath("../Idle")
+dead_node = NodePath("../Dead")
+animation = "Sword_Hurt"
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("72_ew5qq")
+animation = "Dead"
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
@@ -643,3 +710,9 @@ drag_vertical_offset = -1.0
 drag_left_margin = 0.3
 drag_top_margin = 0.7
 editor_draw_limits = true
+
+[connection signal="took_damage" from="." to="StateMachine/Idle" method="_on_player_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Run" method="_on_player_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Jump" method="_on_player_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_player_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Attack1" method="_on_player_took_damage"]

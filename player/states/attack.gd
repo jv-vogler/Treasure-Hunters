@@ -4,6 +4,7 @@ extends BaseState
 @export var idle_node: NodePath
 @export var run_node: NodePath
 @export var jump_node: NodePath
+@export var hurt_node: NodePath
 @export var next_attack_node: NodePath
 @export var animation: String = ""
 
@@ -17,11 +18,13 @@ var combo: bool
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var run_state: BaseState = get_node(run_node)
 @onready var jump_state: BaseState = get_node(jump_node)
+@onready var hurt_state: BaseState = get_node(hurt_node)
 @onready var next_attack: BaseState
 @onready var player: Player = owner
 
 
 func enter() -> void:
+	super.enter()
 	can_attack = false
 	combo = false
 	player.animations.play(animation)
@@ -54,6 +57,9 @@ func process(delta: float) -> BaseState:
 
 
 func physics_process(delta: float) -> BaseState:
+	if is_hurt:
+		return hurt_state
+
 	if can_attack:
 		if combo: return next_attack
 		return run_state if player.direction else idle_state
@@ -65,3 +71,7 @@ func physics_process(delta: float) -> BaseState:
 	player.move_and_slide()
 
 	return null
+
+
+func _on_player_took_damage() -> void:
+	is_hurt = true

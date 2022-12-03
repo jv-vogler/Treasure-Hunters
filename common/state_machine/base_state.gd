@@ -1,13 +1,14 @@
 class_name BaseState
 extends Node
 
+var is_hurt: bool = false
+
 
 func enter() -> void:
-#	owner.animations.play(animation)
-	pass
+	is_hurt = false
 
 func exit() -> void:
-	pass
+	is_hurt = false
 
 func input(_event: InputEvent) -> BaseState:
 	return null
