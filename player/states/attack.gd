@@ -5,6 +5,13 @@ extends BaseState
 @export var run_node: NodePath
 @export var jump_node: NodePath
 @export var next_attack_node: NodePath
+@export var animation: String = ""
+
+var attack_buffer: float = 0.3
+var acceleration: float = 0.09
+var attack_buffer_timer: float = 0
+var can_attack: bool
+var combo: bool
 
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var idle_state: BaseState = get_node(idle_node)
@@ -13,17 +20,11 @@ extends BaseState
 @onready var next_attack: BaseState
 @onready var player: Player = owner
 
-var attack_buffer: float = 0.3
-var acceleration: float = 0.09
-var attack_buffer_timer: float = 0
-var can_attack: bool
-var combo: bool
-
 
 func enter() -> void:
 	can_attack = false
 	combo = false
-	super.enter()
+	player.animations.play(animation)
 	attack_buffer_timer = attack_buffer
 	await get_tree().create_timer(0.3).timeout
 	can_attack = true

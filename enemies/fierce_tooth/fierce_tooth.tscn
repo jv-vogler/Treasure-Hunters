@@ -161,6 +161,22 @@ tracks/0/keys = {
 "values": [ExtResource("20_fej5k"), ExtResource("21_7eq7x")]
 }
 
+[sub_resource type="Animation" id="Animation_8q6fx"]
+resource_name = "Stagger"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("30_bkkou"), ExtResource("31_jho7a"), ExtResource("32_aniqf"), ExtResource("33_50veo")]
+}
+
 [sub_resource type="Animation" id="Animation_b5ph8"]
 resource_name = "idle"
 length = 0.8
@@ -238,22 +254,6 @@ tracks/0/keys = {
 "values": [ExtResource("10_e8bf2"), ExtResource("11_p6rlw"), ExtResource("12_gmyu1"), ExtResource("13_45c3v"), ExtResource("14_l06yj"), ExtResource("15_ty1mi")]
 }
 
-[sub_resource type="Animation" id="Animation_8q6fx"]
-resource_name = "Stagger"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("30_bkkou"), ExtResource("31_jho7a"), ExtResource("32_aniqf"), ExtResource("33_50veo")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vuyso"]
 _data = {
 "Anticipation": SubResource("Animation_ald3c"),
@@ -271,6 +271,7 @@ _data = {
 [node name="FierceTooth" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("2_gka12")
+current_health = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.85098, 0.321569, 0.305882, 1)

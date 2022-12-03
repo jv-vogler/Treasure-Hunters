@@ -8,6 +8,11 @@ extends BaseState
 @export var idle_node: NodePath
 @export var run_node: NodePath
 @export var jump_node: NodePath
+@export var animation: String = ""
+
+var jump_buffer_timer: float = 0
+var coyote_jump_timer: float = 0
+var can_jump: bool = true
 
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var idle_state: BaseState = get_node(idle_node)
@@ -15,13 +20,9 @@ extends BaseState
 @onready var jump_state: BaseState = get_node(jump_node)
 @onready var player: Player = owner
 
-var jump_buffer_timer: float = 0
-var coyote_jump_timer: float = 0
-var can_jump: bool = true
-
 
 func enter() -> void:
-	super.enter()
+	player.animations.play(animation)
 	jump_buffer_timer = 0
 	coyote_jump_timer = coyote_jump
 

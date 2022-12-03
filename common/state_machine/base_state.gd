@@ -3,7 +3,8 @@ extends Node
 
 
 func enter() -> void:
-	owner.animations.play(name)
+#	owner.animations.play(animation)
+	pass
 
 func exit() -> void:
 	pass

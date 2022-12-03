@@ -1,12 +1,13 @@
 class_name Enemy
 extends Entity
 
-@export var level: int
+@export var level: int = 1
 @export var speed: float = 120.0
-@export var jump_velocity: float = -384.0
 @export var staggerable: bool = false
 @export var invincible: bool = false
 @export var loot_table: Array
+
+var jump_velocity: float = -384.0
 
 
 func _ready() -> void:

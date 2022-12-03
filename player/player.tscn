@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=94 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bmoxpfh043wbk" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="3_6sjgg"]
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="3_lv1im"]
 [ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="4_0nv2g"]
-[ext_resource type="Script" path="res://_test/debugger.gd" id="4_3enjl"]
 [ext_resource type="Texture2D" uid="uid://c7jo8u87olghm" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_fpy78"]
 [ext_resource type="Texture2D" uid="uid://dww32fh7gtttc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_0da0l"]
 [ext_resource type="Texture2D" uid="uid://dghp3x5oklanf" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="7_sj2bj"]
@@ -195,7 +194,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true, false]
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_4l4a3"]
@@ -215,23 +214,6 @@ tracks/0/keys = {
 "values": [ExtResource("15_q3npy")]
 }
 
-[sub_resource type="Animation" id="Animation_hcffc"]
-resource_name = "fall_sword"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("36_jhpi8")]
-}
-
 [sub_resource type="Animation" id="Animation_cqfhp"]
 resource_name = "Ground"
 length = 0.2
@@ -248,24 +230,8 @@ tracks/0/keys = {
 "values": [ExtResource("58_oh2oj"), ExtResource("59_ibu3o"), ExtResource("58_oh2oj")]
 }
 
-[sub_resource type="Animation" id="Animation_776n0"]
-resource_name = "GroundSword"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("60_xx4s1"), ExtResource("61_dkrks")]
-}
-
-[sub_resource type="Animation" id="Animation_5jlnu"]
-resource_name = "hit_sword"
+[sub_resource type="Animation" id="Animation_vjxs4"]
+resource_name = "hit"
 length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -277,7 +243,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("39_goiw3"), ExtResource("40_iaqm5"), ExtResource("41_akgy3"), ExtResource("42_7ivnr")]
+"values": [ExtResource("18_v0ps7"), ExtResource("19_katma"), ExtResource("20_w8thn"), ExtResource("21_5t26u")]
 }
 
 [sub_resource type="Animation" id="Animation_d65fx"]
@@ -297,23 +263,6 @@ tracks/0/keys = {
 "values": [ExtResource("1_rwikk"), ExtResource("2_02l5o"), ExtResource("3_6sjgg"), ExtResource("4_fpy78"), ExtResource("5_0da0l")]
 }
 
-[sub_resource type="Animation" id="Animation_rthdi"]
-resource_name = "idle_sword"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("22_jcuiu"), ExtResource("23_1onbo"), ExtResource("24_eb3gf"), ExtResource("25_6vp2l"), ExtResource("26_7jvki")]
-}
-
 [sub_resource type="Animation" id="Animation_v888r"]
 resource_name = "jump"
 length = 0.3
@@ -330,9 +279,10 @@ tracks/0/keys = {
 "values": [ExtResource("12_baqux"), ExtResource("13_yree7"), ExtResource("14_t7jbq")]
 }
 
-[sub_resource type="Animation" id="Animation_lxtrb"]
-resource_name = "jump_sword"
-length = 0.3
+[sub_resource type="Animation" id="Animation_g6fc7"]
+resource_name = "run"
+length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -340,10 +290,10 @@ tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("33_l56b7"), ExtResource("34_qy5c7"), ExtResource("35_cr282")]
+"values": [ExtResource("7_sj2bj"), ExtResource("8_d65vy"), ExtResource("9_ki8xj"), ExtResource("10_bp03t"), ExtResource("11_eoqld"), ExtResource("12_nahvf")]
 }
 
 [sub_resource type="Animation" id="Animation_pm3pa"]
@@ -373,9 +323,9 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_g6fc7"]
-resource_name = "run"
-length = 0.6
+[sub_resource type="Animation" id="Animation_hcffc"]
+resource_name = "fall_sword"
+length = 0.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -384,10 +334,123 @@ tracks/0/path = NodePath("Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_sj2bj"), ExtResource("8_d65vy"), ExtResource("9_ki8xj"), ExtResource("10_bp03t"), ExtResource("11_eoqld"), ExtResource("12_nahvf")]
+"values": [ExtResource("36_jhpi8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_776n0"]
+resource_name = "GroundSword"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("60_xx4s1"), ExtResource("61_dkrks")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_5jlnu"]
+resource_name = "hit_sword"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("39_goiw3"), ExtResource("40_iaqm5"), ExtResource("41_akgy3"), ExtResource("42_7ivnr")]
+}
+
+[sub_resource type="Animation" id="Animation_rthdi"]
+resource_name = "idle_sword"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("22_jcuiu"), ExtResource("23_1onbo"), ExtResource("24_eb3gf"), ExtResource("25_6vp2l"), ExtResource("26_7jvki")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_lxtrb"]
+resource_name = "jump_sword"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("33_l56b7"), ExtResource("34_qy5c7"), ExtResource("35_cr282")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_vqcq3"]
@@ -406,6 +469,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("27_w5ljx"), ExtResource("28_0kvri"), ExtResource("29_f1h3h"), ExtResource("30_kem4e"), ExtResource("31_wcgp7"), ExtResource("32_gbb2l")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_qepdc"]
 resource_name = "throw_sword"
@@ -423,22 +498,6 @@ tracks/0/keys = {
 "values": [ExtResource("58_8rq2d"), ExtResource("59_dx4o1"), ExtResource("60_b03iy")]
 }
 
-[sub_resource type="Animation" id="Animation_vjxs4"]
-resource_name = "hit"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("18_v0ps7"), ExtResource("19_katma"), ExtResource("20_w8thn"), ExtResource("21_5t26u")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ow3yw"]
 _data = {
 "AirAttack1": SubResource("Animation_kng34"),
@@ -446,31 +505,27 @@ _data = {
 "Attack1": SubResource("Animation_eixar"),
 "Attack2": SubResource("Animation_rm8ff"),
 "Attack3": SubResource("Animation_up6ct"),
-"Fall": SubResource("Animation_4l4a3"),
-"FallSword": SubResource("Animation_hcffc"),
-"Ground": SubResource("Animation_cqfhp"),
-"GroundSword": SubResource("Animation_776n0"),
-"HitSword": SubResource("Animation_5jlnu"),
-"Hurt": SubResource("Animation_vjxs4"),
-"Idle": SubResource("Animation_d65fx"),
-"IdleSword": SubResource("Animation_rthdi"),
-"Jump": SubResource("Animation_v888r"),
-"JumpSword": SubResource("Animation_lxtrb"),
+"NoSword_Fall": SubResource("Animation_4l4a3"),
+"NoSword_Ground": SubResource("Animation_cqfhp"),
+"NoSword_Hurt": SubResource("Animation_vjxs4"),
+"NoSword_Idle": SubResource("Animation_d65fx"),
+"NoSword_Jump": SubResource("Animation_v888r"),
+"NoSword_Run": SubResource("Animation_g6fc7"),
 "RESET": SubResource("Animation_pm3pa"),
-"Run": SubResource("Animation_g6fc7"),
-"RunSword": SubResource("Animation_vqcq3"),
-"ThrowSword": SubResource("Animation_qepdc")
+"Sword_Fall": SubResource("Animation_hcffc"),
+"Sword_Ground": SubResource("Animation_776n0"),
+"Sword_Hurt": SubResource("Animation_5jlnu"),
+"Sword_Idle": SubResource("Animation_rthdi"),
+"Sword_Jump": SubResource("Animation_lxtrb"),
+"Sword_Run": SubResource("Animation_vqcq3"),
+"Sword_Throw": SubResource("Animation_qepdc")
 }
-
-[sub_resource type="LabelSettings" id="LabelSettings_1107r"]
-font_size = 12
-outline_color = Color(0, 0, 0, 1)
-shadow_color = Color(0, 0, 0, 0.32549)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 3
 script = ExtResource("1_jwel6")
+current_health = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_rwikk")
@@ -508,68 +563,74 @@ libraries = {
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("62_tikvf")
-starting_state = NodePath("IdleSword")
+starting_state = NodePath("Idle")
 
-[node name="IdleSword" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("63_co0gm")
 state_machine_node = NodePath("..")
-run_node = NodePath("../RunSword")
-jump_node = NodePath("../JumpSword")
-fall_node = NodePath("../FallSword")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
 first_attack_node = NodePath("../Attack1")
+animation = "Sword_Idle"
 
-[node name="MoveSword" type="Node" parent="StateMachine"]
+[node name="Move" type="Node" parent="StateMachine"]
 script = ExtResource("67_ss008")
-idle_node = NodePath("../IdleSword")
-run_node = NodePath("../RunSword")
-jump_node = NodePath("../JumpSword")
-fall_node = NodePath("../FallSword")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
 
-[node name="RunSword" type="Node" parent="StateMachine"]
+[node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource("64_fam08")
 first_attack_node = NodePath("../Attack1")
 state_machine_node = NodePath("..")
-acceleration = null
-idle_node = NodePath("../IdleSword")
+animation = "Sword_Run"
+idle_node = NodePath("../Idle")
 run_node = NodePath(".")
-jump_node = NodePath("../JumpSword")
-fall_node = NodePath("../FallSword")
+jump_node = NodePath("../Jump")
+fall_node = NodePath("../Fall")
 
-[node name="JumpSword" type="Node" parent="StateMachine"]
+[node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("65_6c3mu")
-fall_node = NodePath("../FallSword")
-run_node = NodePath("../RunSword")
-idle_node = NodePath("../IdleSword")
+fall_node = NodePath("../Fall")
+run_node = NodePath("../Run")
+idle_node = NodePath("../Idle")
+animation = "Sword_Jump"
 
-[node name="FallSword" type="Node" parent="StateMachine"]
+[node name="Fall" type="Node" parent="StateMachine"]
 script = ExtResource("66_e6j04")
 state_machine_node = NodePath("..")
-idle_node = NodePath("../IdleSword")
-run_node = NodePath("../RunSword")
-jump_node = NodePath("../JumpSword")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
+animation = "Sword_Fall"
 
 [node name="Attack1" type="Node" parent="StateMachine"]
 script = ExtResource("69_n7ofm")
 state_machine_node = NodePath("..")
-idle_node = NodePath("../IdleSword")
-run_node = NodePath("../RunSword")
-jump_node = NodePath("../JumpSword")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
 next_attack_node = NodePath("../Attack2")
+animation = "Attack1"
 
 [node name="Attack2" type="Node" parent="StateMachine"]
 script = ExtResource("69_n7ofm")
 state_machine_node = NodePath("..")
-idle_node = NodePath("../IdleSword")
-run_node = NodePath("../RunSword")
-jump_node = NodePath("../JumpSword")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
 next_attack_node = NodePath("../Attack3")
+animation = "Attack2"
 
 [node name="Attack3" type="Node" parent="StateMachine"]
 script = ExtResource("69_n7ofm")
 state_machine_node = NodePath("..")
-idle_node = NodePath("../IdleSword")
-run_node = NodePath("../RunSword")
-jump_node = NodePath("../JumpSword")
+idle_node = NodePath("../Idle")
+run_node = NodePath("../Run")
+jump_node = NodePath("../Jump")
+animation = "Attack3"
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
@@ -582,12 +643,3 @@ drag_vertical_offset = -1.0
 drag_left_margin = 0.3
 drag_top_margin = 0.7
 editor_draw_limits = true
-
-[node name="Debugger" type="Label" parent="."]
-unique_name_in_owner = true
-offset_left = -17.0
-offset_top = -41.0
-offset_right = 23.0
-offset_bottom = -18.0
-label_settings = SubResource("LabelSettings_1107r")
-script = ExtResource("4_3enjl")

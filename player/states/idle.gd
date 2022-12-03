@@ -6,6 +6,7 @@ extends BaseState
 @export var jump_node: NodePath
 @export var fall_node: NodePath
 @export var first_attack_node: NodePath
+@export var animation: String = ""
 
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var run_state: BaseState = get_node(run_node)
@@ -17,10 +18,10 @@ extends BaseState
 
 func enter() -> void:
 	if state_machine.previous_state == fall_state:
-		var ground_animation = "GroundSword" if "Sword" in name else "Ground"
+		var ground_animation = "Sword_Ground" if "Sword" in name else "NoSword_Ground"
 		player.animations.play(ground_animation)
 		await player.animations.animation_finished
-	super.enter()
+	player.animations.play(animation)
 
 
 func input(_event: InputEvent) -> BaseState:
