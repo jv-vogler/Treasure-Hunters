@@ -3,22 +3,21 @@ extends CharacterBody2D
 
 signal took_damage
 
-@export var strength: int = 20
-@export var max_health: int = 10
+@export var strength: int = 1
+@export var max_health: int = 100
 
-var current_health: int:
-	set(value):
-		current_health = clamp(value, 0, max_health)
 var acceleration: float = 0.2
 var friction: float = 0.1
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
+var current_health: int:
+	set(value):	current_health = clamp(value, 0, max_health)
 
 @onready var sprite = $Sprite
 @onready var animations = $Animations
 @onready var state_machine = $StateMachine
 
 
-func _ready() -> void:
+func _init() -> void:
 	current_health = max_health
 
 

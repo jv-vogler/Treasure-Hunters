@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://fbo8is8xt1st"]
+[gd_scene load_steps=9 format=3 uid="uid://fbo8is8xt1st"]
 
 [ext_resource type="Script" path="res://common/enemy.gd" id="1_l3cpi"]
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="2_5j730"]
 [ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="2_teq28"]
 [ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="4_b8a66"]
+[ext_resource type="Script" path="res://common/state_machine/base_state.gd" id="5_p8ifk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
 size = Vector2(17, 26)
@@ -49,6 +50,10 @@ shape = SubResource("CapsuleShape2D_yslpf")
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_b8a66")
+starting_state = NodePath("BaseState")
+
+[node name="BaseState" type="Node" parent="StateMachine"]
+script = ExtResource("5_p8ifk")
 
 [node name="LineOfSight" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)

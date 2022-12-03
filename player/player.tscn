@@ -12,17 +12,22 @@
 [ext_resource type="Texture2D" uid="uid://coqvu3vtd70nb" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="8_d65vy"]
 [ext_resource type="Texture2D" uid="uid://7rjv46ho2vbg" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="9_ki8xj"]
 [ext_resource type="Texture2D" uid="uid://cok8r7814rm5k" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="10_bp03t"]
-[ext_resource type="Texture2D" uid="uid://frxug7372r55" path="res://animations/attack/attack2-1.tres" id="10_cx2jl"]
-[ext_resource type="Texture2D" uid="uid://be48d2qildqy7" path="res://animations/attack/attack2-2.tres" id="11_6akxy"]
+[ext_resource type="Texture2D" uid="uid://cisxk2kd584fq" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 01.png" id="11_4iiqe"]
 [ext_resource type="Texture2D" uid="uid://cy5kotx65suyk" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="11_eoqld"]
-[ext_resource type="Texture2D" uid="uid://c5dnsvjr5gqtm" path="res://animations/attack/attack2-3.tres" id="12_1oc1q"]
+[ext_resource type="Texture2D" uid="uid://bydfiqtk3kn2k" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 02.png" id="12_2br3y"]
 [ext_resource type="Texture2D" uid="uid://p5newxxri1d6" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 01.png" id="12_baqux"]
 [ext_resource type="Texture2D" uid="uid://bi3ro246sd8p4" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="12_nahvf"]
+[ext_resource type="Texture2D" uid="uid://e0bkekasakki" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 03.png" id="13_agsk5"]
 [ext_resource type="Texture2D" uid="uid://ru35sg6wadul" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 02.png" id="13_yree7"]
+[ext_resource type="Texture2D" uid="uid://bd567p443k0j1" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 01.png" id="14_2se7w"]
 [ext_resource type="Texture2D" uid="uid://bt6voii1jwcj5" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="14_t7jbq"]
 [ext_resource type="Texture2D" uid="uid://rvksa4385hpq" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="15_q3npy"]
+[ext_resource type="Texture2D" uid="uid://bfk5ipaw2tdk0" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 02.png" id="15_yyjbq"]
+[ext_resource type="Texture2D" uid="uid://dryq3xf20wiuv" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/Attack 2 03.png" id="16_7qo6n"]
+[ext_resource type="Texture2D" uid="uid://dbu63lkfjrqsd" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 01.png" id="17_ctqqx"]
 [ext_resource type="Texture2D" uid="uid://ca5ii42i5fmxb" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 01.png" id="18_v0ps7"]
 [ext_resource type="Texture2D" uid="uid://cm4t37yt3fabo" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 02.png" id="19_katma"]
+[ext_resource type="Texture2D" uid="uid://d0s3wxseipoit" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/15-Attack 1/Attack 1 03.png" id="19_ox7aj"]
 [ext_resource type="Texture2D" uid="uid://bwib7q1yluobs" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 03.png" id="20_w8thn"]
 [ext_resource type="Texture2D" uid="uid://caivfaomd2xv" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/06-Hit/Hit 04.png" id="21_5t26u"]
 [ext_resource type="Texture2D" uid="uid://e5nypegmf75" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="22_jcuiu"]
@@ -50,19 +55,13 @@
 [ext_resource type="Texture2D" uid="uid://cxp17su5wuoq5" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 01.png" id="55_al8r4"]
 [ext_resource type="Texture2D" uid="uid://cv5n5qqq4fdpg" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 02.png" id="56_yrxav"]
 [ext_resource type="Texture2D" uid="uid://bi7vbu7g4jr53" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/19-Air Attack 2/Air Attack 2 03.png" id="57_kkd6v"]
-[ext_resource type="Texture2D" uid="uid://4isk64jhidjx" path="res://animations/attack/attack1-1.tres" id="57_rmr2e"]
 [ext_resource type="Texture2D" uid="uid://cuhv03wh3rkaf" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/20-Throw Sword/Throw Sword 01.png" id="58_8rq2d"]
 [ext_resource type="Texture2D" uid="uid://jm8bwey7x2hx" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 01.png" id="58_oh2oj"]
-[ext_resource type="Texture2D" uid="uid://dcthy28m3lmxu" path="res://animations/attack/attack1-2.tres" id="58_w618f"]
-[ext_resource type="Texture2D" uid="uid://bb0ytgew7nsyv" path="res://animations/attack/attack1-3.tres" id="59_0cskj"]
 [ext_resource type="Texture2D" uid="uid://buasmjdj07ta4" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/20-Throw Sword/Throw Sword 02.png" id="59_dx4o1"]
 [ext_resource type="Texture2D" uid="uid://d05s4pxch4swp" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/05-Ground/Ground 02.png" id="59_ibu3o"]
-[ext_resource type="Texture2D" uid="uid://c01oou7s5ce5k" path="res://animations/attack/attack3-1.tres" id="60_1gyiu"]
 [ext_resource type="Texture2D" uid="uid://cp752j6mbhlbv" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/20-Throw Sword/Throw Sword 03.png" id="60_b03iy"]
 [ext_resource type="Texture2D" uid="uid://b6yoiv7i4qtwa" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/13-Ground Sword/Ground Sword 01.png" id="60_xx4s1"]
 [ext_resource type="Texture2D" uid="uid://2l5ah5yfref3" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/13-Ground Sword/Ground Sword 02.png" id="61_dkrks"]
-[ext_resource type="Texture2D" uid="uid://duuwbjg0fbsfr" path="res://animations/attack/attack3-2.tres" id="61_wo2qd"]
-[ext_resource type="Texture2D" uid="uid://cbvype4dgujy3" path="res://animations/attack/attack3-3.tres" id="62_mtgeq"]
 [ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="62_tikvf"]
 [ext_resource type="Script" path="res://player/states/idle.gd" id="63_co0gm"]
 [ext_resource type="Script" path="res://player/states/run.gd" id="64_fam08"]
@@ -135,7 +134,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("57_rmr2e"), ExtResource("58_w618f"), ExtResource("59_0cskj")]
+"values": [ExtResource("11_4iiqe"), ExtResource("12_2br3y"), ExtResource("13_agsk5")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -163,7 +162,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("10_cx2jl"), ExtResource("11_6akxy"), ExtResource("12_1oc1q")]
+"values": [ExtResource("14_2se7w"), ExtResource("15_yyjbq"), ExtResource("16_7qo6n")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -177,6 +176,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_av8l1"]
+load_path = "res://.godot/imported/Attack 1 02.png-c80aca28156f2f051047ef3af8346989.ctex"
 
 [sub_resource type="Animation" id="Animation_up6ct"]
 resource_name = "attack_1"
@@ -192,7 +194,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("60_1gyiu"), ExtResource("61_wo2qd"), ExtResource("62_mtgeq")]
+"values": [ExtResource("17_ctqqx"), SubResource("CompressedTexture2D_av8l1"), ExtResource("19_ox7aj")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -594,6 +596,7 @@ disabled = true
 debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
+visible = false
 script = ExtResource("4_0nv2g")
 takes_damage_from = 4
 
@@ -603,6 +606,7 @@ shape = SubResource("RectangleShape2D_7arpp")
 debug_color = Color(0, 0.701961, 0.0392157, 0.419608)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_ss804")
 
@@ -716,3 +720,4 @@ editor_draw_limits = true
 [connection signal="took_damage" from="." to="StateMachine/Jump" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack1" method="_on_player_took_damage"]
+[connection signal="hit_direction" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit_direction"]

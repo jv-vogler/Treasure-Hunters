@@ -43,7 +43,6 @@
 [ext_resource type="Texture2D" uid="uid://bsacpm4kmr5cl" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 02.png" id="39_8kxtt"]
 [ext_resource type="Texture2D" uid="uid://px4px62nsqxs" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 03.png" id="40_onovf"]
 [ext_resource type="Texture2D" uid="uid://bfintro0boxss" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 04.png" id="41_c4xgr"]
-[ext_resource type="Script" path="res://enemies/fierce_tooth/states/idle.gd" id="42_vg5o2"]
 [ext_resource type="Script" path="res://common/state_machine/base_state.gd" id="42_yqpne"]
 [ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="44_2useo"]
 
@@ -203,7 +202,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_qbnc1"]
@@ -280,6 +279,9 @@ _data = {
 "Run": SubResource("Animation_ewdea")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdrw5"]
+size = Vector2(18, 46.625)
+
 [node name="FierceTooth" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("2_gka12")
@@ -321,15 +323,19 @@ libraries = {
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("44_2useo")
-starting_state = NodePath("Idle")
+starting_state = NodePath("BaseState")
 
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("42_vg5o2")
-state_machine_node = NodePath("..")
-fall_node = NodePath("../Fall")
-
-[node name="Fall" type="Node" parent="StateMachine"]
+[node name="BaseState" type="Node" parent="StateMachine"]
 script = ExtResource("42_yqpne")
 
 [node name="LineOfSight" type="RayCast2D" parent="."]
 target_position = Vector2(-100, 0)
+
+[node name="_testHitbox" type="Area2D" parent="."]
+script = ExtResource("3_hl8um")
+damage_source = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="_testHitbox"]
+position = Vector2(-103, -6)
+shape = SubResource("RectangleShape2D_gdrw5")
+debug_color = Color(0.701961, 0.0117647, 0, 0.419608)
