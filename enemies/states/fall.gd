@@ -18,7 +18,7 @@ func enter() -> void:
 
 
 func physics_process(delta: float) -> BaseState:
-	if is_hurt:
+	if is_hurt and enemy.staggerable:
 		return hurt_state
 
 	if enemy.is_on_floor():

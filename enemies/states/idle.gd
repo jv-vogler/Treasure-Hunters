@@ -16,7 +16,8 @@ func enter() -> void:
 	if state_machine.previous_state == fall_state:
 		enemy.animations.play("Ground")
 		await enemy.animations.animation_finished
-	enemy.animations.play("Idle")
+	if state_machine.previous_state != hurt_state:
+		enemy.animations.play("Idle")
 
 
 func physics_process(delta: float) -> BaseState:
@@ -24,7 +25,7 @@ func physics_process(delta: float) -> BaseState:
 	enemy.velocity.y += enemy.gravity * delta
 	enemy.move_and_slide()
 
-	if is_hurt:
+	if is_hurt and enemy.staggerable:
 		return hurt_state
 
 	if !enemy.is_on_floor():

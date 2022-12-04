@@ -8,7 +8,7 @@ extends BaseState
 func enter() -> void:
 	enemy.animations.play("Death")
 	enemy.collision_layer = 0
-#	enemy.collision_mask = 0	# Can make enemy drop (check if on a plank -> fall on water)
+	enemy.collision_mask = 1	# Can make enemy drop (check if on a plank -> fall on water)
 	enemy.velocity = Vector2(0, knock_height * -1)
 	enemy.set_process(false)
 

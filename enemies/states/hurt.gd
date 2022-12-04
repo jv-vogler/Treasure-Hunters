@@ -24,14 +24,11 @@ func enter() -> void:
 	return_state = idle_state
 
 
-func exit() -> void:
-	return_state = null
-
-
 func physics_process(delta: float) -> BaseState:
 	if !has_knocked:
 		enemy.velocity = Vector2(knock_direction * knock_intensity, knock_height * -1)
 		has_knocked = true
+
 	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, friction)
 	enemy.velocity.y += enemy.gravity * delta
 	enemy.move_and_slide()

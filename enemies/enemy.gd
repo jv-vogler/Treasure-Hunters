@@ -3,7 +3,7 @@ extends Entity
 
 @export var level: int = 1
 @export var speed: float = 120.0
-@export var staggerable: bool = false
+@export var staggerable: bool = true
 @export var invincible: bool = false
 @export var loot_table: Array
 

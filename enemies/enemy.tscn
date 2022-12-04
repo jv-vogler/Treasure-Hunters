@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2ouj8pbo2qgu"]
+[gd_scene load_steps=12 format=3 uid="uid://c2ouj8pbo2qgu"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_rwtnc"]
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="2_jdwj6"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="4_hi5qp"]
 [ext_resource type="Script" path="res://enemies/states/idle.gd" id="5_iqc5x"]
 [ext_resource type="Script" path="res://enemies/states/fall.gd" id="6_malky"]
-[ext_resource type="Script" path="res://enemies/states/chase.gd" id="7_loj2c"]
 [ext_resource type="Script" path="res://enemies/states/hurt.gd" id="8_kv5f8"]
 [ext_resource type="Script" path="res://enemies/states/dead.gd" id="9_67cu2"]
 
@@ -49,6 +48,7 @@ debug_color = Color(0, 0.701961, 0.0509804, 0.419608)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yslpf")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 
@@ -69,7 +69,8 @@ idle_node = NodePath("../Idle")
 hurt_node = NodePath("../Hurt")
 
 [node name="Chase" type="Node" parent="StateMachine"]
-script = ExtResource("7_loj2c")
+
+[node name="Attack" type="Node" parent="StateMachine"]
 
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("8_kv5f8")

@@ -14,11 +14,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://common/state_machine/base_state.gd"
 }, {
-"base": "Control",
-"class": &"Debugger",
-"language": &"GDScript",
-"path": "res://_test/debugger.gd"
-}, {
 "base": "Entity",
 "class": &"Enemy",
 "language": &"GDScript",
@@ -61,7 +56,6 @@ _global_script_classes=[{
 }]
 _global_script_class_icons={
 "BaseState": "",
-"Debugger": "",
 "Enemy": "",
 "Entity": "",
 "Game": "",
@@ -78,6 +72,10 @@ config/name="Treasure Hunters"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[debug]
+
+shapes/collision/shape_color=Color(1, 1, 1, 0.419608)
 
 [display]
 

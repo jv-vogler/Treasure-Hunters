@@ -7,6 +7,7 @@ extends BaseState
 @export var hurt_node: NodePath
 @export var next_attack_node: NodePath
 @export var animation: String = ""
+@export_range(0.0, 500.0, 50.0) var lunge_distance: float = 200.0
 
 var attack_buffer: float = 0.3
 var acceleration: float = 0.09
@@ -29,6 +30,10 @@ func enter() -> void:
 	combo = false
 	player.animations.play(animation)
 	attack_buffer_timer = attack_buffer
+	if animation == "Attack2":
+		player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -50.0)
+	if animation == "Attack3":
+		player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -100.0)
 	await get_tree().create_timer(0.3).timeout
 	can_attack = true
 
