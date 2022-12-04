@@ -1,0 +1,87 @@
+[gd_scene load_steps=13 format=3 uid="uid://c2ouj8pbo2qgu"]
+
+[ext_resource type="Script" path="res://enemies/enemy.gd" id="1_rwtnc"]
+[ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="2_jdwj6"]
+[ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="3_q1lim"]
+[ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="4_hi5qp"]
+[ext_resource type="Script" path="res://enemies/states/idle.gd" id="5_iqc5x"]
+[ext_resource type="Script" path="res://enemies/states/fall.gd" id="6_malky"]
+[ext_resource type="Script" path="res://enemies/states/chase.gd" id="7_loj2c"]
+[ext_resource type="Script" path="res://enemies/states/hurt.gd" id="8_kv5f8"]
+[ext_resource type="Script" path="res://enemies/states/dead.gd" id="9_67cu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
+size = Vector2(30, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
+size = Vector2(28, 26)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
+height = 24.0
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 1
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_rwtnc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Hitbox" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_jdwj6")
+damage_source = 4
+
+[node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
+shape = SubResource("RectangleShape2D_i7jwp")
+debug_color = Color(0.701961, 0, 0.00392157, 0.419608)
+
+[node name="Hurtbox" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_q1lim")
+takes_damage_from = 2
+
+[node name="EnemyHurtbox" type="CollisionShape2D" parent="Sprite/Hurtbox"]
+shape = SubResource("RectangleShape2D_tdtvm")
+debug_color = Color(0, 0.701961, 0.0509804, 0.419608)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yslpf")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_hi5qp")
+starting_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("5_iqc5x")
+state_machine_node = NodePath("..")
+fall_node = NodePath("../Fall")
+hurt_node = NodePath("../Hurt")
+
+[node name="Fall" type="Node" parent="StateMachine"]
+script = ExtResource("6_malky")
+state_machine_node = NodePath("..")
+idle_node = NodePath("../Idle")
+hurt_node = NodePath("../Hurt")
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("7_loj2c")
+
+[node name="Hurt" type="Node" parent="StateMachine"]
+script = ExtResource("8_kv5f8")
+idle_node = NodePath("../Idle")
+dead_node = NodePath("../Dead")
+
+[node name="Dead" type="Node" parent="StateMachine"]
+script = ExtResource("9_67cu2")
+
+[node name="LineOfSight" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+
+[connection signal="took_damage" from="." to="StateMachine/Idle" method="_on_enemy_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_enemy_took_damage"]
+[connection signal="hit_direction" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit_direction"]

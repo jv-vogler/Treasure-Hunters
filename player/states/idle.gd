@@ -21,8 +21,7 @@ extends BaseState
 func enter() -> void:
 	super.enter()
 	if state_machine.previous_state == fall_state:
-		var ground_animation = "Sword_Ground" if "Sword" in name else "NoSword_Ground"
-		player.animations.play(ground_animation)
+		player.animations.play("Sword_Ground")
 		await player.animations.animation_finished
 	player.animations.play(animation)
 

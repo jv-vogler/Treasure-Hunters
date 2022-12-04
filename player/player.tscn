@@ -81,7 +81,7 @@
 [ext_resource type="Script" path="res://player/states/dead.gd" id="72_ew5qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby3t"]
-size = Vector2(18.5, 24)
+size = Vector2(18.5, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7arpp"]
 size = Vector2(18, 24)
@@ -207,6 +207,46 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_026lg"]
+resource_name = "Dead"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("64_u07t1"), ExtResource("65_ixfp3"), ExtResource("66_5bm8w"), ExtResource("67_xtvej"), ExtResource("68_6iw5h"), ExtResource("69_ppv8q"), ExtResource("70_x2j46"), ExtResource("71_2pick")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite/Hurtbox/PlayerHurtBox:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_4l4a3"]
@@ -510,46 +550,6 @@ tracks/0/keys = {
 "values": [ExtResource("58_8rq2d"), ExtResource("59_dx4o1"), ExtResource("60_b03iy")]
 }
 
-[sub_resource type="Animation" id="Animation_026lg"]
-resource_name = "Dead"
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("64_u07t1"), ExtResource("65_ixfp3"), ExtResource("66_5bm8w"), ExtResource("67_xtvej"), ExtResource("68_6iw5h"), ExtResource("69_ppv8q"), ExtResource("70_x2j46"), ExtResource("71_2pick")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite/Hurtbox/PlayerHurtBox:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ow3yw"]
 _data = {
 "AirAttack1": SubResource("Animation_kng34"),
@@ -576,7 +576,8 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 2
-collision_layer = 3
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_jwel6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -590,13 +591,12 @@ script = ExtResource("3_lv1im")
 damage_source = 2
 
 [node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
-position = Vector2(20.25, -1)
+position = Vector2(20.25, -0.5)
 shape = SubResource("RectangleShape2D_gby3t")
 disabled = true
 debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
-visible = false
 script = ExtResource("4_0nv2g")
 takes_damage_from = 4
 

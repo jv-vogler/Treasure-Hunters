@@ -1,56 +1,53 @@
-[gd_scene load_steps=61 format=3 uid="uid://b4rvum5ob5nf7"]
+[gd_scene load_steps=57 format=3 uid="uid://b5hqk51j0m14j"]
 
-[ext_resource type="Texture2D" uid="uid://drv8a8yl5gy7a" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 01.png" id="2_10sfm"]
-[ext_resource type="Script" path="res://enemies/fierce_tooth/fierce_tooth.gd" id="2_gka12"]
-[ext_resource type="Texture2D" uid="uid://cxmesyxo1dn8b" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 02.png" id="3_a31s8"]
-[ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="3_hl8um"]
-[ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="4_6piad"]
-[ext_resource type="Texture2D" uid="uid://b3jbtaj24cni6" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 03.png" id="4_qv7xy"]
-[ext_resource type="Texture2D" uid="uid://c0c1rtpxtneoa" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 04.png" id="5_f1ujo"]
-[ext_resource type="Texture2D" uid="uid://svw8kt4g7qbe" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 05.png" id="6_ecbsy"]
-[ext_resource type="Texture2D" uid="uid://csjt01rkikcri" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 06.png" id="7_bs3xx"]
-[ext_resource type="Texture2D" uid="uid://t67hn5pryov1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 07.png" id="8_d7kpn"]
-[ext_resource type="Texture2D" uid="uid://bwfpfbnhlcmq4" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 08.png" id="9_uiqe0"]
-[ext_resource type="Texture2D" uid="uid://ciwcw1lobgqy" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 01.png" id="10_e8bf2"]
-[ext_resource type="Texture2D" uid="uid://dgxo5vjdtjsk6" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 02.png" id="11_p6rlw"]
-[ext_resource type="Texture2D" uid="uid://c2cspw0jgg310" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 03.png" id="12_gmyu1"]
-[ext_resource type="Texture2D" uid="uid://df2u2mdvyyj21" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 04.png" id="13_45c3v"]
-[ext_resource type="Texture2D" uid="uid://c2hlmbgq8what" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 05.png" id="14_l06yj"]
-[ext_resource type="Texture2D" uid="uid://bu35tyo3qocnk" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 06.png" id="15_ty1mi"]
-[ext_resource type="Texture2D" uid="uid://immpfokp2hsf" path="res://enemies/fierce_tooth/assets/Fierce Tooth/03-Jump/Jump 01.png" id="16_hbrko"]
-[ext_resource type="Texture2D" uid="uid://dyrhfn022om2m" path="res://enemies/fierce_tooth/assets/Fierce Tooth/03-Jump/Jump 02.png" id="17_k2677"]
-[ext_resource type="Texture2D" uid="uid://d2s5sdmpqtu21" path="res://enemies/fierce_tooth/assets/Fierce Tooth/03-Jump/Jump 03.png" id="18_1lglf"]
-[ext_resource type="Texture2D" uid="uid://bn0omdqk0jhf1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/04-Fall/Fall 01.png" id="19_es31s"]
-[ext_resource type="Texture2D" uid="uid://cokday471dr4d" path="res://enemies/fierce_tooth/assets/Fierce Tooth/05-Ground/Ground 01.png" id="20_fej5k"]
-[ext_resource type="Texture2D" uid="uid://b7yfgaw4175ct" path="res://enemies/fierce_tooth/assets/Fierce Tooth/05-Ground/Ground 02.png" id="21_7eq7x"]
-[ext_resource type="Texture2D" uid="uid://bgsjanyyw7ag2" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 01.png" id="22_eync7"]
-[ext_resource type="Texture2D" uid="uid://deq1vxd88cjve" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 02.png" id="23_q64kv"]
-[ext_resource type="Texture2D" uid="uid://blm3fkik3iwwt" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 03.png" id="24_g7vym"]
-[ext_resource type="Texture2D" uid="uid://d0kdqix2y0jjj" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 01.png" id="25_8wmd4"]
-[ext_resource type="Texture2D" uid="uid://bgc0y7vkkjva1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 02.png" id="26_uxemx"]
-[ext_resource type="Texture2D" uid="uid://bqjm74bmvyt7c" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 03.png" id="27_yskr7"]
-[ext_resource type="Texture2D" uid="uid://hctxwxq1cmhr" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 04.png" id="28_g3hcl"]
-[ext_resource type="Texture2D" uid="uid://dlk3jvmbefc08" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 05.png" id="29_ybcc5"]
-[ext_resource type="Texture2D" uid="uid://d3abp655o4l82" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 01.png" id="30_bkkou"]
-[ext_resource type="Texture2D" uid="uid://ih5pfcc3lh1s" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 02.png" id="31_jho7a"]
-[ext_resource type="Texture2D" uid="uid://b7jnmrn5qq2tq" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 03.png" id="32_aniqf"]
-[ext_resource type="Texture2D" uid="uid://bgfcnfkyqpwnu" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 04.png" id="33_50veo"]
-[ext_resource type="Texture2D" uid="uid://br68lpytui6y3" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" id="34_4v104"]
-[ext_resource type="Texture2D" uid="uid://bsywpfl33t1pi" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="35_mp3kg"]
-[ext_resource type="Texture2D" uid="uid://8jrb1mm38mct" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="36_5csap"]
-[ext_resource type="Texture2D" uid="uid://41woao2p8hgj" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="37_h0xf8"]
-[ext_resource type="Texture2D" uid="uid://ccil4pfou1mgl" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 01.png" id="38_256g4"]
-[ext_resource type="Texture2D" uid="uid://bsacpm4kmr5cl" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 02.png" id="39_8kxtt"]
-[ext_resource type="Texture2D" uid="uid://px4px62nsqxs" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 03.png" id="40_onovf"]
-[ext_resource type="Texture2D" uid="uid://bfintro0boxss" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 04.png" id="41_c4xgr"]
-[ext_resource type="Script" path="res://common/state_machine/base_state.gd" id="42_yqpne"]
-[ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="44_2useo"]
+[ext_resource type="Script" path="res://enemies/fierce_tooth/fierce_tooth.gd" id="1_ja8wv"]
+[ext_resource type="PackedScene" uid="uid://c2ouj8pbo2qgu" path="res://enemies/enemy.tscn" id="1_q3016"]
+[ext_resource type="Texture2D" uid="uid://drv8a8yl5gy7a" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 01.png" id="2_t7y6h"]
+[ext_resource type="Texture2D" uid="uid://bgsjanyyw7ag2" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 01.png" id="5_2c6sj"]
+[ext_resource type="Texture2D" uid="uid://deq1vxd88cjve" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 02.png" id="6_8btve"]
+[ext_resource type="Texture2D" uid="uid://blm3fkik3iwwt" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 03.png" id="7_xqi1i"]
+[ext_resource type="Texture2D" uid="uid://d0kdqix2y0jjj" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 01.png" id="8_hcrcc"]
+[ext_resource type="Texture2D" uid="uid://bgc0y7vkkjva1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 02.png" id="9_xex1d"]
+[ext_resource type="Texture2D" uid="uid://bqjm74bmvyt7c" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 03.png" id="10_2gc3y"]
+[ext_resource type="Texture2D" uid="uid://hctxwxq1cmhr" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 04.png" id="11_nscl1"]
+[ext_resource type="Texture2D" uid="uid://dlk3jvmbefc08" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 05.png" id="12_x0mwm"]
+[ext_resource type="Texture2D" uid="uid://br68lpytui6y3" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" id="13_m1pno"]
+[ext_resource type="Texture2D" uid="uid://bsywpfl33t1pi" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" id="14_g65iy"]
+[ext_resource type="Texture2D" uid="uid://8jrb1mm38mct" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" id="15_uqtrw"]
+[ext_resource type="Texture2D" uid="uid://41woao2p8hgj" path="res://enemies/fierce_tooth/assets/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" id="16_t0bnx"]
+[ext_resource type="Texture2D" uid="uid://ccil4pfou1mgl" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 01.png" id="17_oj0vj"]
+[ext_resource type="Texture2D" uid="uid://bsacpm4kmr5cl" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 02.png" id="18_8hlfq"]
+[ext_resource type="Texture2D" uid="uid://px4px62nsqxs" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 03.png" id="19_fwh4x"]
+[ext_resource type="Texture2D" uid="uid://bfintro0boxss" path="res://enemies/fierce_tooth/assets/Fierce Tooth/10-Dead Ground/Dead Ground 04.png" id="20_3jtoi"]
+[ext_resource type="Texture2D" uid="uid://bn0omdqk0jhf1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/04-Fall/Fall 01.png" id="21_4cfks"]
+[ext_resource type="Texture2D" uid="uid://cokday471dr4d" path="res://enemies/fierce_tooth/assets/Fierce Tooth/05-Ground/Ground 01.png" id="22_67l36"]
+[ext_resource type="Texture2D" uid="uid://b7yfgaw4175ct" path="res://enemies/fierce_tooth/assets/Fierce Tooth/05-Ground/Ground 02.png" id="23_rf81k"]
+[ext_resource type="Texture2D" uid="uid://d3abp655o4l82" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 01.png" id="24_843vd"]
+[ext_resource type="Texture2D" uid="uid://ih5pfcc3lh1s" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 02.png" id="25_n6ovy"]
+[ext_resource type="Texture2D" uid="uid://b7jnmrn5qq2tq" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 03.png" id="26_jdnyy"]
+[ext_resource type="Texture2D" uid="uid://bgfcnfkyqpwnu" path="res://enemies/fierce_tooth/assets/Fierce Tooth/08-Hit/Hit 04.png" id="27_35wvi"]
+[ext_resource type="Texture2D" uid="uid://cxmesyxo1dn8b" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 02.png" id="28_dvycb"]
+[ext_resource type="Texture2D" uid="uid://b3jbtaj24cni6" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 03.png" id="29_8el53"]
+[ext_resource type="Texture2D" uid="uid://c0c1rtpxtneoa" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 04.png" id="30_p6nir"]
+[ext_resource type="Texture2D" uid="uid://svw8kt4g7qbe" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 05.png" id="31_muw02"]
+[ext_resource type="Texture2D" uid="uid://csjt01rkikcri" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 06.png" id="32_otwqx"]
+[ext_resource type="Texture2D" uid="uid://t67hn5pryov1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 07.png" id="33_caoyy"]
+[ext_resource type="Texture2D" uid="uid://bwfpfbnhlcmq4" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 08.png" id="34_g1x0w"]
+[ext_resource type="Texture2D" uid="uid://immpfokp2hsf" path="res://enemies/fierce_tooth/assets/Fierce Tooth/03-Jump/Jump 01.png" id="35_8xcr0"]
+[ext_resource type="Texture2D" uid="uid://dyrhfn022om2m" path="res://enemies/fierce_tooth/assets/Fierce Tooth/03-Jump/Jump 02.png" id="36_oy2wd"]
+[ext_resource type="Texture2D" uid="uid://d2s5sdmpqtu21" path="res://enemies/fierce_tooth/assets/Fierce Tooth/03-Jump/Jump 03.png" id="37_e0eyy"]
+[ext_resource type="Texture2D" uid="uid://ciwcw1lobgqy" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 01.png" id="38_4pigo"]
+[ext_resource type="Texture2D" uid="uid://dgxo5vjdtjsk6" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 02.png" id="39_orr81"]
+[ext_resource type="Texture2D" uid="uid://c2cspw0jgg310" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 03.png" id="40_jtswy"]
+[ext_resource type="Texture2D" uid="uid://df2u2mdvyyj21" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 04.png" id="41_c6noq"]
+[ext_resource type="Texture2D" uid="uid://c2hlmbgq8what" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 05.png" id="42_mrr46"]
+[ext_resource type="Texture2D" uid="uid://bu35tyo3qocnk" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 06.png" id="43_isnix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
 size = Vector2(17.5, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
-size = Vector2(28, 26)
+size = Vector2(26, 22)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_chuxs"]
 height = 24.0
@@ -69,7 +66,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("22_eync7"), ExtResource("23_q64kv"), ExtResource("24_g7vym")]
+"values": [ExtResource("5_2c6sj"), ExtResource("6_8btve"), ExtResource("7_xqi1i")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -97,7 +94,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("25_8wmd4"), ExtResource("26_uxemx"), ExtResource("27_yskr7"), ExtResource("28_g3hcl"), ExtResource("29_ybcc5")]
+"values": [ExtResource("8_hcrcc"), ExtResource("9_xex1d"), ExtResource("10_2gc3y"), ExtResource("11_nscl1"), ExtResource("12_x0mwm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -125,7 +122,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("34_4v104"), ExtResource("35_mp3kg"), ExtResource("36_5csap"), ExtResource("37_h0xf8"), ExtResource("38_256g4"), ExtResource("39_8kxtt"), ExtResource("40_onovf"), ExtResource("41_c4xgr")]
+"values": [ExtResource("13_m1pno"), ExtResource("14_g65iy"), ExtResource("15_uqtrw"), ExtResource("16_t0bnx"), ExtResource("17_oj0vj"), ExtResource("18_8hlfq"), ExtResource("19_fwh4x"), ExtResource("20_3jtoi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_vmyfe"]
@@ -141,7 +150,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("19_es31s")]
+"values": [ExtResource("21_4cfks")]
 }
 
 [sub_resource type="Animation" id="Animation_wf4fm"]
@@ -157,7 +166,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("20_fej5k"), ExtResource("21_7eq7x")]
+"values": [ExtResource("22_67l36"), ExtResource("23_rf81k")]
 }
 
 [sub_resource type="Animation" id="Animation_8q6fx"]
@@ -173,7 +182,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("30_bkkou"), ExtResource("31_jho7a"), ExtResource("32_aniqf"), ExtResource("33_50veo")]
+"values": [ExtResource("24_843vd"), ExtResource("25_n6ovy"), ExtResource("26_jdnyy"), ExtResource("27_35wvi")]
 }
 
 [sub_resource type="Animation" id="Animation_b5ph8"]
@@ -190,7 +199,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_10sfm"), ExtResource("3_a31s8"), ExtResource("4_qv7xy"), ExtResource("5_f1ujo"), ExtResource("6_ecbsy"), ExtResource("7_bs3xx"), ExtResource("8_d7kpn"), ExtResource("9_uiqe0")]
+"values": [ExtResource("2_t7y6h"), ExtResource("28_dvycb"), ExtResource("29_8el53"), ExtResource("30_p6nir"), ExtResource("31_muw02"), ExtResource("32_otwqx"), ExtResource("33_caoyy"), ExtResource("34_g1x0w")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -218,7 +227,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("16_hbrko"), ExtResource("17_k2677"), ExtResource("18_1lglf")]
+"values": [ExtResource("35_8xcr0"), ExtResource("36_oy2wd"), ExtResource("37_e0eyy")]
 }
 
 [sub_resource type="Animation" id="Animation_kbupg"]
@@ -233,7 +242,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_10sfm")]
+"values": [ExtResource("2_t7y6h")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -246,6 +255,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ewdea"]
@@ -262,7 +283,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("10_e8bf2"), ExtResource("11_p6rlw"), ExtResource("12_gmyu1"), ExtResource("13_45c3v"), ExtResource("14_l06yj"), ExtResource("15_ty1mi")]
+"values": [ExtResource("38_4pigo"), ExtResource("39_orr81"), ExtResource("40_jtswy"), ExtResource("41_c6noq"), ExtResource("42_mrr46"), ExtResource("43_isnix")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vuyso"]
@@ -279,63 +300,30 @@ _data = {
 "Run": SubResource("Animation_ewdea")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdrw5"]
-size = Vector2(18, 46.625)
+[node name="FierceTooth" instance=ExtResource("1_q3016")]
+script = ExtResource("1_ja8wv")
 
-[node name="FierceTooth" type="CharacterBody2D"]
-z_index = 1
-script = ExtResource("2_gka12")
-current_health = null
+[node name="Sprite" parent="." index="0"]
+position = Vector2(0, 1)
+texture = ExtResource("2_t7y6h")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_10sfm")
-
-[node name="Hitbox" type="Area2D" parent="Sprite"]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("3_hl8um")
-damage_source = 4
-
-[node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
+[node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
 position = Vector2(-13.25, 2.5)
 shape = SubResource("RectangleShape2D_i7jwp")
 disabled = true
-debug_color = Color(0.701961, 0, 0.00392157, 0.419608)
 
-[node name="Hurtbox" type="Area2D" parent="Sprite"]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("4_6piad")
-takes_damage_from = 2
-
-[node name="EnemyHurtbox" type="CollisionShape2D" parent="Sprite/Hurtbox"]
+[node name="EnemyHurtbox" parent="Sprite/Hurtbox" index="0"]
+position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tdtvm")
-debug_color = Color(0, 0.701961, 0.0509804, 0.419608)
 
-[node name="Collision" type="CollisionShape2D" parent="."]
+[node name="Collision" parent="." index="1"]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_chuxs")
 
-[node name="Animations" type="AnimationPlayer" parent="."]
+[node name="Animations" parent="." index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_vuyso")
 }
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("44_2useo")
-starting_state = NodePath("BaseState")
-
-[node name="BaseState" type="Node" parent="StateMachine"]
-script = ExtResource("42_yqpne")
-
-[node name="LineOfSight" type="RayCast2D" parent="."]
-target_position = Vector2(-100, 0)
-
-[node name="_testHitbox" type="Area2D" parent="."]
-script = ExtResource("3_hl8um")
-damage_source = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="_testHitbox"]
-position = Vector2(-103, -6)
-shape = SubResource("RectangleShape2D_gdrw5")
-debug_color = Color(0.701961, 0.0117647, 0, 0.419608)
+[node name="Hurt" parent="StateMachine" index="3"]
+knock_intensity = 100.0

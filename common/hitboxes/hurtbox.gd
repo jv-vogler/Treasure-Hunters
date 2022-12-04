@@ -20,7 +20,10 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 		owner.take_damage(hitbox.damage)
 		owner.emit_signal("took_damage")
 
-		var direction = global_position.x - hitbox.get_child(0).global_position.x
+		var hurtbox_pos = get_child(0).global_position.x
+		var hitbox_pos = hitbox.get_child(0).global_position.x
+
+		var direction = hurtbox_pos - hitbox_pos
 		if direction > 0:
 			emit_signal("hit_direction", 1)
 		elif direction < 0:

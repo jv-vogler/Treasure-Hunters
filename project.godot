@@ -22,7 +22,7 @@ _global_script_classes=[{
 "base": "Entity",
 "class": &"Enemy",
 "language": &"GDScript",
-"path": "res://common/enemy.gd"
+"path": "res://enemies/enemy.gd"
 }, {
 "base": "CharacterBody2D",
 "class": &"Entity",
