@@ -8,3 +8,4 @@ func _ready() -> void:
 
 func debugger_setup() -> void:
 	Debugger.add_stat("Player state", $Player/StateMachine, "current_state")
+	Debugger.add_stat("FierceTooth state", $FierceTooth/StateMachine, "current_state")

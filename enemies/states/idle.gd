@@ -21,15 +21,16 @@ func enter() -> void:
 
 
 func physics_process(delta: float) -> BaseState:
-	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, friction)
-	enemy.velocity.y += enemy.gravity * delta
-	enemy.move_and_slide()
-
 	if is_hurt and enemy.staggerable:
 		return hurt_state
 
 	if !enemy.is_on_floor():
 		return fall_state
+
+	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, friction)
+	enemy.velocity.y += enemy.gravity * delta
+	enemy.move_and_slide()
+
 	return null
 
 

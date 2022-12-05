@@ -661,6 +661,7 @@ idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
 hurt_node = NodePath("../Hurt")
+attack3_node = NodePath("../Attack3")
 animation = "Sword_Fall"
 
 [node name="Attack1" type="Node" parent="StateMachine"]
@@ -668,8 +669,8 @@ script = ExtResource("69_n7ofm")
 state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
-jump_node = NodePath("../Jump")
 hurt_node = NodePath("../Hurt")
+fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack2")
 animation = "Attack1"
 
@@ -678,8 +679,8 @@ script = ExtResource("69_n7ofm")
 state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
-jump_node = NodePath("../Jump")
 hurt_node = NodePath("../Hurt")
+fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack3")
 animation = "Attack2"
 lunge_distance = 100.0
@@ -689,8 +690,8 @@ script = ExtResource("69_n7ofm")
 state_machine_node = NodePath("..")
 idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
-jump_node = NodePath("../Jump")
 hurt_node = NodePath("../Hurt")
+fall_node = NodePath("../Fall")
 animation = "Attack3"
 lunge_distance = 250.0
 

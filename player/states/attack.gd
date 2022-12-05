@@ -3,8 +3,8 @@ extends BaseState
 @export var state_machine_node: NodePath
 @export var idle_node: NodePath
 @export var run_node: NodePath
-@export var jump_node: NodePath
 @export var hurt_node: NodePath
+@export var fall_node: NodePath
 @export var next_attack_node: NodePath
 @export var animation: String = ""
 @export_range(0.0, 500.0, 50.0) var lunge_distance: float = 200.0
@@ -18,8 +18,8 @@ var combo: bool
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var run_state: BaseState = get_node(run_node)
-@onready var jump_state: BaseState = get_node(jump_node)
 @onready var hurt_state: BaseState = get_node(hurt_node)
+@onready var fall_state: BaseState = get_node(fall_node)
 @onready var next_attack: BaseState
 @onready var player: Player = owner
 
@@ -51,8 +51,6 @@ func input(_event: InputEvent) -> BaseState:
 	if Input.is_action_just_pressed("attack"):
 		if attack_buffer_timer > 0:
 			if next_attack: combo = true
-	if Input.is_action_just_pressed("jump"):
-		return jump_state
 	return null
 
 
@@ -66,6 +64,9 @@ func physics_process(delta: float) -> BaseState:
 		return hurt_state
 
 	if can_attack:
+		if !player.is_on_floor():
+			return fall_state
+
 		if combo: return next_attack
 		return run_state if player.direction else idle_state
 

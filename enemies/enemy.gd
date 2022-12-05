@@ -8,6 +8,7 @@ extends Entity
 @export var loot_table: Array
 
 var jump_velocity: float = -384.0
+var target: Player = null
 
 
 func _ready() -> void:

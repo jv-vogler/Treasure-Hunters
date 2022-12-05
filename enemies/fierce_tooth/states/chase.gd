@@ -18,5 +18,4 @@ func enter() -> void:
 func physics_process(_delta) -> BaseState:
 	if is_hurt and enemy.staggerable:
 		return hurt_state
-
 	return null
