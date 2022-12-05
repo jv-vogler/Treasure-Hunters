@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://b5hqk51j0m14j"]
+[gd_scene load_steps=59 format=3 uid="uid://b5hqk51j0m14j"]
 
 [ext_resource type="Script" path="res://enemies/fierce_tooth/fierce_tooth.gd" id="1_ja8wv"]
 [ext_resource type="PackedScene" uid="uid://c2ouj8pbo2qgu" path="res://enemies/enemy.tscn" id="1_q3016"]
@@ -43,9 +43,10 @@
 [ext_resource type="Texture2D" uid="uid://c2hlmbgq8what" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 05.png" id="42_mrr46"]
 [ext_resource type="Texture2D" uid="uid://bu35tyo3qocnk" path="res://enemies/fierce_tooth/assets/Fierce Tooth/02-Run/Run 06.png" id="43_isnix"]
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/chase.gd" id="43_prodk"]
+[ext_resource type="Script" path="res://enemies/fierce_tooth/states/attack.gd" id="44_girl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
-size = Vector2(17.5, 21)
+size = Vector2(22, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
 size = Vector2(26, 22)
@@ -56,6 +57,7 @@ size = Vector2(17, 22)
 [sub_resource type="Animation" id="Animation_ald3c"]
 resource_name = "Anticipation"
 length = 0.6
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -67,18 +69,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("5_2c6sj"), ExtResource("6_8btve"), ExtResource("7_xqi1i")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.701961, 0.615686, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_81dwc"]
@@ -103,7 +93,7 @@ tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -209,6 +199,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("24_843vd"), ExtResource("25_n6ovy"), ExtResource("26_jdnyy"), ExtResource("27_35wvi")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_b5ph8"]
 resource_name = "idle"
@@ -305,6 +307,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ewdea"]
 resource_name = "Run"
@@ -339,14 +365,14 @@ _data = {
 
 [node name="FierceTooth" instance=ExtResource("1_q3016")]
 script = ExtResource("1_ja8wv")
-speed = 120.0
+speed = 160.0
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, 1)
 texture = ExtResource("2_t7y6h")
 
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
-position = Vector2(-13.25, 2.5)
+position = Vector2(-11, 2.5)
 shape = SubResource("RectangleShape2D_i7jwp")
 disabled = true
 
@@ -354,11 +380,14 @@ disabled = true
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tdtvm")
 
-[node name="Collision" parent="." index="1"]
+[node name="Range" parent="Sprite/AttackRange" index="0"]
+position = Vector2(-22, 2.5)
+
+[node name="Collision" parent="." index="2"]
 position = Vector2(0.5, 3)
 shape = SubResource("RectangleShape2D_8cxaa")
 
-[node name="Animations" parent="." index="2"]
+[node name="Animations" parent="." index="3"]
 libraries = {
 "": SubResource("AnimationLibrary_vuyso")
 }
@@ -367,6 +396,19 @@ libraries = {
 script = ExtResource("43_prodk")
 idle_node = NodePath("../Idle")
 hurt_node = NodePath("../Hurt")
+dead_node = NodePath("../Dead")
+attack_node = NodePath("../Attack")
+
+[node name="Attack" parent="StateMachine" index="3"]
+script = ExtResource("44_girl4")
+idle_node = NodePath("../Idle")
+hurt_node = NodePath("../Hurt")
+dead_node = NodePath("../Dead")
 
 [node name="Hurt" parent="StateMachine" index="4"]
+chase_node = NodePath("../Chase")
 knock_intensity = 100.0
+
+[connection signal="took_damage" from="." to="StateMachine/Chase" method="_on_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Attack" method="_on_took_damage"]
+[connection signal="body_entered" from="Sprite/AttackRange" to="StateMachine/Chase" method="_on_attack_range_body_entered"]

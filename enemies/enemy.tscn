@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2ouj8pbo2qgu"]
+[gd_scene load_steps=14 format=3 uid="uid://c2ouj8pbo2qgu"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_rwtnc"]
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="2_jdwj6"]
@@ -15,11 +15,14 @@ size = Vector2(30, 28)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
 size = Vector2(28, 26)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
-height = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gppxq"]
+size = Vector2(34, 21)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjc6o"]
-size = Vector2(364, 17)
+size = Vector2(278, 106)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
+height = 24.0
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
@@ -48,6 +51,24 @@ takes_damage_from = 2
 [node name="EnemyHurtbox" type="CollisionShape2D" parent="Sprite/Hurtbox"]
 shape = SubResource("RectangleShape2D_tdtvm")
 debug_color = Color(0, 0.701961, 0.0509804, 0.419608)
+
+[node name="AttackRange" type="Area2D" parent="Sprite"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="Sprite/AttackRange"]
+position = Vector2(-10, 0)
+shape = SubResource("RectangleShape2D_gppxq")
+debug_color = Color(1, 0.309804, 0, 0.137255)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="Range" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(0, -43)
+shape = SubResource("RectangleShape2D_qjc6o")
+debug_color = Color(1, 1, 0, 0.176471)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_yslpf")
@@ -83,15 +104,6 @@ dead_node = NodePath("../Dead")
 
 [node name="Dead" type="Node" parent="StateMachine"]
 script = ExtResource("9_67cu2")
-
-[node name="PlayerDetection" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="Range" type="CollisionShape2D" parent="PlayerDetection"]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_qjc6o")
-debug_color = Color(1, 1, 0, 0.176471)
 
 [connection signal="took_damage" from="." to="StateMachine/Idle" method="_on_enemy_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_enemy_took_damage"]

@@ -11,12 +11,7 @@ script = ExtResource("1_2ixcs")
 [node name="TestLevel" parent="." instance=ExtResource("2_sj7cv")]
 
 [node name="Player" parent="." instance=ExtResource("3_cb1k0")]
-position = Vector2(21, 127)
+position = Vector2(129, 127)
 
 [node name="FierceTooth" parent="." instance=ExtResource("4_8lshv")]
-position = Vector2(156, 112)
-invincible = null
-
-[node name="FierceTooth2" parent="." instance=ExtResource("4_8lshv")]
-position = Vector2(260, 111)
-invincible = null
+position = Vector2(49, 136)
