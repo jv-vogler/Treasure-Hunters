@@ -9,20 +9,20 @@
 config_version=5
 
 _global_script_classes=[{
-"base": "BaseState",
-"class": &"AttackState",
-"language": &"GDScript",
-"path": "res://player/states/attack.gd"
-}, {
 "base": "Node",
 "class": &"BaseState",
 "language": &"GDScript",
 "path": "res://common/state_machine/base_state.gd"
 }, {
-"base": "Control",
-"class": &"Debugger",
+"base": "Entity",
+"class": &"Enemy",
 "language": &"GDScript",
-"path": "res://_test/debugger.gd"
+"path": "res://enemies/enemy.gd"
+}, {
+"base": "CharacterBody2D",
+"class": &"Entity",
+"language": &"GDScript",
+"path": "res://common/entity.gd"
 }, {
 "base": "Node2D",
 "class": &"Game",
@@ -32,32 +32,38 @@ _global_script_classes=[{
 "base": "Area2D",
 "class": &"Hitbox",
 "language": &"GDScript",
-"path": "res://common/hitbox/hitbox.gd"
+"path": "res://common/hitboxes/hitbox.gd"
 }, {
 "base": "Area2D",
 "class": &"Hurtbox",
 "language": &"GDScript",
-"path": "res://common/hitbox/hurtbox.gd"
+"path": "res://common/hitboxes/hurtbox.gd"
 }, {
-"base": "BaseState",
-"class": &"MoveState",
-"language": &"GDScript",
-"path": "res://player/states/move.gd"
-}, {
-"base": "CharacterBody2D",
+"base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
 "path": "res://player/player.gd"
+}, {
+"base": "BaseState",
+"class": &"PlayerMoveState",
+"language": &"GDScript",
+"path": "res://player/states/move.gd"
+}, {
+"base": "Node",
+"class": &"StateMachine",
+"language": &"GDScript",
+"path": "res://common/state_machine/state_machine.gd"
 }]
 _global_script_class_icons={
-"AttackState": "",
 "BaseState": "",
-"Debugger": "",
+"Enemy": "",
+"Entity": "",
 "Game": "",
 "Hitbox": "",
 "Hurtbox": "",
-"MoveState": "",
-"Player": ""
+"Player": "",
+"PlayerMoveState": "",
+"StateMachine": ""
 }
 
 [application]
@@ -66,6 +72,14 @@ config/name="Treasure Hunters"
 run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Debugger="*res://_test/debugger.tscn"
+
+[debug]
+
+shapes/collision/shape_color=Color(1, 1, 1, 0.419608)
 
 [display]
 
@@ -103,7 +117,8 @@ attack={
 [layer_names]
 
 2d_physics/layer_1="World"
-2d_physics/layer_2="Hitboxes"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
 
 [rendering]
 

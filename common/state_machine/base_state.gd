@@ -1,11 +1,11 @@
 class_name BaseState
 extends Node
 
-var player: Player
+var is_hurt: bool = false
 
 
 func enter() -> void:
-	player.animations.play(name)
+	is_hurt = false
 
 func exit() -> void:
 	pass
