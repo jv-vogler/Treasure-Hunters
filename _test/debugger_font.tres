@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cuy03ek8do105"]
+
+[sub_resource type="SystemFont" id="SystemFont_b7dpm"]
+font_names = PackedStringArray("Poppins")
+font_style = 1
+
+[resource]
+line_spacing = 1.0
+font = SubResource("SystemFont_b7dpm")
+font_size = 4
