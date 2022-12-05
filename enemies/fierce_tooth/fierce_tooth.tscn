@@ -396,14 +396,12 @@ libraries = {
 script = ExtResource("43_prodk")
 idle_node = NodePath("../Idle")
 hurt_node = NodePath("../Hurt")
-dead_node = NodePath("../Dead")
 attack_node = NodePath("../Attack")
 
 [node name="Attack" parent="StateMachine" index="3"]
 script = ExtResource("44_girl4")
 idle_node = NodePath("../Idle")
 hurt_node = NodePath("../Hurt")
-dead_node = NodePath("../Dead")
 
 [node name="Hurt" parent="StateMachine" index="4"]
 chase_node = NodePath("../Chase")

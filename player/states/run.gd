@@ -11,7 +11,7 @@ extends PlayerMoveState
 
 
 func enter() -> void:
-	super.enter()
+	super()
 	if state_machine.previous_state == fall_state:
 		player.animations.play("Sword_Ground")
 		await player.animations.animation_finished

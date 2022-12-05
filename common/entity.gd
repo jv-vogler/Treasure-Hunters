@@ -3,8 +3,8 @@ extends CharacterBody2D
 
 signal took_damage
 
-@export var strength: int = 10
-@export var max_health: int = 100
+@export var strength: int = 1
+@export var max_health: int = 1000
 
 var acceleration: float = 0.2
 var friction: float = 0.1

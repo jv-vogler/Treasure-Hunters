@@ -148,6 +148,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Attack1:can_attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_rm8ff"]
 resource_name = "attack_2"
@@ -175,6 +187,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Attack2:can_attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_av8l1"]
@@ -206,6 +230,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StateMachine/Attack3:can_attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_026lg"]
@@ -458,18 +494,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("39_goiw3"), ExtResource("40_iaqm5"), ExtResource("41_akgy3"), ExtResource("42_7ivnr")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Hurtbox/PlayerHurtBox:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_rthdi"]
 resource_name = "idle_sword"
@@ -685,7 +709,7 @@ idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 jump_node = NodePath("../Jump")
 hurt_node = NodePath("../Hurt")
-attack3_node = NodePath("../Attack3")
+attack_node = NodePath("../Attack3")
 animation = "Sword_Fall"
 
 [node name="Attack1" type="Node" parent="StateMachine"]
@@ -697,6 +721,7 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack2")
 animation = "Attack1"
+lunge_distance = 0.0
 
 [node name="Attack2" type="Node" parent="StateMachine"]
 script = ExtResource("69_n7ofm")
@@ -716,6 +741,7 @@ idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
+next_attack_node = NodePath("../Attack1")
 animation = "Attack3"
 lunge_distance = 250.0
 
@@ -746,4 +772,6 @@ editor_draw_limits = true
 [connection signal="took_damage" from="." to="StateMachine/Jump" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack1" method="_on_player_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Attack2" method="_on_player_took_damage"]
+[connection signal="took_damage" from="." to="StateMachine/Attack3" method="_on_player_took_damage"]
 [connection signal="hit_direction" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit_direction"]

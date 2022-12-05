@@ -14,7 +14,7 @@ extends BaseState
 
 
 func enter() -> void:
-	super.enter()
+	super()
 	if state_machine.previous_state == fall_state:
 		enemy.animations.play("Ground")
 		await enemy.animations.animation_finished

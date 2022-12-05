@@ -15,18 +15,18 @@ extends BaseState
 
 
 func enter() -> void:
-	super.enter()
+	super()
 	player.animations.play(animation)
 	player.velocity.y = player.JUMP_VELOCITY
 
 
 func physics_process(delta: float) -> BaseState:
-	if is_hurt:
-		return hurt_state
-
 	player.velocity.x = lerp(player.velocity.x, player.direction * player.SPEED, acceleration)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
+
+	if is_hurt:
+		return hurt_state
 
 	if player.velocity.y > 0:
 		return fall_state
@@ -35,6 +35,7 @@ func physics_process(delta: float) -> BaseState:
 		if player.direction != 0:
 			return run_state
 		return idle_state
+
 	return null
 
 

@@ -13,7 +13,7 @@ extends BaseState
 
 
 func enter() -> void:
-	super.enter()
+	super()
 	enemy.animations.play("Fall")
 
 

@@ -19,7 +19,7 @@ extends BaseState
 
 
 func enter() -> void:
-	super.enter()
+	super()
 	if state_machine.previous_state == fall_state:
 		player.animations.play("Sword_Ground")
 		await player.animations.animation_finished
@@ -46,6 +46,7 @@ func physics_process(delta: float) -> BaseState:
 
 	if !player.is_on_floor():
 		return fall_state
+
 	return null
 
 

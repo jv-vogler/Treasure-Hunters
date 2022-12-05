@@ -17,9 +17,7 @@ var knock_direction: int
 
 
 func enter() -> void:
-	has_knocked = false
 	player.set_process(false)
-	return_state = null
 	player.animations.play(animation)
 	await player.animations.animation_finished
 
@@ -27,20 +25,23 @@ func enter() -> void:
 
 
 func exit() -> void:
-	return_state = null
 	player.set_process(true)
+	has_knocked = false
+	return_state = null
 
 
 func physics_process(delta: float) -> BaseState:
-	if !has_knocked:
-		player.velocity = Vector2(knock_direction * knock_intensity, knock_height * -1)
-		has_knocked = true
 	player.velocity.x = lerp(player.velocity.x, 0.0, friction)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 
 	if player.current_health == 0:
 		return dead_state
+
+	if !has_knocked:
+		player.velocity = Vector2(knock_direction * knock_intensity, knock_height * -1)
+		has_knocked = true
+
 	return return_state
 
 

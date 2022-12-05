@@ -7,12 +7,12 @@ extends BaseState
 @export var fall_node: NodePath
 @export var next_attack_node: NodePath
 @export var animation: String = ""
-@export var can_attack: bool = false
 @export_range(0.0, 500.0, 50.0) var lunge_distance: float = 200.0
 
 var acceleration: float = 0.09
 var attack_buffer: float = 0.3
 var attack_buffer_timer: float = 0
+var can_attack: bool = false
 var combo: bool = false
 
 @onready var state_machine: Node = get_node(state_machine_node)
@@ -38,8 +38,8 @@ func enter() -> void:
 			player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -50.0)
 		if animation == "Attack3":
 			player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -100.0)
-#		await player.animations.animation_finished
-#		can_attack = true
+		await player.animations.animation_finished
+		can_attack = true
 
 
 func exit() -> void:
