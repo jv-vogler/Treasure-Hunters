@@ -8,7 +8,7 @@ func enter() -> void:
 	is_hurt = false
 
 func exit() -> void:
-	is_hurt = false
+	pass
 
 func input(_event: InputEvent) -> BaseState:
 	return null

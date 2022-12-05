@@ -16,12 +16,16 @@ var knock_direction: int
 
 
 func enter() -> void:
-	has_knocked = false
-	return_state = null
+	_manage_stagger()
 	enemy.animations.play("Hurt")
 	await enemy.animations.animation_finished
 
 	return_state = idle_state
+
+
+func exit() -> void:
+	has_knocked = false
+	return_state = null
 
 
 func physics_process(delta: float) -> BaseState:
@@ -40,3 +44,10 @@ func physics_process(delta: float) -> BaseState:
 
 func _on_hurtbox_hit_direction(direction) -> void:
 	knock_direction = direction
+
+
+func _manage_stagger() -> void:
+	if enemy.stagger_count >= enemy.stagger_limit:
+		enemy.staggerable = false
+	else:
+		enemy.stagger_count += 1

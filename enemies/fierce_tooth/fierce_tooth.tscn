@@ -339,6 +339,7 @@ _data = {
 
 [node name="FierceTooth" instance=ExtResource("1_q3016")]
 script = ExtResource("1_ja8wv")
+speed = 120.0
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, 1)

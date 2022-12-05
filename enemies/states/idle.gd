@@ -4,10 +4,12 @@ extends BaseState
 @export var state_machine_node: NodePath
 @export var fall_node: NodePath
 @export var hurt_node: NodePath
+@export var chase_node: NodePath
 
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var fall_state: BaseState = get_node(fall_node)
 @onready var hurt_state: BaseState = get_node(hurt_node)
+@onready var chase_state: BaseState = get_node(chase_node)
 @onready var enemy: Enemy = owner
 
 
@@ -16,6 +18,7 @@ func enter() -> void:
 	if state_machine.previous_state == fall_state:
 		enemy.animations.play("Ground")
 		await enemy.animations.animation_finished
+
 	if state_machine.previous_state != hurt_state:
 		enemy.animations.play("Idle")
 
@@ -26,6 +29,9 @@ func physics_process(delta: float) -> BaseState:
 
 	if !enemy.is_on_floor():
 		return fall_state
+
+	if enemy.target:
+		return chase_state
 
 	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, friction)
 	enemy.velocity.y += enemy.gravity * delta
