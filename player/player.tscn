@@ -743,7 +743,6 @@ idle_node = NodePath("../Idle")
 run_node = NodePath("../Run")
 hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
-next_attack_node = NodePath("../Attack1")
 animation = "Attack3"
 can_attack = true
 lunge_distance = 250.0

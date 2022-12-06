@@ -25,9 +25,19 @@ _global_script_classes=[{
 "path": "res://common/entity.gd"
 }, {
 "base": "Node2D",
+"class": &"FloatingText",
+"language": &"GDScript",
+"path": "res://interface/floating_text/floating_text.gd"
+}, {
+"base": "Node2D",
 "class": &"Game",
 "language": &"GDScript",
 "path": "res://main.gd"
+}, {
+"base": "Control",
+"class": &"HealthBar",
+"language": &"GDScript",
+"path": "res://interface/health_bars/health_bar.gd"
 }, {
 "base": "Area2D",
 "class": &"Hitbox",
@@ -53,17 +63,25 @@ _global_script_classes=[{
 "class": &"StateMachine",
 "language": &"GDScript",
 "path": "res://common/state_machine/state_machine.gd"
+}, {
+"base": "Node",
+"class": &"Utils",
+"language": &"GDScript",
+"path": "res://global/utils.gd"
 }]
 _global_script_class_icons={
 "BaseState": "",
 "Enemy": "",
 "Entity": "",
+"FloatingText": "",
 "Game": "",
+"HealthBar": "",
 "Hitbox": "",
 "Hurtbox": "",
 "Player": "",
 "PlayerMoveState": "",
-"StateMachine": ""
+"StateMachine": "",
+"Utils": ""
 }
 
 [application]
