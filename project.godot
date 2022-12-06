@@ -25,6 +25,11 @@ _global_script_classes=[{
 "path": "res://common/entity.gd"
 }, {
 "base": "Node2D",
+"class": &"FloatingText",
+"language": &"GDScript",
+"path": "res://interface/floating_text/floating_text.gd"
+}, {
+"base": "Node2D",
 "class": &"Game",
 "language": &"GDScript",
 "path": "res://main.gd"
@@ -68,6 +73,7 @@ _global_script_class_icons={
 "BaseState": "",
 "Enemy": "",
 "Entity": "",
+"FloatingText": "",
 "Game": "",
 "HealthBar": "",
 "Hitbox": "",
