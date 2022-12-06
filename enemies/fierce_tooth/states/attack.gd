@@ -2,12 +2,14 @@ extends BaseState
 
 @export var idle_node: NodePath
 @export var hurt_node: NodePath
+@export var dead_node: NodePath
 @export_range(0, 550.0, 50.0) var lunge_distance: float = 350.0
 
 var attack_finished: bool = false
 
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var hurt_state: BaseState = get_node(hurt_node)
+@onready var dead_state: BaseState = get_node(dead_node)
 @onready var enemy: Enemy = owner
 
 
@@ -16,7 +18,7 @@ func enter() -> void:
 	enemy.animations.play("Anticipation")
 	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, 0.9)
 	await enemy.animations.animation_finished
-	if !is_hurt:
+	if !is_hurt and enemy.current_health > 0:
 		_attack()
 
 
@@ -25,6 +27,9 @@ func exit() -> void:
 
 
 func physics_process(delta: float) -> BaseState:
+	if enemy.current_health == 0:
+		return dead_state
+
 	if is_hurt and enemy.staggerable:
 		return hurt_state
 

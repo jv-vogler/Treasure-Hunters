@@ -18,7 +18,6 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 
 	if owner.has_method("take_damage"):
 		owner.take_damage(hitbox.damage)
-		owner.emit_signal("took_damage")
 
 		var direction: float = owner.position.x - hitbox.owner.position.x
 		if direction > 0:

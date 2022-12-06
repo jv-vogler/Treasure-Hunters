@@ -36,6 +36,7 @@ func physics_process(delta: float) -> BaseState:
 		has_knocked = true
 
 	if enemy.current_health == 0:
+		enemy.target = null
 		return dead_state
 
 	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, friction)

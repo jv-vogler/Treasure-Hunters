@@ -46,7 +46,7 @@
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/attack.gd" id="44_girl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
-size = Vector2(22, 21)
+size = Vector2(31, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
 size = Vector2(26, 22)
@@ -372,7 +372,7 @@ position = Vector2(0, 1)
 texture = ExtResource("2_t7y6h")
 
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
-position = Vector2(-11, 2.5)
+position = Vector2(-6.5, 1.5)
 shape = SubResource("RectangleShape2D_i7jwp")
 disabled = true
 
@@ -381,7 +381,7 @@ position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tdtvm")
 
 [node name="Range" parent="Sprite/AttackRange" index="0"]
-position = Vector2(-22, 2.5)
+position = Vector2(-15, 1.5)
 
 [node name="Collision" parent="." index="2"]
 position = Vector2(0.5, 3)
@@ -402,6 +402,7 @@ attack_node = NodePath("../Attack")
 script = ExtResource("44_girl4")
 idle_node = NodePath("../Idle")
 hurt_node = NodePath("../Hurt")
+dead_node = NodePath("../Dead")
 
 [node name="Hurt" parent="StateMachine" index="4"]
 chase_node = NodePath("../Chase")

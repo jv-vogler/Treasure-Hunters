@@ -14,4 +14,4 @@ script = ExtResource("1_2ixcs")
 position = Vector2(157, 149)
 
 [node name="FierceTooth" parent="." instance=ExtResource("4_8lshv")]
-position = Vector2(463, 128)
+position = Vector2(248, 135)
