@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2mkntrj88cce"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://_test/debugger.gd" id="1_racyg"]
-[ext_resource type="StyleBox" uid="uid://64i7smgmpdqn" path="res://_test/debugger_resources/new_style_box_empty.tres" id="2_dik3k"]
+[ext_resource type="StyleBox" uid="uid://64i7smgmpdqn" path="res://_test/debugger_resources/debugger.tres" id="2_dik3k"]
 [ext_resource type="StyleBox" uid="uid://4w6d7hi525uc" path="res://_test/debugger_resources/debugger_panel.tres" id="2_g5kpy"]
 [ext_resource type="SystemFont" uid="uid://cb5yvl1aticam" path="res://_test/debugger_resources/debugger_font.tres" id="3_4d7jg"]
 

@@ -46,14 +46,13 @@
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/attack.gd" id="44_girl4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
-size = Vector2(31, 23)
+size = Vector2(24, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
-size = Vector2(26, 22)
+size = Vector2(25, 21)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57fh0"]
-radius = 6.5
-height = 22.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjb77"]
+size = Vector2(17, 21)
 
 [sub_resource type="Animation" id="Animation_ald3c"]
 resource_name = "Anticipation"
@@ -94,7 +93,7 @@ tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -373,20 +372,24 @@ position = Vector2(0, 1)
 texture = ExtResource("2_t7y6h")
 
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
-position = Vector2(-6.5, 1.5)
+position = Vector2(-10, 1.5)
 shape = SubResource("RectangleShape2D_i7jwp")
 disabled = true
 
 [node name="EnemyHurtbox" parent="Sprite/Hurtbox" index="0"]
-position = Vector2(1, 1)
+position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_tdtvm")
 
 [node name="Range" parent="Sprite/AttackRange" index="0"]
+visible = false
 position = Vector2(-15, 1.5)
 
+[node name="Range" parent="PlayerDetection" index="0"]
+visible = false
+
 [node name="Collision" parent="." index="2"]
-position = Vector2(0.5, 3)
-shape = SubResource("CapsuleShape2D_57fh0")
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_rjb77")
 
 [node name="Animations" parent="." index="3"]
 libraries = {

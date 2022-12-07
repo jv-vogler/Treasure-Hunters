@@ -21,7 +21,8 @@ func enter() -> void:
 	player.animations.play(animation)
 	await player.animations.animation_finished
 
-	return_state = idle_state
+	if player.current_health > 0:
+		return_state = idle_state
 
 
 func exit() -> void:
@@ -31,16 +32,16 @@ func exit() -> void:
 
 
 func physics_process(delta: float) -> BaseState:
-	player.velocity.x = lerp(player.velocity.x, 0.0, friction)
-	player.velocity.y += player.gravity * delta
-	player.move_and_slide()
-
 	if player.current_health == 0:
 		return dead_state
 
 	if !has_knocked:
 		player.velocity = Vector2(knock_direction * knock_intensity, knock_height * -1)
 		has_knocked = true
+
+	player.velocity.x = lerp(player.velocity.x, 0.0, friction)
+	player.velocity.y += player.gravity * delta
+	player.move_and_slide()
 
 	return return_state
 
