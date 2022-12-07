@@ -6,6 +6,7 @@ extends BaseState
 @export_range(0.01, 1, 0.01) var acceleration: float = 0.03
 
 var is_in_range: bool = false
+var should_attack: bool = false
 
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var hurt_state: BaseState = get_node(hurt_node)
@@ -20,6 +21,7 @@ func enter() -> void:
 
 func exit() -> void:
 	is_in_range = false
+	should_attack = false
 	enemy.attack_range.get_child(0).disabled = true
 
 
@@ -30,7 +32,7 @@ func physics_process(_delta) -> BaseState:
 	if !enemy.target:
 		return idle_state
 
-	if is_in_range:
+	if is_in_range and should_attack:
 		return attack_state
 
 	enemy.velocity.x = lerp(enemy.velocity.x, enemy.direction * enemy.speed, acceleration)
@@ -39,6 +41,10 @@ func physics_process(_delta) -> BaseState:
 
 
 func _on_attack_range_body_entered(_body: Node2D) -> void:
+	if !should_attack:
+		var random_delay = get_tree().create_timer(randf_range(0.1, 1.0))
+		await random_delay.timeout
+		should_attack = true
 	is_in_range = true
 
 

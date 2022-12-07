@@ -51,8 +51,9 @@ size = Vector2(31, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
 size = Vector2(26, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cxaa"]
-size = Vector2(17, 22)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_57fh0"]
+radius = 6.5
+height = 22.0
 
 [sub_resource type="Animation" id="Animation_ald3c"]
 resource_name = "Anticipation"
@@ -385,7 +386,7 @@ position = Vector2(-15, 1.5)
 
 [node name="Collision" parent="." index="2"]
 position = Vector2(0.5, 3)
-shape = SubResource("RectangleShape2D_8cxaa")
+shape = SubResource("CapsuleShape2D_57fh0")
 
 [node name="Animations" parent="." index="3"]
 libraries = {

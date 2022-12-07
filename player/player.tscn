@@ -644,6 +644,8 @@ disabled = true
 debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("4_0nv2g")
 takes_damage_from = 4
 
@@ -721,7 +723,6 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack2")
 animation = "Attack1"
-can_attack = true
 lunge_distance = 0.0
 
 [node name="Attack2" type="Node" parent="StateMachine"]
@@ -733,7 +734,6 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack3")
 animation = "Attack2"
-can_attack = true
 lunge_distance = 100.0
 
 [node name="Attack3" type="Node" parent="StateMachine"]
@@ -744,7 +744,6 @@ run_node = NodePath("../Run")
 hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 animation = "Attack3"
-can_attack = true
 lunge_distance = 250.0
 
 [node name="Hurt" type="Node" parent="StateMachine"]

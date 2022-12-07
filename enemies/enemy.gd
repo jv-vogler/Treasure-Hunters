@@ -36,7 +36,7 @@ var target: Player = null
 
 func _ready() -> void:
 	state_machine.init()
-	init_health_bar()
+	_init_health_bar()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -65,7 +65,7 @@ func take_damage(damage: int) -> void:
 	_spawn_damage_number(damage)
 
 
-func init_health_bar() -> void:
+func _init_health_bar() -> void:
 	var health_percent: int = Utils.get_percent(current_health, max_health)
 	health_bar.hp.value = health_percent
 	health_bar.dmg.value = health_percent
