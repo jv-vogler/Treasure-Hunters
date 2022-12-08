@@ -42,7 +42,7 @@ func physics_process(_delta) -> BaseState:
 
 func _on_attack_range_body_entered(_body: Node2D) -> void:
 	if !should_attack:
-		var random_delay = get_tree().create_timer(randf_range(0.1, 1.0))
+		var random_delay = get_tree().create_timer(randf_range(0.1, 0.5))
 		await random_delay.timeout
 		should_attack = true
 	is_in_range = true

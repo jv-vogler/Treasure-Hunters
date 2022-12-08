@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dq08jr86vn4ka"]
+
+[ext_resource type="Texture2D" uid="uid://buijiam3hi4rl" path="res://interface/theme/assets/orange_paper.png" id="1_bji0l"]
+
+[resource]
+texture = ExtResource("1_bji0l")
+margin_left = 22.0
+margin_top = 23.0
+margin_right = 22.0
+margin_bottom = 23.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 70, 66)

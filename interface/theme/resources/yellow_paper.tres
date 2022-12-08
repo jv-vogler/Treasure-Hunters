@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bhu1hckkx4ulb"]
+
+[ext_resource type="Texture2D" uid="uid://dmuty14hotpxp" path="res://interface/theme/assets/yellow_paper.png" id="1_xcdgs"]
+
+[resource]
+texture = ExtResource("1_xcdgs")
+margin_left = 22.0
+margin_top = 24.0
+margin_right = 22.0
+margin_bottom = 24.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 70, 66)

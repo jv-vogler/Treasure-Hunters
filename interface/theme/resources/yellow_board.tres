@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b42gc1e7ov2s0"]
+
+[ext_resource type="Texture2D" uid="uid://c8va16el3v4ek" path="res://interface/theme/assets/yellow_board.png" id="1_jrsqu"]
+
+[resource]
+texture = ExtResource("1_jrsqu")
+margin_left = 28.0
+margin_top = 28.0
+margin_right = 28.0
+margin_bottom = 28.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 86, 86)

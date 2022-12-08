@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bq0x77m6hp8c1"]
+
+[ext_resource type="Texture2D" uid="uid://ba0y017cd3bhn" path="res://interface/theme/assets/button.png" id="1_3ryf6"]
+[ext_resource type="StyleBox" uid="uid://df1jqwgljodwx" path="res://interface/theme/resources/button.tres" id="2_inxgw"]
+[ext_resource type="Texture2D" uid="uid://m41dourhk71q" path="res://interface/theme/assets/hslider_btn.png" id="3_ibda7"]
+[ext_resource type="StyleBox" uid="uid://cfpprfrwgynk0" path="res://interface/theme/resources/hslider.tres" id="4_klujo"]
+[ext_resource type="StyleBox" uid="uid://b42gc1e7ov2s0" path="res://interface/theme/resources/yellow_board.tres" id="5_htbwp"]
+[ext_resource type="Texture2D" uid="uid://ckkyg2g8ghigf" path="res://interface/theme/assets/vslider_btn.png" id="6_skgal"]
+[ext_resource type="StyleBox" uid="uid://chxkagctqfmoo" path="res://interface/theme/resources/vslider.tres" id="7_kdlcr"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3r751"]
+texture = ExtResource("1_3ryf6")
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 14.0
+margin_bottom = 14.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 42, 42)
+modulate_color = Color(0.552941, 0.552941, 0.552941, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5d2j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x215h"]
+texture = ExtResource("1_3ryf6")
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 14.0
+margin_bottom = 14.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 42, 42)
+modulate_color = Color(0.988235, 0.819608, 0.447059, 1)
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_3r751")
+Button/styles/focus = SubResource("StyleBoxEmpty_i5d2j")
+Button/styles/hover = ExtResource("2_inxgw")
+Button/styles/normal = ExtResource("2_inxgw")
+Button/styles/pressed = SubResource("StyleBoxTexture_x215h")
+HSlider/icons/grabber = ExtResource("3_ibda7")
+HSlider/icons/grabber_highlight = ExtResource("3_ibda7")
+HSlider/styles/grabber_area = ExtResource("4_klujo")
+HSlider/styles/grabber_area_highlight = ExtResource("4_klujo")
+Panel/styles/panel = ExtResource("5_htbwp")
+VSlider/icons/grabber = ExtResource("6_skgal")
+VSlider/icons/grabber_disabled = ExtResource("6_skgal")
+VSlider/icons/grabber_highlight = ExtResource("6_skgal")
+VSlider/styles/grabber_area = ExtResource("7_kdlcr")
+VSlider/styles/grabber_area_highlight = ExtResource("7_kdlcr")

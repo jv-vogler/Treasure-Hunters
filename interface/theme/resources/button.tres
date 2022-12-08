@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://df1jqwgljodwx"]
+
+[ext_resource type="Texture2D" uid="uid://ba0y017cd3bhn" path="res://interface/theme/assets/button.png" id="1_gq4io"]
+
+[resource]
+texture = ExtResource("1_gq4io")
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 14.0
+margin_bottom = 14.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 42, 42)

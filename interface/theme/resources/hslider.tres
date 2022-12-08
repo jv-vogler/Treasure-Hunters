@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cfpprfrwgynk0"]
+
+[ext_resource type="Texture2D" uid="uid://ckx4tuyjnj4yy" path="res://interface/theme/assets/h_slider.png" id="1_5ajet"]
+
+[resource]
+texture = ExtResource("1_5ajet")
+margin_left = 10.0
+margin_top = 2.0
+margin_right = 10.0
+margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 30, 6)
