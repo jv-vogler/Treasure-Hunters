@@ -3,7 +3,13 @@ extends Area2D
 
 @export_flags_2d_physics var damage_source: int
 
-@onready var damage: int = owner.strength #TODO damage formula
+var damage: int:
+	get:
+		return int(attack_strength * randf_range(0.8, 1.2))
+
+@onready var attack_strength: int:
+	get:
+		return owner.strength
 
 
 func _ready() -> void:
