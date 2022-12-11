@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://p7oeunabok7x"]
+
+[ext_resource type="Script" path="res://resources/attack_data.gd" id="1_thtg8"]
+
+[resource]
+script = ExtResource("1_thtg8")
+knock_height = 150.0
+knock_force = 50.0
+poisoned_weapon = false

@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://interface/floating_text/floating_text.gd" id="1_u7ooa"]
 
-[sub_resource type="SystemFont" id="SystemFont_4f600"]
+[sub_resource type="SystemFont" id="SystemFont_7sdj3"]
 font_names = PackedStringArray("Calibri")
 
-[sub_resource type="LabelSettings" id="LabelSettings_8w6uv"]
+[sub_resource type="LabelSettings" id="LabelSettings_b75js"]
 resource_local_to_scene = true
-font = SubResource("SystemFont_4f600")
+font = SubResource("SystemFont_7sdj3")
 font_size = 8
 font_color = Color(0.862745, 0.286275, 0.286275, 1)
 
-[sub_resource type="Animation" id="Animation_grir2"]
+[sub_resource type="Animation" id="Animation_trur4"]
 resource_name = "Fade Up"
 length = 1.5
 tracks/0/type = "value"
@@ -53,7 +53,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_q0npm"]
+[sub_resource type="Animation" id="Animation_xp3tp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,10 +80,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0fm0s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vmf53"]
 _data = {
-"Fade Up": SubResource("Animation_grir2"),
-"RESET": SubResource("Animation_q0npm")
+"Fade Up": SubResource("Animation_trur4"),
+"RESET": SubResource("Animation_xp3tp")
 }
 
 [node name="FloatingText" type="Node2D"]
@@ -96,12 +96,12 @@ offset_top = -30.0
 offset_right = 33.0
 offset_bottom = -4.0
 text = "123"
-label_settings = SubResource("LabelSettings_8w6uv")
+label_settings = SubResource("LabelSettings_b75js")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_0fm0s")
+"": SubResource("AnimationLibrary_vmf53")
 }

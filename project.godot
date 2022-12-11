@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Resource",
+"class": &"AttackData",
+"language": &"GDScript",
+"path": "res://resources/attack_data.gd"
+}, {
 "base": "Node",
 "class": &"BaseState",
 "language": &"GDScript",
@@ -49,6 +54,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://common/hitboxes/hurtbox.gd"
 }, {
+"base": "Resource",
+"class": &"Inventory",
+"language": &"GDScript",
+"path": "res://resources/inventory.gd"
+}, {
+"base": "Resource",
+"class": &"ItemData",
+"language": &"GDScript",
+"path": "res://resources/item_data.gd"
+}, {
 "base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
@@ -64,12 +79,18 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://common/state_machine/state_machine.gd"
 }, {
+"base": "Resource",
+"class": &"Stats",
+"language": &"GDScript",
+"path": "res://resources/stats.gd"
+}, {
 "base": "Node",
 "class": &"Utils",
 "language": &"GDScript",
 "path": "res://common/utils.gd"
 }]
 _global_script_class_icons={
+"AttackData": "",
 "BaseState": "",
 "Enemy": "",
 "Entity": "",
@@ -78,9 +99,12 @@ _global_script_class_icons={
 "HealthBar": "",
 "Hitbox": "",
 "Hurtbox": "",
+"Inventory": "",
+"ItemData": "",
 "Player": "",
 "PlayerMoveState": "",
 "StateMachine": "",
+"Stats": "",
 "Utils": ""
 }
 
@@ -127,7 +151,16 @@ jump={
 attack={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"unicode":0,"echo":false,"script":null)
+]
+}
+activate_adrenaline={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"unicode":0,"echo":false,"script":null)
+]
+}
+activate_poison={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"unicode":0,"echo":false,"script":null)
 ]
 }
 

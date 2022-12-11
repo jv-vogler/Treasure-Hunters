@@ -70,6 +70,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("5_2c6sj"), ExtResource("6_8btve"), ExtResource("7_xqi1i")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_81dwc"]
 resource_name = "Attack"
@@ -166,6 +178,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("21_4cfks")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_wf4fm"]
 resource_name = "Ground"
@@ -181,6 +205,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [ExtResource("22_67l36"), ExtResource("23_rf81k")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_8q6fx"]
@@ -348,6 +384,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("38_4pigo"), ExtResource("39_orr81"), ExtResource("40_jtswy"), ExtResource("41_c6noq"), ExtResource("42_mrr46"), ExtResource("43_isnix")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Hitbox/RegularAttack:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vuyso"]
 _data = {
@@ -366,29 +414,40 @@ _data = {
 [node name="FierceTooth" instance=ExtResource("1_q3016")]
 script = ExtResource("1_ja8wv")
 speed = 160.0
-strength = 20
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, 1)
 texture = ExtResource("2_t7y6h")
+
+[node name="Hitbox" parent="Sprite" index="0"]
+visible = false
 
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
 position = Vector2(-4.5, 2)
 shape = SubResource("RectangleShape2D_i7jwp")
 disabled = true
 
+[node name="Hurtbox" parent="Sprite" index="1"]
+visible = false
+
 [node name="EnemyHurtbox" parent="Sprite/Hurtbox" index="0"]
 position = Vector2(0.5, 2.5)
 shape = SubResource("RectangleShape2D_tdtvm")
 
-[node name="Range" parent="Sprite/AttackRange" index="0"]
+[node name="AttackRange" parent="Sprite" index="2"]
 visible = false
+
+[node name="Range" parent="Sprite/AttackRange" index="0"]
 position = Vector2(-15, 1.5)
 
-[node name="Range" parent="PlayerDetection" index="0"]
+[node name="PlayerDetection" parent="." index="1"]
 visible = false
 
+[node name="Range" parent="PlayerDetection" index="0"]
+position = Vector2(0, -41)
+
 [node name="Collision" parent="." index="2"]
+visible = false
 position = Vector2(0.5, 3.5)
 shape = SubResource("RectangleShape2D_rjb77")
 
@@ -401,17 +460,15 @@ libraries = {
 script = ExtResource("43_prodk")
 idle_node = NodePath("../Idle")
 hurt_node = NodePath("../Hurt")
+dead_node = NodePath("../Dead")
 attack_node = NodePath("../Attack")
 
 [node name="Attack" parent="StateMachine" index="3"]
 script = ExtResource("44_girl4")
 idle_node = NodePath("../Idle")
+chase_node = NodePath("../Chase")
 hurt_node = NodePath("../Hurt")
 dead_node = NodePath("../Dead")
-
-[node name="Hurt" parent="StateMachine" index="4"]
-chase_node = NodePath("../Chase")
-knock_intensity = 100.0
 
 [connection signal="took_damage" from="." to="StateMachine/Chase" method="_on_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack" method="_on_took_damage"]
