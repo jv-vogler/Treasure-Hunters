@@ -11,7 +11,9 @@ extends BaseState
 @export_range(0.0, 500.0, 50.0) var lunge_distance: float = 200.0
 
 var acceleration: float = 0.09
-var attack_buffer: float = 0.3
+var attack_buffer: float:
+	get:
+		return player.animations.get_animation(animation).length
 var attack_buffer_timer: float = 0
 var combo: bool = false
 
@@ -34,17 +36,25 @@ func enter() -> void:
 	if !is_hurt:
 		player.animations.play(animation)
 		attack_buffer_timer = attack_buffer
+		player.attacks.knock_intensity = 50.0
+		player.attacks.knock_height = 150.0
+		player.strength = player.stats.strength * 0.75
 		if animation == "Attack2":
 			player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -50.0)
+			player.attacks.knock_intensity = 100.0
+			player.attacks.knock_height = 150.0
+			player.strength = player.stats.strength * 1.0
 		if animation == "Attack3":
 			player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -100.0)
-#		await player.animations.animation_finished
-#		can_attack = true
+			player.attacks.knock_intensity = 250.0
+			player.attacks.knock_height = 100.0
+			player.strength = player.stats.strength * 1.5
 
 
 func exit() -> void:
 	can_attack = false
 	combo = false
+	player.strength = player.stats.strength
 
 
 func input(_event: InputEvent) -> BaseState:
@@ -74,7 +84,7 @@ func physics_process(delta: float) -> BaseState:
 		return run_state if player.direction else idle_state
 
 	player.velocity.x = lerp(
-		player.velocity.x, (player.direction * player.SPEED) / 4, acceleration
+		player.velocity.x, (player.direction * player.speed) / 4, acceleration
 		)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()

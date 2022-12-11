@@ -1,4 +1,4 @@
-[gd_scene load_steps=105 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=107 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="3_lv1im"]
 [ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="4_0nv2g"]
 [ext_resource type="Texture2D" uid="uid://c7jo8u87olghm" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="4_fpy78"]
+[ext_resource type="Script" path="res://resources/attack_data.gd" id="4_s0ugl"]
 [ext_resource type="Texture2D" uid="uid://dww32fh7gtttc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="5_0da0l"]
 [ext_resource type="Texture2D" uid="uid://dghp3x5oklanf" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="7_sj2bj"]
 [ext_resource type="Texture2D" uid="uid://coqvu3vtd70nb" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="8_d65vy"]
@@ -79,6 +80,14 @@
 [ext_resource type="Texture2D" uid="uid://l266gl2ddklc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="71_2pick"]
 [ext_resource type="Script" path="res://player/states/hurt.gd" id="71_lhjdy"]
 [ext_resource type="Script" path="res://player/states/dead.gd" id="72_ew5qq"]
+
+[sub_resource type="Resource" id="Resource_nj300"]
+script = ExtResource("4_s0ugl")
+knock_height = 150.0
+knock_intensity = 50.0
+critical_hit = false
+applies_poison = false
+applies_stagger = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby3t"]
 size = Vector2(20, 21)
@@ -497,18 +506,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("39_goiw3"), ExtResource("40_iaqm5"), ExtResource("41_akgy3"), ExtResource("42_7ivnr")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Hurtbox/PlayerHurtBox:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="Animation" id="Animation_rthdi"]
 resource_name = "idle_sword"
@@ -636,10 +633,12 @@ _data = {
 "Sword_Throw": SubResource("Animation_qepdc")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
 collision_layer = 2
 collision_mask = 5
+platform_on_leave = 2
+platform_floor_layers = 4278190081
 script = ExtResource("1_jwel6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -651,6 +650,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("3_lv1im")
 damage_source = 2
+attack_data = SubResource("Resource_nj300")
 
 [node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
 position = Vector2(21, -0.5)
@@ -659,6 +659,7 @@ disabled = true
 debug_color = Color(0.701961, 0, 0.027451, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
+visible = false
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_0nv2g")
@@ -739,7 +740,6 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack2")
 animation = "Attack1"
-can_attack = true
 lunge_distance = 0.0
 
 [node name="Attack2" type="Node" parent="StateMachine"]
@@ -751,7 +751,6 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack3")
 animation = "Attack2"
-can_attack = true
 lunge_distance = 100.0
 
 [node name="Attack3" type="Node" parent="StateMachine"]
@@ -762,7 +761,6 @@ run_node = NodePath("../Run")
 hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 animation = "Attack3"
-can_attack = true
 lunge_distance = 250.0
 
 [node name="Hurt" type="Node" parent="StateMachine"]
@@ -794,4 +792,4 @@ editor_draw_limits = true
 [connection signal="took_damage" from="." to="StateMachine/Attack1" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack2" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack3" method="_on_player_took_damage"]
-[connection signal="hit_direction" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit_direction"]
+[connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]

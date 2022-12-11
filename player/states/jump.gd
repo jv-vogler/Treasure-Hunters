@@ -17,11 +17,11 @@ extends BaseState
 func enter() -> void:
 	super()
 	player.animations.play(animation)
-	player.velocity.y = player.JUMP_VELOCITY
+	player.velocity.y = player.jump_velocity
 
 
 func physics_process(delta: float) -> BaseState:
-	player.velocity.x = lerp(player.velocity.x, player.direction * player.SPEED, acceleration)
+	player.velocity.x = lerp(player.velocity.x, player.direction * player.speed, acceleration)
 	player.velocity.y += player.gravity * delta
 	player.move_and_slide()
 

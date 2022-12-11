@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://beqolu5sua5w"]
+
+[ext_resource type="Script" path="res://resources/stats.gd" id="1_gpqpi"]
+
+[resource]
+script = ExtResource("1_gpqpi")
+adrenaline_decay = 0.2
+poison_decay = 0.01

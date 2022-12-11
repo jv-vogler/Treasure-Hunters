@@ -2,6 +2,7 @@ extends BaseState
 
 @export var idle_node: NodePath
 @export var hurt_node: NodePath
+@export var dead_node: NodePath
 @export var attack_node: NodePath
 @export_range(0.01, 1, 0.01) var acceleration: float = 0.03
 
@@ -10,6 +11,7 @@ var should_attack: bool = false
 
 @onready var idle_state: BaseState = get_node(idle_node)
 @onready var hurt_state: BaseState = get_node(hurt_node)
+@onready var dead_state: BaseState = get_node(dead_node)
 @onready var attack_state: BaseState = get_node(attack_node)
 @onready var enemy: Enemy = owner
 
@@ -19,6 +21,7 @@ func enter() -> void:
 	enemy.animations.play("Run")
 	enemy.attack_range.get_child(0).disabled = false
 
+
 func exit() -> void:
 	is_in_range = false
 	should_attack = false
@@ -26,10 +29,13 @@ func exit() -> void:
 
 
 func physics_process(_delta) -> BaseState:
+	if enemy.current_health == 0:
+		return dead_state
+
 	if is_hurt and enemy.staggerable:
 		return hurt_state
 
-	if !enemy.target:
+	if !enemy.target and enemy.current_health > 0:
 		return idle_state
 
 	if is_in_range and should_attack:
