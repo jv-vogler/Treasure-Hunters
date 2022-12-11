@@ -112,6 +112,7 @@ hurt_node = NodePath("../Hurt")
 [node name="Hurt" type="Node" parent="StateMachine"]
 script = ExtResource("8_kv5f8")
 idle_node = NodePath("../Idle")
+chase_node = NodePath("../Chase")
 dead_node = NodePath("../Dead")
 
 [node name="Dead" type="Node" parent="StateMachine"]
@@ -128,3 +129,4 @@ offset_bottom = -20.0
 [connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="got_poisoned" from="StateMachine/Hurt" to="." method="_on_got_poisoned"]

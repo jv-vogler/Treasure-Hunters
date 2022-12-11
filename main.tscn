@@ -17,3 +17,18 @@ position = Vector2(157, 149)
 position = Vector2(275, 94)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
+
+[node name="FierceTooth2" parent="." instance=ExtResource("4_8lshv")]
+position = Vector2(294, 135)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth3" parent="." instance=ExtResource("4_8lshv")]
+position = Vector2(40, 111)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth4" parent="." instance=ExtResource("4_8lshv")]
+position = Vector2(101, 111)
+platform_on_leave = 0
+platform_floor_layers = 4294967295

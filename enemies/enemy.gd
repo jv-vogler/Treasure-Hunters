@@ -85,3 +85,22 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 
 func _on_player_detection_body_exited(_body: Node2D) -> void:
 	target = null
+
+
+func _on_got_poisoned() -> void:
+	var damage_scale = 0.01
+	sprite.modulate = Color("#6ffc90")
+
+	for i in range(10):
+		if current_health == 0:
+			break
+
+		await get_tree().create_timer(2.0).timeout
+		var damage: int = int(max_health * damage_scale)
+		current_health -= damage
+		_update_health_bar()
+		_spawn_damage_number(damage)
+		damage_scale += 0.03
+
+	status -= Status.POISONED
+	sprite.modulate = Color("#ffffff")

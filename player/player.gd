@@ -51,15 +51,14 @@ func _process(delta: float) -> void:
 
 
 func succesful_hit() -> void:
-	current_adrenaline += 1
-	current_poison -= 2
+	current_adrenaline += 1.5
 
 
 func activate_adrenaline() -> void:
 	buffs += Buff.ADRENALINE
-	animations.playback_speed = 1.5
+#	animations.playback_speed = 1.5
 	strength *= 1.5
-	speed *= 1.2
+	speed *= 1.25
 
 
 func activate_poison() -> void:
@@ -77,7 +76,7 @@ func _init_stats() -> void:
 	max_adrenaline = stats.max_adrenaline
 	current_health = max_health
 	current_adrenaline = max_adrenaline
-	strength = 2
+
 
 func _handle_buffs() -> void:
 	if buffs & Buff.POISON:

@@ -419,6 +419,9 @@ speed = 160.0
 position = Vector2(0, 1)
 texture = ExtResource("2_t7y6h")
 
+[node name="Hitbox" parent="Sprite" index="0"]
+visible = false
+
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
 position = Vector2(-4.5, 2)
 shape = SubResource("RectangleShape2D_i7jwp")
@@ -466,9 +469,6 @@ idle_node = NodePath("../Idle")
 chase_node = NodePath("../Chase")
 hurt_node = NodePath("../Hurt")
 dead_node = NodePath("../Dead")
-
-[node name="Hurt" parent="StateMachine" index="4"]
-chase_node = NodePath("../Chase")
 
 [connection signal="took_damage" from="." to="StateMachine/Chase" method="_on_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack" method="_on_took_damage"]

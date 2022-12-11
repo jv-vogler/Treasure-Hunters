@@ -1,5 +1,7 @@
 extends BaseState
 
+signal got_poisoned
+
 @export var idle_node: NodePath
 @export var chase_node: NodePath
 @export var dead_node: NodePath
@@ -7,8 +9,8 @@ extends BaseState
 var friction: float = 0.05
 var has_knocked: bool = false
 var is_staggered: bool = false
-var knock_intensity: float = 50.0
-var knock_height: float = 150.0
+var knock_intensity: float = 0.0
+var knock_height: float = 0.0
 var knock_direction: int
 
 @onready var idle_state: Node = get_node(idle_node)
@@ -31,10 +33,12 @@ func exit() -> void:
 	has_knocked = false
 	is_staggered = false
 	return_state = null
+	knock_intensity = 0.0
+	knock_height = 0.0
 
 
 func physics_process(delta: float) -> BaseState:
-	if !has_knocked and enemy.is_on_floor():
+	if !has_knocked and knock_intensity:
 		enemy.velocity = Vector2(knock_direction * knock_intensity, knock_height * -1)
 		has_knocked = true
 
@@ -59,3 +63,4 @@ func _on_hurtbox_hit(hit) -> void:
 
 	if !enemy.status & enemy.Status.POISONED and hit.applies_poison:
 		enemy.status += enemy.Status.POISONED
+		emit_signal("got_poisoned")
