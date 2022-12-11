@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bept6s20vyxx4"]
+
+[ext_resource type="Texture2D" uid="uid://6y8ms4opw6g8" path="res://resources/items/health_potion.png" id="1_1e0y8"]
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1_abuly"]
+
+[resource]
+script = ExtResource("1_abuly")
+unique_id = "health_potion"
+icon = ExtResource("1_1e0y8")
+display_name = "Health Potion"
+description = "Restores health to full."
+display_name_br = "Poção de Vida"
+description_br = "Recupera toda a vida."

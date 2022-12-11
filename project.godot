@@ -54,6 +54,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://common/hitboxes/hurtbox.gd"
 }, {
+"base": "Resource",
+"class": &"Inventory",
+"language": &"GDScript",
+"path": "res://resources/inventory.gd"
+}, {
+"base": "Resource",
+"class": &"ItemData",
+"language": &"GDScript",
+"path": "res://resources/item_data.gd"
+}, {
 "base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
@@ -89,6 +99,8 @@ _global_script_class_icons={
 "HealthBar": "",
 "Hitbox": "",
 "Hurtbox": "",
+"Inventory": "",
+"ItemData": "",
 "Player": "",
 "PlayerMoveState": "",
 "StateMachine": "",

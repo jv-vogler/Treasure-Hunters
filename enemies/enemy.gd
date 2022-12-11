@@ -100,7 +100,7 @@ func _on_got_poisoned() -> void:
 		current_health -= damage
 		_update_health_bar()
 		_spawn_damage_number(damage)
-		damage_scale += 0.03
+		damage_scale += 0.05
 
 	status -= Status.POISONED
 	sprite.modulate = Color("#ffffff")

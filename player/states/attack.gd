@@ -38,23 +38,19 @@ func enter() -> void:
 		attack_buffer_timer = attack_buffer
 		player.attacks.knock_intensity = 50.0
 		player.attacks.knock_height = 150.0
-		player.strength = player.stats.strength * 0.75
 		if animation == "Attack2":
 			player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -50.0)
 			player.attacks.knock_intensity = 100.0
 			player.attacks.knock_height = 150.0
-			player.strength = player.stats.strength * 1.0
 		if animation == "Attack3":
 			player.velocity += Vector2(lunge_distance * player.sprite.scale.x, -100.0)
-			player.attacks.knock_intensity = 250.0
+			player.attacks.knock_intensity = 200.0
 			player.attacks.knock_height = 100.0
-			player.strength = player.stats.strength * 1.5
 
 
 func exit() -> void:
 	can_attack = false
 	combo = false
-	player.strength = player.stats.strength
 
 
 func input(_event: InputEvent) -> BaseState:
