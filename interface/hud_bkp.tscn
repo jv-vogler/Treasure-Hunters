@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" uid="uid://da1b5h5q8usnf" path="res://interface/health_bars/BigHPBar.png" id="1_34dm1"]
+[ext_resource type="Texture2D" uid="uid://hi6mmose3lon" path="res://interface/health_bars/white_fill.png" id="2_l8h1l"]
+[ext_resource type="Texture2D" uid="uid://d2ypg6ccdqtny" path="res://interface/health_bars/AdrenalineBar.png" id="3_jjpnc"]
+[ext_resource type="Texture2D" uid="uid://cghijssrh5hog" path="res://interface/health_bars/PoisonBar.png" id="4_dwq3k"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 75.0
+offset_bottom = 17.0
+nine_patch_stretch = true
+stretch_margin_left = 17
+stretch_margin_right = 17
+texture_under = ExtResource("1_34dm1")
+texture_progress_offset = Vector2(17, 7)
+
+[node name="Progress" type="TextureProgressBar" parent="HealthBar"]
+self_modulate = Color(0.862745, 0.286275, 0.286275, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -21.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 17
+stretch_margin_right = 17
+texture_progress = ExtResource("2_l8h1l")
+texture_progress_offset = Vector2(17, 7)
+
+[node name="AdrenalineBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+offset_top = 18.0
+offset_right = 75.0
+offset_bottom = 35.0
+nine_patch_stretch = true
+stretch_margin_left = 17
+stretch_margin_right = 17
+texture_under = ExtResource("3_jjpnc")
+texture_progress_offset = Vector2(17, 7)
+
+[node name="Progress" type="TextureProgressBar" parent="AdrenalineBar"]
+self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -21.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 17
+stretch_margin_right = 17
+texture_progress = ExtResource("2_l8h1l")
+texture_progress_offset = Vector2(17, 7)
+
+[node name="PoisonBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+offset_top = 36.0
+offset_right = 75.0
+offset_bottom = 53.0
+nine_patch_stretch = true
+stretch_margin_left = 17
+stretch_margin_right = 17
+texture_under = ExtResource("4_dwq3k")
+texture_progress_offset = Vector2(17, 7)
+
+[node name="Progress" type="TextureProgressBar" parent="PoisonBar"]
+self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -21.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+nine_patch_stretch = true
+stretch_margin_left = 17
+stretch_margin_right = 17
+texture_progress = ExtResource("2_l8h1l")
+texture_progress_offset = Vector2(17, 7)

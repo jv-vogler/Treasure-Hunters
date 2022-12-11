@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://7wlvoib41l1v"]
+[gd_scene load_steps=6 format=3 uid="uid://7wlvoib41l1v"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2ixcs"]
 [ext_resource type="PackedScene" uid="uid://btt4hrl6ytlpa" path="res://levels/test_level.tscn" id="2_sj7cv"]
 [ext_resource type="PackedScene" uid="uid://jx8dnl26t4cq" path="res://player/player.tscn" id="3_cb1k0"]
 [ext_resource type="PackedScene" uid="uid://b5hqk51j0m14j" path="res://enemies/fierce_tooth/fierce_tooth.tscn" id="4_8lshv"]
+[ext_resource type="PackedScene" uid="uid://cekqg7skefsq4" path="res://interface/hud.tscn" id="4_xiht8"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2ixcs")
@@ -33,9 +34,6 @@ platform_floor_layers = 4294967295
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="UI"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Teste"
+[node name="HUD" parent="UI" instance=ExtResource("4_xiht8")]
 
 [node name="TestLevel" parent="." instance=ExtResource("2_sj7cv")]
