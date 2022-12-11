@@ -1,11 +1,13 @@
 class_name Enemy
 extends Entity
 
+enum Status { POISONED = 1 }
+
 @export var level: int = 1
 @export_range(60, 600, 10) var speed: float = 80.0
+@export var staggerable: bool = true
 @export_range(1, 9, 1) var stagger_limit: int = 3
 @export var loot_table: Array = []
-@export var staggerable: bool = true
 
 var direction: float:
 	get:
@@ -23,9 +25,12 @@ var direction: float:
 var stagger_count: int = 0:
 	set(value):
 		stagger_count = clampi(value, 0, stagger_limit)
-		if stagger_count == stagger_limit:
+		if stagger_count >= stagger_limit:
 			staggerable = false
+		else:
+			staggerable = true
 var target: Player = null
+var status: int
 var _floating_text = preload("res://interface/floating_text/floating_text.tscn")
 
 @onready var player_detection: Area2D = $PlayerDetection

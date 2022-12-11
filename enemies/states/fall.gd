@@ -24,6 +24,7 @@ func physics_process(delta: float) -> BaseState:
 	if enemy.is_on_floor():
 		return idle_state
 
+	enemy.velocity.x = lerp(enemy.velocity.x, 0.0, 0.2)
 	enemy.velocity.y += enemy.gravity * delta * gravity_scale
 	enemy.move_and_slide()
 	return null

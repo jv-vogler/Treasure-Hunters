@@ -46,5 +46,5 @@ func physics_process(delta: float) -> BaseState:
 	return return_state
 
 
-func _on_hurtbox_hit_direction(direction) -> void:
-	knock_direction = direction
+func _on_hurtbox_hit(hit) -> void:
+	knock_direction = hit.direction

@@ -9,6 +9,11 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "Resource",
+"class": &"AttackData",
+"language": &"GDScript",
+"path": "res://resources/attack_data.gd"
+}, {
 "base": "Node",
 "class": &"BaseState",
 "language": &"GDScript",
@@ -75,6 +80,7 @@ _global_script_classes=[{
 "path": "res://common/utils.gd"
 }]
 _global_script_class_icons={
+"AttackData": "",
 "BaseState": "",
 "Enemy": "",
 "Entity": "",

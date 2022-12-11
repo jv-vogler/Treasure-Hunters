@@ -20,6 +20,8 @@ var buffs: int
 var speed: float
 var jump_velocity: float
 
+@onready var attacks: AttackData = $Sprite/Hitbox.data
+
 
 func _ready() -> void:
 	state_machine.init()
@@ -63,6 +65,7 @@ func activate_adrenaline() -> void:
 func activate_poison() -> void:
 	buffs += Buff.POISON
 	current_poison = max_poison
+	attacks.applies_poison = true
 
 
 func _init_stats() -> void:
@@ -74,13 +77,14 @@ func _init_stats() -> void:
 	max_adrenaline = stats.max_adrenaline
 	current_health = max_health
 	current_adrenaline = max_adrenaline
-
+	strength = 2
 
 func _handle_buffs() -> void:
 	if buffs & Buff.POISON:
 		current_poison -= stats.poison_decay
 		if current_poison == 0:
 			buffs -= Buff.POISON
+			attacks.applies_poison = false
 
 	if buffs & Buff.ADRENALINE:
 		current_adrenaline -= stats.adrenaline_decay
@@ -89,4 +93,4 @@ func _handle_buffs() -> void:
 			strength = stats.strength
 			speed = stats.speed
 			jump_velocity = stats.jump_velocity
-			animations.playback_speed = 1
+#			animations.playback_speed = 1

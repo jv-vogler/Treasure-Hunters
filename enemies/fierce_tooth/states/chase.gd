@@ -21,13 +21,14 @@ func enter() -> void:
 	enemy.animations.play("Run")
 	enemy.attack_range.get_child(0).disabled = false
 
+
 func exit() -> void:
 	is_in_range = false
 	should_attack = false
 	enemy.attack_range.get_child(0).disabled = true
 
 
-func physics_process(delta) -> BaseState:
+func physics_process(_delta) -> BaseState:
 	if enemy.current_health == 0:
 		return dead_state
 
@@ -41,7 +42,7 @@ func physics_process(delta) -> BaseState:
 		return attack_state
 
 	enemy.velocity.x = lerp(enemy.velocity.x, enemy.direction * enemy.speed, acceleration)
-	enemy.move_and_collide(enemy.velocity * delta)
+	enemy.move_and_slide()
 	return null
 
 

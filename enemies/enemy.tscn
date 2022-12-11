@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c2ouj8pbo2qgu"]
+[gd_scene load_steps=17 format=3 uid="uid://c2ouj8pbo2qgu"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_rwtnc"]
 [ext_resource type="Script" path="res://common/hitboxes/hitbox.gd" id="2_jdwj6"]
+[ext_resource type="Script" path="res://resources/attack_data.gd" id="3_4ycds"]
 [ext_resource type="Script" path="res://common/hitboxes/hurtbox.gd" id="3_q1lim"]
 [ext_resource type="Script" path="res://common/state_machine/state_machine.gd" id="4_hi5qp"]
 [ext_resource type="Script" path="res://enemies/states/idle.gd" id="5_iqc5x"]
@@ -9,6 +10,13 @@
 [ext_resource type="Script" path="res://enemies/states/hurt.gd" id="8_kv5f8"]
 [ext_resource type="PackedScene" uid="uid://dxhprshvt0s8s" path="res://interface/health_bars/health_bar.tscn" id="9_6rhm2"]
 [ext_resource type="Script" path="res://enemies/states/dead.gd" id="9_67cu2"]
+
+[sub_resource type="Resource" id="Resource_xgl6i"]
+script = ExtResource("3_4ycds")
+knock_height = 150.0
+knock_intensity = 50.0
+applies_poison = false
+applies_stagger = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
 size = Vector2(30, 28)
@@ -20,7 +28,7 @@ size = Vector2(28, 26)
 size = Vector2(48, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjc6o"]
-size = Vector2(278, 106)
+size = Vector2(410, 110)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
 height = 24.0
@@ -29,6 +37,8 @@ height = 24.0
 z_index = 1
 collision_layer = 4
 collision_mask = 3
+platform_on_leave = 2
+platform_floor_layers = 4278190081
 script = ExtResource("1_rwtnc")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -38,6 +48,7 @@ collision_layer = 0
 collision_mask = 0
 script = ExtResource("2_jdwj6")
 damage_source = 4
+attack_data = SubResource("Resource_xgl6i")
 
 [node name="RegularAttack" type="CollisionShape2D" parent="Sprite/Hitbox"]
 shape = SubResource("RectangleShape2D_i7jwp")
@@ -114,6 +125,6 @@ offset_bottom = -20.0
 
 [connection signal="took_damage" from="." to="StateMachine/Idle" method="_on_enemy_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_enemy_took_damage"]
-[connection signal="hit_direction" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit_direction"]
+[connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

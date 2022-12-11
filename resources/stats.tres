@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_gpqpi")
+adrenaline_decay = 0.2
+poison_decay = 0.01
