@@ -3,6 +3,9 @@ extends Entity
 
 enum Buff { POISON = 1, ADRENALINE = 2, ALL = 3 }
 
+signal poison_changed
+signal adrenaline_changed
+
 var direction: float:
 	get:
 		direction = Input.get_axis("move_left", "move_right")
@@ -10,12 +13,18 @@ var direction: float:
 		if direction < 0: sprite.scale.x = -1
 		return direction
 var stats: Stats = preload("res://resources/stats.tres")
-var max_poison: int
-var max_adrenaline: int
+var max_poison: int:
+	get: return stats.max_poison
+var max_adrenaline: int:
+	get: return stats.max_adrenaline
 var current_poison: float = 0:
-	set(value):	current_poison = clamp(value, 0, max_poison)
+	set(value):
+		current_poison = clamp(value, 0, max_poison)
+		emit_signal("poison_changed", current_poison, max_poison)
 var current_adrenaline: float = 0:
-	set(value):	current_adrenaline = clamp(value, 0, max_adrenaline)
+	set(value):
+		current_adrenaline = clamp(value, 0, max_adrenaline)
+		emit_signal("adrenaline_changed", current_adrenaline, max_adrenaline)
 var buffs: int
 var speed: float
 var jump_velocity: float
@@ -51,7 +60,7 @@ func _process(delta: float) -> void:
 
 
 func succesful_hit() -> void:
-	current_adrenaline += 1.5
+	current_adrenaline += stats.adrenaline_gain
 
 
 func activate_adrenaline() -> void:
@@ -64,7 +73,7 @@ func activate_adrenaline() -> void:
 
 func activate_poison() -> void:
 	buffs += Buff.POISON
-	current_poison = max_poison
+	current_poison += max_poison
 	attacks.applies_poison = true
 
 
@@ -76,7 +85,9 @@ func _init_stats() -> void:
 	max_poison = stats.max_poison
 	max_adrenaline = stats.max_adrenaline
 	current_health = max_health
-	current_adrenaline = max_adrenaline
+#	current_adrenaline = max_adrenaline
+	current_adrenaline = 0
+	current_poison = 0
 
 
 func _handle_buffs() -> void:

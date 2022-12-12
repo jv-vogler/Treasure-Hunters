@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=111 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -80,6 +80,10 @@
 [ext_resource type="Texture2D" uid="uid://l266gl2ddklc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="71_2pick"]
 [ext_resource type="Script" path="res://player/states/hurt.gd" id="71_lhjdy"]
 [ext_resource type="Script" path="res://player/states/dead.gd" id="72_ew5qq"]
+[ext_resource type="Script" path="res://interface/hud.gd" id="81_jkqwj"]
+[ext_resource type="PackedScene" uid="uid://37aeiouyym3a" path="res://interface/health_bars/resource_bar.tscn" id="82_kund3"]
+[ext_resource type="Texture2D" uid="uid://d2ypg6ccdqtny" path="res://interface/health_bars/AdrenalineBar.png" id="83_6rqxv"]
+[ext_resource type="Texture2D" uid="uid://cghijssrh5hog" path="res://interface/health_bars/PoisonBar.png" id="84_60bv8"]
 
 [sub_resource type="Resource" id="Resource_nj300"]
 script = ExtResource("4_s0ugl")
@@ -776,15 +780,81 @@ animation = "Dead"
 [node name="Camera" type="Camera2D" parent="."]
 current = true
 limit_left = -96
+limit_bottom = 190
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -1.0
-drag_left_margin = 0.3
 drag_top_margin = 0.7
-editor_draw_limits = true
+editor_draw_screen = false
 
+[node name="Interface" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="Interface"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("81_jkqwj")
+
+[node name="HealthBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 79.0
+offset_bottom = 21.0
+scale = Vector2(1, 1)
+
+[node name="Recoil" parent="Interface/HUD/HealthBar" index="0"]
+self_modulate = Color(0.741176, 0.243137, 0.243137, 1)
+layout_mode = 1
+
+[node name="Progress" parent="Interface/HUD/HealthBar" index="1"]
+modulate = Color(0.862745, 0.286275, 0.286275, 1)
+layout_mode = 1
+value = 100.0
+
+[node name="AdrenalineBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 22.0
+offset_right = 79.0
+offset_bottom = 39.0
+scale = Vector2(1, 1)
+texture_under = ExtResource("83_6rqxv")
+
+[node name="Recoil" parent="Interface/HUD/AdrenalineBar" index="0"]
+self_modulate = Color(0.862745, 0.592157, 0.286275, 1)
+layout_mode = 1
+
+[node name="Progress" parent="Interface/HUD/AdrenalineBar" index="1"]
+self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
+layout_mode = 1
+
+[node name="PoisonBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 40.0
+offset_right = 79.0
+offset_bottom = 57.0
+scale = Vector2(1, 1)
+texture_under = ExtResource("84_60bv8")
+
+[node name="Recoil" parent="Interface/HUD/PoisonBar" index="0"]
+self_modulate = Color(0.2552, 0.58, 0.330987, 1)
+layout_mode = 1
+
+[node name="Progress" parent="Interface/HUD/PoisonBar" index="1"]
+self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
+layout_mode = 1
+
+[connection signal="adrenaline_changed" from="." to="Interface/HUD" method="_on_player_adrenaline_changed" flags=3]
+[connection signal="health_changed" from="." to="Interface/HUD" method="_on_player_health_changed" flags=3]
+[connection signal="poison_changed" from="." to="Interface/HUD" method="_on_player_poison_changed" flags=3]
 [connection signal="took_damage" from="." to="StateMachine/Idle" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Run" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Jump" method="_on_player_took_damage"]
@@ -793,3 +863,7 @@ editor_draw_limits = true
 [connection signal="took_damage" from="." to="StateMachine/Attack2" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack3" method="_on_player_took_damage"]
 [connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]
+
+[editable path="Interface/HUD/HealthBar"]
+[editable path="Interface/HUD/AdrenalineBar"]
+[editable path="Interface/HUD/PoisonBar"]

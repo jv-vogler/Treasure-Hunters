@@ -7,6 +7,7 @@ extends Resource
 var max_health := 100
 var max_poison := 100
 var max_adrenaline := 100
+var adrenaline_gain := 1.5
 var strength: float = 10
 var speed: float = 120.0
 var jump_velocity: float = -384.0

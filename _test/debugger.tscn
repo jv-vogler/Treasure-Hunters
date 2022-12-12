@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=5 format=3 uid="uid://howy4jlibdf1"]
 
 [ext_resource type="Script" path="res://_test/debugger.gd" id="1_racyg"]
 [ext_resource type="StyleBox" uid="uid://64i7smgmpdqn" path="res://_test/debugger_resources/debugger.tres" id="2_dik3k"]
@@ -6,6 +6,7 @@
 [ext_resource type="SystemFont" uid="uid://cb5yvl1aticam" path="res://_test/debugger_resources/debugger_font.tres" id="3_4d7jg"]
 
 [node name="Debugger" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_racyg")
 
 [node name="Panel" type="PanelContainer" parent="."]

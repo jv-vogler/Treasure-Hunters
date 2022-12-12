@@ -1,16 +1,17 @@
 class_name Game
 extends Node2D
 
+var test_scene = preload("res://levels/test_level.tscn")
+
+@onready var _scene = $Scene
+
 
 func _ready() -> void:
-	debugger_setup()
+	_scene.add_child(test_scene.instantiate())
 
 
-func debugger_setup() -> void:
-	Debugger.add_stat("Poison", $Player, "current_poison")
-	Debugger.add_stat("Adrenaline", $Player, "current_adrenaline")
-	Debugger.add_stat("strength", $Player, "strength")
-#	Debugger.add_stat("Buffs", $Player, "buffs")
-#	Debugger.add_stat("FierceStatus", $FierceTooth, "status")
-#	Debugger.add_stat("Fierce1State", $FierceTooth/StateMachine, "current_state")
-	pass
+func change_scene(target: String) -> void:
+	$SceneTransition/Animation.play("Dissolve")
+	await $SceneTransition/Animation.animation_finished
+	get_tree().change_scene_to_file(target)
+	$SceneTransition/Animation.play_backward("Dissolve")
