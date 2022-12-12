@@ -68,13 +68,17 @@ func activate_adrenaline() -> void:
 #	animations.playback_speed = 1.5
 	strength *= 1.5
 	speed *= 1.25
-	attacks.applies_stagger = false
+	attacks.regular_stagger = false
 
 
 func activate_poison() -> void:
 	buffs += Buff.POISON
 	current_poison += max_poison
 	attacks.applies_poison = true
+
+
+func restore_health() -> void:
+	current_health = max_health
 
 
 func _init_stats() -> void:
@@ -85,9 +89,10 @@ func _init_stats() -> void:
 	max_poison = stats.max_poison
 	max_adrenaline = stats.max_adrenaline
 	current_health = max_health
-#	current_adrenaline = max_adrenaline
 	current_adrenaline = 0
 	current_poison = 0
+	buffs -= Buff.POISON
+	buffs -= Buff.ADRENALINE
 
 
 func _handle_buffs() -> void:
@@ -104,5 +109,5 @@ func _handle_buffs() -> void:
 			strength = stats.strength
 			speed = stats.speed
 			jump_velocity = stats.jump_velocity
-			attacks.applies_stagger = true
+			attacks.regular_stagger = true
 #			animations.playback_speed = 1

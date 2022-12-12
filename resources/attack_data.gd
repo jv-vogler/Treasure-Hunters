@@ -5,4 +5,4 @@ extends Resource
 @export_range(0.0, 350.0, 50.0) var knock_intensity: float = 50.0
 @export var critical_hit: bool = false
 @export var applies_poison: bool = false
-@export var applies_stagger: bool = true
+@export var regular_stagger: bool = true

@@ -1,11 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ihv8g33wyh3v"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2ixcs"]
-[ext_resource type="Script" path="res://scenes/scene_transition/scene_transition.gd" id="2_8x20o"]
 
-[sub_resource type="Animation" id="Animation_qrxr8"]
+[sub_resource type="Animation" id="Animation_biniy"]
 resource_name = "Dissolve"
-length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -13,13 +11,13 @@ tracks/0/path = NodePath("Color:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(0.988235, 0.819608, 0.447059, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_5vf18"]
+[sub_resource type="Animation" id="Animation_jyay6"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -34,10 +32,26 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_nogmj"]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Color:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cssiv"]
 _data = {
-"Dissolve": SubResource("Animation_qrxr8"),
-"RESET": SubResource("Animation_5vf18")
+"Dissolve": SubResource("Animation_biniy"),
+"Fade In": SubResource("Animation_nogmj"),
+"RESET": SubResource("Animation_jyay6")
 }
 
 [node name="Game" type="Node2D"]
@@ -47,7 +61,7 @@ metadata/_edit_horizontal_guides_ = [200.0]
 [node name="Scene" type="Node2D" parent="."]
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
-script = ExtResource("2_8x20o")
+layer = 100
 
 [node name="Color" type="ColorRect" parent="SceneTransition"]
 modulate = Color(1, 1, 1, 0)
@@ -57,9 +71,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.988235, 0.819608, 0.447059, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Animation" type="AnimationPlayer" parent="SceneTransition"]
 libraries = {
 "": SubResource("AnimationLibrary_cssiv")
 }
+
+[node name="Button" type="Button" parent="SceneTransition"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Teste"
+
+[connection signal="pressed" from="SceneTransition/Button" to="." method="_on_button_pressed"]

@@ -29,7 +29,7 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 				"applies_poison": hitbox.data.applies_poison,
 				"knock_intensity": hitbox.data.knock_intensity,
 				"knock_height": hitbox.data.knock_height,
-				"applies_stagger": hitbox.data.applies_stagger,
+				"regular_stagger": hitbox.data.regular_stagger,
 				})
 		elif direction < 0:
 			emit_signal("hit", {
@@ -37,5 +37,5 @@ func _on_area_entered(hitbox: Hitbox) -> void:
 				"applies_poison": hitbox.data.applies_poison,
 				"knock_intensity": hitbox.data.knock_intensity,
 				"knock_height": hitbox.data.knock_height,
-				"applies_stagger": hitbox.data.applies_stagger,
+				"regular_stagger": hitbox.data.regular_stagger,
 				})

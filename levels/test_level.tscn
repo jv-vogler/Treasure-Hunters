@@ -30,6 +30,66 @@ position = Vector2(323, 66)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 
+[node name="FierceTooth5" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(136, 33)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth6" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(253, 7)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth7" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(510, 23)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth8" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(625, 28)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth9" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(748, 22)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth10" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(923, 35)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth11" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(852, 24)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth12" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(559, 59)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth13" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(629, 102)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth14" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(771, 109)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth15" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(895, 117)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
+[node name="FierceTooth16" parent="." instance=ExtResource("2_x7h73")]
+position = Vector2(465, 125)
+platform_on_leave = 0
+platform_floor_layers = 4294967295
+
 [node name="Level" type="Node2D" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Level"]
