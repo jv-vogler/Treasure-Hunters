@@ -1,0 +1,26 @@
+[gd_resource type="AnimatedTexture" load_steps=8 format=3 uid="uid://bygx820t45n20"]
+
+[ext_resource type="Texture2D" uid="uid://drho6t8xg66s7" path="res://resources/items/assets/poison_bottle/01.png" id="1_asa4r"]
+[ext_resource type="Texture2D" uid="uid://b0sp2333nachs" path="res://resources/items/assets/poison_bottle/02.png" id="2_bh874"]
+[ext_resource type="Texture2D" uid="uid://diohf52hephw5" path="res://resources/items/assets/poison_bottle/03.png" id="3_pacfd"]
+[ext_resource type="Texture2D" uid="uid://feonckxyeu2f" path="res://resources/items/assets/poison_bottle/04.png" id="4_xhhy4"]
+[ext_resource type="Texture2D" uid="uid://iq6v3x6bjei" path="res://resources/items/assets/poison_bottle/05.png" id="5_t206u"]
+[ext_resource type="Texture2D" uid="uid://c10aq437wfdgq" path="res://resources/items/assets/poison_bottle/06.png" id="6_87p5j"]
+[ext_resource type="Texture2D" uid="uid://bjka4x1pa34ik" path="res://resources/items/assets/poison_bottle/07.png" id="7_84jum"]
+
+[resource]
+frames = 7
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_asa4r")
+frame_1/texture = ExtResource("2_bh874")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_pacfd")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_xhhy4")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_t206u")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_87p5j")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_84jum")
+frame_6/duration = 1.0

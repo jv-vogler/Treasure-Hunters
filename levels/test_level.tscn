@@ -7,7 +7,6 @@
 [node name="TestLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_43vtj")]
-unique_name_in_owner = true
 position = Vector2(157, 149)
 
 [node name="FierceTooth" parent="." instance=ExtResource("2_x7h73")]

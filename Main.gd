@@ -24,7 +24,3 @@ func change_scene(target: String, in_transition := "", out_transition := "") -> 
 	if out_transition:
 		$SceneTransition/Animation.play_backwards("Dissolve")
 		await $SceneTransition/Animation.animation_finished
-
-
-func _on_button_pressed() -> void:
-	change_scene("res://levels/test_level.tscn", "Dissolve", "Dissolve")

@@ -1,31 +1,53 @@
 class_name Inventory
 extends Resource
 
-@export var items := {}
+signal inventory_changed
+
+@export var _inventory: Array[Dictionary] = [
+	{ "ref": ItemDatabase.get_item("health_potion"), "quantity": 0 },
+	{ "ref": ItemDatabase.get_item("poison_bottle"), "quantity": 0 },
+	{ "ref": ItemDatabase.get_item("stat_potion"), "quantity": 0 },
+]:
+	get:
+		return _inventory
+	set(new_inventory):
+		_inventory = new_inventory
+		emit_signal("inventory_changed", self)
 
 
-func add_item(unique_id: String, amount := 1) -> void:
-	if unique_id in items:
-		items[unique_id] += amount
-	else:
-		items[unique_id] = amount
-	emit_changed()
+func add_item(item_id: String, quantity := 1):
+	if quantity <= 0:
+		printerr("Can't add a negative number of items.")
 
-
-func get_amount(item_unique_id: String) -> int:
-	if not item_unique_id in items:
-		printerr("Trying to get the amount of item %s but the inventory doesn't have it." % item_unique_id)
-		return -1
-
-	return items[item_unique_id]
-
-
-func remove_item(item_unique_id: String, amount := 1) -> void:
-	if not item_unique_id in items:
-		printerr("Trying to remove item %s but the inventory doesn't have it." % item_unique_id)
+	var item_ref = ItemDatabase.get_item(item_id)
+	if !item_ref:
+		printerr("Could not find item.")
 		return
 
-	items[item_unique_id] -= amount
-	if items[item_unique_id] <= 0:
-		items.erase(item_unique_id)
-	emit_changed()
+	for item in _inventory:
+		if item.ref != item_ref:
+			continue
+
+		item.quantity += quantity
+		emit_signal("inventory_changed", self)
+
+
+func remove_item(item_id: String, quantity := 1):
+	if quantity <= 0:
+		printerr("Can't remove a negative number of items.")
+
+	var item_ref = ItemDatabase.get_item(item_id)
+	if !item_ref:
+		printerr("Could not find item.")
+		return
+
+	for item in _inventory:
+		if item.ref != item_ref:
+			continue
+
+		item.quantity = max(0, item.quantity - quantity)
+		emit_signal("inventory_changed", self)
+
+
+func get_item(index):
+	return _inventory[index]

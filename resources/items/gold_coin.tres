@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://c3sorbgxefje6"]
+
+[ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="1_vq8ra"]
+[ext_resource type="Texture2D" uid="uid://bc2dhy71bmuql" path="res://resources/items/assets/gold_coin/02.png" id="2_mc0pg"]
+[ext_resource type="Texture2D" uid="uid://bkapw62i7tkes" path="res://resources/items/assets/gold_coin/03.png" id="3_nhec0"]
+[ext_resource type="Texture2D" uid="uid://epfhi277ani0" path="res://resources/items/assets/gold_coin/04.png" id="4_2rl5s"]
+[ext_resource type="Script" path="res://resources/item_data.gd" id="5_4iupk"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xssua"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_vq8ra")
+frame_1/texture = ExtResource("2_mc0pg")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_nhec0")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_2rl5s")
+frame_3/duration = 1.0
+
+[resource]
+script = ExtResource("5_4iupk")
+id = "gold_coin"
+icon = ExtResource("1_vq8ra")
+animated_texture = SubResource("AnimatedTexture_xssua")
+display_name = "Gold Coins"
+description = "Currency used by pirates."
+display_name_pt = "Moedas de Ouro"
+description_pt = "Dinheiro usado por piratas."
+type = 2

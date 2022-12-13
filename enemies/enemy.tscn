@@ -17,7 +17,7 @@ knock_height = 150.0
 knock_intensity = 50.0
 critical_hit = false
 applies_poison = false
-applies_stagger = true
+regular_stagger = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
 size = Vector2(30, 28)
@@ -126,7 +126,7 @@ offset_right = -16.0
 offset_bottom = -20.0
 
 [node name="PoisonTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [node name="AttackTimer" type="Timer" parent="."]
 

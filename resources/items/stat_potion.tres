@@ -1,13 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhpci576mao3m"]
+[gd_resource type="Resource" load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://b15b5qgjata0d" path="res://resources/items/stat_potion.png" id="1_uh5ik"]
+[ext_resource type="Texture2D" uid="uid://txqnix1ei75e" path="res://resources/items/assets/stat_potion/stat_potion.tres" id="1_1vbdj"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_w8hdr"]
+[ext_resource type="Texture2D" uid="uid://noojxu8yl6w0" path="res://resources/items/assets/stat_potion/01.png" id="2_5v25x"]
 
 [resource]
 script = ExtResource("1_w8hdr")
-unique_id = "stat_potion"
-icon = ExtResource("1_uh5ik")
+id = "stat_potion"
+icon = ExtResource("2_5v25x")
+animated_texture = ExtResource("1_1vbdj")
 display_name = "Stat Potion"
 description = "Enhances your powers."
-display_name_br = "Poção de Atributos"
-description_br = "Eleva seus poderes."
+display_name_pt = "Poção de Atributo"
+description_pt = "Eleva seus poderes."
+type = 0

@@ -1,13 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bept6s20vyxx4"]
+[gd_resource type="Resource" load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://6y8ms4opw6g8" path="res://resources/items/health_potion.png" id="1_1e0y8"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_abuly"]
+[ext_resource type="Texture2D" uid="uid://cbnqx7e50nnd5" path="res://resources/items/assets/health_potion/health_potion.tres" id="1_ragki"]
+[ext_resource type="Texture2D" uid="uid://bwl2qkv4px8uc" path="res://resources/items/assets/health_potion/01.png" id="2_va5jm"]
 
 [resource]
 script = ExtResource("1_abuly")
-unique_id = "health_potion"
-icon = ExtResource("1_1e0y8")
+id = "health_potion"
+icon = ExtResource("2_va5jm")
+animated_texture = ExtResource("1_ragki")
 display_name = "Health Potion"
 description = "Restores health to full."
-display_name_br = "Poção de Vida"
-description_br = "Recupera toda a vida."
+display_name_pt = "Poção de Vida"
+description_pt = "Recupera toda a vida."
+type = 0

@@ -9,7 +9,6 @@ func enter() -> void:
 	player.animations.play(animation)
 	player.collision_layer = 0
 	await player.animations.animation_finished
-	get_tree().reload_current_scene()
 
 
 func physics_process(delta: float) -> BaseState:

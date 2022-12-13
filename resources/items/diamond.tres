@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://l1vpe07okhb2"]
+
+[ext_resource type="Script" path="res://resources/item_data.gd" id="1_38u07"]
+[ext_resource type="Texture2D" uid="uid://cuhi5cl1fcr73" path="res://resources/items/assets/diamond/01.png" id="1_ck54c"]
+[ext_resource type="Texture2D" uid="uid://c5oxrjbqd73vb" path="res://resources/items/assets/diamond/02.png" id="2_juhq2"]
+[ext_resource type="Texture2D" uid="uid://6t0tycilsslf" path="res://resources/items/assets/diamond/03.png" id="3_aeiai"]
+[ext_resource type="Texture2D" uid="uid://n0fff0jm5mqs" path="res://resources/items/assets/diamond/04.png" id="4_pfiiw"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xc6au"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_ck54c")
+frame_1/texture = ExtResource("2_juhq2")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_aeiai")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_pfiiw")
+frame_3/duration = 1.0
+
+[resource]
+script = ExtResource("1_38u07")
+id = "diamond"
+icon = ExtResource("1_ck54c")
+animated_texture = SubResource("AnimatedTexture_xc6au")
+display_name = "Diamond"
+description = "Epic gem."
+display_name_pt = "Diamante"
+description_pt = "Gema épica."
+type = 2
+sell_value = 200

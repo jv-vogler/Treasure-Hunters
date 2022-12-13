@@ -91,7 +91,7 @@ knock_height = 150.0
 knock_intensity = 50.0
 critical_hit = false
 applies_poison = false
-applies_stagger = true
+regular_stagger = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby3t"]
 size = Vector2(20, 21)

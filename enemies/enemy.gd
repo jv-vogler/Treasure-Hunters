@@ -98,6 +98,7 @@ func _on_got_poisoned() -> void:
 
 func _on_poison_timer_timeout() -> void:
 	if current_health == 0 or poison_counter >=  2:
+		poison_timer.stop()
 		status -= Status.POISONED
 		sprite.modulate = Color("#ffffff")
 		poison_counter = 0
@@ -108,7 +109,7 @@ func _on_poison_timer_timeout() -> void:
 	current_health -= damage
 	_update_health_bar()
 	_spawn_damage_number(damage)
-	_poison_damage_scale += 0.05
+	_poison_damage_scale *= 2
 	poison_counter += 1
 	poison_timer.start()
 
