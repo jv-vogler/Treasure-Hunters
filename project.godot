@@ -34,7 +34,7 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://interface/floating_text/floating_text.gd"
 }, {
-"base": "Node2D",
+"base": "Control",
 "class": &"Game",
 "language": &"GDScript",
 "path": "res://main.gd"
@@ -130,6 +130,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemDatabase="*res://autoloads/item_database.gd"
+SceneManager="*res://autoloads/scene_manager.gd"
+Scene="*res://autoloads/scene_database.gd"
 
 [debug]
 

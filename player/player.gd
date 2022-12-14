@@ -36,11 +36,13 @@ var speed: float
 var jump_velocity: float
 
 @onready var attacks: AttackData = $Sprite/Hitbox.data
+@onready var camera: Camera2D = $Camera
 
 
 func _ready() -> void:
 	state_machine.init()
 	_init_stats()
+	camera.current = true
 
 
 func _unhandled_input(event: InputEvent) -> void:

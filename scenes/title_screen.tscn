@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn02k5yq4ucql"]
+
+[ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_avx8x"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_avx8x")
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -68.0
+offset_right = 65.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Start" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_right = 130.0
+offset_bottom = 31.0
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Continue")
+focus_next = NodePath("../Continue")
+focus_previous = NodePath("../Quit")
+text = "Start"
+
+[node name="Continue" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_top = 41.0
+offset_right = 130.0
+offset_bottom = 72.0
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Start")
+disabled = true
+text = "Continue"
+
+[node name="Settings" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_top = 82.0
+offset_right = 130.0
+offset_bottom = 113.0
+focus_neighbor_top = NodePath("../Continue")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Continue")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_top = 123.0
+offset_right = 130.0
+offset_bottom = 154.0
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Settings")
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

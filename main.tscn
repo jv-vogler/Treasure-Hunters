@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ihv8g33wyh3v"]
+[gd_scene load_steps=7 format=3 uid="uid://ihv8g33wyh3v"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_2ixcs"]
 
 [sub_resource type="Animation" id="Animation_c6v55"]
 resource_name = "Dissolve"
+length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -11,7 +12,7 @@ tracks/0/path = NodePath("Color:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8, 1),
+"times": PackedFloat32Array(0, 1.3, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
@@ -32,17 +33,64 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_mvtkl"]
+resource_name = "Fade In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Color:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_eu23f"]
+resource_name = "Fade Out"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Color:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1a5ga"]
 _data = {
 "Dissolve": SubResource("Animation_c6v55"),
+"Fade In": SubResource("Animation_mvtkl"),
+"Fade Out": SubResource("Animation_eu23f"),
 "RESET": SubResource("Animation_qdwi3")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_2ixcs")
 metadata/_edit_horizontal_guides_ = [200.0]
 
-[node name="Scene" type="Node2D" parent="."]
+[node name="Scene" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
 layer = 100
