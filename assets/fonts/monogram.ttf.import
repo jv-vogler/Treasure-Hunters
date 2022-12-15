@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cpm0efvwkd14r"
-path="res://.godot/imported/CompassPro.ttf-3adee04d73d00254a021a51f616a72fe.fontdata"
+uid="uid://c4u0evm70kgi4"
+path="res://.godot/imported/monogram.ttf-c95719ff5218ca8efa10f8f40fd456da.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/CompassPro.ttf"
-dest_files=["res://.godot/imported/CompassPro.ttf-3adee04d73d00254a021a51f616a72fe.fontdata"]
+source_file="res://assets/fonts/monogram.ttf"
+dest_files=["res://.godot/imported/monogram.ttf-c95719ff5218ca8efa10f8f40fd456da.fontdata"]
 
 [params]
 

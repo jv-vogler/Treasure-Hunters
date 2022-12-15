@@ -94,7 +94,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="SceneTransition" type="CanvasLayer" parent="."]
-layer = 100
+layer = 10
 
 [node name="Color" type="ColorRect" parent="SceneTransition"]
 anchors_preset = 15

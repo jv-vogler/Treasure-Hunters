@@ -55,6 +55,7 @@ Button/colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
 Button/colors/font_disabled_color = Color(0.988235, 0.988235, 0.988235, 0.411765)
 Button/colors/font_focus_color = Color(0.941176, 0.941176, 0.941176, 1)
 Button/colors/font_hover_color = Color(0.941176, 0.941176, 0.941176, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0.117647, 0.117647, 0.117647, 1)
 Button/colors/font_pressed_color = Color(1, 1, 1, 1)
 Button/constants/outline_size = 3

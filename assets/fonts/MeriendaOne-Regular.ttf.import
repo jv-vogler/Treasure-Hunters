@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://3k4q3rs24bec"
-path="res://.godot/imported/FutilePro.ttf-096c1058f40e2d10b6c32b881bbbb7c8.fontdata"
+uid="uid://bt6l0p3fnahmk"
+path="res://.godot/imported/MeriendaOne-Regular.ttf-d283d0f362f009a0d5e64d35d8ddf620.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/FutilePro.ttf"
-dest_files=["res://.godot/imported/FutilePro.ttf-096c1058f40e2d10b6c32b881bbbb7c8.fontdata"]
+source_file="res://assets/fonts/MeriendaOne-Regular.ttf"
+dest_files=["res://.godot/imported/MeriendaOne-Regular.ttf-d283d0f362f009a0d5e64d35d8ddf620.fontdata"]
 
 [params]
 

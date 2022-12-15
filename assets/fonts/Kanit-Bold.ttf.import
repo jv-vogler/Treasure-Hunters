@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c7af2j6uggks3"
-path="res://.godot/imported/EquipmentPro.ttf-0f9ecdfd5108e6978732280605eca349.fontdata"
+uid="uid://unoqtqguw3qr"
+path="res://.godot/imported/Kanit-Bold.ttf-ddd0b176e6b43f82b9e8ed4f28d6450b.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/EquipmentPro.ttf"
-dest_files=["res://.godot/imported/EquipmentPro.ttf-0f9ecdfd5108e6978732280605eca349.fontdata"]
+source_file="res://assets/fonts/Kanit-Bold.ttf"
+dest_files=["res://.godot/imported/Kanit-Bold.ttf-ddd0b176e6b43f82b9e8ed4f28d6450b.fontdata"]
 
 [params]
 

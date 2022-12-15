@@ -1,8 +1,9 @@
 class_name FloatingText
 extends Node2D
 
+const SPREAD = 50.0
+
 var type := "regular"
-var pos: Vector2
 var regular = preload("res://interface/floating_text/regular.tres")
 var poison = preload("res://interface/floating_text/poison.tres")
 
@@ -21,7 +22,7 @@ func _ready() -> void:
 			label.label_settings = regular
 			animation.play("Fade Up")
 			var tween = create_tween()
-			tween.tween_property(label, "position:x", randf_range(-30.0, 30.0), 1.5)
+			tween.tween_property(label, "position:x", randf_range(-SPREAD, SPREAD), 1.5)
 		"poison":
 			label.label_settings = poison
 			animation.play("Poison")

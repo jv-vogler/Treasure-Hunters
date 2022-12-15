@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=128 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -80,10 +80,23 @@
 [ext_resource type="Texture2D" uid="uid://l266gl2ddklc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="71_2pick"]
 [ext_resource type="Script" path="res://player/states/hurt.gd" id="71_lhjdy"]
 [ext_resource type="Script" path="res://player/states/dead.gd" id="72_ew5qq"]
+[ext_resource type="Script" path="res://player/ui_inventory.gd" id="81_24b8e"]
+[ext_resource type="Theme" uid="uid://dlvblg01yt63v" path="res://interface/theme/inventory.tres" id="81_ius1r"]
 [ext_resource type="Script" path="res://interface/hud.gd" id="81_jkqwj"]
+[ext_resource type="Texture2D" uid="uid://svtxf8ar5xd4" path="res://interface/theme/assets/inventory.png" id="82_6hwvk"]
+[ext_resource type="Texture2D" uid="uid://dmuty14hotpxp" path="res://interface/theme/assets/yellow_paper.png" id="82_73w3x"]
 [ext_resource type="PackedScene" uid="uid://37aeiouyym3a" path="res://interface/health_bars/resource_bar.tscn" id="82_kund3"]
 [ext_resource type="Texture2D" uid="uid://d2ypg6ccdqtny" path="res://interface/health_bars/AdrenalineBar.png" id="83_6rqxv"]
+[ext_resource type="Texture2D" uid="uid://bygx820t45n20" path="res://resources/items/assets/poison_bottle/poison_bottle.tres" id="83_12y66"]
+[ext_resource type="Texture2D" uid="uid://bwl2qkv4px8uc" path="res://resources/items/assets/health_potion/01.png" id="83_ljq13"]
+[ext_resource type="Texture2D" uid="uid://dwowmqsptitta" path="res://interface/theme/assets/scroll.png" id="83_ur7a0"]
+[ext_resource type="FontFile" uid="uid://c4u0evm70kgi4" path="res://assets/fonts/monogram.ttf" id="84_6wlm3"]
 [ext_resource type="Texture2D" uid="uid://cghijssrh5hog" path="res://interface/health_bars/PoisonBar.png" id="84_60bv8"]
+[ext_resource type="FontFile" uid="uid://b2sg4sn82cjex" path="res://assets/fonts/MatchupPro.ttf" id="84_kg74n"]
+[ext_resource type="Texture2D" uid="uid://cbnqx7e50nnd5" path="res://resources/items/assets/health_potion/health_potion.tres" id="84_n2xph"]
+[ext_resource type="Texture2D" uid="uid://drho6t8xg66s7" path="res://resources/items/assets/poison_bottle/01.png" id="86_qx4sq"]
+[ext_resource type="Texture2D" uid="uid://noojxu8yl6w0" path="res://resources/items/assets/stat_potion/01.png" id="88_ik7xw"]
+[ext_resource type="Texture2D" uid="uid://txqnix1ei75e" path="res://resources/items/assets/stat_potion/stat_potion.tres" id="89_kmm4q"]
 
 [sub_resource type="Resource" id="Resource_nj300"]
 script = ExtResource("4_s0ugl")
@@ -637,6 +650,36 @@ _data = {
 "Sword_Throw": SubResource("Animation_qepdc")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yhiww"]
+texture = ExtResource("83_ur7a0")
+region_rect = Rect2(0, 0, 78, 17)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvdm5"]
+texture = ExtResource("82_6hwvk")
+margin_left = 7.0
+margin_top = 8.0
+margin_right = 7.0
+margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 86, 90)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2rhn"]
+texture = ExtResource("82_73w3x")
+margin_left = 14.0
+margin_top = 3.0
+margin_right = 14.0
+margin_bottom = 3.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 70, 66)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dgrok"]
+font = ExtResource("84_6wlm3")
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 2
 collision_layer = 2
@@ -790,6 +833,173 @@ drag_top_margin = 0.7
 editor_draw_screen = false
 
 [node name="Interface" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 11
+
+[node name="UIInventory" type="Control" parent="Interface"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("81_ius1r")
+script = ExtResource("81_24b8e")
+
+[node name="BlackOverlay" type="ColorRect" parent="Interface/UIInventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.686275)
+
+[node name="InventoryPanel" type="Panel" parent="Interface/UIInventory"]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 53.0
+offset_right = 236.0
+offset_bottom = 70.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_yhiww")
+
+[node name="InventoryLabel" type="Label" parent="Interface/UIInventory/InventoryPanel"]
+layout_mode = 0
+offset_left = 22.0
+offset_right = 66.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("84_6wlm3")
+theme_override_font_sizes/font_size = 13
+text = "Inventory"
+
+[node name="ItemPanel" type="Panel" parent="Interface/UIInventory"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -33.5
+offset_right = 43.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qvdm5")
+
+[node name="ItemGrid" type="GridContainer" parent="Interface/UIInventory/ItemPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = -5.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 11
+theme_override_constants/v_separation = 7
+columns = 3
+
+[node name="Slot0" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+layout_mode = 2
+offset_right = 13.0
+offset_bottom = 17.0
+focus_neighbor_left = NodePath("../Slot2")
+focus_neighbor_right = NodePath("../Slot1")
+texture_normal = ExtResource("83_ljq13")
+texture_hover = ExtResource("84_n2xph")
+texture_focused = ExtResource("84_n2xph")
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot0"]
+layout_mode = 0
+offset_left = 9.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("84_kg74n")
+theme_override_font_sizes/font_size = 9
+text = "0"
+
+[node name="Slot1" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+layout_mode = 2
+offset_left = 24.0
+offset_right = 37.0
+offset_bottom = 17.0
+focus_neighbor_left = NodePath("../Slot0")
+focus_neighbor_right = NodePath("../Slot2")
+texture_normal = ExtResource("86_qx4sq")
+texture_hover = ExtResource("83_12y66")
+texture_focused = ExtResource("83_12y66")
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 1
+offset_left = 9.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("84_kg74n")
+theme_override_font_sizes/font_size = 9
+text = "0"
+
+[node name="Slot2" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 61.0
+offset_bottom = 17.0
+focus_neighbor_left = NodePath("../Slot1")
+focus_neighbor_right = NodePath("../Slot0")
+texture_normal = ExtResource("88_ik7xw")
+texture_hover = ExtResource("89_kmm4q")
+texture_focused = ExtResource("89_kmm4q")
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 1
+offset_left = 9.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("84_kg74n")
+theme_override_font_sizes/font_size = 9
+text = "0"
+
+[node name="ItemNamePanel" type="Panel" parent="Interface/UIInventory"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -72.0
+offset_right = 47.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_i2rhn")
+
+[node name="ItemNameLabel" type="Label" parent="Interface/UIInventory/ItemNamePanel"]
+layout_mode = 0
+offset_right = 91.0
+offset_bottom = 16.0
+text = "Health Potion"
+label_settings = SubResource("LabelSettings_dgrok")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HUD" type="Control" parent="Interface"]
 layout_mode = 3
@@ -802,6 +1012,7 @@ mouse_filter = 2
 script = ExtResource("81_jkqwj")
 
 [node name="HealthBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 79.0
@@ -810,12 +1021,15 @@ scale = Vector2(1, 1)
 
 [node name="Recoil" parent="Interface/HUD/HealthBar" index="0"]
 self_modulate = Color(0.741176, 0.243137, 0.243137, 1)
+layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/HealthBar" index="1"]
 modulate = Color(0.862745, 0.286275, 0.286275, 1)
+layout_mode = 1
 value = 100.0
 
 [node name="AdrenalineBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 22.0
 offset_right = 79.0
@@ -825,11 +1039,14 @@ texture_under = ExtResource("83_6rqxv")
 
 [node name="Recoil" parent="Interface/HUD/AdrenalineBar" index="0"]
 self_modulate = Color(0.862745, 0.592157, 0.286275, 1)
+layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/AdrenalineBar" index="1"]
 self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
+layout_mode = 1
 
 [node name="PoisonBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 40.0
 offset_right = 79.0
@@ -839,9 +1056,11 @@ texture_under = ExtResource("84_60bv8")
 
 [node name="Recoil" parent="Interface/HUD/PoisonBar" index="0"]
 self_modulate = Color(0.2552, 0.58, 0.330987, 1)
+layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/PoisonBar" index="1"]
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
+layout_mode = 1
 
 [connection signal="adrenaline_changed" from="." to="Interface/HUD" method="_on_player_adrenaline_changed" flags=3]
 [connection signal="health_changed" from="." to="Interface/HUD" method="_on_player_health_changed" flags=3]
@@ -854,6 +1073,9 @@ self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
 [connection signal="took_damage" from="." to="StateMachine/Attack2" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack3" method="_on_player_took_damage"]
 [connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]
+[connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot0" to="Interface/UIInventory" method="_on_slot_0_pressed"]
+[connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot1" to="Interface/UIInventory" method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot2" to="Interface/UIInventory" method="_on_slot_2_pressed"]
 
 [editable path="Interface/HUD/HealthBar"]
 [editable path="Interface/HUD/AdrenalineBar"]
