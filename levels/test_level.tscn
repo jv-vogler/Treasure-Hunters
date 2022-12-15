@@ -10,7 +10,7 @@
 position = Vector2(157, 149)
 
 [node name="FierceTooth" parent="." instance=ExtResource("2_x7h73")]
-position = Vector2(275, 94)
+position = Vector2(904, 67)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 
@@ -20,22 +20,22 @@ platform_on_leave = 0
 platform_floor_layers = 4294967295
 
 [node name="FierceTooth3" parent="." instance=ExtResource("2_x7h73")]
-position = Vector2(221, 66)
+position = Vector2(850, 39)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 
 [node name="FierceTooth4" parent="." instance=ExtResource("2_x7h73")]
-position = Vector2(323, 66)
+position = Vector2(952, 39)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 
 [node name="FierceTooth5" parent="." instance=ExtResource("2_x7h73")]
-position = Vector2(136, 33)
+position = Vector2(765, 6)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 
 [node name="FierceTooth6" parent="." instance=ExtResource("2_x7h73")]
-position = Vector2(253, 7)
+position = Vector2(882, -20)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 

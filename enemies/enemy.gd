@@ -33,7 +33,7 @@ var target: Player = null
 var status: int
 var _floating_text = preload("res://interface/floating_text/floating_text.tscn")
 var poison_counter: int = 0
-var _poison_damage_scale: float = 0.01
+var _poison_damage_scale: float = 0.02
 
 @onready var player_detection: Area2D = $PlayerDetection
 @onready var attack_range: Area2D = $Sprite/AttackRange
@@ -77,9 +77,10 @@ func _update_health_bar() -> void:
 	health_bar.update(new_health_percent)
 
 
-func _spawn_damage_number(damage: int) -> void:
+func _spawn_damage_number(damage: int, type: String = "regular") -> void:
 	var floating_damage: FloatingText = _floating_text.instantiate()
 	floating_damage.text = str(damage)
+	floating_damage.type = type
 	add_child(floating_damage)
 
 
@@ -102,13 +103,13 @@ func _on_poison_timer_timeout() -> void:
 		status -= Status.POISONED
 		sprite.modulate = Color("#ffffff")
 		poison_counter = 0
-		_poison_damage_scale = 0.01
+		_poison_damage_scale = 0.02
 		return
 
 	var damage: int = int(max_health * _poison_damage_scale)
 	current_health -= damage
 	_update_health_bar()
-	_spawn_damage_number(damage)
+	_spawn_damage_number(damage, "poison")
 	_poison_damage_scale *= 2
 	poison_counter += 1
 	poison_timer.start()

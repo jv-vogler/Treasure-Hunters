@@ -1,0 +1,12 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bb5qm0ql0dskr"]
+
+[ext_resource type="FontFile" uid="uid://b2sg4sn82cjex" path="res://assets/fonts/MatchupPro.ttf" id="1_d2tdn"]
+
+[resource]
+resource_local_to_scene = true
+font = ExtResource("1_d2tdn")
+font_color = Color(0.435294, 0.988235, 0.564706, 1)
+outline_size = 2
+outline_color = Color(0.117647, 0.117647, 0.117647, 1)
+shadow_size = 2
+shadow_color = Color(0.117647, 0.117647, 0.117647, 0.239216)

@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://ba0y017cd3bhn" path="res://interface/theme/assets/button.png" id="1_gq4io"]
 
 [resource]
+content_margin_bottom = 10.0
 texture = ExtResource("1_gq4io")
-margin_left = 14.0
-margin_top = 14.0
-margin_right = 14.0
-margin_bottom = 14.0
+margin_left = 3.0
+margin_top = 6.0
+margin_right = 3.0
+margin_bottom = 6.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 42, 42)
