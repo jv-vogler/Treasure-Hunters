@@ -11,6 +11,9 @@ func enter() -> void:
 	player.collision_layer = 0
 	player.collision_mask = 1
 
+	player.buffs -= player.Buff.POISON
+	player.buffs -= player.Buff.ADRENALINE
+
 	create_tween().tween_property(player.camera, "zoom", Vector2(1.5, 1.5), 0.75)
 	Engine.time_scale = death_slowmo
 
