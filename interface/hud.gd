@@ -19,6 +19,7 @@ func _on_player_health_changed(current_health: int, max_health: int) -> void:
 
 func _on_player_adrenaline_changed(current_adrenaline: int, max_adrenaline: int) -> void:
 	_update_bar(_adrenaline_bar, current_adrenaline, max_adrenaline)
+
 	if current_adrenaline == max_adrenaline:
 		_adrenaline_bar.progress.set_material(_adrenaline_ready)
 	else:

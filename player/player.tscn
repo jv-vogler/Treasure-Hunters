@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=131 format=3 uid="uid://thmgkxfrb7qi"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -80,7 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://l266gl2ddklc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/08-Dead Ground/Dead Ground 04.png" id="71_2pick"]
 [ext_resource type="Script" path="res://player/states/hurt.gd" id="71_lhjdy"]
 [ext_resource type="Script" path="res://player/states/dead.gd" id="72_ew5qq"]
-[ext_resource type="Script" path="res://player/ui_inventory.gd" id="81_24b8e"]
+[ext_resource type="Script" path="res://interface/ui_inventory/ui_inventory.gd" id="81_24b8e"]
 [ext_resource type="Theme" uid="uid://dlvblg01yt63v" path="res://interface/theme/inventory.tres" id="81_ius1r"]
 [ext_resource type="Script" path="res://interface/hud.gd" id="81_jkqwj"]
 [ext_resource type="Texture2D" uid="uid://svtxf8ar5xd4" path="res://interface/theme/assets/inventory.png" id="82_6hwvk"]

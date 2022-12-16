@@ -34,18 +34,20 @@ var current_adrenaline: float = 0:
 var buffs: int
 var speed: float
 var jump_velocity: float
-var _ghost_effect = preload("res://player/ghost_effect.tscn")
 var _rainbow_effect = preload("res://player/materials/adrenaline_buff.tres")
-var _explosion = preload("res://player/explosion.tscn")
+var _ghost_effect = preload("res://player/particles/ghost_effect.tscn")
+var _explosion = preload("res://player/particles/explosion.tscn")
 
 @onready var attacks: AttackData = $Sprite/Hitbox.data
 @onready var camera: Camera2D = $Camera
+@onready var _poison_effect: Polygon2D  = $Sprite/PoisonFX
+@onready var _poison_particles: CPUParticles2D = $Sprite/PoisonFX/Particles
+@onready var _adrenaline_burst: CollisionShape2D = $Sprite/Hitbox2/AdrenalineBurst
 
 
 func _ready() -> void:
 	state_machine.init()
 	_init_stats()
-	camera.current = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -53,12 +55,15 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# TODO - put buff triggers in states/items
 	if Input.is_action_just_pressed("activate_adrenaline") and current_adrenaline == max_adrenaline:
-		activate_adrenaline()
+		_activate_adrenaline()
 
 	if Input.is_action_just_pressed("activate_poison"):
 		if buffs & Buff.POISON:
 			return
-		activate_poison()
+		_activate_poison()
+
+	if Input.is_action_just_pressed("restore_hp"):
+		_restore_health()
 
 
 func _physics_process(delta: float) -> void:
@@ -74,30 +79,31 @@ func succesful_hit() -> void:
 	current_adrenaline += stats.adrenaline_gain
 
 
-func activate_adrenaline() -> void:
+func _activate_adrenaline() -> void:
 	buffs += Buff.ADRENALINE
 	strength *= 1.5
 	speed *= 1.2
 	attacks.regular_stagger = false
 	set_material(_rainbow_effect)
 	add_child(_explosion.instantiate())
-	$Sprite/Hitbox2/AdrenalineBurst.disabled = false
+	_adrenaline_burst.disabled = false
 	$AdrenalineBurstTimer.start()
 	$AdrenalineFXTimer.start()
 
 
-func activate_poison() -> void:
+func _activate_poison() -> void:
 	buffs += Buff.POISON
 	current_poison += max_poison
 	attacks.applies_poison = true
 	_toggle_poison_vfx()
 
 
-func restore_health() -> void:
+func _restore_health() -> void:
 	current_health = max_health
 
 
 func _init_stats() -> void:
+	camera.current = true
 	speed = stats.speed
 	jump_velocity = stats.jump_velocity
 	strength = stats.strength
@@ -105,7 +111,7 @@ func _init_stats() -> void:
 	max_poison = stats.max_poison
 	max_adrenaline = stats.max_adrenaline
 	current_health = max_health
-	current_adrenaline = 100
+	current_adrenaline = 0
 	current_poison = 0
 	buffs -= Buff.POISON
 	buffs -= Buff.ADRENALINE
@@ -132,28 +138,28 @@ func _handle_buffs() -> void:
 
 
 func _toggle_poison_vfx() -> void:
-	var effects = !$Sprite/PoisonFX.visible
+	var toggle = !_poison_effect.visible
 	var tween = create_tween().set_ease(Tween.EASE_IN)
 
-	if effects:
-		$Sprite/PoisonFX.visible = effects
+	if toggle:
+		_poison_effect.visible = toggle
 		sprite.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
-		tween.tween_property($Sprite/PoisonFX, "self_modulate", Color("ffffff"), 1.0)
-		$Sprite/PoisonFX/Particles.emitting = effects
+		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff"), 1.0)
+		_poison_particles.emitting = toggle
 	else:
-		$Sprite/PoisonFX/Particles.emitting = effects
+		_poison_particles.emitting = toggle
 		sprite.clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
-		tween.tween_property($Sprite/PoisonFX, "self_modulate", Color("ffffff02"), 1.0)
-		$Sprite/PoisonFX.visible = effects
+		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff02"), 1.0)
+		_poison_effect.visible = toggle
 
 
 func _on_adrenalinefx_timer_timeout() -> void:
-	var effect = _ghost_effect.instantiate()
-	effect.texture = sprite.texture
-	effect.scale = sprite.scale
-	add_child(effect)
+	var ghost_effect = _ghost_effect.instantiate()
+	ghost_effect.texture = sprite.texture
+	ghost_effect.scale = sprite.scale
+	add_child(ghost_effect)
 	$AdrenalineFXTimer.start()
 
 
 func _on_adrenaline_burst_timer_timeout() -> void:
-	$Sprite/Hitbox2/AdrenalineBurst.disabled = true
+	_adrenaline_burst.disabled = true

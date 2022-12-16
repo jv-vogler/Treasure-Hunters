@@ -1,7 +1,7 @@
 extends Control
 
-@onready var _item_grid = $ItemPanel/ItemGrid
-@onready var _player: Player = owner
+#@onready var _item_grid = $ItemPanel/ItemGrid
+#@onready var _player: Player = owner
 
 
 func _ready() -> void:

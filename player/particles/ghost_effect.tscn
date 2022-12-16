@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://wxm2jm3apj1q"]
 
-[ext_resource type="Texture2D" uid="uid://e5nypegmf75" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_48ncd"]
-[ext_resource type="Script" path="res://player/ghost_effect.gd" id="1_pe4f2"]
+[ext_resource type="Texture2D" uid="uid://e5nypegmf75" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_pmw3o"]
+[ext_resource type="Script" path="res://player/particles/player_particle.gd" id="2_vx02u"]
 
-[sub_resource type="Animation" id="Animation_htuhk"]
+[sub_resource type="Animation" id="Animation_awfem"]
 resource_name = "Fade"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -32,7 +32,7 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_tk4xg"]
+[sub_resource type="Animation" id="Animation_505pe"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,19 +47,20 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fbitn"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sh8fv"]
 _data = {
-"Fade": SubResource("Animation_htuhk"),
-"RESET": SubResource("Animation_tk4xg")
+"Fade": SubResource("Animation_awfem"),
+"RESET": SubResource("Animation_505pe")
 }
 
 [node name="Sprite2D" type="Sprite2D"]
 show_behind_parent = true
 top_level = true
-texture = ExtResource("1_48ncd")
-script = ExtResource("1_pe4f2")
+texture = ExtResource("1_pmw3o")
+script = ExtResource("2_vx02u")
+animation = "Fade"
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fbitn")
+"": SubResource("AnimationLibrary_sh8fv")
 }

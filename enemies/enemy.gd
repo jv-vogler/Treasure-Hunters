@@ -31,9 +31,9 @@ var stagger_count: int = 0:
 			staggerable = true
 var target: Player = null
 var status: int
-var _floating_text = preload("res://interface/floating_text/floating_text.tscn")
 var poison_counter: int = 0
 var _poison_damage_scale: float = 0.02
+var _floating_text = preload("res://interface/floating_text/floating_text.tscn")
 
 @onready var player_detection: Area2D = $PlayerDetection
 @onready var attack_range: Area2D = $Sprite/AttackRange
