@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://el53o1wxw1s5"]
+
+[ext_resource type="Texture2D" uid="uid://b4s2tg647wqiq" path="res://player/assets/Dust Particles/Jump 01.png" id="1_jpj6v"]
+[ext_resource type="Script" path="res://player/particles/player_particle.gd" id="2_yavia"]
+[ext_resource type="Texture2D" uid="uid://d372ec7ua0co3" path="res://player/assets/Dust Particles/Jump 02.png" id="3_33bdp"]
+[ext_resource type="Texture2D" uid="uid://dt46rooyvodbu" path="res://player/assets/Dust Particles/Jump 03.png" id="4_8ypmp"]
+[ext_resource type="Texture2D" uid="uid://m0vhef8jfuwh" path="res://player/assets/Dust Particles/Jump 04.png" id="5_nnn2v"]
+[ext_resource type="Texture2D" uid="uid://cq1fwhxmh0gjj" path="res://player/assets/Dust Particles/Jump 05.png" id="6_bin5v"]
+[ext_resource type="Texture2D" uid="uid://dl32qshhjrj5n" path="res://player/assets/Dust Particles/Jump 06.png" id="7_uea2c"]
+
+[sub_resource type="Animation" id="Animation_jh7eq"]
+resource_name = "Jump"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_jpj6v"), ExtResource("3_33bdp"), ExtResource("4_8ypmp"), ExtResource("5_nnn2v"), ExtResource("6_bin5v"), ExtResource("7_uea2c")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"remove"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.254902), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_au2w1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_jpj6v")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ggca"]
+_data = {
+"JumpDust": SubResource("Animation_jh7eq"),
+"RESET": SubResource("Animation_au2w1")
+}
+
+[node name="JumpDust" type="Sprite2D"]
+texture = ExtResource("1_jpj6v")
+script = ExtResource("2_yavia")
+animation = "JumpDust"
+sprite_offset = Vector2(0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ggca")
+}

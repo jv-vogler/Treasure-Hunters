@@ -7,6 +7,8 @@ extends BaseState
 @export var hurt_node: NodePath
 @export var animation: String = ""
 
+var _jump_dust = preload("res://player/particles/jump_dust.tscn")
+
 @onready var run_state: BaseState = get_node(run_node)
 @onready var fall_state: BaseState = get_node(fall_node)
 @onready var idle_state: BaseState = get_node(idle_node)
@@ -16,6 +18,8 @@ extends BaseState
 
 func enter() -> void:
 	super()
+	if player.is_on_floor():
+		player.add_child(_jump_dust.instantiate())
 	player.animations.play(animation)
 	player.velocity.y = player.jump_velocity
 

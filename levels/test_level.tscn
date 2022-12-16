@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://dogqhjk6bgxxv"]
 
-[ext_resource type="PackedScene" uid="uid://jx8dnl26t4cq" path="res://player/player.tscn" id="1_43vtj"]
+[ext_resource type="PackedScene" uid="uid://thmgkxfrb7qi" path="res://player/player.tscn" id="1_43vtj"]
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="1_r2sey"]
 [ext_resource type="PackedScene" uid="uid://b5hqk51j0m14j" path="res://enemies/fierce_tooth/fierce_tooth.tscn" id="2_x7h73"]
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_43vtj")]
-position = Vector2(157, 149)
+position = Vector2(85, 111)
 
 [node name="FierceTooth" parent="." instance=ExtResource("2_x7h73")]
 position = Vector2(904, 67)
@@ -15,7 +15,7 @@ platform_on_leave = 0
 platform_floor_layers = 4294967295
 
 [node name="FierceTooth2" parent="." instance=ExtResource("2_x7h73")]
-position = Vector2(51, 99)
+position = Vector2(429, 96)
 platform_on_leave = 0
 platform_floor_layers = 4294967295
 

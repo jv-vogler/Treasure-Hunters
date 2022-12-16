@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://e5nypegmf75" path="res://player/assets/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/Idle Sword 01.png" id="1_pmw3o"]
 [ext_resource type="Script" path="res://player/particles/player_particle.gd" id="2_vx02u"]
 
-[sub_resource type="Animation" id="Animation_awfem"]
+[sub_resource type="Animation" id="Animation_kigwp"]
 resource_name = "Fade"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -32,7 +32,7 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_505pe"]
+[sub_resource type="Animation" id="Animation_gp3cf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,20 +47,20 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sh8fv"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4k1hs"]
 _data = {
-"Fade": SubResource("Animation_awfem"),
-"RESET": SubResource("Animation_505pe")
+"Fade": SubResource("Animation_kigwp"),
+"RESET": SubResource("Animation_gp3cf")
 }
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="GhostEffect" type="Sprite2D"]
 show_behind_parent = true
 top_level = true
 texture = ExtResource("1_pmw3o")
 script = ExtResource("2_vx02u")
 animation = "Fade"
 
-[node name="Animation" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sh8fv")
+"": SubResource("AnimationLibrary_4k1hs")
 }

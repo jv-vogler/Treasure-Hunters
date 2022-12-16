@@ -36,7 +36,7 @@ var speed: float
 var jump_velocity: float
 var _rainbow_effect = preload("res://player/materials/adrenaline_buff.tres")
 var _ghost_effect = preload("res://player/particles/ghost_effect.tscn")
-var _explosion = preload("res://player/particles/explosion.tscn")
+var _explosion = load("res://player/particles/explosion.tscn")
 
 @onready var attacks: AttackData = $Sprite/Hitbox.data
 @onready var camera: Camera2D = $Camera
@@ -115,6 +115,10 @@ func _init_stats() -> void:
 	current_poison = 0
 	buffs -= Buff.POISON
 	buffs -= Buff.ADRENALINE
+
+	$Interface/HUD/HealthBar.size.x = max_health * 0.75
+	$Interface/HUD/AdrenalineBar.size.x = max_adrenaline * 0.75
+	$Interface/HUD/PoisonBar.size.x = max_poison * 0.75
 
 
 func _handle_buffs() -> void:

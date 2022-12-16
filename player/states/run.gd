@@ -5,6 +5,8 @@ extends PlayerMoveState
 @export var hurt_node: NodePath
 @export var animation: String = ""
 
+var _run_dust = preload("res://player/particles/run_dust.tscn")
+
 @onready var attack_state: BaseState = get_node(first_attack_node)
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var hurt_state: BaseState = get_node(hurt_node)
@@ -12,10 +14,16 @@ extends PlayerMoveState
 
 func enter() -> void:
 	super()
+	$DustTimer.start()
+
 	if state_machine.previous_state == fall_state:
 		player.animations.play("Sword_Ground")
 		await player.animations.animation_finished
 	player.animations.play(animation)
+
+
+func exit() -> void:
+	$DustTimer.stop()
 
 
 func input(event: InputEvent) -> BaseState:
@@ -42,3 +50,11 @@ func physics_process(delta: float) -> BaseState:
 
 func _on_player_took_damage() -> void:
 	is_hurt = true
+
+
+func _on_dust_timer_timeout() -> void:
+	var dust = _run_dust.instantiate()
+	dust.scale = player.sprite.scale
+	dust.sprite_offset.x -= 10 * dust.scale.x
+	player.add_child(dust)
+	$DustTimer.start()

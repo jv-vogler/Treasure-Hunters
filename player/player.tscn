@@ -111,8 +111,8 @@ size = Vector2(20, 21)
 
 [sub_resource type="Resource" id="Resource_s2jp7"]
 script = ExtResource("4_s0ugl")
-knock_height = 200.0
-knock_intensity = 450.0
+knock_height = 100.0
+knock_intensity = 400.0
 critical_hit = false
 applies_poison = false
 regular_stagger = false
@@ -130,7 +130,7 @@ _data = [Vector2(0, -83.6364), 0.0, 883.117, 0, 0, Vector2(1, 200), -146.366, 0.
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss804"]
-size = Vector2(18, 24.25)
+size = Vector2(14, 24.25)
 
 [sub_resource type="Animation" id="Animation_kng34"]
 resource_name = "air_attack_1"
@@ -1288,7 +1288,6 @@ color = Color(0.435294, 0.988235, 0.564706, 0.419608)
 polygon = PackedVector2Array(-7.5457, 10.0989, -9.66701, 19.2913, -20.9807, 22.1197, -37.9513, 17.8771, -37.9513, 15.0487, -20.9807, 12.2202, -20.2736, 10.0989, -14.9058, 10.0989)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_ss804")
 debug_color = Color(0, 0.6, 0.7, 0.42)
@@ -1329,6 +1328,9 @@ idle_node = NodePath("../Idle")
 run_node = NodePath(".")
 jump_node = NodePath("../Jump")
 fall_node = NodePath("../Fall")
+
+[node name="DustTimer" type="Timer" parent="StateMachine/Run"]
+wait_time = 0.2
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource("65_6c3mu")
@@ -1395,6 +1397,7 @@ animation = "Dead"
 current = true
 limit_left = -96
 limit_bottom = 190
+limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
@@ -1420,7 +1423,6 @@ theme = ExtResource("81_ius1r")
 script = ExtResource("81_24b8e")
 
 [node name="BlackOverlay" type="ColorRect" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1429,7 +1431,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.686275)
 
 [node name="InventoryPanel" type="Panel" parent="Interface/UIInventory"]
-layout_mode = 0
 offset_left = 149.0
 offset_top = 53.0
 offset_right = 236.0
@@ -1437,7 +1438,6 @@ offset_bottom = 70.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_yhiww")
 
 [node name="InventoryLabel" type="Label" parent="Interface/UIInventory/InventoryPanel"]
-layout_mode = 0
 offset_left = 22.0
 offset_right = 66.0
 offset_bottom = 14.0
@@ -1447,7 +1447,6 @@ theme_override_font_sizes/font_size = 13
 text = "Inventory"
 
 [node name="ItemPanel" type="Panel" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1462,7 +1461,6 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_qvdm5")
 
 [node name="ItemGrid" type="GridContainer" parent="Interface/UIInventory/ItemPanel"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1477,7 +1475,6 @@ theme_override_constants/v_separation = 7
 columns = 3
 
 [node name="Slot0" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
-layout_mode = 2
 offset_right = 13.0
 offset_bottom = 17.0
 focus_neighbor_left = NodePath("../Slot2")
@@ -1487,7 +1484,6 @@ texture_hover = ExtResource("84_n2xph")
 texture_focused = ExtResource("84_n2xph")
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot0"]
-layout_mode = 0
 offset_left = 10.5
 offset_top = -0.5
 offset_right = 18.5
@@ -1500,7 +1496,6 @@ theme_override_font_sizes/font_size = 9
 text = "0"
 
 [node name="Slot1" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
-layout_mode = 2
 offset_left = 24.0
 offset_right = 37.0
 offset_bottom = 17.0
@@ -1511,7 +1506,6 @@ texture_hover = ExtResource("83_12y66")
 texture_focused = ExtResource("83_12y66")
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
-layout_mode = 0
 offset_left = 10.5
 offset_top = -0.5
 offset_right = 18.5
@@ -1524,7 +1518,6 @@ theme_override_font_sizes/font_size = 9
 text = "0"
 
 [node name="Slot2" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
-layout_mode = 2
 offset_left = 48.0
 offset_right = 61.0
 offset_bottom = 17.0
@@ -1535,7 +1528,6 @@ texture_hover = ExtResource("89_kmm4q")
 texture_focused = ExtResource("89_kmm4q")
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
-layout_mode = 0
 offset_left = 10.5
 offset_top = -0.5
 offset_right = 18.5
@@ -1549,7 +1541,6 @@ text = "0"
 
 [node name="ItemNamePanel" type="Panel" parent="Interface/UIInventory"]
 visible = false
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -1564,7 +1555,6 @@ grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_i2rhn")
 
 [node name="ItemNameLabel" type="Label" parent="Interface/UIInventory/ItemNamePanel"]
-layout_mode = 0
 offset_right = 91.0
 offset_bottom = 16.0
 text = "Health Potion"
@@ -1583,7 +1573,6 @@ mouse_filter = 2
 script = ExtResource("81_jkqwj")
 
 [node name="HealthBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 79.0
@@ -1592,15 +1581,12 @@ scale = Vector2(1, 1)
 
 [node name="Recoil" parent="Interface/HUD/HealthBar" index="0"]
 self_modulate = Color(0.741176, 0.243137, 0.243137, 1)
-layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/HealthBar" index="1"]
 modulate = Color(0.862745, 0.286275, 0.286275, 1)
-layout_mode = 1
 value = 100.0
 
 [node name="AdrenalineBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 22.0
 offset_right = 79.0
@@ -1610,14 +1596,11 @@ texture_under = ExtResource("83_6rqxv")
 
 [node name="Recoil" parent="Interface/HUD/AdrenalineBar" index="0"]
 self_modulate = Color(0.862745, 0.592157, 0.286275, 1)
-layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/AdrenalineBar" index="1"]
 self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
-layout_mode = 1
 
 [node name="PoisonBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 40.0
 offset_right = 79.0
@@ -1627,11 +1610,9 @@ texture_under = ExtResource("84_60bv8")
 
 [node name="Recoil" parent="Interface/HUD/PoisonBar" index="0"]
 self_modulate = Color(0.2552, 0.58, 0.330987, 1)
-layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/PoisonBar" index="1"]
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
-layout_mode = 1
 
 [node name="AdrenalineFXTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -1651,6 +1632,7 @@ one_shot = true
 [connection signal="took_damage" from="." to="StateMachine/Attack2" method="_on_player_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Attack3" method="_on_player_took_damage"]
 [connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]
+[connection signal="timeout" from="StateMachine/Run/DustTimer" to="StateMachine/Run" method="_on_dust_timer_timeout"]
 [connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot0" to="Interface/UIInventory" method="_on_slot_0_pressed"]
 [connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot1" to="Interface/UIInventory" method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot2" to="Interface/UIInventory" method="_on_slot_2_pressed"]

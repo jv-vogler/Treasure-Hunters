@@ -1,8 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://da76nfabdnn5o"]
+[gd_scene load_steps=33 format=3 uid="uid://da76nfabdnn5o"]
 
-[ext_resource type="Shader" path="res://shaders/rainbow_gradient.gdshader" id="1_nnpac"]
+[ext_resource type="Material" uid="uid://bqf4lua0d1kb4" path="res://player/particles/explosion.tres" id="1_aor36"]
 [ext_resource type="Texture2D" uid="uid://da7s531w04ttf" path="res://player/assets/explosion_particles/vnbvq_0.png" id="2_iqca2"]
-[ext_resource type="Script" path="res://player/particles/player_particle.gd" id="3_6phnm"]
+[ext_resource type="Script" path="res://player/particles/player_particle.gd" id="3_hbg5w"]
 [ext_resource type="Texture2D" uid="uid://doemubci6sk0c" path="res://player/assets/explosion_particles/vnbvq_1.png" id="4_nbqji"]
 [ext_resource type="Texture2D" uid="uid://jc6va7xivfsf" path="res://player/assets/explosion_particles/vnbvq_2.png" id="5_invpr"]
 [ext_resource type="Texture2D" uid="uid://csr2hfrtvmsx7" path="res://player/assets/explosion_particles/vnbvq_3.png" id="6_h21f8"]
@@ -30,13 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://c6idrgpyr168m" path="res://player/assets/explosion_particles/vnbvq_26.png" id="28_bjy4j"]
 [ext_resource type="Texture2D" uid="uid://bun4f21pwvimw" path="res://player/assets/explosion_particles/vnbvq_27.png" id="29_qolj0"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nl6im"]
-shader = ExtResource("1_nnpac")
-shader_parameter/angle = 240.0
-shader_parameter/speed = 0.5
-shader_parameter/strength = 0.2
-
-[sub_resource type="Animation" id="Animation_qw7uh"]
+[sub_resource type="Animation" id="Animation_e5vcb"]
 resource_name = "Explode"
 length = 1.4
 step = 0.05
@@ -67,7 +61,7 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_unbjc"]
+[sub_resource type="Animation" id="Animation_6je0a"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -82,22 +76,22 @@ tracks/0/keys = {
 "values": [ExtResource("2_iqca2")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8ia64"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m06kf"]
 _data = {
-"Explode": SubResource("Animation_qw7uh"),
-"RESET": SubResource("Animation_unbjc")
+"Explode": SubResource("Animation_e5vcb"),
+"RESET": SubResource("Animation_6je0a")
 }
 
 [node name="Explosion" type="Sprite2D"]
 top_level = true
-material = SubResource("ShaderMaterial_nl6im")
+material = ExtResource("1_aor36")
 texture = ExtResource("2_iqca2")
-script = ExtResource("3_6phnm")
+script = ExtResource("3_hbg5w")
 animation = "Explode"
-sprite_offset = Vector2(12, 12)
+sprite_offset = Vector2(-12, -12)
 
-[node name="Animation" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 2.0
 libraries = {
-"": SubResource("AnimationLibrary_8ia64")
+"": SubResource("AnimationLibrary_m06kf")
 }

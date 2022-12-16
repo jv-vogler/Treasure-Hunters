@@ -10,6 +10,6 @@ max_health = 100
 max_poison = 100
 max_adrenaline = 100
 adrenaline_gain = 2.0
-strength = 10
+strength = 10.0
 speed = 120.0
 jump_velocity = -384.0
