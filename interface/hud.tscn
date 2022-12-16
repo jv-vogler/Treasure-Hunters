@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc52eqgcbb5ib"]
+[gd_scene load_steps=6 format=3 uid="uid://dc52eqgcbb5ib"]
 
 [ext_resource type="Script" path="res://interface/hud.gd" id="1_5ufie"]
 [ext_resource type="PackedScene" uid="uid://37aeiouyym3a" path="res://interface/health_bars/resource_bar.tscn" id="1_gwu47"]
 [ext_resource type="Texture2D" uid="uid://d2ypg6ccdqtny" path="res://interface/health_bars/AdrenalineBar.png" id="2_lvjlj"]
 [ext_resource type="Texture2D" uid="uid://cghijssrh5hog" path="res://interface/health_bars/PoisonBar.png" id="3_akejc"]
+[ext_resource type="Material" uid="uid://kiw3ybjxtrmg" path="res://interface/health_bars/adrenaline_full.tres" id="4_18qqk"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -47,7 +48,9 @@ layout_mode = 1
 
 [node name="Progress" parent="AdrenalineBar" index="1"]
 self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
+material = ExtResource("4_18qqk")
 layout_mode = 1
+value = 100.0
 
 [node name="PoisonBar" parent="." instance=ExtResource("1_gwu47")]
 layout_mode = 0
@@ -65,6 +68,8 @@ layout_mode = 1
 [node name="Progress" parent="PoisonBar" index="1"]
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
 layout_mode = 1
+
+[connection signal="value_changed" from="AdrenalineBar/Progress" to="." method="_on_progress_value_changed"]
 
 [editable path="HealthBar"]
 [editable path="AdrenalineBar"]

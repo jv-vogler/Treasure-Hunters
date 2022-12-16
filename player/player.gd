@@ -34,6 +34,9 @@ var current_adrenaline: float = 0:
 var buffs: int
 var speed: float
 var jump_velocity: float
+var _ghost_effect = preload("res://player/ghost_effect.tscn")
+var _rainbow_effect = preload("res://player/materials/adrenaline_buff.tres")
+var _explosion = preload("res://player/explosion.tscn")
 
 @onready var attacks: AttackData = $Sprite/Hitbox.data
 @onready var camera: Camera2D = $Camera
@@ -73,10 +76,14 @@ func succesful_hit() -> void:
 
 func activate_adrenaline() -> void:
 	buffs += Buff.ADRENALINE
-#	animations.playback_speed = 1.5
 	strength *= 1.5
-	speed *= 1.25
+	speed *= 1.2
 	attacks.regular_stagger = false
+	set_material(_rainbow_effect)
+	add_child(_explosion.instantiate())
+	$Sprite/Hitbox2/AdrenalineBurst.disabled = false
+	$AdrenalineBurstTimer.start()
+	$AdrenalineFXTimer.start()
 
 
 func activate_poison() -> void:
@@ -98,7 +105,7 @@ func _init_stats() -> void:
 	max_poison = stats.max_poison
 	max_adrenaline = stats.max_adrenaline
 	current_health = max_health
-	current_adrenaline = 0
+	current_adrenaline = 100
 	current_poison = 0
 	buffs -= Buff.POISON
 	buffs -= Buff.ADRENALINE
@@ -111,8 +118,7 @@ func _handle_buffs() -> void:
 			buffs -= Buff.POISON
 			attacks.applies_poison = false
 			_toggle_poison_vfx()
-#			$Sprite/PoisonFX.visible = false
-#			$Sprite/PoisonFX/Particles.emitting = false
+
 
 	if buffs & Buff.ADRENALINE:
 		current_adrenaline -= stats.adrenaline_decay
@@ -120,24 +126,34 @@ func _handle_buffs() -> void:
 			buffs -= Buff.ADRENALINE
 			strength = stats.strength
 			speed = stats.speed
-			jump_velocity = stats.jump_velocity
 			attacks.regular_stagger = true
-#			animations.playback_speed = 1
+			$AdrenalineFXTimer.stop()
+			set_material(null)
 
 
 func _toggle_poison_vfx() -> void:
 	var effects = !$Sprite/PoisonFX.visible
-
 	var tween = create_tween().set_ease(Tween.EASE_IN)
+
 	if effects:
 		$Sprite/PoisonFX.visible = effects
 		sprite.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
 		tween.tween_property($Sprite/PoisonFX, "self_modulate", Color("ffffff"), 1.0)
 		$Sprite/PoisonFX/Particles.emitting = effects
-
 	else:
 		$Sprite/PoisonFX/Particles.emitting = effects
 		sprite.clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
 		tween.tween_property($Sprite/PoisonFX, "self_modulate", Color("ffffff02"), 1.0)
 		$Sprite/PoisonFX.visible = effects
 
+
+func _on_adrenalinefx_timer_timeout() -> void:
+	var effect = _ghost_effect.instantiate()
+	effect.texture = sprite.texture
+	effect.scale = sprite.scale
+	add_child(effect)
+	$AdrenalineFXTimer.start()
+
+
+func _on_adrenaline_burst_timer_timeout() -> void:
+	$Sprite/Hitbox2/AdrenalineBurst.disabled = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://jx8dnl26t4cq"]
+[gd_scene load_steps=131 format=3 uid="uid://jx8dnl26t4cq"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -108,6 +108,17 @@ regular_stagger = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gby3t"]
 size = Vector2(20, 21)
+
+[sub_resource type="Resource" id="Resource_s2jp7"]
+script = ExtResource("4_s0ugl")
+knock_height = 200.0
+knock_intensity = 450.0
+critical_hit = false
+applies_poison = false
+regular_stagger = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2g30s"]
+radius = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7arpp"]
 size = Vector2(18, 24)
@@ -1199,7 +1210,7 @@ platform_floor_layers = 1
 script = ExtResource("1_jwel6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-clip_children = 2
+use_parent_material = true
 texture = ExtResource("1_rwikk")
 region_rect = Rect2(150, 153, 260, 71)
 
@@ -1216,6 +1227,18 @@ position = Vector2(21, -0.5)
 shape = SubResource("RectangleShape2D_gby3t")
 disabled = true
 debug_color = Color(0.701961, 0, 0.027451, 0.419608)
+
+[node name="Hitbox2" type="Area2D" parent="Sprite"]
+visible = false
+script = ExtResource("3_lv1im")
+damage_source = 2
+attack_data = SubResource("Resource_s2jp7")
+
+[node name="AdrenalineBurst" type="CollisionShape2D" parent="Sprite/Hitbox2"]
+rotation = -1.57079
+shape = SubResource("CircleShape2D_2g30s")
+disabled = true
+debug_color = Color(0.968627, 0.858824, 0.113725, 0.419608)
 
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
 visible = false
@@ -1241,9 +1264,10 @@ position = Vector2(-5, 24)
 z_as_relative = false
 y_sort_enabled = true
 emitting = false
-amount = 12
-speed_scale = 0.4
-explosiveness = 0.4
+amount = 20
+lifetime = 1.5
+speed_scale = 0.5
+explosiveness = 0.3
 emission_shape = 3
 emission_rect_extents = Vector2(6, 2)
 direction = Vector2(0, 0)
@@ -1382,7 +1406,6 @@ editor_draw_screen = false
 [node name="Interface" type="CanvasLayer" parent="."]
 process_mode = 3
 layer = 11
-visible = false
 
 [node name="UIInventory" type="Control" parent="Interface"]
 process_mode = 3
@@ -1465,10 +1488,10 @@ texture_focused = ExtResource("84_n2xph")
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot0"]
 layout_mode = 0
-offset_left = 9.5
-offset_top = 10.5
-offset_right = 17.5
-offset_bottom = 22.5
+offset_left = 10.5
+offset_top = -0.5
+offset_right = 18.5
+offset_bottom = 11.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -1488,11 +1511,11 @@ texture_hover = ExtResource("83_12y66")
 texture_focused = ExtResource("83_12y66")
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
-layout_mode = 1
-offset_left = 9.5
-offset_top = 10.5
-offset_right = 17.5
-offset_bottom = 22.5
+layout_mode = 0
+offset_left = 10.5
+offset_top = -0.5
+offset_right = 18.5
+offset_bottom = 11.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -1512,11 +1535,11 @@ texture_hover = ExtResource("89_kmm4q")
 texture_focused = ExtResource("89_kmm4q")
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
-layout_mode = 1
-offset_left = 9.5
-offset_top = 10.5
-offset_right = 17.5
-offset_bottom = 22.5
+layout_mode = 0
+offset_left = 10.5
+offset_top = -0.5
+offset_right = 18.5
+offset_bottom = 11.5
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -1610,6 +1633,13 @@ layout_mode = 1
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
 layout_mode = 1
 
+[node name="AdrenalineFXTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="AdrenalineBurstTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="adrenaline_changed" from="." to="Interface/HUD" method="_on_player_adrenaline_changed" flags=3]
 [connection signal="health_changed" from="." to="Interface/HUD" method="_on_player_health_changed" flags=3]
 [connection signal="poison_changed" from="." to="Interface/HUD" method="_on_player_poison_changed" flags=3]
@@ -1624,6 +1654,8 @@ layout_mode = 1
 [connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot0" to="Interface/UIInventory" method="_on_slot_0_pressed"]
 [connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot1" to="Interface/UIInventory" method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Interface/UIInventory/ItemPanel/ItemGrid/Slot2" to="Interface/UIInventory" method="_on_slot_2_pressed"]
+[connection signal="timeout" from="AdrenalineFXTimer" to="." method="_on_adrenalinefx_timer_timeout"]
+[connection signal="timeout" from="AdrenalineBurstTimer" to="." method="_on_adrenaline_burst_timer_timeout"]
 
 [editable path="Interface/HUD/HealthBar"]
 [editable path="Interface/HUD/AdrenalineBar"]
