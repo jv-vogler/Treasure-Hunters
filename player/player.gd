@@ -3,7 +3,6 @@ extends Entity
 
 enum Buff { POISON = 1, ADRENALINE = 2, ALL = 3 }
 
-signal player_ready
 signal poison_changed
 signal adrenaline_changed
 
@@ -14,22 +13,21 @@ var direction: float:
 		if direction < 0: sprite.scale.x = -1
 		return direction
 
-var stats: Stats = preload("res://resources/stats.gd").new()
-#var stats: Stats
-#var inventory: Inventory = preload("res://resources/inventory.gd").new()
-
-var max_poison: int:
-	get: return stats.max_poison
-var max_adrenaline: int:
-	get: return stats.max_adrenaline
+var stats = GameStateManager.Stats
+var inventory = GameStateManager.Inventory
 var current_poison: float = 0:
 	set(value):
-		current_poison = clamp(value, 0, max_poison)
-		emit_signal("poison_changed", current_poison, max_poison)
+		current_poison = clamp(value, 0, stats.max_poison)
+		emit_signal("poison_changed", current_poison, stats.max_poison)
 var current_adrenaline: float = 0:
 	set(value):
-		current_adrenaline = clamp(value, 0, max_adrenaline)
-		emit_signal("adrenaline_changed", current_adrenaline, max_adrenaline)
+		current_adrenaline = clamp(value, 0, stats.max_adrenaline)
+		emit_signal("adrenaline_changed", current_adrenaline, stats.max_adrenaline)
+var current_health: int:
+	set(value):
+		current_health = clamp(value, 0, stats.max_health)
+		emit_signal("health_changed", current_health, stats.max_health)
+var strength: float
 var buffs: int
 var speed: float
 var jump_velocity: float
@@ -46,6 +44,9 @@ var _explosion = load("res://player/particles/explosion.tscn")
 
 func _ready() -> void:
 	state_machine.init()
+	camera.current = true
+	stats.connect("changed", Callable(self, "_update_bars"))
+	stats.connect("strength_changed", Callable(self, "_update_strength"))
 	_init_stats()
 
 
@@ -53,7 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	state_machine.input(event)
 
 	# TODO - put buff triggers in states/items
-	if Input.is_action_just_pressed("activate_adrenaline") and current_adrenaline == max_adrenaline:
+	if Input.is_action_just_pressed("activate_adrenaline") and current_adrenaline == stats.max_adrenaline:
 		_activate_adrenaline()
 
 	if Input.is_action_just_pressed("activate_poison"):
@@ -78,6 +79,12 @@ func succesful_hit() -> void:
 	current_adrenaline += stats.adrenaline_gain
 
 
+func take_damage(damage) -> void:
+	print("%s received %s damage." % [name, damage])
+	emit_signal("took_damage")
+	current_health -= damage
+
+
 func _activate_adrenaline() -> void:
 	buffs += Buff.ADRENALINE
 	strength *= 1.5
@@ -92,32 +99,25 @@ func _activate_adrenaline() -> void:
 
 func _activate_poison() -> void:
 	buffs += Buff.POISON
-	current_poison += max_poison
+	current_poison += stats.max_poison
 	attacks.applies_poison = true
 	_toggle_poison_vfx()
 
 
 func _restore_health() -> void:
-	current_health = max_health
+	current_health = stats.max_health
 
 
 func _init_stats() -> void:
-	camera.current = true
 	speed = stats.speed
 	jump_velocity = stats.jump_velocity
-	strength = stats.strength
-	max_health = stats.max_health
-	max_poison = stats.max_poison
-	max_adrenaline = stats.max_adrenaline
-	current_health = max_health
+	current_health = stats.max_health
 	current_adrenaline = 0
 	current_poison = 0
 	buffs -= Buff.POISON
 	buffs -= Buff.ADRENALINE
-
-	$Interface/HUD/HealthBar.size.x = max_health * 0.75
-	$Interface/HUD/AdrenalineBar.size.x = max_adrenaline * 0.75
-	$Interface/HUD/PoisonBar.size.x = max_poison * 0.75
+	_update_strength()
+	_update_bars()
 
 
 func _handle_buffs() -> void:
@@ -133,11 +133,11 @@ func _handle_buffs() -> void:
 		current_adrenaline -= stats.adrenaline_decay
 		if current_adrenaline == 0:
 			buffs -= Buff.ADRENALINE
-			strength = stats.strength
 			speed = stats.speed
 			attacks.regular_stagger = true
 			$AdrenalineFXTimer.stop()
 			set_material(null)
+			_update_strength()
 
 
 func _toggle_poison_vfx() -> void:
@@ -154,6 +154,20 @@ func _toggle_poison_vfx() -> void:
 		sprite.clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
 		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff02"), 1.0)
 		_poison_effect.visible = toggle
+
+
+func _update_bars() -> void:
+	var bar_scale := 0.75
+	var duration := 0.25
+	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_LINEAR)
+	tween.set_parallel()
+	tween.tween_property($Interface/HUD/HealthBar, "size:x", stats.max_health * bar_scale, duration)
+	tween.tween_property($Interface/HUD/AdrenalineBar, "size:x", stats.max_adrenaline * bar_scale, duration)
+	tween.tween_property($Interface/HUD/PoisonBar, "size:x", stats.max_poison * bar_scale, duration)
+
+
+func _update_strength() -> void:
+	strength = stats.strength
 
 
 func _on_adrenalinefx_timer_timeout() -> void:

@@ -7,7 +7,7 @@ extends Sprite2D
 
 func _ready() -> void:
 	top_level = true
-	var _player: Player = get_tree().get_nodes_in_group("Player")[0]
+	var _player: Player = get_tree().get_first_node_in_group("Player")
 	position = _player.position + sprite_offset
 	$AnimationPlayer.play(animation)
 

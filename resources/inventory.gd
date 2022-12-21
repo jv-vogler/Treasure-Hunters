@@ -51,3 +51,11 @@ func remove_item(item_id: String, quantity := 1):
 
 func get_item(index):
 	return _inventory[index]
+
+
+func reset_to_default() -> void:
+	_inventory = [
+	{ "ref": ItemDatabase.get_item("health_potion"), "quantity": 0 },
+	{ "ref": ItemDatabase.get_item("poison_bottle"), "quantity": 0 },
+	{ "ref": ItemDatabase.get_item("stat_potion"), "quantity": 0 },
+]

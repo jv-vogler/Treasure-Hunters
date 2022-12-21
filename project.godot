@@ -136,8 +136,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemDatabase="*res://autoloads/item_database.gd"
-SceneManager="*res://autoloads/scene_manager.gd"
 Scene="*res://autoloads/scene_database.gd"
+SceneManager="*res://autoloads/scene_manager.gd"
+GameStateManager="*res://autoloads/game_state_manager.gd"
 
 [debug]
 
