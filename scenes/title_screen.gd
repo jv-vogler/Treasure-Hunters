@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_start_pressed() -> void:
-	SceneManager.change_to(Scene.LEVEL_SELECTION, "Fade Out", "Fade In")
+	SceneManager.change_to(, ["Fade Out", "Fade In"])
 
 
 func _on_continue_pressed() -> void:

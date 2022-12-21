@@ -21,7 +21,7 @@ func enter() -> void:
 	await player.animations.animation_finished
 
 	create_tween().tween_property(Engine, "time_scale", 1, 2.0 * death_slowmo)
-	SceneManager.change_to(SceneManager.current_scene, "Fade Out", "Fade In")
+	SceneManager.reload()
 
 
 func physics_process(delta: float) -> BaseState:

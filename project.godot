@@ -89,11 +89,6 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://interface/health_bars/resource_bar.gd"
 }, {
-"base": "Resource",
-"class": &"SaveManager",
-"language": &"GDScript",
-"path": "res://common/save_manager.gd"
-}, {
 "base": "Node",
 "class": &"StateMachine",
 "language": &"GDScript",
@@ -126,7 +121,6 @@ _global_script_class_icons={
 "PlayerMoveState": "",
 "PlayerParticle": "",
 "ResourceBar": "",
-"SaveManager": "",
 "StateMachine": "",
 "Stats": "",
 "Utils": ""

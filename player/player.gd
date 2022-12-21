@@ -3,6 +3,7 @@ extends Entity
 
 enum Buff { POISON = 1, ADRENALINE = 2, ALL = 3 }
 
+signal player_ready
 signal poison_changed
 signal adrenaline_changed
 
@@ -12,13 +13,11 @@ var direction: float:
 		if direction > 0: sprite.scale.x = 1
 		if direction < 0: sprite.scale.x = -1
 		return direction
-var stats: Stats = preload("res://resources/stats.tres"):
-	set(new_stats):
-		stats = new_stats
 
+var stats: Stats = preload("res://resources/stats.gd").new()
 #var stats: Stats
+#var inventory: Inventory = preload("res://resources/inventory.gd").new()
 
-var inventory: Inventory = preload("res://resources/inventory.gd").new()
 var max_poison: int:
 	get: return stats.max_poison
 var max_adrenaline: int:
