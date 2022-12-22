@@ -19,7 +19,6 @@ theme = SubResource("Theme_oxoy4")
 script = ExtResource("1_avx8x")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -31,7 +30,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -46,7 +44,6 @@ grow_vertical = 0
 alignment = 1
 
 [node name="Start" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 4.0
 offset_right = 80.0
 offset_bottom = 27.0
@@ -58,7 +55,6 @@ focus_previous = NodePath("../Quit")
 text = "Start"
 
 [node name="Continue" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 39.0
 offset_right = 80.0
 offset_bottom = 62.0
@@ -67,11 +63,9 @@ focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Settings")
 focus_next = NodePath("../Settings")
 focus_previous = NodePath("../Start")
-disabled = true
 text = "Continue"
 
 [node name="Settings" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 74.0
 offset_right = 80.0
 offset_bottom = 97.0
@@ -83,7 +77,6 @@ focus_previous = NodePath("../Continue")
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 109.0
 offset_right = 80.0
 offset_bottom = 132.0
@@ -95,7 +88,6 @@ focus_previous = NodePath("../Settings")
 text = "Quit"
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 1.0

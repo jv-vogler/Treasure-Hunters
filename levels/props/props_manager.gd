@@ -7,7 +7,7 @@ extends Node
 
 func _ready() -> void:
 	if _parent.props == {}:
-		printerr("Parent node does have any Props.")
+		printerr("Parent %s does have any Props." % _parent)
 		return
 	_load_props()
 	_parent.connect("props_changed", Callable(self, "_on_props_changed"))
