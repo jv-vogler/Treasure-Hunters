@@ -13,8 +13,8 @@ var direction: float:
 		if direction < 0: sprite.scale.x = -1
 		return direction
 
-var stats = GameStateManager.Stats
-var inventory = GameStateManager.Inventory
+var stats = GameStateManager.stats
+var inventory = GameStateManager.inventory
 var current_poison: float = 0:
 	set(value):
 		current_poison = clamp(value, 0, stats.max_poison)

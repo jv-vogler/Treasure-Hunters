@@ -69,6 +69,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://resources/item_data.gd"
 }, {
+"base": "Node2D",
+"class": &"Level",
+"language": &"GDScript",
+"path": "res://levels/base_level.gd"
+}, {
 "base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
@@ -83,6 +88,11 @@ _global_script_classes=[{
 "class": &"PlayerParticle",
 "language": &"GDScript",
 "path": "res://player/particles/player_particle.gd"
+}, {
+"base": "Node",
+"class": &"PropsManager",
+"language": &"GDScript",
+"path": "res://levels/props/props_manager.gd"
 }, {
 "base": "TextureProgressBar",
 "class": &"ResourceBar",
@@ -117,9 +127,11 @@ _global_script_class_icons={
 "Hurtbox": "",
 "Inventory": "",
 "ItemData": "",
+"Level": "",
 "Player": "",
 "PlayerMoveState": "",
 "PlayerParticle": "",
+"PropsManager": "",
 "ResourceBar": "",
 "StateMachine": "",
 "Stats": "",

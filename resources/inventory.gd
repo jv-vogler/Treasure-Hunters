@@ -3,15 +3,15 @@ extends Resource
 
 signal inventory_changed
 
-@export var _inventory: Array[Dictionary] = [
+@export var inventory: Array[Dictionary] = [
 	{ "ref": ItemDatabase.get_item("health_potion"), "quantity": 0 },
 	{ "ref": ItemDatabase.get_item("poison_bottle"), "quantity": 0 },
 	{ "ref": ItemDatabase.get_item("stat_potion"), "quantity": 0 },
 ]:
 	get:
-		return _inventory
+		return inventory
 	set(new_inventory):
-		_inventory = new_inventory
+		inventory = new_inventory
 		emit_signal("inventory_changed", self)
 
 
@@ -24,7 +24,7 @@ func add_item(item_id: String, quantity := 1):
 		printerr("Could not find item.")
 		return
 
-	for item in _inventory:
+	for item in inventory:
 		if item.ref != item_ref:
 			continue
 
@@ -41,7 +41,7 @@ func remove_item(item_id: String, quantity := 1):
 		printerr("Could not find item.")
 		return
 
-	for item in _inventory:
+	for item in inventory:
 		if item.ref != item_ref:
 			continue
 
@@ -50,11 +50,20 @@ func remove_item(item_id: String, quantity := 1):
 
 
 func get_item(index):
-	return _inventory[index]
+	return inventory[index]
+
+
+func get_items():
+	var items = []
+	for i in inventory:
+		var item = { i.ref.id: i.quantity }
+		items.push_back(item)
+
+	return items
 
 
 func reset_to_default() -> void:
-	_inventory = [
+	inventory = [
 	{ "ref": ItemDatabase.get_item("health_potion"), "quantity": 0 },
 	{ "ref": ItemDatabase.get_item("poison_bottle"), "quantity": 0 },
 	{ "ref": ItemDatabase.get_item("stat_potion"), "quantity": 0 },
