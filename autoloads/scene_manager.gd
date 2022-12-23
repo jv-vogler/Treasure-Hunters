@@ -1,5 +1,7 @@
 extends Node
 
+signal scene_reloaded
+
 var current_scene: PackedScene = null
 var previous_scene: PackedScene =-null
 
@@ -32,6 +34,8 @@ func reload() -> void:
 
 	_Animation.play("Fade Out")
 	await _Animation.animation_finished
+
+	emit_signal("scene_reloaded")
 
 	if _Scene.get_child_count() > 0:
 		_Scene.get_child(0).queue_free()

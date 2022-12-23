@@ -20,18 +20,16 @@ func _process(_delta: float) -> void:
 
 func _update() -> void:
 #	inventory.text = str(GameStateManager.inventory._inventory)
-	inventory.text = str(GameStateManager.inventory.get_items())
-#	game_state.text = str("Consumables: ", ItemDatabase.consumables, "\nCurrency: ", ItemDatabase.all_items)
-	game_state.text = str(GameStateManager.inventory._inventory)
+	inventory.text = str(GameStateManager._game_state)
 
 
 func _on_save_pressed() -> void:
-	GameStateManager.save_game("debug")
+	GameStateManager.save_file("debug")
 	_update()
 
 
 func _on_load_pressed() -> void:
-	GameStateManager.load_game("debug")
+	GameStateManager.load_file("debug")
 	_update()
 
 

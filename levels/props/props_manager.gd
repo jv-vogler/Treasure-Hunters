@@ -14,12 +14,12 @@ func _ready() -> void:
 
 
 func _load_props() -> void:
-	var _state_props = GameStateManager.get_props(_parent_path)
-	if _state_props:
-		_parent.props = _state_props
+	var props = GameStateManager.get_props(_parent_path)
+	if props:
+		_parent.props = props
 	else:
 		GameStateManager.set_props(_parent_path, _parent.props)
 
 
-func _on_props_changed(props) -> void:
+func _on_props_changed(props: Dictionary) -> void:
 	GameStateManager.set_props(_parent_path, props)
