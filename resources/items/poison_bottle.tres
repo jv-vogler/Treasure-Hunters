@@ -1,13 +1,16 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dm2gu0yx41yge"]
+[gd_resource type="Resource" load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_0evpu"]
-[ext_resource type="Texture2D" uid="uid://k1xo8xe2fd7t" path="res://resources/items/poison_bottle.png" id="1_vs2hf"]
+[ext_resource type="Texture2D" uid="uid://bygx820t45n20" path="res://resources/items/assets/poison_bottle/poison_bottle.tres" id="1_24m3r"]
+[ext_resource type="Texture2D" uid="uid://drho6t8xg66s7" path="res://resources/items/assets/poison_bottle/01.png" id="2_i5irs"]
 
 [resource]
 script = ExtResource("1_0evpu")
-unique_id = "poison_bottle"
-icon = ExtResource("1_vs2hf")
+id = "poison_bottle"
+icon = ExtResource("2_i5irs")
+animated_texture = ExtResource("1_24m3r")
 display_name = "Poison Bottle"
 description = "Coats weapon in poison."
-display_name_br = "Garrafa de Veneno"
-description_br = "Reveste a arma em veneno."
+display_name_pt = "Garrafa de Veneno"
+description_pt = "Reveste a arma em veneno."
+type = 0

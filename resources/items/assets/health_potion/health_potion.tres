@@ -1,0 +1,26 @@
+[gd_resource type="AnimatedTexture" load_steps=8 format=3 uid="uid://cbnqx7e50nnd5"]
+
+[ext_resource type="Texture2D" uid="uid://bwl2qkv4px8uc" path="res://resources/items/assets/health_potion/01.png" id="1_gykgq"]
+[ext_resource type="Texture2D" uid="uid://db130sv3u1qfd" path="res://resources/items/assets/health_potion/02.png" id="2_e7f0p"]
+[ext_resource type="Texture2D" uid="uid://bnd26tiirkryr" path="res://resources/items/assets/health_potion/03.png" id="3_nv1lx"]
+[ext_resource type="Texture2D" uid="uid://c55bu1kdjvdgx" path="res://resources/items/assets/health_potion/04.png" id="4_sw2q3"]
+[ext_resource type="Texture2D" uid="uid://bc5x75hglnvd8" path="res://resources/items/assets/health_potion/05.png" id="5_yayjs"]
+[ext_resource type="Texture2D" uid="uid://btjiyvqr80eox" path="res://resources/items/assets/health_potion/06.png" id="6_jtrc3"]
+[ext_resource type="Texture2D" uid="uid://cec2vpm4qi4md" path="res://resources/items/assets/health_potion/07.png" id="7_m447m"]
+
+[resource]
+frames = 7
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_gykgq")
+frame_1/texture = ExtResource("2_e7f0p")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_nv1lx")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_sw2q3")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_yayjs")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_jtrc3")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_m447m")
+frame_6/duration = 1.0

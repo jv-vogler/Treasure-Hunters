@@ -15,6 +15,7 @@ extends BaseState
 var jump_buffer_timer: float = 0
 var coyote_jump_timer: float = 0
 var can_jump: bool = true
+var _fall_dust = preload("res://player/particles/fall_dust.tscn")
 
 @onready var state_machine: Node = get_node(state_machine_node)
 @onready var idle_state: BaseState = get_node(idle_node)
@@ -30,6 +31,11 @@ func enter() -> void:
 	player.animations.play(animation)
 	jump_buffer_timer = 0
 	coyote_jump_timer = coyote_jump
+
+
+func exit() -> void:
+	if player.is_on_floor():
+		player.add_child(_fall_dust.instantiate())
 
 
 func input(_event: InputEvent) -> BaseState:

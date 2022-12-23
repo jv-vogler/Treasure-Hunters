@@ -58,9 +58,14 @@ func _on_hurtbox_hit(hit) -> void:
 	knock_intensity = hit.knock_intensity
 	knock_height = hit.knock_height
 
-	if hit.applies_stagger:
+	if !hit.regular_stagger:
+		enemy.stagger_count = 0
+		enemy.staggerable = true
+	else:
 		is_staggered = true
 
-	if !enemy.status & enemy.Status.POISONED and hit.applies_poison:
-		enemy.status += enemy.Status.POISONED
-		emit_signal("got_poisoned")
+	if hit.applies_poison:
+		enemy.poison_counter = 0
+		if !enemy.status & enemy.Status.POISONED:
+			enemy.status += enemy.Status.POISONED
+			emit_signal("got_poisoned")

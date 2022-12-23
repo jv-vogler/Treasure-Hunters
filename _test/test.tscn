@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://li7yg421bl6v"]
-
-[node name="Enemy"]
-
-[node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
-position = Vector2(-10, -8)

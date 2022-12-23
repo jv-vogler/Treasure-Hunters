@@ -17,7 +17,7 @@ knock_height = 150.0
 knock_intensity = 50.0
 critical_hit = false
 applies_poison = false
-applies_stagger = true
+regular_stagger = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
 size = Vector2(30, 28)
@@ -29,7 +29,7 @@ size = Vector2(28, 26)
 size = Vector2(48, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjc6o"]
-size = Vector2(410, 110)
+size = Vector2(342, 110)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
 height = 24.0
@@ -125,9 +125,16 @@ offset_top = -20.0
 offset_right = -16.0
 offset_bottom = -20.0
 
+[node name="PoisonTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="AttackTimer" type="Timer" parent="."]
+
 [connection signal="took_damage" from="." to="StateMachine/Idle" method="_on_enemy_took_damage"]
 [connection signal="took_damage" from="." to="StateMachine/Fall" method="_on_enemy_took_damage"]
 [connection signal="hit" from="Sprite/Hurtbox" to="StateMachine/Hurt" method="_on_hurtbox_hit"]
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
 [connection signal="got_poisoned" from="StateMachine/Hurt" to="." method="_on_got_poisoned"]
+[connection signal="died" from="StateMachine/Dead" to="." method="_on_died"]
+[connection signal="timeout" from="PoisonTimer" to="." method="_on_poison_timer_timeout"]

@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6a7w800e8icg"]
+
+[ext_resource type="Script" path="res://_test/debug_level.gd" id="1_jah2b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqgbx"]
+font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_68iyi"]
+font_size = 6
+
+[node name="DebugLevel" type="Node2D"]
+script = ExtResource("1_jah2b")
+
+[node name="Save" type="Button" parent="."]
+offset_right = 45.0
+offset_bottom = 31.0
+text = "Save"
+
+[node name="Load" type="Button" parent="."]
+offset_top = 41.0
+offset_right = 45.0
+offset_bottom = 72.0
+text = "Load"
+
+[node name="AddItem" type="Button" parent="."]
+offset_top = 82.0
+offset_right = 46.0
+offset_bottom = 113.0
+text = "Add item"
+
+[node name="RemoveItem" type="Button" parent="."]
+offset_left = -2.0
+offset_top = 123.0
+offset_right = 109.0
+offset_bottom = 154.0
+text = "Remove item"
+
+[node name="Inventory" type="Label" parent="."]
+offset_left = 110.0
+offset_top = 18.0
+offset_right = 251.0
+offset_bottom = 209.0
+text = "placeholder"
+label_settings = SubResource("LabelSettings_wqgbx")
+autowrap_mode = 3
+
+[node name="title" type="Label" parent="Inventory"]
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 74.0
+offset_bottom = 9.0
+text = "Inventory"
+
+[node name="GameState" type="Label" parent="."]
+offset_left = 263.0
+offset_top = 16.0
+offset_right = 383.0
+offset_bottom = 218.0
+text = "placeholder"
+label_settings = SubResource("LabelSettings_68iyi")
+autowrap_mode = 2
+
+[node name="title" type="Label" parent="GameState"]
+offset_left = -1.0
+offset_top = -17.0
+offset_right = 74.0
+offset_bottom = 9.0
+text = "Inventory"
+
+[connection signal="pressed" from="Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="AddItem" to="." method="_on_add_item_pressed"]
+[connection signal="pressed" from="RemoveItem" to="." method="_on_remove_item_pressed"]

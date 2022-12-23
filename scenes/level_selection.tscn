@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckv7gsjevxmsi"]
+
+[ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_gj8j8"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_gj8j8")
+metadata/_edit_lock_ = true
+
+[node name="ToTitleScreen" type="VBoxContainer" parent="."]
+offset_left = 45.0
+offset_top = 137.0
+offset_right = 135.0
+offset_bottom = 198.0
+
+[node name="ToTitleScreen" type="Button" parent="ToTitleScreen"]
+offset_right = 90.0
+offset_bottom = 31.0
+text = "O"
+
+[node name="Label" type="Label" parent="ToTitleScreen"]
+offset_top = 35.0
+offset_right = 90.0
+offset_bottom = 61.0
+text = "Title Screen"
+
+[node name="ToShop" type="VBoxContainer" parent="."]
+offset_left = 248.0
+offset_top = 133.0
+offset_right = 287.0
+offset_bottom = 194.0
+
+[node name="ToShop" type="Button" parent="ToShop"]
+offset_right = 39.0
+offset_bottom = 31.0
+disabled = true
+text = "O"
+
+[node name="Label" type="Label" parent="ToShop"]
+offset_top = 35.0
+offset_right = 39.0
+offset_bottom = 61.0
+text = "Shop"
+
+[node name="Tutorial" type="VBoxContainer" parent="."]
+offset_left = 32.0
+offset_top = 20.0
+offset_right = 93.0
+offset_bottom = 81.0
+
+[node name="Tutorial" type="Button" parent="Tutorial"]
+offset_right = 61.0
+offset_bottom = 31.0
+disabled = true
+text = "O"
+
+[node name="Label" type="Label" parent="Tutorial"]
+offset_top = 35.0
+offset_right = 61.0
+offset_bottom = 61.0
+text = "Tutorial"
+
+[node name="TestLevel" type="VBoxContainer" parent="."]
+offset_left = 113.0
+offset_top = 20.0
+offset_right = 190.0
+offset_bottom = 81.0
+
+[node name="TestLevel" type="Button" parent="TestLevel"]
+offset_right = 77.0
+offset_bottom = 31.0
+text = "O"
+
+[node name="Label" type="Label" parent="TestLevel"]
+offset_top = 35.0
+offset_right = 77.0
+offset_bottom = 61.0
+text = "Test Level"
+
+[node name="Level00" type="VBoxContainer" parent="."]
+offset_left = 210.0
+offset_top = 22.0
+offset_right = 271.0
+offset_bottom = 83.0
+
+[node name="Level00" type="Button" parent="Level00"]
+offset_right = 61.0
+offset_bottom = 31.0
+disabled = true
+text = "O"
+
+[node name="Label" type="Label" parent="Level00"]
+offset_top = 35.0
+offset_right = 61.0
+offset_bottom = 61.0
+text = "Level 0"
+
+[node name="Level01" type="VBoxContainer" parent="."]
+offset_left = 306.0
+offset_top = 22.0
+offset_right = 367.0
+offset_bottom = 83.0
+
+[node name="Level01" type="Button" parent="Level01"]
+offset_right = 61.0
+offset_bottom = 31.0
+disabled = true
+text = "O"
+
+[node name="Label" type="Label" parent="Level01"]
+offset_top = 35.0
+offset_right = 61.0
+offset_bottom = 61.0
+text = "Level 1"
+
+[connection signal="pressed" from="ToTitleScreen/ToTitleScreen" to="." method="_on_to_title_screen_pressed"]
+[connection signal="pressed" from="TestLevel/TestLevel" to="." method="_on_test_level_pressed"]

@@ -4,5 +4,12 @@
 
 [resource]
 script = ExtResource("1_gpqpi")
-adrenaline_decay = 0.2
-poison_decay = 0.02
+adrenaline_decay = 0.3
+poison_decay = 0.05
+max_health = 100
+max_adrenaline = 100
+max_poison = 100
+adrenaline_gain = 2.0
+strength = 10.0
+speed = 120.0
+jump_velocity = -384.0

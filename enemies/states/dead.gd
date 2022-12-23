@@ -13,6 +13,7 @@ func enter() -> void:
 	enemy.collision_mask = 1	# If 0, can make enemy drop (check if on a plank -> fall on water)
 	enemy.velocity = Vector2(0, knock_height * -1)
 	enemy.set_process(false)
+	await enemy.animations.animation_finished
 	emit_signal("died")
 
 

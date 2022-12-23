@@ -9,6 +9,13 @@ enum Status { POISONED = 1 }
 @export_range(1, 9, 1) var stagger_limit: int = 3
 @export var loot_table: Array = []
 
+var max_health: int = 100
+var strength: float = 20.0
+
+var current_health: int:
+	set(value):
+		current_health = clamp(value, 0, max_health)
+		emit_signal("health_changed", current_health, max_health)
 var direction: float:
 	get:
 		if target:
@@ -31,11 +38,15 @@ var stagger_count: int = 0:
 			staggerable = true
 var target: Player = null
 var status: int
+var poison_counter: int = 0
+var _poison_damage_scale: float = 0.02
 var _floating_text = preload("res://interface/floating_text/floating_text.tscn")
 
 @onready var player_detection: Area2D = $PlayerDetection
 @onready var attack_range: Area2D = $Sprite/AttackRange
 @onready var health_bar: HealthBar = $HealthBar
+@onready var poison_timer: Timer = $PoisonTimer
+@onready var attack_timer: Timer = $AttackTimer
 
 
 func _ready() -> void:
@@ -56,7 +67,9 @@ func _process(delta: float) -> void:
 
 
 func take_damage(damage: int) -> void:
-	super(damage)
+	print("%s received %s damage." % [name, damage])
+	emit_signal("took_damage")
+	current_health -= damage
 	_update_health_bar()
 	_spawn_damage_number(damage)
 
@@ -73,9 +86,10 @@ func _update_health_bar() -> void:
 	health_bar.update(new_health_percent)
 
 
-func _spawn_damage_number(damage: int) -> void:
+func _spawn_damage_number(damage: int, type: String = "regular") -> void:
 	var floating_damage: FloatingText = _floating_text.instantiate()
 	floating_damage.text = str(damage)
+	floating_damage.type = type
 	add_child(floating_damage)
 
 
@@ -88,19 +102,27 @@ func _on_player_detection_body_exited(_body: Node2D) -> void:
 
 
 func _on_got_poisoned() -> void:
-	var damage_scale = 0.01
 	sprite.modulate = Color("#6ffc90")
+	poison_timer.start()
 
-	for i in range(10):
-		if current_health == 0:
-			break
 
-		await get_tree().create_timer(2.0).timeout
-		var damage: int = int(max_health * damage_scale)
-		current_health -= damage
-		_update_health_bar()
-		_spawn_damage_number(damage)
-		damage_scale += 0.05
+func _on_poison_timer_timeout() -> void:
+	if current_health == 0 or poison_counter >=  2:
+		poison_timer.stop()
+		status -= Status.POISONED
+		sprite.modulate = Color("#ffffff")
+		poison_counter = 0
+		_poison_damage_scale = 0.02
+		return
 
-	status -= Status.POISONED
-	sprite.modulate = Color("#ffffff")
+	var damage: int = int(max_health * _poison_damage_scale)
+	current_health -= damage
+	_update_health_bar()
+	_spawn_damage_number(damage, "poison")
+	_poison_damage_scale *= 2
+	poison_counter += 1
+	poison_timer.start()
+
+
+func _on_died() -> void:
+	queue_free()
