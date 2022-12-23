@@ -47,7 +47,7 @@ func load_game(file_name: String) -> void:
 	stats.speed = data.stats.speed
 	stats.jump_velocity = data.stats.jump_velocity
 
-#	inventory.inventory = data.inventory
+	inventory.set_items(data.inventory)
 
 	_level_props = data.level_props
 	settings = data.settings
@@ -61,7 +61,8 @@ func set_props(scene_path: String, props: Dictionary) -> void:
 
 func get_props(scene_path: String) -> Dictionary:
 	if scene_path in _level_props:
-		return _level_props[scene_path]
+		var props = _level_props[scene_path].duplicate(true)
+		return props
 	return {}
 
 
@@ -78,7 +79,7 @@ func _write_current_state() -> void:
 			"speed": stats.speed,
 			"jump_velocity": stats.jump_velocity,
 		},
-#		"inventory": inventory.items,
+		"inventory": inventory.get_items(),
 		"level_props": _level_props,
 		"settings": settings,
 		"current_datetime": Time.get_datetime_dict_from_system(),
@@ -103,7 +104,7 @@ func _load_state(state: Dictionary) -> void:
 	stats.speed = state.stats.speed
 	stats.jump_velocity = state.stats.jump_velocity
 
-#	inventory.inventory = state.inventory
+	inventory.set_items(state.inventory)
 
 	_level_props = state.level_props
 	settings = state.settings
