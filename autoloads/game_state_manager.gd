@@ -113,7 +113,6 @@ func _init_save_dir() -> void:
 
 
 func _on_scene_reloaded() -> void:
-	print("scene reloaded")
 	_reload_state()
 
 

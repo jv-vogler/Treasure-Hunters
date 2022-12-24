@@ -45,6 +45,15 @@ func remove_item(item_id: String, quantity := 1) -> void:
 		emit_signal("inventory_changed", self)
 
 
+func get_quantity(item_id: String) -> int:
+	for i in _inventory:
+		if i.item_ref.id != item_id:
+			continue
+		return i.quantity
+
+	return -1
+
+
 func get_items() -> Array[Dictionary]:
 	var item_list: Array[Dictionary] = []
 	for i in _inventory:

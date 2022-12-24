@@ -1,6 +1,7 @@
 class_name Stats
 extends Resource
 
+signal resource_stat_changed
 signal strength_changed
 
 @export var adrenaline_decay := 0.3
@@ -9,15 +10,15 @@ signal strength_changed
 @export var max_health: int = 100:
 	set(value):
 		max_health = value
-		emit_changed()
+		emit_signal("resource_stat_changed", "health")
 @export var max_adrenaline: int = 100:
 	set(value):
 		max_adrenaline = value
-		emit_changed()
+		emit_signal("resource_stat_changed", "adrenaline")
 @export var max_poison: int = 100:
 	set(value):
 		max_poison = value
-		emit_changed()
+		emit_signal("resource_stat_changed", "poison")
 @export var adrenaline_gain := 2.0
 @export var strength := 10.0:
 	set(value):

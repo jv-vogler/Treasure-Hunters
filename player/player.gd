@@ -45,7 +45,7 @@ var _explosion = load("res://player/particles/explosion.tscn")
 func _ready() -> void:
 	state_machine.init()
 	camera.current = true
-	stats.connect("changed", Callable(self, "_update_bars"))
+	stats.connect("resource_stat_changed", Callable(self, "_on_resource_stat_changed"))
 	stats.connect("strength_changed", Callable(self, "_update_strength"))
 	_init_stats()
 
@@ -156,6 +156,10 @@ func _toggle_poison_vfx() -> void:
 		_poison_effect.visible = toggle
 
 
+func _update_strength() -> void:
+	strength = stats.strength
+
+
 func _update_bars() -> void:
 	var bar_scale := 0.75
 	var duration := 0.25
@@ -166,8 +170,14 @@ func _update_bars() -> void:
 	tween.tween_property($Interface/HUD/PoisonBar, "size:x", stats.max_poison * bar_scale, duration)
 
 
-func _update_strength() -> void:
-	strength = stats.strength
+func _on_resource_stat_changed(resource: String) -> void:
+	_update_bars()
+	if resource == "health":
+		emit_signal("health_changed", current_health, stats.max_health)
+	elif resource == "adrenaline":
+		emit_signal("adrenaline_changed", current_adrenaline, stats.max_adrenaline)
+	elif resource == "poison":
+		emit_signal("poison_changed", current_poison, stats.max_poison)
 
 
 func _on_adrenalinefx_timer_timeout() -> void:

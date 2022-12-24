@@ -42,7 +42,6 @@ label_settings = SubResource("LabelSettings_wqgbx")
 autowrap_mode = 3
 
 [node name="title" type="Label" parent="Inventory"]
-layout_mode = 0
 offset_left = -1.0
 offset_top = -17.0
 offset_right = 74.0
@@ -59,7 +58,6 @@ label_settings = SubResource("LabelSettings_wqgbx")
 autowrap_mode = 3
 
 [node name="title" type="Label" parent="GameState"]
-layout_mode = 1
 offset_left = -1.0
 offset_top = -17.0
 offset_right = 74.0
