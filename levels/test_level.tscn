@@ -13,7 +13,7 @@ props = {
 }
 
 [node name="Player" parent="." instance=ExtResource("1_43vtj")]
-position = Vector2(85, 111)
+position = Vector2(21, 84)
 
 [node name="Enemies" type="Node2D" parent="."]
 

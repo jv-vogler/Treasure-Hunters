@@ -43,6 +43,17 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
+[node name="Continue" type="Button" parent="Buttons"]
+visible = false
+offset_right = 80.0
+offset_bottom = 23.0
+size_flags_vertical = 6
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Start")
+text = "Continue"
+
 [node name="Start" type="Button" parent="Buttons"]
 offset_top = 4.0
 offset_right = 80.0
@@ -54,16 +65,16 @@ focus_next = NodePath("../Continue")
 focus_previous = NodePath("../Quit")
 text = "Start"
 
-[node name="Continue" type="Button" parent="Buttons"]
+[node name="Load Game" type="Button" parent="Buttons"]
 offset_top = 39.0
 offset_right = 80.0
 offset_bottom = 62.0
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Settings")
-focus_next = NodePath("../Settings")
-focus_previous = NodePath("../Start")
-text = "Continue"
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Continue")
+focus_next = NodePath("../Continue")
+focus_previous = NodePath("../Quit")
+text = "Load Game"
 
 [node name="Settings" type="Button" parent="Buttons"]
 offset_top = 74.0
@@ -98,7 +109,8 @@ label_settings = SubResource("LabelSettings_yu7ga")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/Load Game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

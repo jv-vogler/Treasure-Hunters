@@ -117,8 +117,8 @@ critical_hit = false
 applies_poison = false
 regular_stagger = false
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2g30s"]
-radius = 100.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgfad"]
+height = 80.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7arpp"]
 size = Vector2(18, 24)
@@ -250,7 +250,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [false, false, false]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -351,7 +351,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [false, false, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -455,7 +455,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true, false]
+"values": [false, false, false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -1235,8 +1235,9 @@ damage_source = 2
 attack_data = SubResource("Resource_s2jp7")
 
 [node name="AdrenalineBurst" type="CollisionShape2D" parent="Sprite/Hitbox2"]
+position = Vector2(1, 5)
 rotation = -1.57079
-shape = SubResource("CircleShape2D_2g30s")
+shape = SubResource("CapsuleShape2D_jgfad")
 disabled = true
 debug_color = Color(0.968627, 0.858824, 0.113725, 0.419608)
 
@@ -1288,6 +1289,7 @@ color = Color(0.435294, 0.988235, 0.564706, 0.419608)
 polygon = PackedVector2Array(-7.5457, 10.0989, -9.66701, 19.2913, -20.9807, 22.1197, -37.9513, 17.8771, -37.9513, 15.0487, -20.9807, 12.2202, -20.2736, 10.0989, -14.9058, 10.0989)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_ss804")
 debug_color = Color(0, 0.6, 0.7, 0.42)
@@ -1359,6 +1361,7 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack2")
 animation = "Attack1"
+can_attack = true
 lunge_distance = 0.0
 
 [node name="Attack2" type="Node" parent="StateMachine"]
@@ -1370,7 +1373,6 @@ hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 next_attack_node = NodePath("../Attack3")
 animation = "Attack2"
-can_attack = true
 lunge_distance = 100.0
 
 [node name="Attack3" type="Node" parent="StateMachine"]
@@ -1381,6 +1383,7 @@ run_node = NodePath("../Run")
 hurt_node = NodePath("../Hurt")
 fall_node = NodePath("../Fall")
 animation = "Attack3"
+can_attack = true
 lunge_distance = 250.0
 
 [node name="Hurt" type="Node" parent="StateMachine"]
@@ -1404,7 +1407,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -1.0
 drag_top_margin = 0.7
-editor_draw_screen = false
+editor_draw_limits = true
 
 [node name="Interface" type="CanvasLayer" parent="."]
 process_mode = 3

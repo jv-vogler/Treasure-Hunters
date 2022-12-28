@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cq1fwhxmh0gjj" path="res://player/assets/Dust Particles/Jump 05.png" id="6_bin5v"]
 [ext_resource type="Texture2D" uid="uid://dl32qshhjrj5n" path="res://player/assets/Dust Particles/Jump 06.png" id="7_uea2c"]
 
-[sub_resource type="Animation" id="Animation_jh7eq"]
+[sub_resource type="Animation" id="Animation_4ajl8"]
 resource_name = "Jump"
 length = 0.6
 tracks/0/type = "value"
@@ -50,7 +50,7 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 0.254902), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_au2w1"]
+[sub_resource type="Animation" id="Animation_hu17o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -77,10 +77,10 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ggca"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_omo80"]
 _data = {
-"JumpDust": SubResource("Animation_jh7eq"),
-"RESET": SubResource("Animation_au2w1")
+"JumpDust": SubResource("Animation_4ajl8"),
+"RESET": SubResource("Animation_hu17o")
 }
 
 [node name="JumpDust" type="Sprite2D"]
@@ -91,5 +91,5 @@ sprite_offset = Vector2(0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5ggca")
+"": SubResource("AnimationLibrary_omo80")
 }

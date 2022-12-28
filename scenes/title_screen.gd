@@ -9,6 +9,10 @@ func _on_continue_pressed() -> void:
 	pass # Replace with function body.
 
 
+func _on_load_game_pressed() -> void:
+	pass # Replace with function body.
+
+
 func _on_settings_pressed() -> void:
 	pass # Replace with function body.
 

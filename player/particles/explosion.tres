@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bqf4lua0d1kb4"]
-
-[ext_resource type="Shader" path="res://shaders/rainbow_gradient.gdshader" id="1_r16m8"]
-
-[resource]
-shader = ExtResource("1_r16m8")
-shader_parameter/angle = 240.0
-shader_parameter/speed = 0.5
-shader_parameter/strength = 0.2

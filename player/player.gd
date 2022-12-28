@@ -33,8 +33,6 @@ var speed: float
 var jump_velocity: float
 var _rainbow_effect = preload("res://player/materials/adrenaline_buff.tres")
 var _ghost_effect = preload("res://player/particles/ghost_effect.tscn")
-var _explosion = load("res://player/particles/explosion.tscn")
-
 @onready var attacks: AttackData = $Sprite/Hitbox.data
 @onready var camera: Camera2D = $Camera
 @onready var _poison_effect: Polygon2D  = $Sprite/PoisonFX
@@ -62,8 +60,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		_activate_poison()
 
-	if Input.is_action_just_pressed("restore_hp"):
-		_restore_health()
+#	if Input.is_action_just_pressed("restore_hp"):
+#		_restore_health()
 
 
 func _physics_process(delta: float) -> void:
@@ -80,9 +78,12 @@ func succesful_hit() -> void:
 
 
 func take_damage(damage) -> void:
-	print("%s received %s damage." % [name, damage])
 	emit_signal("took_damage")
 	current_health -= damage
+	print_rich(
+		"%s took [color=orangered]%s[/color] damage (HP: [color=green]%s[/color])"
+		% [name, damage, current_health]
+	)
 
 
 func _activate_adrenaline() -> void:
@@ -91,7 +92,6 @@ func _activate_adrenaline() -> void:
 	speed *= 1.2
 	attacks.regular_stagger = false
 	set_material(_rainbow_effect)
-	add_child(_explosion.instantiate())
 	_adrenaline_burst.disabled = false
 	$AdrenalineBurstTimer.start()
 	$AdrenalineFXTimer.start()
@@ -109,10 +109,11 @@ func _restore_health() -> void:
 
 
 func _init_stats() -> void:
+	_poison_particles.emitting = false
 	speed = stats.speed
 	jump_velocity = stats.jump_velocity
 	current_health = stats.max_health
-	current_adrenaline = 0
+	current_adrenaline = 100
 	current_poison = 0
 	buffs -= Buff.POISON
 	buffs -= Buff.ADRENALINE
@@ -142,18 +143,18 @@ func _handle_buffs() -> void:
 
 func _toggle_poison_vfx() -> void:
 	var toggle = !_poison_effect.visible
-	var tween = create_tween().set_ease(Tween.EASE_IN)
+#	var tween = create_tween().set_ease(Tween.EASE_IN)
 
 	if toggle:
-		_poison_effect.visible = toggle
-		sprite.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
-		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff"), 1.0)
+#		_poison_effect.visible = toggle
+#		sprite.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
+#		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff"), 1.0)
 		_poison_particles.emitting = toggle
 	else:
 		_poison_particles.emitting = toggle
-		sprite.clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
-		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff02"), 1.0)
-		_poison_effect.visible = toggle
+#		sprite.clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
+#		tween.tween_property(_poison_effect, "self_modulate", Color("ffffff02"), 1.0)
+#		_poison_effect.visible = toggle
 
 
 func _update_strength() -> void:

@@ -6,11 +6,11 @@ enum Status { POISONED = 1 }
 @export var level: int = 1
 @export_range(60, 600, 10) var speed: float = 80.0
 @export var staggerable: bool = true
-@export_range(1, 9, 1) var stagger_limit: int = 3
+@export_range(0, 9, 1) var stagger_limit: int = 3
 @export var loot_table: Array = []
 
-var max_health: int = 100
-var strength: float = 20.0
+@export var max_health: int = 100
+@export var strength: float = 20.0
 
 var current_health: int:
 	set(value):
@@ -67,7 +67,6 @@ func _process(delta: float) -> void:
 
 
 func take_damage(damage: int) -> void:
-	print("%s received %s damage." % [name, damage])
 	emit_signal("took_damage")
 	current_health -= damage
 	_update_health_bar()
