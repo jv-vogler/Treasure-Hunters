@@ -26,6 +26,7 @@ signal strength_changed
 		emit_signal("strength_changed")
 @export var speed := 120.0
 @export var jump_velocity := -384.0
+@export var luck: int = 5
 
 
 func reset_to_default() -> void:

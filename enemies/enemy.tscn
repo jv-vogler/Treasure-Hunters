@@ -74,6 +74,9 @@ position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_gppxq")
 debug_color = Color(1, 0.309804, 0, 0.137255)
 
+[node name="LootSpawner" type="Marker2D" parent="Sprite"]
+position = Vector2(0, -14)
+
 [node name="PlayerDetection" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2

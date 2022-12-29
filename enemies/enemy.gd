@@ -7,7 +7,7 @@ enum Status { POISONED = 1 }
 @export_range(60, 600, 10) var speed: float = 80.0
 @export var staggerable: bool = true
 @export_range(0, 9, 1) var stagger_limit: int = 3
-@export var loot_table: Array = []
+@export var loot_table: Array[LootData] = []
 
 @export var max_health: int = 100
 @export var strength: float = 20.0
@@ -41,12 +41,14 @@ var status: int
 var poison_counter: int = 0
 var _poison_damage_scale: float = 0.02
 var _floating_text = preload("res://interface/floating_text/floating_text.tscn")
+var _loot_object = preload("res://objects/loot.tscn")
 
 @onready var player_detection: Area2D = $PlayerDetection
 @onready var attack_range: Area2D = $Sprite/AttackRange
 @onready var health_bar: HealthBar = $HealthBar
 @onready var poison_timer: Timer = $PoisonTimer
 @onready var attack_timer: Timer = $AttackTimer
+@onready var _loot_spawner: Marker2D = $Sprite/LootSpawner
 
 
 func _ready() -> void:
@@ -121,6 +123,22 @@ func _on_poison_timer_timeout() -> void:
 	_poison_damage_scale *= 2
 	poison_counter += 1
 	poison_timer.start()
+
+
+func _drop_items() -> void:
+	for loot_data in loot_table:
+		var item_list = loot_data.roll_drops()
+		if item_list == []:
+			continue
+
+		for item in item_list:
+			var spread := 20
+			var drop = _loot_object.instantiate()
+			drop.item = item
+			drop.global_position = _loot_spawner.global_position
+			drop.global_position.x += randi_range(-spread, spread)
+			drop.global_position.y += randi_range(-spread, spread)
+			get_parent().add_child(drop)
 
 
 func _on_died() -> void:

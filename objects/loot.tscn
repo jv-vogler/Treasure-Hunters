@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyqh14i5x2yfl"]
+
+[ext_resource type="Script" path="res://objects/loot.gd" id="1_x034w"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ixycx"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h6boc"]
+radius = 5.09902
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i42w3"]
+radius = 7.0
+
+[node name="Loot" type="RigidBody2D"]
+z_index = 10
+collision_layer = 8
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_ixycx")
+continuous_cd = 2
+script = ExtResource("1_x034w")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_h6boc")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollectArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
+shape = SubResource("CircleShape2D_i42w3")
+debug_color = Color(0.988235, 0.878431, 0.168627, 0.419608)
+
+[connection signal="body_entered" from="CollectArea" to="." method="_on_player_entered"]

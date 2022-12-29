@@ -1,10 +1,15 @@
-[gd_scene load_steps=59 format=3 uid="uid://b5hqk51j0m14j"]
+[gd_scene load_steps=68 format=3 uid="uid://b5hqk51j0m14j"]
 
 [ext_resource type="Script" path="res://enemies/fierce_tooth/fierce_tooth.gd" id="1_ja8wv"]
 [ext_resource type="PackedScene" uid="uid://c2ouj8pbo2qgu" path="res://enemies/enemy.tscn" id="1_q3016"]
 [ext_resource type="Texture2D" uid="uid://drv8a8yl5gy7a" path="res://enemies/fierce_tooth/assets/Fierce Tooth/01-Idle/Idle 01.png" id="2_t7y6h"]
+[ext_resource type="Resource" uid="uid://c3sorbgxefje6" path="res://resources/items/gold_coin.tres" id="3_1q8q7"]
+[ext_resource type="Script" path="res://resources/loot_data.gd" id="3_lxi8o"]
 [ext_resource type="Texture2D" uid="uid://bgsjanyyw7ag2" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 01.png" id="5_2c6sj"]
+[ext_resource type="Resource" uid="uid://cfqkldboyg78" path="res://resources/items/ruby.tres" id="5_bjnib"]
 [ext_resource type="Texture2D" uid="uid://deq1vxd88cjve" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 02.png" id="6_8btve"]
+[ext_resource type="Resource" uid="uid://d8x1eburfs86" path="res://resources/items/emerald.tres" id="6_vvvam"]
+[ext_resource type="Resource" uid="uid://l1vpe07okhb2" path="res://resources/items/diamond.tres" id="7_j6wjx"]
 [ext_resource type="Texture2D" uid="uid://blm3fkik3iwwt" path="res://enemies/fierce_tooth/assets/Fierce Tooth/06-Anticipation/Anticipation 03.png" id="7_xqi1i"]
 [ext_resource type="Texture2D" uid="uid://d0kdqix2y0jjj" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 01.png" id="8_hcrcc"]
 [ext_resource type="Texture2D" uid="uid://bgc0y7vkkjva1" path="res://enemies/fierce_tooth/assets/Fierce Tooth/07-Attack/Attack 02.png" id="9_xex1d"]
@@ -45,16 +50,40 @@
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/chase.gd" id="43_prodk"]
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/attack.gd" id="44_girl4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7jwp"]
+[sub_resource type="Resource" id="Resource_xhtl2"]
+script = ExtResource("3_lxi8o")
+_item = ExtResource("3_1q8q7")
+_quantity = 10
+_drop_chance = 15.0
+
+[sub_resource type="Resource" id="Resource_4m77y"]
+script = ExtResource("3_lxi8o")
+_item = ExtResource("5_bjnib")
+_quantity = 3
+_drop_chance = 15.0
+
+[sub_resource type="Resource" id="Resource_xe8mp"]
+script = ExtResource("3_lxi8o")
+_item = ExtResource("6_vvvam")
+_quantity = 2
+_drop_chance = 10.0
+
+[sub_resource type="Resource" id="Resource_i33wl"]
+script = ExtResource("3_lxi8o")
+_item = ExtResource("7_j6wjx")
+_quantity = 1
+_drop_chance = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gkek"]
 size = Vector2(29, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdtvm"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw0y4"]
 size = Vector2(25, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjb77"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyd66"]
 size = Vector2(17, 21)
 
-[sub_resource type="Animation" id="Animation_ald3c"]
+[sub_resource type="Animation" id="Animation_jsp2v"]
 resource_name = "Anticipation"
 length = 0.6
 step = 0.05
@@ -83,7 +112,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_81dwc"]
+[sub_resource type="Animation" id="Animation_s61pc"]
 resource_name = "Attack"
 length = 0.5
 tracks/0/type = "value"
@@ -111,7 +140,7 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_qtuhx"]
+[sub_resource type="Animation" id="Animation_jg5jd"]
 resource_name = "Death"
 length = 1.6
 tracks/0/type = "value"
@@ -186,8 +215,22 @@ tracks/5/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_drop_items"
+}]
+}
 
-[sub_resource type="Animation" id="Animation_vmyfe"]
+[sub_resource type="Animation" id="Animation_ivcny"]
 resource_name = "Fall"
 length = 0.1
 tracks/0/type = "value"
@@ -215,7 +258,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_wf4fm"]
+[sub_resource type="Animation" id="Animation_hdl8b"]
 resource_name = "Ground"
 length = 0.2
 tracks/0/type = "value"
@@ -243,7 +286,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_8q6fx"]
+[sub_resource type="Animation" id="Animation_uij0a"]
 resource_name = "Stagger"
 length = 0.25
 step = 0.05
@@ -272,7 +315,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_b5ph8"]
+[sub_resource type="Animation" id="Animation_hd841"]
 resource_name = "idle"
 length = 0.8
 loop_mode = 1
@@ -301,7 +344,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_qbnc1"]
+[sub_resource type="Animation" id="Animation_5y8ec"]
 resource_name = "Jump"
 length = 0.3
 tracks/0/type = "value"
@@ -317,7 +360,7 @@ tracks/0/keys = {
 "values": [ExtResource("35_8xcr0"), ExtResource("36_oy2wd"), ExtResource("37_e0eyy")]
 }
 
-[sub_resource type="Animation" id="Animation_kbupg"]
+[sub_resource type="Animation" id="Animation_6ujl8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -416,7 +459,7 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ewdea"]
+[sub_resource type="Animation" id="Animation_slxkl"]
 resource_name = "Run"
 length = 0.6
 loop_mode = 1
@@ -445,23 +488,24 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuyso"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn2ji"]
 _data = {
-"Anticipation": SubResource("Animation_ald3c"),
-"Attack": SubResource("Animation_81dwc"),
-"Death": SubResource("Animation_qtuhx"),
-"Fall": SubResource("Animation_vmyfe"),
-"Ground": SubResource("Animation_wf4fm"),
-"Hurt": SubResource("Animation_8q6fx"),
-"Idle": SubResource("Animation_b5ph8"),
-"Jump": SubResource("Animation_qbnc1"),
-"RESET": SubResource("Animation_kbupg"),
-"Run": SubResource("Animation_ewdea")
+"Anticipation": SubResource("Animation_jsp2v"),
+"Attack": SubResource("Animation_s61pc"),
+"Death": SubResource("Animation_jg5jd"),
+"Fall": SubResource("Animation_ivcny"),
+"Ground": SubResource("Animation_hdl8b"),
+"Hurt": SubResource("Animation_uij0a"),
+"Idle": SubResource("Animation_hd841"),
+"Jump": SubResource("Animation_5y8ec"),
+"RESET": SubResource("Animation_6ujl8"),
+"Run": SubResource("Animation_slxkl")
 }
 
 [node name="FierceTooth" instance=ExtResource("1_q3016")]
 script = ExtResource("1_ja8wv")
 speed = 160.0
+loot_table = [SubResource("Resource_xhtl2"), SubResource("Resource_4m77y"), SubResource("Resource_xe8mp"), SubResource("Resource_i33wl")]
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, 1)
@@ -472,7 +516,7 @@ visible = false
 
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
 position = Vector2(-4.5, 2)
-shape = SubResource("RectangleShape2D_i7jwp")
+shape = SubResource("RectangleShape2D_4gkek")
 disabled = true
 
 [node name="Hurtbox" parent="Sprite" index="1"]
@@ -480,7 +524,7 @@ visible = false
 
 [node name="EnemyHurtbox" parent="Sprite/Hurtbox" index="0"]
 position = Vector2(0.5, 2.5)
-shape = SubResource("RectangleShape2D_tdtvm")
+shape = SubResource("RectangleShape2D_rw0y4")
 
 [node name="AttackRange" parent="Sprite" index="2"]
 visible = false
@@ -497,11 +541,11 @@ position = Vector2(0, -41)
 [node name="Collision" parent="." index="2"]
 visible = false
 position = Vector2(0.5, 3.5)
-shape = SubResource("RectangleShape2D_rjb77")
+shape = SubResource("RectangleShape2D_oyd66")
 
 [node name="Animations" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_vuyso")
+"": SubResource("AnimationLibrary_hn2ji")
 }
 
 [node name="Chase" parent="StateMachine" index="2"]

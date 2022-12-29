@@ -31,6 +31,7 @@ var strength: float
 var buffs: int
 var speed: float
 var jump_velocity: float
+var luck: int
 var _rainbow_effect = preload("res://player/materials/adrenaline_buff.tres")
 var _ghost_effect = preload("res://player/particles/ghost_effect.tscn")
 @onready var attacks: AttackData = $Sprite/Hitbox.data
@@ -60,8 +61,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 		_activate_poison()
 
-#	if Input.is_action_just_pressed("restore_hp"):
-#		_restore_health()
+	if Input.is_action_just_pressed("restore_hp"):
+		print(GameStateManager.inventory.get_items())
+		_restore_health()
+		speed = 300
+		stats.strength = 999
 
 
 func _physics_process(delta: float) -> void:
@@ -90,6 +94,7 @@ func _activate_adrenaline() -> void:
 	buffs += Buff.ADRENALINE
 	strength *= 1.5
 	speed *= 1.2
+	luck += 20
 	attacks.regular_stagger = false
 	set_material(_rainbow_effect)
 	_adrenaline_burst.disabled = false

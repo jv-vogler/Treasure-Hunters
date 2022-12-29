@@ -79,6 +79,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://levels/base_level.gd"
 }, {
+"base": "RigidBody2D",
+"class": &"Loot",
+"language": &"GDScript",
+"path": "res://objects/loot.gd"
+}, {
+"base": "Resource",
+"class": &"LootData",
+"language": &"GDScript",
+"path": "res://resources/loot_data.gd"
+}, {
 "base": "Entity",
 "class": &"Player",
 "language": &"GDScript",
@@ -139,6 +149,8 @@ _global_script_class_icons={
 "Inventory": "",
 "ItemData": "",
 "Level": "",
+"Loot": "",
+"LootData": "",
 "Player": "",
 "PlayerMoveState": "",
 "PlayerParticle": "",
@@ -252,6 +264,7 @@ restore_hp={
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Enemy"
+2d_physics/layer_4="Loot"
 
 [rendering]
 

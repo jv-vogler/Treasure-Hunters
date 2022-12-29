@@ -46,6 +46,7 @@ func load_file(file_name: String) -> void:
 	stats.strength = data.stats.strength
 	stats.speed = data.stats.speed
 	stats.jump_velocity = data.stats.jump_velocity
+	stats.luck = data.stats.luck
 	inventory.set_items(data.inventory)
 
 	_level_props = data.level_props
@@ -76,6 +77,7 @@ func _write_current_state() -> void:
 			"strength": stats.strength,
 			"speed": stats.speed,
 			"jump_velocity": stats.jump_velocity,
+			"luck": stats.luck,
 		},
 		"inventory": inventory.get_items(),
 		"level_props": _level_props,
@@ -97,6 +99,7 @@ func _reload_state() -> void:
 	stats.strength = _game_state.stats.strength
 	stats.speed = _game_state.stats.speed
 	stats.jump_velocity = _game_state.stats.jump_velocity
+	stats.luck = _game_state.stats.luck
 	inventory.set_items(_game_state.inventory)
 
 
