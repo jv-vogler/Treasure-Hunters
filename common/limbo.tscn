@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://11wgj41mwj8o"]
+
+[ext_resource type="Script" path="res://common/limbo.gd" id="1_qru5u"]
+
+[node name="Limbo" type="Area2D"]
+collision_layer = 0
+collision_mask = 14
+script = ExtResource("1_qru5u")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

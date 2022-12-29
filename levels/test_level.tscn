@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqwgnurc7iidx"]
+[gd_scene load_steps=8 format=3 uid="uid://bqwgnurc7iidx"]
 
 [ext_resource type="PackedScene" uid="uid://thmgkxfrb7qi" path="res://player/player.tscn" id="1_43vtj"]
 [ext_resource type="Script" path="res://levels/test_level.gd" id="1_cltf6"]
 [ext_resource type="Script" path="res://levels/props/props_manager.gd" id="1_qdv0w"]
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="1_r2sey"]
 [ext_resource type="PackedScene" uid="uid://b5hqk51j0m14j" path="res://enemies/fierce_tooth/fierce_tooth.tscn" id="2_x7h73"]
+[ext_resource type="PackedScene" uid="uid://11wgj41mwj8o" path="res://common/limbo.tscn" id="6_gnmns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5p7fa"]
+size = Vector2(2278, 78)
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource("1_cltf6")
@@ -13,7 +17,7 @@ props = {
 }
 
 [node name="Player" parent="." instance=ExtResource("1_43vtj")]
-position = Vector2(21, 84)
+position = Vector2(113, 93)
 
 [node name="Enemies" type="Node2D" parent="."]
 
@@ -107,3 +111,11 @@ layer_0/tile_data = PackedInt32Array(327680, 65536, 0, 393215, 393216, 1, 327690
 [node name="PropsManager" type="Node" parent="."]
 editor_description = "Responsible for saving and loading its parent's Props."
 script = ExtResource("1_qdv0w")
+
+[node name="Limbo" parent="." instance=ExtResource("6_gnmns")]
+position = Vector2(994, 230)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Limbo"]
+position = Vector2(50, 344)
+shape = SubResource("RectangleShape2D_5p7fa")
+debug_color = Color(0.988235, 0, 0, 0.419608)

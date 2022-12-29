@@ -6,13 +6,15 @@ enum Buff { POISON = 1, ADRENALINE = 2, ALL = 3 }
 signal poison_changed
 signal adrenaline_changed
 
+var current_state: String:
+	get:
+		return str(state_machine.current_state.name)
 var direction: float:
 	get:
 		direction = Input.get_axis("move_left", "move_right")
 		if direction > 0: sprite.scale.x = 1
 		if direction < 0: sprite.scale.x = -1
 		return direction
-
 var stats = GameStateManager.stats
 var inventory = GameStateManager.inventory
 var current_poison: float = 0:
@@ -196,3 +198,10 @@ func _on_adrenalinefx_timer_timeout() -> void:
 
 func _on_adrenaline_burst_timer_timeout() -> void:
 	_adrenaline_burst.disabled = true
+
+
+func _on_loot_detection_body_entered(loot: Loot) -> void:
+	if !loot:
+		return
+
+	loot.apply_central_force(Vector2(global_position - loot.global_position) * 3 )
