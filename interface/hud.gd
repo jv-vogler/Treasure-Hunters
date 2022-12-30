@@ -6,6 +6,11 @@ var _adrenaline_ready = preload("res://interface/health_bars/adrenaline_full.tre
 @onready var _health_bar: ResourceBar = $HealthBar
 @onready var _adrenaline_bar: ResourceBar = $AdrenalineBar
 @onready var _poison_bar: ResourceBar = $PoisonBar
+@onready var _coins_label: Label = $Coins/Amount
+
+
+func _ready() -> void:
+	GameStateManager.inventory.connect("inventory_changed", Callable(self, "_on_inventory_changed"))
 
 
 func _update_bar(bar: ResourceBar, current_value: int, max_value: int) -> void:
@@ -28,3 +33,8 @@ func _on_player_adrenaline_changed(current_adrenaline: int, max_adrenaline: int)
 
 func _on_player_poison_changed(current_poison: int, max_poison: int) -> void:
 	_update_bar(_poison_bar, current_poison, max_poison)
+
+
+func _on_inventory_changed() -> void:
+	var coins = GameStateManager.inventory.get_quantity("gold_coin")
+	_coins_label.text = str(coins)

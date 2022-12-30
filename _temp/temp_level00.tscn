@@ -167,6 +167,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Tutorials"]
+layout_mode = 0
 offset_left = 126.0
 offset_top = 20.0
 offset_right = 398.0

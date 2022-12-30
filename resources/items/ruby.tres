@@ -1,30 +1,15 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://cfqkldboyg78"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://cfqkldboyg78"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_byuet"]
 [ext_resource type="Texture2D" uid="uid://chefcv71x8y63" path="res://resources/items/assets/ruby/01.png" id="1_xjv76"]
-[ext_resource type="Texture2D" uid="uid://cemsthrl3m4iy" path="res://resources/items/assets/ruby/02.png" id="2_615iy"]
-[ext_resource type="Texture2D" uid="uid://cplbo2oejjkhi" path="res://resources/items/assets/ruby/03.png" id="3_0wfu7"]
-[ext_resource type="Texture2D" uid="uid://b4di6st35vyou" path="res://resources/items/assets/ruby/04.png" id="4_38ca0"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_1mamk"]
-frames = 4
-speed_scale = 10.0
-frame_0/texture = ExtResource("1_xjv76")
-frame_1/texture = ExtResource("2_615iy")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("3_0wfu7")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("4_38ca0")
-frame_3/duration = 1.0
 
 [resource]
 script = ExtResource("1_byuet")
 id = "ruby"
 icon = ExtResource("1_xjv76")
-animated_texture = SubResource("AnimatedTexture_1mamk")
 display_name = "Ruby"
-description = "Uncommon gem."
+description = "Uncommon gem"
 display_name_pt = "Rubi"
-description_pt = "Gema incomum."
+description_pt = "Gema incomum"
 type = 2
 sell_value = 20

@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://thmgkxfrb7qi"]
+[gd_scene load_steps=136 format=3 uid="uid://thmgkxfrb7qi"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -89,10 +89,15 @@
 [ext_resource type="Texture2D" uid="uid://dwowmqsptitta" path="res://interface/theme/assets/scroll.png" id="83_ur7a0"]
 [ext_resource type="FontFile" uid="uid://c4u0evm70kgi4" path="res://assets/fonts/monogram.ttf" id="84_6wlm3"]
 [ext_resource type="Texture2D" uid="uid://cghijssrh5hog" path="res://interface/health_bars/PoisonBar.png" id="84_60bv8"]
+[ext_resource type="Script" path="res://interface/ui_inventory/slot.gd" id="86_u8xxi"]
+[ext_resource type="FontFile" uid="uid://b2sg4sn82cjex" path="res://assets/fonts/MatchupPro.ttf" id="87_5vt5y"]
 [ext_resource type="PackedScene" uid="uid://cl3gbcbk6iqoy" path="res://interface/tooltip.tscn" id="87_ugyth"]
 [ext_resource type="Texture2D" uid="uid://bvn58ql030fp6" path="res://interface/theme/assets/btn_close.png" id="88_rv8q3"]
+[ext_resource type="Texture2D" uid="uid://bab2hlfo5gb3b" path="res://interface/theme/assets/selection.png" id="88_xq8l1"]
+[ext_resource type="Texture2D" uid="uid://dj7itjvw8c2sy" path="res://interface/theme/assets/selection_pressed.png" id="89_oodv3"]
 [ext_resource type="Texture2D" uid="uid://bg7sivskojwr6" path="res://interface/theme/assets/btn_left.png" id="89_sjsna"]
 [ext_resource type="Texture2D" uid="uid://0po21tny6ny5" path="res://interface/theme/assets/btn_right.png" id="90_anwyo"]
+[ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="98_upgls"]
 
 [sub_resource type="Resource" id="Resource_nj300"]
 script = ExtResource("4_s0ugl")
@@ -1191,26 +1196,26 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 86, 90)
 
+[sub_resource type="LabelSettings" id="LabelSettings_g157k"]
+font = ExtResource("87_5vt5y")
+font_size = 9
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="InputEventAction" id="InputEventAction_pprci"]
 action = &"ui_cancel"
 
 [sub_resource type="Shortcut" id="Shortcut_e8lem"]
 events = [SubResource("InputEventAction_pprci")]
 
-[sub_resource type="InputEventAction" id="InputEventAction_hrc16"]
-action = &"ui_left"
-
-[sub_resource type="Shortcut" id="Shortcut_y4l2n"]
-events = [SubResource("InputEventAction_hrc16")]
-
-[sub_resource type="InputEventAction" id="InputEventAction_l6ieh"]
-action = &"ui_right"
-
-[sub_resource type="Shortcut" id="Shortcut_qrupu"]
-events = [SubResource("InputEventAction_l6ieh")]
+[sub_resource type="LabelSettings" id="LabelSettings_m54f3"]
+font = ExtResource("87_5vt5y")
+font_size = 20
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.164706)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-visible = false
 position = Vector2(-1, 0)
 z_index = 2
 collision_layer = 2
@@ -1433,6 +1438,7 @@ layer = 11
 
 [node name="UIInventory" type="Control" parent="Interface"]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1489,15 +1495,267 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 13.0
+offset_left = 10.0
 offset_top = 12.0
-offset_right = -5.0
+offset_right = -9.0
 offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 11
-theme_override_constants/v_separation = 7
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
 columns = 3
+
+[node name="Slot1" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+layout_mode = 2
+anchors_preset = 0
+offset_right = 19.0
+offset_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("86_u8xxi")
+
+[node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_right = 6.5
+offset_bottom = 17.0
+grow_horizontal = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 0
+offset_left = 10.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+label_settings = SubResource("LabelSettings_g157k")
+
+[node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_pressed = ExtResource("89_oodv3")
+texture_hover = ExtResource("88_xq8l1")
+
+[node name="Slot2" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 24.0
+offset_right = 43.0
+offset_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("86_u8xxi")
+
+[node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_right = 6.5
+offset_bottom = 17.0
+grow_horizontal = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 1
+offset_left = 10.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+label_settings = SubResource("LabelSettings_g157k")
+
+[node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_pressed = ExtResource("89_oodv3")
+texture_hover = ExtResource("88_xq8l1")
+
+[node name="Slot3" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 48.0
+offset_right = 67.0
+offset_bottom = 19.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("86_u8xxi")
+
+[node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_right = 6.5
+offset_bottom = 17.0
+grow_horizontal = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
+layout_mode = 1
+offset_left = 10.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+label_settings = SubResource("LabelSettings_g157k")
+
+[node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_pressed = ExtResource("89_oodv3")
+texture_hover = ExtResource("88_xq8l1")
+
+[node name="Slot4" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+layout_mode = 2
+anchors_preset = 0
+offset_top = 24.0
+offset_right = 19.0
+offset_bottom = 43.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("86_u8xxi")
+
+[node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_right = 6.5
+offset_bottom = 17.0
+grow_horizontal = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
+layout_mode = 1
+offset_left = 10.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+label_settings = SubResource("LabelSettings_g157k")
+
+[node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_pressed = ExtResource("89_oodv3")
+texture_hover = ExtResource("88_xq8l1")
+
+[node name="Slot5" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 43.0
+offset_bottom = 43.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("86_u8xxi")
+
+[node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_right = 6.5
+offset_bottom = 17.0
+grow_horizontal = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
+layout_mode = 1
+offset_left = 10.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+label_settings = SubResource("LabelSettings_g157k")
+
+[node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture_pressed = ExtResource("89_oodv3")
+texture_hover = ExtResource("88_xq8l1")
+
+[node name="Slot6" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(19, 19)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 67.0
+offset_bottom = 43.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("86_u8xxi")
+
+[node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -6.5
+offset_right = 6.5
+offset_bottom = 17.0
+grow_horizontal = 2
+stretch_mode = 3
+
+[node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
+layout_mode = 1
+offset_left = 10.5
+offset_top = 10.5
+offset_right = 17.5
+offset_bottom = 22.5
+label_settings = SubResource("LabelSettings_g157k")
+
+[node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_pressed = ExtResource("89_oodv3")
+texture_hover = ExtResource("88_xq8l1")
 
 [node name="CloseBtn" type="TextureButton" parent="Interface/UIInventory"]
 layout_mode = 1
@@ -1510,6 +1768,8 @@ offset_left = -6.89601
 offset_top = -13.88
 offset_right = 7.10399
 offset_bottom = 0.119995
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_e8lem")
 texture_normal = ExtResource("88_rv8q3")
 
@@ -1524,7 +1784,8 @@ offset_left = -4.158
 offset_top = -13.0
 offset_right = 3.842
 offset_bottom = -1.0
-shortcut = SubResource("Shortcut_y4l2n")
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
 texture_normal = ExtResource("89_sjsna")
 
 [node name="RightBtn" type="TextureButton" parent="Interface/UIInventory"]
@@ -1538,7 +1799,8 @@ offset_left = -4.12
 offset_top = -13.0
 offset_right = 3.88
 offset_bottom = -1.0
-shortcut = SubResource("Shortcut_qrupu")
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
 texture_normal = ExtResource("90_anwyo")
 
 [node name="Tooltips" type="Control" parent="Interface/UIInventory"]
@@ -1578,7 +1840,6 @@ text = "Restores health to full."
 autowrap_mode = 3
 
 [node name="HUD" type="Control" parent="Interface"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1608,9 +1869,9 @@ value = 100.0
 [node name="AdrenalineBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 22.0
+offset_top = 24.0
 offset_right = 79.0
-offset_bottom = 39.0
+offset_bottom = 41.0
 scale = Vector2(1, 1)
 texture_under = ExtResource("83_6rqxv")
 
@@ -1625,9 +1886,9 @@ layout_mode = 1
 [node name="PoisonBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
 layout_mode = 0
 offset_left = 4.0
-offset_top = 40.0
+offset_top = 44.0
 offset_right = 79.0
-offset_bottom = 57.0
+offset_bottom = 61.0
 scale = Vector2(1, 1)
 texture_under = ExtResource("84_60bv8")
 
@@ -1638,6 +1899,33 @@ layout_mode = 1
 [node name="Progress" parent="Interface/HUD/PoisonBar" index="1"]
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
 layout_mode = 1
+
+[node name="Coins" type="HBoxContainer" parent="Interface/HUD"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -47.0
+offset_bottom = 24.0
+grow_horizontal = 0
+
+[node name="Icon" type="TextureRect" parent="Interface/HUD/Coins"]
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 24.0
+texture = ExtResource("98_upgls")
+stretch_mode = 6
+
+[node name="Amount" type="Label" parent="Interface/HUD/Coins"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 2.0
+offset_right = 28.0
+offset_bottom = 22.0
+text = "0"
+label_settings = SubResource("LabelSettings_m54f3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AdrenalineFXTimer" type="Timer" parent="."]
 wait_time = 0.2

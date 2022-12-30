@@ -24,7 +24,7 @@ func add_item(item_id: String, quantity := 1) -> void:
 			continue
 
 		item.quantity += quantity
-		emit_signal("inventory_changed", self)
+		emit_signal("inventory_changed")
 
 
 func remove_item(item_id: String, quantity := 1) -> void:
@@ -42,7 +42,7 @@ func remove_item(item_id: String, quantity := 1) -> void:
 			continue
 
 		item.quantity = max(0, item.quantity - quantity)
-		emit_signal("inventory_changed", self)
+		emit_signal("inventory_changed")
 
 
 func get_quantity(item_id: String) -> int:
@@ -51,7 +51,7 @@ func get_quantity(item_id: String) -> int:
 			continue
 		return i.quantity
 
-	return -1
+	return 0
 
 
 func get_items() -> Array[Dictionary]:
@@ -59,6 +59,22 @@ func get_items() -> Array[Dictionary]:
 	for i in _inventory:
 		if i.quantity != 0:
 			item_list.push_back({ "id": i.item_ref.id, "quantity": i.quantity })
+
+	return item_list
+
+
+func get_items_categorized() -> Dictionary:
+	var item_list: Dictionary = { "consumables": [], "currency": [], "key_items": [] }
+	for i in _inventory:
+		if i.quantity <= 0:
+			continue
+		match i.item_ref.type:
+			ItemDatabase.ItemType.CONSUMABLE:
+				item_list["consumables"].push_back(i)
+			ItemDatabase.ItemType.CURRENCY:
+				item_list["currency"].push_back(i)
+			ItemDatabase.ItemType.KEY:
+				item_list["key_items"].push_back(i)
 
 	return item_list
 

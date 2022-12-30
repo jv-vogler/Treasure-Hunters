@@ -17,9 +17,6 @@ var knock_direction: int
 
 
 func enter() -> void:
-	if !player.buffs & player.Buff.ADRENALINE:
-		player.current_adrenaline += 25.0
-
 	player.set_process(false)
 	player.animations.play(animation)
 	await player.animations.animation_finished

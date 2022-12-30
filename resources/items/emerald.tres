@@ -1,30 +1,15 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://d8x1eburfs86"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d8x1eburfs86"]
 
 [ext_resource type="Texture2D" uid="uid://cuh3x0wxpvb31" path="res://resources/items/assets/emerald/01.png" id="1_d5rw7"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_tcfs7"]
-[ext_resource type="Texture2D" uid="uid://bqj0sux26tm4j" path="res://resources/items/assets/emerald/02.png" id="2_y2gxl"]
-[ext_resource type="Texture2D" uid="uid://822x7i1ebshe" path="res://resources/items/assets/emerald/03.png" id="3_jkujr"]
-[ext_resource type="Texture2D" uid="uid://dhf4sv436mixe" path="res://resources/items/assets/emerald/04.png" id="4_v7gx5"]
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_a4nqg"]
-frames = 4
-speed_scale = 10.0
-frame_0/texture = ExtResource("1_d5rw7")
-frame_1/texture = ExtResource("2_y2gxl")
-frame_1/duration = 1.0
-frame_2/texture = ExtResource("3_jkujr")
-frame_2/duration = 1.0
-frame_3/texture = ExtResource("4_v7gx5")
-frame_3/duration = 1.0
 
 [resource]
 script = ExtResource("1_tcfs7")
 id = "emerald"
 icon = ExtResource("1_d5rw7")
-animated_texture = SubResource("AnimatedTexture_a4nqg")
 display_name = "Emerald"
-description = "Rare gem."
+description = "Rare gem"
 display_name_pt = "Esmeralda"
-description_pt = "Gema rara."
+description_pt = "Gema rara"
 type = 2
 sell_value = 40

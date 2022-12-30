@@ -38,6 +38,7 @@ var _rainbow_effect = preload("res://player/materials/adrenaline_buff.tres")
 var _ghost_effect = preload("res://player/particles/ghost_effect.tscn")
 @onready var attacks: AttackData = $Sprite/Hitbox.data
 @onready var camera: Camera2D = $Camera
+@onready var _ui_inventory: Control = $Interface/UIInventory
 @onready var _poison_effect: Polygon2D  = $Sprite/PoisonFX
 @onready var _poison_particles: CPUParticles2D = $Sprite/PoisonFX/Particles
 @onready var _adrenaline_burst: CollisionShape2D = $Sprite/Hitbox2/AdrenalineBurst
@@ -48,24 +49,21 @@ func _ready() -> void:
 	camera.current = true
 	stats.connect("resource_stat_changed", Callable(self, "_on_resource_stat_changed"))
 	stats.connect("strength_changed", Callable(self, "_update_strength"))
+	_ui_inventory.connect("used_health_potion", Callable(self, "_on_used_health_potion"))
+	_ui_inventory.connect("used_poison_bottle", Callable(self, "_on_used_poison_bottle"))
+	_ui_inventory.connect("used_stat_potion", Callable(self, "_on_used_stat_potion"))
 	_init_stats()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.input(event)
 
-	# TODO - put buff triggers in states/items
 	if Input.is_action_just_pressed("activate_adrenaline") and current_adrenaline == stats.max_adrenaline:
 		_activate_adrenaline()
 
-	if Input.is_action_just_pressed("activate_poison"):
-		if buffs & Buff.POISON:
-			return
-		_activate_poison()
-
-	if Input.is_action_just_pressed("restore_hp"):
+	# DEBUG ONLY
+	if Input.is_action_just_pressed("god_mode"):
 		print(GameStateManager.inventory.get_items())
-		_restore_health()
 		speed = 300
 		stats.strength = 999
 
@@ -86,6 +84,14 @@ func succesful_hit() -> void:
 func take_damage(damage) -> void:
 	emit_signal("took_damage")
 	current_health -= damage
+
+	if !buffs & Buff.ADRENALINE:
+		current_adrenaline += damage * 1.5
+
+	# Change to use check for KEY ITEM
+	if current_adrenaline == stats.max_adrenaline and current_health <= stats.max_health * 0.25:
+		call_deferred("_activate_adrenaline")
+
 	print_rich(
 		"%s took [color=orangered]%s[/color] damage (HP: [color=green]%s[/color])"
 		% [name, damage, current_health]
@@ -120,7 +126,7 @@ func _init_stats() -> void:
 	speed = stats.speed
 	jump_velocity = stats.jump_velocity
 	current_health = stats.max_health
-	current_adrenaline = 100
+	current_adrenaline = 0
 	current_poison = 0
 	buffs -= Buff.POISON
 	buffs -= Buff.ADRENALINE
@@ -205,3 +211,19 @@ func _on_loot_detection_body_entered(loot: Loot) -> void:
 		return
 
 	loot.apply_central_force(Vector2(global_position - loot.global_position) * 3 )
+
+
+func _on_used_health_potion() -> void:
+	if current_health != stats.max_health:
+		_restore_health()
+		inventory.remove_item("health_potion")
+
+
+func _on_used_poison_bottle() -> void:
+	if !buffs & Buff.POISON:
+		_activate_poison()
+		inventory.remove_item("poison_bottle")
+
+
+func _on_used_stat_potion() -> void:
+	print("used stat potion")
