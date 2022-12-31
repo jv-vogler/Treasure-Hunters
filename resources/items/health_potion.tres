@@ -1,12 +1,27 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://5ni28oko6fpj"]
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://5ni28oko6fpj"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_abuly"]
+[ext_resource type="Texture2D" uid="uid://db130sv3u1qfd" path="res://resources/items/assets/health_potion/02.png" id="2_hf4nh"]
 [ext_resource type="Texture2D" uid="uid://bwl2qkv4px8uc" path="res://resources/items/assets/health_potion/01.png" id="2_va5jm"]
+[ext_resource type="Texture2D" uid="uid://cec2vpm4qi4md" path="res://resources/items/assets/health_potion/07.png" id="3_7o4gk"]
+[ext_resource type="Texture2D" uid="uid://bnd26tiirkryr" path="res://resources/items/assets/health_potion/03.png" id="4_x5vi7"]
+[ext_resource type="Texture2D" uid="uid://c55bu1kdjvdgx" path="res://resources/items/assets/health_potion/04.png" id="5_lyove"]
+[ext_resource type="Texture2D" uid="uid://btjiyvqr80eox" path="res://resources/items/assets/health_potion/06.png" id="6_yhlt8"]
+[ext_resource type="Texture2D" uid="uid://bc5x75hglnvd8" path="res://resources/items/assets/health_potion/05.png" id="7_wg2ka"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wu1ji"]
+animations = [{
+"frames": [ExtResource("2_va5jm"), ExtResource("2_hf4nh"), ExtResource("4_x5vi7"), ExtResource("5_lyove"), ExtResource("7_wg2ka"), ExtResource("6_yhlt8"), ExtResource("3_7o4gk")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [resource]
 script = ExtResource("1_abuly")
 id = "health_potion"
 icon = ExtResource("2_va5jm")
+animated_texture = SubResource("SpriteFrames_wu1ji")
 display_name = "Health Potion"
 description = "Restores health to full"
 display_name_pt = "Poção de Vida"

@@ -1,12 +1,24 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://l1vpe07okhb2"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://l1vpe07okhb2"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_38u07"]
 [ext_resource type="Texture2D" uid="uid://cuhi5cl1fcr73" path="res://resources/items/assets/diamond/01.png" id="1_ck54c"]
+[ext_resource type="Texture2D" uid="uid://c5oxrjbqd73vb" path="res://resources/items/assets/diamond/02.png" id="2_xui80"]
+[ext_resource type="Texture2D" uid="uid://6t0tycilsslf" path="res://resources/items/assets/diamond/03.png" id="3_okpe3"]
+[ext_resource type="Texture2D" uid="uid://n0fff0jm5mqs" path="res://resources/items/assets/diamond/04.png" id="4_qday7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlnrg"]
+animations = [{
+"frames": [ExtResource("1_ck54c"), ExtResource("2_xui80"), ExtResource("3_okpe3"), ExtResource("4_qday7")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [resource]
 script = ExtResource("1_38u07")
 id = "diamond"
 icon = ExtResource("1_ck54c")
+animated_texture = SubResource("SpriteFrames_qlnrg")
 display_name = "Diamond"
 description = "Epic gem"
 display_name_pt = "Diamante"

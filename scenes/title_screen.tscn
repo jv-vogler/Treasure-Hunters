@@ -1,10 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn02k5yq4ucql"]
+[gd_scene load_steps=4 format=3 uid="uid://bn02k5yq4ucql"]
 
+[ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="1_74fe6"]
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_avx8x"]
-[ext_resource type="FontFile" uid="uid://dcvg60kn6g2db" path="res://assets/fonts/ThaleahFat.ttf" id="1_vfaud"]
-
-[sub_resource type="Theme" id="Theme_oxoy4"]
-default_font = ExtResource("1_vfaud")
 
 [sub_resource type="LabelSettings" id="LabelSettings_yu7ga"]
 
@@ -15,79 +12,73 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_oxoy4")
+theme = ExtResource("1_74fe6")
 script = ExtResource("1_avx8x")
 
 [node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -40.0
-offset_top = -68.0
+offset_top = -34.0
 offset_right = 40.0
-offset_bottom = 68.0
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
 [node name="Continue" type="Button" parent="Buttons"]
 visible = false
+layout_mode = 2
 offset_right = 80.0
-offset_bottom = 23.0
+offset_bottom = 13.0
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Settings")
-focus_next = NodePath("../Settings")
-focus_previous = NodePath("../Start")
+mouse_default_cursor_shape = 2
 text = "Continue"
 
-[node name="Start" type="Button" parent="Buttons"]
-offset_top = 4.0
+[node name="NewGame" type="Button" parent="Buttons"]
+layout_mode = 2
+offset_top = 3.0
 offset_right = 80.0
-offset_bottom = 27.0
+offset_bottom = 16.0
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Continue")
-focus_next = NodePath("../Continue")
-focus_previous = NodePath("../Quit")
-text = "Start"
+mouse_default_cursor_shape = 2
+text = "New Game"
 
 [node name="Load Game" type="Button" parent="Buttons"]
-offset_top = 39.0
+layout_mode = 2
+offset_top = 26.0
 offset_right = 80.0
-offset_bottom = 62.0
+offset_bottom = 39.0
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Continue")
-focus_next = NodePath("../Continue")
-focus_previous = NodePath("../Quit")
+mouse_default_cursor_shape = 2
+disabled = true
 text = "Load Game"
 
 [node name="Settings" type="Button" parent="Buttons"]
-offset_top = 74.0
+visible = false
+layout_mode = 2
+offset_top = 35.0
 offset_right = 80.0
-offset_bottom = 97.0
+offset_bottom = 48.0
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Continue")
-focus_neighbor_bottom = NodePath("../Quit")
-focus_next = NodePath("../Quit")
-focus_previous = NodePath("../Continue")
+mouse_default_cursor_shape = 2
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Buttons"]
-offset_top = 109.0
+layout_mode = 2
+offset_top = 50.0
 offset_right = 80.0
-offset_bottom = 132.0
+offset_bottom = 63.0
 size_flags_vertical = 6
-focus_neighbor_top = NodePath("../Settings")
-focus_neighbor_bottom = NodePath("../Start")
-focus_next = NodePath("../Start")
-focus_previous = NodePath("../Settings")
+mouse_default_cursor_shape = 2
 text = "Quit"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 1.0
@@ -99,7 +90,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="Buttons/Load Game" to="." method="_on_load_game_pressed"]
 [connection signal="pressed" from="Buttons/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Buttons/Quit" to="." method="_on_quit_pressed"]

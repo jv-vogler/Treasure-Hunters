@@ -11,6 +11,7 @@ var _adrenaline_ready = preload("res://interface/health_bars/adrenaline_full.tre
 
 func _ready() -> void:
 	GameStateManager.inventory.connect("inventory_changed", Callable(self, "_on_inventory_changed"))
+	_coins_label.text = str(GameStateManager.inventory.get_quantity("gold_coin"))
 
 
 func _update_bar(bar: ResourceBar, current_value: int, max_value: int) -> void:

@@ -1,71 +1,39 @@
 [gd_resource type="Theme" load_steps=12 format=3 uid="uid://bq0x77m6hp8c1"]
 
-[ext_resource type="Texture2D" uid="uid://ba0y017cd3bhn" path="res://interface/theme/assets/button.png" id="1_3ryf6"]
-[ext_resource type="FontFile" uid="uid://b2sg4sn82cjex" path="res://assets/fonts/MatchupPro.ttf" id="1_o05jl"]
-[ext_resource type="StyleBox" uid="uid://df1jqwgljodwx" path="res://interface/theme/resources/button.tres" id="2_inxgw"]
+[ext_resource type="FontFile" uid="uid://c4u0evm70kgi4" path="res://assets/fonts/monogram.ttf" id="1_6pg82"]
 [ext_resource type="Texture2D" uid="uid://m41dourhk71q" path="res://interface/theme/assets/hslider_btn.png" id="3_ibda7"]
 [ext_resource type="StyleBox" uid="uid://cfpprfrwgynk0" path="res://interface/theme/resources/hslider.tres" id="4_klujo"]
 [ext_resource type="StyleBox" uid="uid://b42gc1e7ov2s0" path="res://interface/theme/resources/yellow_board.tres" id="5_htbwp"]
 [ext_resource type="Texture2D" uid="uid://ckkyg2g8ghigf" path="res://interface/theme/assets/vslider_btn.png" id="6_skgal"]
 [ext_resource type="StyleBox" uid="uid://chxkagctqfmoo" path="res://interface/theme/resources/vslider.tres" id="7_kdlcr"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bwqsr"]
-content_margin_bottom = 10.0
-texture = ExtResource("1_3ryf6")
-margin_left = 3.0
-margin_top = 6.0
-margin_right = 3.0
-margin_bottom = 6.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 42, 42)
-modulate_color = Color(0.529412, 0.529412, 0.529412, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rp0vh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naio6"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi3gf"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-corner_detail = 20
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hhukg"]
-content_margin_bottom = 10.0
-texture = ExtResource("1_3ryf6")
-margin_left = 3.0
-margin_top = 6.0
-margin_right = 3.0
-margin_bottom = 6.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 42, 42)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_paw44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jibm2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_817ao"]
 
 [resource]
+default_font = ExtResource("1_6pg82")
 Button/colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
 Button/colors/font_disabled_color = Color(0.988235, 0.988235, 0.988235, 0.411765)
-Button/colors/font_focus_color = Color(0.941176, 0.941176, 0.941176, 1)
-Button/colors/font_hover_color = Color(0.941176, 0.941176, 0.941176, 1)
-Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.988235, 0.819608, 0.447059, 1)
+Button/colors/font_hover_color = Color(0.988235, 0.819608, 0.447059, 1)
 Button/colors/font_outline_color = Color(0.117647, 0.117647, 0.117647, 1)
-Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.988235, 0.717647, 0.129412, 1)
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 16
-Button/fonts/font = ExtResource("1_o05jl")
-Button/styles/disabled = SubResource("StyleBoxTexture_bwqsr")
-Button/styles/focus = SubResource("StyleBoxFlat_naio6")
-Button/styles/hover = ExtResource("2_inxgw")
-Button/styles/normal = ExtResource("2_inxgw")
-Button/styles/pressed = SubResource("StyleBoxTexture_hhukg")
+Button/fonts/font = ExtResource("1_6pg82")
+Button/styles/disabled = SubResource("StyleBoxEmpty_rp0vh")
+Button/styles/focus = SubResource("StyleBoxFlat_yi3gf")
+Button/styles/hover = SubResource("StyleBoxEmpty_paw44")
+Button/styles/normal = SubResource("StyleBoxEmpty_jibm2")
+Button/styles/pressed = SubResource("StyleBoxEmpty_817ao")
 HSlider/icons/grabber = ExtResource("3_ibda7")
 HSlider/icons/grabber_highlight = ExtResource("3_ibda7")
 HSlider/styles/grabber_area = ExtResource("4_klujo")

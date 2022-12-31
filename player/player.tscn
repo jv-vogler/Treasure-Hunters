@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://thmgkxfrb7qi"]
+[gd_scene load_steps=139 format=3 uid="uid://thmgkxfrb7qi"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -97,6 +97,9 @@
 [ext_resource type="Texture2D" uid="uid://dj7itjvw8c2sy" path="res://interface/theme/assets/selection_pressed.png" id="89_oodv3"]
 [ext_resource type="Texture2D" uid="uid://bg7sivskojwr6" path="res://interface/theme/assets/btn_left.png" id="89_sjsna"]
 [ext_resource type="Texture2D" uid="uid://0po21tny6ny5" path="res://interface/theme/assets/btn_right.png" id="90_anwyo"]
+[ext_resource type="Texture2D" uid="uid://brbfda71ilpxq" path="res://interface/theme/assets/btn_close_pressed.png" id="91_hm35o"]
+[ext_resource type="Texture2D" uid="uid://cwgd8vpuaetbd" path="res://interface/theme/assets/btn_left_pressed.png" id="93_ud7be"]
+[ext_resource type="Texture2D" uid="uid://dqrh0kdxkodim" path="res://interface/theme/assets/btn_right_pressed.png" id="94_eoduu"]
 [ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="98_upgls"]
 
 [sub_resource type="Resource" id="Resource_nj300"]
@@ -1772,6 +1775,7 @@ mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_e8lem")
 texture_normal = ExtResource("88_rv8q3")
+texture_pressed = ExtResource("91_hm35o")
 
 [node name="LeftBtn" type="TextureButton" parent="Interface/UIInventory"]
 layout_mode = 1
@@ -1787,6 +1791,7 @@ offset_bottom = -1.0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 texture_normal = ExtResource("89_sjsna")
+texture_pressed = ExtResource("93_ud7be")
 
 [node name="RightBtn" type="TextureButton" parent="Interface/UIInventory"]
 layout_mode = 1
@@ -1802,6 +1807,7 @@ offset_bottom = -1.0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
 texture_normal = ExtResource("90_anwyo")
+texture_pressed = ExtResource("94_eoduu")
 
 [node name="Tooltips" type="Control" parent="Interface/UIInventory"]
 visible = false

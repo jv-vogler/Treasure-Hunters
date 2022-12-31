@@ -85,7 +85,7 @@ script = ExtResource("1_2ixcs")
 metadata/_edit_horizontal_guides_ = [200.0]
 
 [node name="Scene" type="Control" parent="."]
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

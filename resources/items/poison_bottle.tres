@@ -1,12 +1,27 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dmbhho14wfs46"]
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://dmbhho14wfs46"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_0evpu"]
+[ext_resource type="Texture2D" uid="uid://b0sp2333nachs" path="res://resources/items/assets/poison_bottle/02.png" id="2_efiom"]
 [ext_resource type="Texture2D" uid="uid://drho6t8xg66s7" path="res://resources/items/assets/poison_bottle/01.png" id="2_i5irs"]
+[ext_resource type="Texture2D" uid="uid://diohf52hephw5" path="res://resources/items/assets/poison_bottle/03.png" id="3_vwp2h"]
+[ext_resource type="Texture2D" uid="uid://feonckxyeu2f" path="res://resources/items/assets/poison_bottle/04.png" id="4_rqrqs"]
+[ext_resource type="Texture2D" uid="uid://iq6v3x6bjei" path="res://resources/items/assets/poison_bottle/05.png" id="5_rp28b"]
+[ext_resource type="Texture2D" uid="uid://c10aq437wfdgq" path="res://resources/items/assets/poison_bottle/06.png" id="6_3xokl"]
+[ext_resource type="Texture2D" uid="uid://bjka4x1pa34ik" path="res://resources/items/assets/poison_bottle/07.png" id="7_rwr4x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cn81b"]
+animations = [{
+"frames": [ExtResource("2_i5irs"), ExtResource("2_efiom"), ExtResource("3_vwp2h"), ExtResource("4_rqrqs"), ExtResource("5_rp28b"), ExtResource("6_3xokl"), ExtResource("7_rwr4x")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [resource]
 script = ExtResource("1_0evpu")
 id = "poison_bottle"
 icon = ExtResource("2_i5irs")
+animated_texture = SubResource("SpriteFrames_cn81b")
 display_name = "Poison Bottle"
 description = "Coats weapon in poison"
 display_name_pt = "Garrafa de Veneno"

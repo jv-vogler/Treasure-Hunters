@@ -3,7 +3,7 @@ extends Resource
 
 @export var id := ""
 @export var icon: Texture
-#@export var animated_texture: AnimatedTexture
+@export var animated_texture: SpriteFrames
 
 @export var display_name := ""
 @export var description := ""

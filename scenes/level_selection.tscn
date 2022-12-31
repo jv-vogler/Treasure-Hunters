@@ -1,120 +1,426 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckv7gsjevxmsi"]
+[gd_scene load_steps=42 format=3 uid="uid://ckv7gsjevxmsi"]
 
 [ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_gj8j8"]
+[ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="1_s0d5i"]
+[ext_resource type="Texture2D" uid="uid://c8va16el3v4ek" path="res://interface/theme/assets/yellow_board.png" id="2_35uyr"]
+[ext_resource type="Texture2D" uid="uid://xh6gicjgm81k" path="res://tilesets/assets/Background/Additional Sky.png" id="3_jjvmh"]
+[ext_resource type="Texture2D" uid="uid://buijiam3hi4rl" path="res://interface/theme/assets/orange_paper.png" id="3_oqpee"]
+[ext_resource type="Texture2D" uid="uid://b4cco164kpis3" path="res://tilesets/assets/Background/Big Clouds.png" id="4_jo520"]
+[ext_resource type="Texture2D" uid="uid://cwq8e5xktt0vy" path="res://tilesets/assets/Background/Additional Water.png" id="4_mpnxx"]
+[ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="5_laa7r"]
+[ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="5_n56da"]
+[ext_resource type="Texture2D" uid="uid://cmk0v6boptobu" path="res://tilesets/assets/Background/Small Cloud 1.png" id="5_wrjjj"]
+[ext_resource type="Texture2D" uid="uid://yb6e7jqw0s61" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="6_00jhv"]
+[ext_resource type="Texture2D" uid="uid://dp6u34vkxwy0r" path="res://tilesets/assets/Background/Small Cloud 2.png" id="6_ofvw1"]
+[ext_resource type="Texture2D" uid="uid://c2jwegt5qtv2r" path="res://tilesets/assets/Background/Water Reflect Big 01.png" id="6_xd2am"]
+[ext_resource type="Texture2D" uid="uid://ci73mh7yeeuof" path="res://tilesets/assets/Background/Small Cloud 3.png" id="7_alo1t"]
+[ext_resource type="Texture2D" uid="uid://dokewj6ibleal" path="res://tilesets/assets/Background/Water Reflect Big 02.png" id="7_h1fpw"]
+[ext_resource type="Texture2D" uid="uid://bmoxpfh043wbk" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="7_u3x8x"]
+[ext_resource type="Texture2D" uid="uid://c7jo8u87olghm" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="8_ixsyk"]
+[ext_resource type="Texture2D" uid="uid://b4ybpeaqkunta" path="res://tilesets/assets/Background/Water Reflect Big 03.png" id="8_jjfmm"]
+[ext_resource type="Texture2D" uid="uid://dww32fh7gtttc" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="9_x4e5h"]
+[ext_resource type="Texture2D" uid="uid://bn57bikrljvab" path="res://tilesets/assets/Background/Water Reflect Big 04.png" id="9_ylph3"]
+[ext_resource type="Texture2D" uid="uid://dghp3x5oklanf" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="10_4mr5c"]
+[ext_resource type="Texture2D" uid="uid://coqvu3vtd70nb" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="11_jvchw"]
+[ext_resource type="Texture2D" uid="uid://7rjv46ho2vbg" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="12_b67xw"]
+[ext_resource type="Texture2D" uid="uid://cok8r7814rm5k" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="13_rvnhw"]
+[ext_resource type="Texture2D" uid="uid://bw8o0f6c0ceym" path="res://tilesets/assets/Background/Water Reflect Medium 01.png" id="14_64sn6"]
+[ext_resource type="Texture2D" uid="uid://cy5kotx65suyk" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="14_qyy3j"]
+[ext_resource type="Texture2D" uid="uid://bs0xiw800b4vl" path="res://tilesets/assets/Background/Water Reflect Medium 02.png" id="15_3ngud"]
+[ext_resource type="Texture2D" uid="uid://bi3ro246sd8p4" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="15_b72q3"]
+[ext_resource type="Texture2D" uid="uid://dj4lnlcrwsmw" path="res://tilesets/assets/Background/Water Reflect Medium 03.png" id="16_of5og"]
+[ext_resource type="Texture2D" uid="uid://b3chq4yngkjmh" path="res://tilesets/assets/Background/Water Reflect Medium 04.png" id="17_lduny"]
+[ext_resource type="Texture2D" uid="uid://due3baerp83d1" path="res://tilesets/assets/Background/Water Reflect Small 01.png" id="18_7e33q"]
+[ext_resource type="Texture2D" uid="uid://bj773ixipduys" path="res://tilesets/assets/Background/Water Reflect Small 02.png" id="19_wlpid"]
+[ext_resource type="Texture2D" uid="uid://dunojvx2aafh8" path="res://tilesets/assets/Background/Water Reflect Small 03.png" id="20_8pkcj"]
+[ext_resource type="Texture2D" uid="uid://bqx1weq7u72kn" path="res://tilesets/assets/Background/Water Reflect Small 04.png" id="21_s5t01"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgo4i"]
+animations = [{
+"frames": [ExtResource("6_xd2am"), ExtResource("7_h1fpw"), ExtResource("8_jjfmm"), ExtResource("9_ylph3")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1h73"]
+animations = [{
+"frames": [ExtResource("14_64sn6"), ExtResource("15_3ngud"), ExtResource("16_of5og"), ExtResource("17_lduny")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg1jl"]
+animations = [{
+"frames": [ExtResource("18_7e33q"), ExtResource("19_wlpid"), ExtResource("20_8pkcj"), ExtResource("21_s5t01")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1p6c"]
+animations = [{
+"frames": [ExtResource("5_n56da"), ExtResource("6_00jhv"), ExtResource("7_u3x8x"), ExtResource("8_ixsyk"), ExtResource("9_x4e5h")],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [ExtResource("10_4mr5c"), ExtResource("11_jvchw"), ExtResource("12_b67xw"), ExtResource("13_rvnhw"), ExtResource("14_qyy3j"), ExtResource("15_b72q3")],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrb8a"]
+texture = ExtResource("2_35uyr")
+margin_left = 12.0
+margin_top = 10.0
+margin_right = 10.0
+margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 86, 86)
+
+[sub_resource type="Theme" id="Theme_5gpg7"]
+Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r44y3"]
+texture = ExtResource("3_oqpee")
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 5.0
+margin_bottom = 5.0
+region_rect = Rect2(0, 0, 70, 66)
 
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_s0d5i")
 script = ExtResource("1_gj8j8")
 metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = [426.0]
+metadata/_edit_horizontal_guides_ = [240.0]
 
-[node name="ToTitleScreen" type="VBoxContainer" parent="."]
-offset_left = 45.0
-offset_top = 137.0
-offset_right = 135.0
-offset_bottom = 198.0
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ToTitleScreen" type="Button" parent="ToTitleScreen"]
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1, 0)
+metadata/_edit_lock_ = true
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(213.5, 123.5)
+scale = Vector2(13.3438, 7.71875)
+texture = ExtResource("3_jjvmh")
+metadata/_edit_lock_ = true
+
+[node name="Cloud5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-96, -71)
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(400, 0)
+
+[node name="SmallCloud3" type="Sprite2D" parent="ParallaxBackground/Cloud5"]
+position = Vector2(199, 126)
+scale = Vector2(1.54327, 1.54327)
+texture = ExtResource("7_alo1t")
+
+[node name="Cloud1" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(280, 47)
+motion_mirroring = Vector2(560, 0)
+
+[node name="SmallCloud2" type="Sprite2D" parent="ParallaxBackground/Cloud1"]
+position = Vector2(13, 38)
+texture = ExtResource("6_ofvw1")
+
+[node name="Cloud2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(5, 3)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(450, 0)
+
+[node name="SmallCloud1" type="Sprite2D" parent="ParallaxBackground/Cloud2"]
+position = Vector2(199, 94)
+scale = Vector2(2, 2)
+texture = ExtResource("5_wrjjj")
+
+[node name="Cloud3" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.862745)
+position = Vector2(223, 20)
+motion_mirroring = Vector2(400, 0)
+
+[node name="SmallCloud3" type="Sprite2D" parent="ParallaxBackground/Cloud3"]
+position = Vector2(202, 108)
+scale = Vector2(1.54327, 1.54327)
+texture = ExtResource("7_alo1t")
+
+[node name="Cloud4" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.639216)
+position = Vector2(157, -57)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(450, 0)
+
+[node name="SmallCloud1" type="Sprite2D" parent="ParallaxBackground/Cloud4"]
+position = Vector2(199, 94)
+scale = Vector2(2, 2)
+texture = ExtResource("5_wrjjj")
+
+[node name="BigClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+modulate = Color(1, 1, 1, 0.882353)
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(448, 0)
+
+[node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/BigClouds"]
+position = Vector2(214, 171)
+texture = ExtResource("4_jo520")
+
+[node name="Ocean" type="Sprite2D" parent="."]
+position = Vector2(213.5, 217)
+scale = Vector2(13.3438, 1)
+texture = ExtResource("4_mpnxx")
+metadata/_edit_lock_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("5_laa7r")
+format = 2
+layer_0/tile_data = PackedInt32Array(458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458764, 65536, 0, 458752, 65536, 0, 458763, 65536, 0, 458765, 65536, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="WaterReflex" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(83, 208)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex2" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(31, 217)
+frames = SubResource("SpriteFrames_c1h73")
+playing = true
+
+[node name="WaterReflex3" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(363, 208)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex4" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(170, 217)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex8" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(291, 216)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex5" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(188, 204)
+frames = SubResource("SpriteFrames_c1h73")
+playing = true
+
+[node name="WaterReflex6" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(399, 219)
+frames = SubResource("SpriteFrames_hg1jl")
+playing = true
+
+[node name="WaterReflex7" type="AnimatedSprite2D" parent="TileMap"]
+position = Vector2(252, 206)
+frames = SubResource("SpriteFrames_hg1jl")
+playing = true
+
+[node name="CaptainClownNose" type="AnimatedSprite2D" parent="."]
+position = Vector2(218, 212)
+frames = SubResource("SpriteFrames_a1p6c")
+animation = &"idle"
+playing = true
+metadata/_edit_lock_ = true
+
+[node name="WoodenPanel" type="Panel" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 107.0
+offset_top = 26.0
+offset_right = -107.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lrb8a")
+metadata/_edit_group_ = true
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="WoodenPanel"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -36.0
 offset_right = 90.0
-offset_bottom = 31.0
-text = "O"
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="Label" type="Label" parent="ToTitleScreen"]
-offset_top = 35.0
-offset_right = 90.0
-offset_bottom = 61.0
+[node name="BtnTitleScreen" type="Button" parent="WoodenPanel/ButtonsContainer"]
+offset_top = 8.0
+offset_right = 72.0
+offset_bottom = 21.0
+grow_vertical = 0
+size_flags_horizontal = 2
+size_flags_vertical = 4
+focus_neighbor_right = NodePath("../BtnShop")
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
 text = "Title Screen"
 
-[node name="ToShop" type="VBoxContainer" parent="."]
-offset_left = 248.0
-offset_top = 133.0
-offset_right = 287.0
-offset_bottom = 194.0
-
-[node name="ToShop" type="Button" parent="ToShop"]
-offset_right = 39.0
-offset_bottom = 31.0
-disabled = true
-text = "O"
-
-[node name="Label" type="Label" parent="ToShop"]
-offset_top = 35.0
-offset_right = 39.0
-offset_bottom = 61.0
+[node name="BtnShop" type="Button" parent="WoodenPanel/ButtonsContainer"]
+offset_left = 159.0
+offset_top = 8.0
+offset_right = 183.0
+offset_bottom = 21.0
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 4
+focus_neighbor_left = NodePath("../BtnTitleScreen")
+mouse_default_cursor_shape = 2
 text = "Shop"
 
-[node name="Tutorial" type="VBoxContainer" parent="."]
-offset_left = 32.0
-offset_top = 20.0
-offset_right = 93.0
-offset_bottom = 81.0
+[node name="LevelSelectionMap" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 148.0
+offset_top = 14.0
+offset_right = -147.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_5gpg7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_r44y3")
 
-[node name="Tutorial" type="Button" parent="Tutorial"]
-offset_right = 61.0
-offset_bottom = 31.0
-disabled = true
-text = "O"
-
-[node name="Label" type="Label" parent="Tutorial"]
-offset_top = 35.0
-offset_right = 61.0
-offset_bottom = 61.0
+[node name="Tutorial" type="Button" parent="LevelSelectionMap"]
+anchors_preset = -1
+anchor_left = -0.344
+anchor_top = 0.472
+anchor_right = -0.344
+anchor_bottom = 0.472
+offset_left = 28.064
+offset_top = 53.472
+offset_right = 76.064
+offset_bottom = 66.472
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
 text = "Tutorial"
 
-[node name="TestLevel" type="VBoxContainer" parent="."]
-offset_left = 113.0
-offset_top = 20.0
-offset_right = 190.0
-offset_bottom = 81.0
-
-[node name="TestLevel" type="Button" parent="TestLevel"]
-offset_right = 77.0
-offset_bottom = 31.0
-text = "O"
-
-[node name="Label" type="Label" parent="TestLevel"]
-offset_top = 35.0
-offset_right = 77.0
-offset_bottom = 61.0
-text = "Test Level"
-
-[node name="Level00" type="VBoxContainer" parent="."]
-offset_left = 210.0
-offset_top = 22.0
-offset_right = 271.0
-offset_bottom = 83.0
-
-[node name="Level00" type="Button" parent="Level00"]
-offset_right = 61.0
-offset_bottom = 31.0
-disabled = true
-text = "O"
-
-[node name="Label" type="Label" parent="Level00"]
-offset_top = 35.0
-offset_right = 61.0
-offset_bottom = 61.0
-text = "Level 0"
-
-[node name="Level01" type="VBoxContainer" parent="."]
-offset_left = 306.0
-offset_top = 22.0
-offset_right = 367.0
-offset_bottom = 83.0
-
-[node name="Level01" type="Button" parent="Level01"]
-offset_right = 61.0
-offset_bottom = 31.0
-disabled = true
-text = "O"
-
-[node name="Label" type="Label" parent="Level01"]
-offset_top = 35.0
-offset_right = 61.0
-offset_bottom = 61.0
+[node name="Level1" type="Button" parent="LevelSelectionMap"]
+offset_left = 31.0
+offset_top = 88.0
+offset_right = 79.0
+offset_bottom = 101.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
 text = "Level 1"
 
-[connection signal="pressed" from="ToTitleScreen/ToTitleScreen" to="." method="_on_to_title_screen_pressed"]
-[connection signal="pressed" from="TestLevel/TestLevel" to="." method="_on_test_level_pressed"]
+[node name="Level2" type="Button" parent="LevelSelectionMap"]
+offset_left = 66.0
+offset_top = 111.0
+offset_right = 114.0
+offset_bottom = 124.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 2"
+
+[node name="Level3" type="Button" parent="LevelSelectionMap"]
+offset_left = 120.0
+offset_top = 76.0
+offset_right = 168.0
+offset_bottom = 89.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 3"
+
+[node name="Level4" type="Button" parent="LevelSelectionMap"]
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 104.0
+offset_bottom = 69.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 4"
+
+[node name="Level5" type="Button" parent="LevelSelectionMap"]
+offset_left = -35.0
+offset_top = 64.0
+offset_right = 13.0
+offset_bottom = 77.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 5"
+
+[node name="Level6" type="Button" parent="LevelSelectionMap"]
+offset_left = 15.0
+offset_top = 23.0
+offset_right = 63.0
+offset_bottom = 36.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 6"
+
+[node name="Level7" type="Button" parent="LevelSelectionMap"]
+offset_left = 113.0
+offset_top = 31.0
+offset_right = 161.0
+offset_bottom = 44.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 7"
+
+[node name="Level8" type="Button" parent="LevelSelectionMap"]
+offset_left = 125.0
+offset_right = 173.0
+offset_bottom = 13.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 8"
+
+[node name="Level9" type="Button" parent="LevelSelectionMap"]
+offset_left = 45.0
+offset_top = -8.0
+offset_right = 93.0
+offset_bottom = 5.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "Level 9
+"
+
+[node name="FinalLevel" type="Button" parent="LevelSelectionMap"]
+offset_top = 2.0
+offset_right = 48.0
+offset_bottom = 15.0
+mouse_default_cursor_shape = 2
+disabled = true
+shortcut_in_tooltip = false
+text = "???"
+
+[node name="MouseBlocker" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="WoodenPanel/ButtonsContainer/BtnTitleScreen" to="." method="_on_btn_title_screen_pressed"]
+[connection signal="pressed" from="WoodenPanel/ButtonsContainer/BtnShop" to="." method="_on_btn_shop_pressed"]

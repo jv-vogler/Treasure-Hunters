@@ -2,25 +2,25 @@
 
 [ext_resource type="Script" path="res://objects/loot.gd" id="1_x034w"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ixycx"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xijv"]
 bounce = 0.5
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h6boc"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_hkv8y"]
 radius = 5.09902
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_i42w3"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_71df7"]
 radius = 7.0
 
 [node name="Loot" type="RigidBody2D"]
 z_index = 10
 collision_layer = 8
 mass = 0.01
-physics_material_override = SubResource("PhysicsMaterial_ixycx")
+physics_material_override = SubResource("PhysicsMaterial_4xijv")
 continuous_cd = 2
 script = ExtResource("1_x034w")
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_h6boc")
+shape = SubResource("CircleShape2D_hkv8y")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 
@@ -29,7 +29,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectArea"]
-shape = SubResource("CircleShape2D_i42w3")
+shape = SubResource("CircleShape2D_71df7")
 debug_color = Color(0.988235, 0.878431, 0.168627, 0.419608)
 
 [connection signal="body_entered" from="CollectArea" to="." method="_on_player_entered"]

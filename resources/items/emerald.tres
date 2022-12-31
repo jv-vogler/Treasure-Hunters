@@ -1,12 +1,24 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://d8x1eburfs86"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://d8x1eburfs86"]
 
 [ext_resource type="Texture2D" uid="uid://cuh3x0wxpvb31" path="res://resources/items/assets/emerald/01.png" id="1_d5rw7"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_tcfs7"]
+[ext_resource type="Texture2D" uid="uid://bqj0sux26tm4j" path="res://resources/items/assets/emerald/02.png" id="2_7bk4t"]
+[ext_resource type="Texture2D" uid="uid://822x7i1ebshe" path="res://resources/items/assets/emerald/03.png" id="3_g6g2w"]
+[ext_resource type="Texture2D" uid="uid://dhf4sv436mixe" path="res://resources/items/assets/emerald/04.png" id="4_0kr5s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5a5k"]
+animations = [{
+"frames": [ExtResource("1_d5rw7"), ExtResource("2_7bk4t"), ExtResource("3_g6g2w"), ExtResource("4_0kr5s")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [resource]
 script = ExtResource("1_tcfs7")
 id = "emerald"
 icon = ExtResource("1_d5rw7")
+animated_texture = SubResource("SpriteFrames_w5a5k")
 display_name = "Emerald"
 description = "Rare gem"
 display_name_pt = "Esmeralda"

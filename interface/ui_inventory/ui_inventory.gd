@@ -38,6 +38,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _update() -> void:
+	$LeftBtn.button_pressed = false
+	$RightBtn.button_pressed = false
 	var inventory: Dictionary = GameStateManager.inventory.get_items_categorized()
 	var slots: Array = _item_grid.get_children()
 	var dict_key: String

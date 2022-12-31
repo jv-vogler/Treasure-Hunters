@@ -1,12 +1,27 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dxpng6c6hw607"]
+[gd_resource type="Resource" load_steps=10 format=3 uid="uid://dxpng6c6hw607"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_w8hdr"]
+[ext_resource type="Texture2D" uid="uid://ipxv3ub8c8fn" path="res://resources/items/assets/stat_potion/02.png" id="2_3ut3g"]
 [ext_resource type="Texture2D" uid="uid://noojxu8yl6w0" path="res://resources/items/assets/stat_potion/01.png" id="2_5v25x"]
+[ext_resource type="Texture2D" uid="uid://dedmnjaq7ei1g" path="res://resources/items/assets/stat_potion/03.png" id="3_kjp52"]
+[ext_resource type="Texture2D" uid="uid://b63sc1syfay8t" path="res://resources/items/assets/stat_potion/04.png" id="4_h7fkl"]
+[ext_resource type="Texture2D" uid="uid://bf5dcbakpmgay" path="res://resources/items/assets/stat_potion/05.png" id="5_lst3c"]
+[ext_resource type="Texture2D" uid="uid://b6y5la4fxms5t" path="res://resources/items/assets/stat_potion/06.png" id="6_1tvwe"]
+[ext_resource type="Texture2D" uid="uid://b6ffjiele1km1" path="res://resources/items/assets/stat_potion/07.png" id="7_qjhwf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ekjw"]
+animations = [{
+"frames": [ExtResource("2_5v25x"), ExtResource("2_3ut3g"), ExtResource("3_kjp52"), ExtResource("4_h7fkl"), ExtResource("5_lst3c"), ExtResource("6_1tvwe"), ExtResource("7_qjhwf")],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_w8hdr")
 id = "stat_potion"
 icon = ExtResource("2_5v25x")
+animated_texture = SubResource("SpriteFrames_7ekjw")
 display_name = "Stat Potion"
 description = "Enhances your powers"
 display_name_pt = "Poção de Atributo"

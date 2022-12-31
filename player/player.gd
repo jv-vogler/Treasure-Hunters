@@ -66,6 +66,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		print(GameStateManager.inventory.get_items())
 		speed = 300
 		stats.strength = 999
+	if Input.is_action_just_pressed("save"):
+		GameStateManager.save_file("autosave")
+
 
 
 func _physics_process(delta: float) -> void:
@@ -210,7 +213,7 @@ func _on_loot_detection_body_entered(loot: Loot) -> void:
 	if !loot:
 		return
 
-	loot.apply_central_force(Vector2(global_position - loot.global_position) * 3 )
+	loot.apply_central_force(Vector2(global_position - loot.global_position) * 2)
 
 
 func _on_used_health_potion() -> void:

@@ -1,12 +1,24 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c3sorbgxefje6"]
+[gd_resource type="Resource" load_steps=7 format=3 uid="uid://c3sorbgxefje6"]
 
 [ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="1_vq8ra"]
+[ext_resource type="Texture2D" uid="uid://bc2dhy71bmuql" path="res://resources/items/assets/gold_coin/02.png" id="2_ce1hj"]
+[ext_resource type="Texture2D" uid="uid://bkapw62i7tkes" path="res://resources/items/assets/gold_coin/03.png" id="3_8c8vg"]
+[ext_resource type="Texture2D" uid="uid://epfhi277ani0" path="res://resources/items/assets/gold_coin/04.png" id="4_oebkx"]
 [ext_resource type="Script" path="res://resources/item_data.gd" id="5_4iupk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c0bc3"]
+animations = [{
+"frames": [ExtResource("1_vq8ra"), ExtResource("2_ce1hj"), ExtResource("3_8c8vg"), ExtResource("4_oebkx")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [resource]
 script = ExtResource("5_4iupk")
 id = "gold_coin"
 icon = ExtResource("1_vq8ra")
+animated_texture = SubResource("SpriteFrames_c0bc3")
 display_name = "Gold Coins"
 description = "Currency used by pirates"
 display_name_pt = "Moedas de Ouro"

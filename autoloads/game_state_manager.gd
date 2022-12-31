@@ -54,6 +54,17 @@ func load_file(file_name: String) -> void:
 	_write_current_state()
 
 
+func get_save_names() -> Array:
+	var dir = DirAccess.open(_SAVE_PATH)
+	var files = dir.get_files()
+	var file_names := []
+
+	for file in files:
+		file_names.push_back(file)
+
+	return file_names
+
+
 func set_props(scene_path: String, props: Dictionary) -> void:
 	_level_props[scene_path] = props
 

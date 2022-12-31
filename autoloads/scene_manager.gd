@@ -9,7 +9,7 @@ var previous_scene: PackedScene =-null
 @onready var _Scene: Control = get_parent().get_node("Game/Scene")
 
 
-func change_to(target: String, transition := ["", ""]) -> void:
+func change_to(target: String, transition := ["Fade Out", "Fade In"]) -> void:
 	if current_scene:
 		previous_scene = current_scene
 	current_scene = load(target)
