@@ -2,18 +2,18 @@ extends Control
 
 var run_distance := 200
 var run_duration := 0.6
-var scroll_x = 0
+var scroll_x := 0.0
 
 @onready var captain_clown_nose: AnimatedSprite2D = $CaptainClownNose
 
 
-func _process(delta):
+func _process(delta: float) -> void:
 	scroll_x -= 20 * delta
 	$ParallaxBackground.scroll_offset.x = scroll_x
 
 
 func _animate_character(distance: int, x_scale: int) -> void:
-	$MouseBlocker.mouse_filter = MOUSE_FILTER_STOP
+	$MouseBlocker.visible = true
 	var tween = create_tween()
 	captain_clown_nose.play("run")
 	captain_clown_nose.scale.x = x_scale

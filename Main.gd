@@ -10,3 +10,4 @@ func _ready() -> void:
 #	SceneManager.change_to(Scene.TEMP_LEVEL00, ["", "Fade In"])
 #	SceneManager.change_to(Scene.TEST_LEVEL, ["", "Fade In"])
 #	SceneManager.change_to(Scene.LEVEL_SELECTION, ["", "Fade In"])
+#	SceneManager.change_to(Scene.SHOP, ["", "Fade In"])

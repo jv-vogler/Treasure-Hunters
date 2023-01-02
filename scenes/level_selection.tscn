@@ -1,10 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://ckv7gsjevxmsi"]
+[gd_scene load_steps=58 format=3 uid="uid://ckv7gsjevxmsi"]
 
 [ext_resource type="Script" path="res://scenes/level_selection.gd" id="1_gj8j8"]
 [ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="1_s0d5i"]
-[ext_resource type="Texture2D" uid="uid://c8va16el3v4ek" path="res://interface/theme/assets/yellow_board.png" id="2_35uyr"]
 [ext_resource type="Texture2D" uid="uid://xh6gicjgm81k" path="res://tilesets/assets/Background/Additional Sky.png" id="3_jjvmh"]
 [ext_resource type="Texture2D" uid="uid://buijiam3hi4rl" path="res://interface/theme/assets/orange_paper.png" id="3_oqpee"]
+[ext_resource type="Texture2D" uid="uid://cueg26kpqsmnw" path="res://tilesets/assets/Background/BG Image.png" id="4_46sfe"]
 [ext_resource type="Texture2D" uid="uid://b4cco164kpis3" path="res://tilesets/assets/Background/Big Clouds.png" id="4_jo520"]
 [ext_resource type="Texture2D" uid="uid://cwq8e5xktt0vy" path="res://tilesets/assets/Background/Additional Water.png" id="4_mpnxx"]
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="5_laa7r"]
@@ -34,6 +34,18 @@
 [ext_resource type="Texture2D" uid="uid://bj773ixipduys" path="res://tilesets/assets/Background/Water Reflect Small 02.png" id="19_wlpid"]
 [ext_resource type="Texture2D" uid="uid://dunojvx2aafh8" path="res://tilesets/assets/Background/Water Reflect Small 03.png" id="20_8pkcj"]
 [ext_resource type="Texture2D" uid="uid://bqx1weq7u72kn" path="res://tilesets/assets/Background/Water Reflect Small 04.png" id="21_s5t01"]
+[ext_resource type="TileSet" uid="uid://c2pqdfbyy86o0" path="res://tilesets/palm_trees.tres" id="22_8k585"]
+[ext_resource type="Shader" path="res://shaders/wind_sway.gdshader" id="23_edhbm"]
+[ext_resource type="Texture2D" uid="uid://cyuird6not5lw" path="res://tilesets/assets/Back Palm Trees/Back Palm Tree Regular 01.png" id="23_qskw7"]
+[ext_resource type="Texture2D" uid="uid://deygigikbish6" path="res://tilesets/assets/Back Palm Trees/Back Palm Tree Regular 02.png" id="24_4sftw"]
+[ext_resource type="Texture2D" uid="uid://cxjbxqg574e0v" path="res://tilesets/assets/Back Palm Trees/Back Palm Tree Regular 03.png" id="25_60llv"]
+[ext_resource type="Texture2D" uid="uid://b5oevev3lcpf2" path="res://tilesets/assets/Back Palm Trees/Back Palm Tree Regular 04.png" id="26_dfn66"]
+[ext_resource type="Texture2D" uid="uid://cqnrxu4pb110r" path="res://tilesets/assets/Front Palm Trees/palm01.png" id="28_57ywn"]
+[ext_resource type="Texture2D" uid="uid://dm6joyyunpvuf" path="res://tilesets/assets/Front Palm Trees/palm02.png" id="29_g3nmu"]
+[ext_resource type="Texture2D" uid="uid://ctfakfy4ft8e" path="res://tilesets/assets/Front Palm Trees/palm03.png" id="30_idcyq"]
+[ext_resource type="Texture2D" uid="uid://fmer7rfngisy" path="res://tilesets/assets/Front Palm Trees/palm04.png" id="31_6aubn"]
+[ext_resource type="StyleBox" uid="uid://bln77op2l5jle" path="res://interface/theme/wooden_board.tres" id="34_nyfus"]
+[ext_resource type="FontFile" uid="uid://bt6l0p3fnahmk" path="res://assets/fonts/MeriendaOne-Regular.ttf" id="36_gu1qd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wgo4i"]
 animations = [{
@@ -59,6 +71,46 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_thb1q"]
+shader = ExtResource("23_edhbm")
+shader_parameter/detail = 1.0
+shader_parameter/distortion = 0.0
+shader_parameter/heightOffset = 0.75
+shader_parameter/interval = 3.5
+shader_parameter/maxStrength = 0.1
+shader_parameter/minStrength = 0.05
+shader_parameter/offset = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/strengthScale = 100.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fedk2"]
+animations = [{
+"frames": [ExtResource("23_qskw7"), ExtResource("24_4sftw"), ExtResource("25_60llv"), ExtResource("26_dfn66")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_03ppl"]
+shader = ExtResource("23_edhbm")
+shader_parameter/detail = 1.0
+shader_parameter/distortion = null
+shader_parameter/heightOffset = null
+shader_parameter/interval = 3.5
+shader_parameter/maxStrength = 0.03
+shader_parameter/minStrength = 0.05
+shader_parameter/offset = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/strengthScale = 100.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i0x76"]
+animations = [{
+"frames": [ExtResource("28_57ywn"), ExtResource("29_g3nmu"), ExtResource("30_idcyq"), ExtResource("31_6aubn")],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_a1p6c"]
 animations = [{
 "frames": [ExtResource("5_n56da"), ExtResource("6_00jhv"), ExtResource("7_u3x8x"), ExtResource("8_ixsyk"), ExtResource("9_x4e5h")],
@@ -72,16 +124,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrb8a"]
-texture = ExtResource("2_35uyr")
-margin_left = 12.0
-margin_top = 10.0
-margin_right = 10.0
-margin_bottom = 10.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 86, 86)
-
 [sub_resource type="Theme" id="Theme_5gpg7"]
 Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
 
@@ -92,6 +134,13 @@ margin_top = 5.0
 margin_right = 5.0
 margin_bottom = 5.0
 region_rect = Rect2(0, 0, 70, 66)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i8kq6"]
+font = ExtResource("36_gu1qd")
+font_size = 10
+font_color = Color(0.988235, 0.0666667, 0.0666667, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
@@ -109,14 +158,18 @@ metadata/_edit_horizontal_guides_ = [240.0]
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1, 0)
+motion_scale = Vector2(0, 0)
 metadata/_edit_lock_ = true
 
 [node name="Sky" type="Sprite2D" parent="ParallaxBackground/Sky"]
-position = Vector2(213.5, 123.5)
-scale = Vector2(13.3438, 7.71875)
+position = Vector2(213.5, 57.5)
+scale = Vector2(13.3438, 3.59375)
 texture = ExtResource("3_jjvmh")
-metadata/_edit_lock_ = true
+
+[node name="BgImage" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(213, 177)
+scale = Vector2(1.10938, 1)
+texture = ExtResource("4_46sfe")
 
 [node name="Cloud5" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-96, -71)
@@ -130,6 +183,7 @@ texture = ExtResource("7_alo1t")
 
 [node name="Cloud1" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(280, 47)
+motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(560, 0)
 
 [node name="SmallCloud2" type="Sprite2D" parent="ParallaxBackground/Cloud1"]
@@ -148,7 +202,7 @@ texture = ExtResource("5_wrjjj")
 
 [node name="Cloud3" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.862745)
-position = Vector2(223, 20)
+position = Vector2(-71, 10)
 motion_mirroring = Vector2(400, 0)
 
 [node name="SmallCloud3" type="Sprite2D" parent="ParallaxBackground/Cloud3"]
@@ -159,7 +213,7 @@ texture = ExtResource("7_alo1t")
 [node name="Cloud4" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.639216)
 position = Vector2(157, -57)
-motion_scale = Vector2(0.5, 0.5)
+motion_scale = Vector2(0.4, 0.4)
 motion_mirroring = Vector2(450, 0)
 
 [node name="SmallCloud1" type="Sprite2D" parent="ParallaxBackground/Cloud4"]
@@ -169,7 +223,8 @@ texture = ExtResource("5_wrjjj")
 
 [node name="BigClouds" type="ParallaxLayer" parent="ParallaxBackground"]
 modulate = Color(1, 1, 1, 0.882353)
-motion_scale = Vector2(0.5, 0.5)
+position = Vector2(0, -22)
+motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(448, 0)
 
 [node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/BigClouds"]
@@ -182,52 +237,83 @@ scale = Vector2(13.3438, 1)
 texture = ExtResource("4_mpnxx")
 metadata/_edit_lock_ = true
 
+[node name="WaterReflex" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(-9.77982, -9)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex2" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(-13.6768, 0)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_c1h73")
+playing = true
+
+[node name="WaterReflex3" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(11.2037, -9)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex4" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(-3.25994, 0)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex8" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(5.80794, -1)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_wgo4i")
+playing = true
+
+[node name="WaterReflex5" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(-1.911, -13)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_c1h73")
+playing = true
+
+[node name="WaterReflex6" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(13.9016, 2)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_hg1jl")
+playing = true
+
+[node name="WaterReflex7" type="AnimatedSprite2D" parent="Ocean"]
+position = Vector2(2.88523, -11)
+scale = Vector2(0.0749412, 1)
+frames = SubResource("SpriteFrames_hg1jl")
+playing = true
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource("22_8k585")
+format = 2
+
+[node name="PalmTree1" type="AnimatedSprite2D" parent="TileMap2"]
+material = SubResource("ShaderMaterial_thb1q")
+position = Vector2(108, 192)
+frames = SubResource("SpriteFrames_fedk2")
+playing = true
+
+[node name="PalmTree2" type="AnimatedSprite2D" parent="TileMap2"]
+material = SubResource("ShaderMaterial_03ppl")
+position = Vector2(91, 194)
+frames = SubResource("SpriteFrames_i0x76")
+playing = true
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_laa7r")
 format = 2
-layer_0/tile_data = PackedInt32Array(458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458764, 65536, 0, 458752, 65536, 0, 458763, 65536, 0, 458765, 65536, 0)
+layer_0/name = "BG"
+layer_1/name = "Front"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(458753, 65536, 0, 458754, 65536, 0, 458755, 65536, 0, 458756, 65536, 0, 458757, 65536, 0, 458758, 65536, 0, 458759, 65536, 0, 458760, 65536, 0, 458761, 65536, 0, 458762, 65536, 0, 458764, 65536, 0, 458752, 65536, 0, 458763, 65536, 0, 458765, 65536, 0, 393217, 65540, 2, 393218, 131076, 2, 393220, 65540, 2, 393221, 65540, 2, 393223, 131076, 2, 393227, 65540, 2, 393225, 65540, 2, 393228, 131076, 2)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
-
-[node name="WaterReflex" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(83, 208)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
-
-[node name="WaterReflex2" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(31, 217)
-frames = SubResource("SpriteFrames_c1h73")
-playing = true
-
-[node name="WaterReflex3" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(363, 208)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
-
-[node name="WaterReflex4" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(170, 217)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
-
-[node name="WaterReflex8" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(291, 216)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
-
-[node name="WaterReflex5" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(188, 204)
-frames = SubResource("SpriteFrames_c1h73")
-playing = true
-
-[node name="WaterReflex6" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(399, 219)
-frames = SubResource("SpriteFrames_hg1jl")
-playing = true
-
-[node name="WaterReflex7" type="AnimatedSprite2D" parent="TileMap"]
-position = Vector2(252, 206)
-frames = SubResource("SpriteFrames_hg1jl")
-playing = true
 
 [node name="CaptainClownNose" type="AnimatedSprite2D" parent="."]
 position = Vector2(218, 212)
@@ -241,13 +327,13 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 107.0
+offset_left = 125.0
 offset_top = 26.0
-offset_right = -107.0
+offset_right = -125.0
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_lrb8a")
+theme_override_styles/panel = ExtResource("34_nyfus")
 metadata/_edit_group_ = true
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="WoodenPanel"]
@@ -256,9 +342,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -93.0
+offset_left = -75.0
 offset_top = -36.0
-offset_right = 90.0
+offset_right = 76.0
 offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -276,9 +362,9 @@ shortcut_in_tooltip = false
 text = "Title Screen"
 
 [node name="BtnShop" type="Button" parent="WoodenPanel/ButtonsContainer"]
-offset_left = 159.0
+offset_left = 127.0
 offset_top = 8.0
-offset_right = 183.0
+offset_right = 151.0
 offset_bottom = 21.0
 grow_vertical = 0
 size_flags_horizontal = 10
@@ -299,6 +385,115 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_5gpg7")
 theme_override_styles/panel = SubResource("StyleBoxTexture_r44y3")
+
+[node name="XTutorial" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 6.0
+offset_top = 103.0
+offset_right = 17.0
+offset_bottom = 130.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel1" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 49.0
+offset_top = 95.0
+offset_right = 60.0
+offset_bottom = 122.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel2" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 82.0
+offset_top = 103.0
+offset_right = 93.0
+offset_bottom = 130.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel3" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 116.0
+offset_top = 72.0
+offset_right = 127.0
+offset_bottom = 99.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel4" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 73.0
+offset_top = 63.0
+offset_right = 84.0
+offset_bottom = 90.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel5" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 11.0
+offset_top = 61.0
+offset_right = 22.0
+offset_bottom = 88.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel6" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 33.0
+offset_top = 30.0
+offset_right = 44.0
+offset_bottom = 57.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel7" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 108.0
+offset_top = 31.0
+offset_right = 119.0
+offset_bottom = 58.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel8" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 120.0
+offset_top = -1.0
+offset_right = 131.0
+offset_bottom = 26.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XLevel9" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 64.0
+offset_right = 75.0
+offset_bottom = 27.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="XFinalLevel" type="Label" parent="LevelSelectionMap"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 25.0
+offset_bottom = 37.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
 
 [node name="Tutorial" type="Button" parent="LevelSelectionMap"]
 anchors_preset = -1
@@ -413,13 +608,13 @@ shortcut_in_tooltip = false
 text = "???"
 
 [node name="MouseBlocker" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="WoodenPanel/ButtonsContainer/BtnTitleScreen" to="." method="_on_btn_title_screen_pressed"]

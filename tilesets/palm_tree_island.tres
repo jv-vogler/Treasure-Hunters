@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://0jwjlym8akge"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://0jwjlym8akge"]
 
 [ext_resource type="Texture2D" uid="uid://bgln530vsm5aq" path="res://tilesets/assets/palm_tree_island.png" id="1_3wsgn"]
+[ext_resource type="Texture2D" uid="uid://cp12wkpyjnv8r" path="res://tilesets/assets/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="2_5vl7j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wsnsw"]
 texture = ExtResource("1_3wsgn")
@@ -166,7 +167,18 @@ texture_region_size = Vector2i(32, 32)
 16:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 16:3/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ost0r"]
+texture = ExtResource("2_5vl7j")
+texture_region_size = Vector2i(32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wsnsw")
+sources/4 = SubResource("TileSetAtlasSource_ost0r")
