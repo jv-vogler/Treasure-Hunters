@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://o0oea01t4d6k"]
+[gd_scene load_steps=130 format=3 uid="uid://o0oea01t4d6k"]
 
 [ext_resource type="Texture2D" uid="uid://cwq8e5xktt0vy" path="res://tilesets/assets/Background/Additional Water.png" id="1_a3gdx"]
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_e188i"]
@@ -103,6 +103,20 @@
 [ext_resource type="Texture2D" uid="uid://cg1f0qoecefk3" path="res://tilesets/assets/Front Palm Trees/Front Palm Tree Top 02.png" id="96_ckg0e"]
 [ext_resource type="Texture2D" uid="uid://b3hlc78ippvas" path="res://tilesets/assets/Front Palm Trees/Front Palm Tree Top 03.png" id="97_j7jab"]
 [ext_resource type="Texture2D" uid="uid://dxffjqa0ebc6s" path="res://tilesets/assets/Front Palm Trees/Front Palm Tree Top 04.png" id="98_sfmnb"]
+[ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="101_uyh8p"]
+[ext_resource type="Texture2D" uid="uid://chefcv71x8y63" path="res://resources/items/assets/ruby/01.png" id="102_5c0r3"]
+[ext_resource type="Texture2D" uid="uid://cuh3x0wxpvb31" path="res://resources/items/assets/emerald/01.png" id="103_gdgjj"]
+[ext_resource type="Texture2D" uid="uid://cuhi5cl1fcr73" path="res://resources/items/assets/diamond/01.png" id="104_f77sk"]
+[ext_resource type="StyleBox" uid="uid://glp0pvqqgcqw" path="res://interface/theme/resources/green_board.tres" id="104_w6aq7"]
+[ext_resource type="LabelSettings" uid="uid://bx7wy64tb1vuv" path="res://interface/theme/number_font.tres" id="109_7gow4"]
+[ext_resource type="StyleBox" uid="uid://bvjf0ilhkn377" path="res://interface/theme/tooltip.tres" id="110_2ghj6"]
+[ext_resource type="Texture2D" uid="uid://bg7sivskojwr6" path="res://interface/theme/assets/btn_left.png" id="110_4ahdf"]
+[ext_resource type="Texture2D" uid="uid://b0sp2333nachs" path="res://resources/items/assets/poison_bottle/02.png" id="110_ctbn7"]
+[ext_resource type="Texture2D" uid="uid://cwgd8vpuaetbd" path="res://interface/theme/assets/btn_left_pressed.png" id="111_gwnwv"]
+[ext_resource type="Texture2D" uid="uid://b6y5la4fxms5t" path="res://resources/items/assets/stat_potion/06.png" id="111_rye6e"]
+[ext_resource type="Texture2D" uid="uid://btjiyvqr80eox" path="res://resources/items/assets/health_potion/06.png" id="112_kexjo"]
+[ext_resource type="Texture2D" uid="uid://0po21tny6ny5" path="res://interface/theme/assets/btn_right.png" id="113_ldsik"]
+[ext_resource type="Texture2D" uid="uid://dqrh0kdxkodim" path="res://interface/theme/assets/btn_right_pressed.png" id="114_ohi0p"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvmmo"]
 animations = [{
@@ -221,6 +235,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e188i")
+metadata/_edit_lock_ = true
 
 [node name="AdditionalWater" type="Sprite2D" parent="."]
 position = Vector2(214, 229)
@@ -256,6 +271,7 @@ position = Vector2(-96, -71)
 motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(400, 0)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="SmallCloud3" type="Sprite2D" parent="ParallaxBackground/Cloud5"]
 position = Vector2(199, 126)
@@ -267,6 +283,7 @@ position = Vector2(280, 47)
 motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(560, 0)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="SmallCloud2" type="Sprite2D" parent="ParallaxBackground/Cloud1"]
 position = Vector2(13, 38)
@@ -277,6 +294,7 @@ position = Vector2(-7, -4)
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(450, 0)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="SmallCloud1" type="Sprite2D" parent="ParallaxBackground/Cloud2"]
 position = Vector2(199, 94)
@@ -288,6 +306,7 @@ position = Vector2(3, -54)
 motion_scale = Vector2(0.3, 0.3)
 motion_mirroring = Vector2(448, 0)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/BigClouds"]
 position = Vector2(214, 171)
@@ -296,6 +315,7 @@ texture = ExtResource("11_1nv31")
 [node name="Ship" type="Node2D" parent="."]
 position = Vector2(297, 186)
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Crate2" type="Sprite2D" parent="Ship"]
 position = Vector2(1, -11)
@@ -339,8 +359,8 @@ frames = SubResource("SpriteFrames_gky27")
 playing = true
 
 [node name="Water3" type="Sprite2D" parent="Water"]
-position = Vector2(305, 241)
-scale = Vector2(1.70833, 1)
+position = Vector2(305, 233)
+scale = Vector2(1.70833, 0.5)
 texture = ExtResource("8_ur8t2")
 
 [node name="Reflexes1" type="AnimatedSprite2D" parent="Water"]
@@ -353,19 +373,23 @@ position = Vector2(331, 213)
 frames = SubResource("SpriteFrames_v6nat")
 playing = true
 
-[node name="PalmTree1" type="AnimatedSprite2D" parent="."]
+[node name="Trees" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="PalmTree1" type="AnimatedSprite2D" parent="Trees"]
 material = SubResource("ShaderMaterial_dkgjv")
 position = Vector2(369, 138)
 frames = SubResource("SpriteFrames_gltxy")
 playing = true
 
-[node name="PalmTree2" type="AnimatedSprite2D" parent="."]
+[node name="PalmTree2" type="AnimatedSprite2D" parent="Trees"]
 material = ExtResource("48_duexa")
 position = Vector2(374, 155)
 frames = SubResource("SpriteFrames_gltxy")
 playing = true
 
-[node name="PalmTree3" type="AnimatedSprite2D" parent="."]
+[node name="PalmTree3" type="AnimatedSprite2D" parent="Trees"]
 material = SubResource("ShaderMaterial_b85t5")
 position = Vector2(263, 136)
 frames = SubResource("SpriteFrames_sk68b")
@@ -375,6 +399,7 @@ playing = true
 tile_set = ExtResource("51_yjbs5")
 format = 2
 layer_0/tile_data = PackedInt32Array(655374, 65536, 1, 655376, 131072, 1)
+metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("3_qycwj")
@@ -389,6 +414,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(458764, 0, 1, 393228, 0, 1, 327692, 0, 1, 262156, 0, 1, 196620, 0, 1, 131084, 458752, 0, 131085, 65536, 1, 196621, 65536, 1, 262157, 65536, 1, 327693, 65536, 1, 458765, 65536, 1, 393229, 65536, 1, 65548, 65536, 1, 65549, 65536, 1, 65537, 65536, 1, 65538, 393216, 0, 0, 65536, 1, 1, 65536, 1, 2, 65536, 1, 3, 65536, 1, 4, 65536, 1, 6, 65536, 1, 7, 65536, 1, 8, 65536, 1, 9, 65536, 1, 10, 65536, 1, 11, 65536, 1, 12, 65536, 1, 13, 65536, 1, 131073, 393216, 0, 196609, 131072, 1, 65536, 65536, 1, 131072, 65536, 1, 196608, 65536, 1, 131074, 131072, 2, 262144, 65536, 1, 327680, 65536, 1, 393216, 65536, 1, 262145, 131072, 1, 458758, 131072, 1, 458757, 65536, 1, 458756, 65536, 1, 458755, 65536, 1, 458754, 65536, 1, 458753, 65536, 1, 458752, 65536, 1, 131078, 262144, 2, 65539, 65536, 2, 65540, 65536, 2, 65541, 65536, 2, 65542, 655360, 1, 65543, 65536, 2, 65544, 458752, 0, 5, 65536, 1, 131080, 0, 2, 131081, 65536, 2, 131082, 65536, 2, 131083, 65536, 2, 65545, 65536, 1, 65546, 65536, 1, 65547, 65536, 1, 327681, 393216, 1, 393217, 65536, 1, 327682, 65536, 0, 393218, 65536, 1, 327683, 65536, 0, 393219, 65536, 1, 327684, 65536, 0, 393220, 65536, 1, 327685, 65536, 0, 393221, 65536, 1, 327686, 131072, 0, 393222, 131072, 1, 262146, 65540, 2, 262147, 131076, 2, 262149, 131076, 2, 262150, 65540, 2)
 metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Barrel" type="Sprite2D" parent="TileMap"]
 position = Vector2(87, 147)
@@ -415,14 +441,595 @@ frames = SubResource("SpriteFrames_mvp3c")
 animation = &"idle"
 playing = true
 
+[node name="CurrencyPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 2.0
+offset_right = 326.0
+offset_bottom = 34.0
+theme_override_styles/panel = ExtResource("92_1g8l5")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CurrencyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Coins" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
+layout_mode = 2
+offset_top = 8.0
+offset_right = 49.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Coins"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("101_uyh8p")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Coins"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Rubys" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
+layout_mode = 2
+offset_left = 53.0
+offset_top = 8.0
+offset_right = 103.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Rubys"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("102_5c0r3")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Rubys"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Emeralds" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
+layout_mode = 2
+offset_left = 107.0
+offset_top = 8.0
+offset_right = 157.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Emeralds"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("103_gdgjj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Emeralds"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Diamonds" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
+layout_mode = 2
+offset_left = 161.0
+offset_top = 8.0
+offset_right = 211.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Diamonds"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("104_f77sk")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Diamonds"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 22.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+
+[node name="ShopPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.0
+offset_top = 35.0
+offset_right = 112.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme = ExtResource("91_32fso")
+theme_override_styles/panel = ExtResource("110_2ghj6")
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = -11.0
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PotionContainer" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+offset_right = 200.0
+offset_bottom = 16.0
+size_flags_vertical = 3
+
+[node name="BtnDecrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PotionContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 8.0
+offset_bottom = 14.0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("110_4ahdf")
+texture_pressed = ExtResource("111_gwnwv")
+stretch_mode = 3
+
+[node name="Icon" type="TextureRect" parent="ShopPanel/VBoxContainer/PotionContainer"]
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 2
+offset_left = 12.0
+offset_right = 22.0
+offset_bottom = 12.0
+size_flags_vertical = 0
+texture = ExtResource("112_kexjo")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="BtnIncrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PotionContainer"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 14.0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("113_ldsik")
+texture_pressed = ExtResource("114_ohi0p")
+stretch_mode = 3
+
+[node name="LabelAmount" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer"]
+layout_mode = 2
+offset_left = 38.0
+offset_right = 44.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelItemName" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 142.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+text = "Health Potion"
+label_settings = ExtResource("109_7gow4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="HBoxContainer" parent="ShopPanel/VBoxContainer/PotionContainer"]
+layout_mode = 2
+offset_left = 146.0
+offset_right = 200.0
+offset_bottom = 16.0
+size_flags_horizontal = 8
+
+[node name="CoinTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("101_uyh8p")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="CoinLabel" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 28.0
+offset_bottom = 16.0
+text = "10"
+label_settings = ExtResource("109_7gow4")
+
+[node name="RubyTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_left = 32.0
+offset_right = 44.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("102_5c0r3")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="RubyLabel" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 54.0
+offset_bottom = 16.0
+text = "3"
+label_settings = ExtResource("109_7gow4")
+
+[node name="PoisonContainer" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 36.0
+size_flags_vertical = 3
+
+[node name="BtnDecrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PoisonContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 8.0
+offset_bottom = 14.0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("110_4ahdf")
+texture_pressed = ExtResource("111_gwnwv")
+stretch_mode = 3
+
+[node name="Icon" type="TextureRect" parent="ShopPanel/VBoxContainer/PoisonContainer"]
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 2
+offset_left = 12.0
+offset_right = 22.0
+offset_bottom = 12.0
+size_flags_vertical = 0
+texture = ExtResource("110_ctbn7")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="BtnIncrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PoisonContainer"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 14.0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("113_ldsik")
+texture_pressed = ExtResource("114_ohi0p")
+stretch_mode = 3
+
+[node name="LabelAmount" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer"]
+layout_mode = 2
+offset_left = 38.0
+offset_right = 44.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelItemName" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 142.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+text = "Poison Bottle"
+label_settings = ExtResource("109_7gow4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="HBoxContainer" parent="ShopPanel/VBoxContainer/PoisonContainer"]
+layout_mode = 2
+offset_left = 146.0
+offset_right = 200.0
+offset_bottom = 16.0
+size_flags_horizontal = 8
+
+[node name="CoinTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("101_uyh8p")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="CoinLabel" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 28.0
+offset_bottom = 16.0
+text = "20"
+label_settings = ExtResource("109_7gow4")
+
+[node name="EmeraldTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_left = 32.0
+offset_right = 44.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("103_gdgjj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="EmeraldLabel" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 54.0
+offset_bottom = 16.0
+text = "4"
+label_settings = ExtResource("109_7gow4")
+
+[node name="StatPotionContainer" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+offset_top = 40.0
+offset_right = 200.0
+offset_bottom = 56.0
+size_flags_vertical = 3
+
+[node name="BtnDecrease" type="TextureButton" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 8.0
+offset_bottom = 14.0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("110_4ahdf")
+texture_pressed = ExtResource("111_gwnwv")
+stretch_mode = 3
+
+[node name="Icon" type="TextureRect" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 2
+offset_left = 12.0
+offset_right = 22.0
+offset_bottom = 12.0
+size_flags_vertical = 0
+texture = ExtResource("111_rye6e")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="BtnIncrease" type="TextureButton" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 14.0
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("113_ldsik")
+texture_pressed = ExtResource("114_ohi0p")
+stretch_mode = 3
+
+[node name="LabelAmount" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
+layout_mode = 2
+offset_left = 38.0
+offset_right = 44.0
+offset_bottom = 16.0
+text = "0"
+label_settings = ExtResource("109_7gow4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelItemName" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
+layout_mode = 2
+offset_left = 48.0
+offset_right = 136.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+text = "Stat Potion"
+label_settings = ExtResource("109_7gow4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cost" type="HBoxContainer" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
+layout_mode = 2
+offset_left = 140.0
+offset_right = 200.0
+offset_bottom = 16.0
+size_flags_horizontal = 8
+
+[node name="CoinTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_right = 12.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("101_uyh8p")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="CoinLabel" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
+layout_mode = 2
+offset_left = 16.0
+offset_right = 34.0
+offset_bottom = 16.0
+text = "100"
+label_settings = ExtResource("109_7gow4")
+
+[node name="DiamondTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
+custom_minimum_size = Vector2(12, 15)
+layout_mode = 2
+offset_left = 38.0
+offset_right = 50.0
+offset_bottom = 15.0
+size_flags_vertical = 0
+texture = ExtResource("104_f77sk")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="DiamondLabel" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
+layout_mode = 2
+offset_left = 54.0
+offset_right = 60.0
+offset_bottom = 16.0
+text = "5"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Total" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
+layout_mode = 2
+offset_top = 60.0
+offset_right = 33.0
+offset_bottom = 76.0
+size_flags_horizontal = 0
+size_flags_vertical = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total"]
+layout_mode = 2
+offset_right = 33.0
+offset_bottom = 16.0
+text = "Total:"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Coins" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
+visible = false
+layout_mode = 2
+offset_left = 37.0
+offset_right = 74.0
+offset_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Coins"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+offset_right = 15.0
+offset_bottom = 16.0
+texture = ExtResource("101_uyh8p")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Coins"]
+layout_mode = 2
+offset_left = 19.0
+offset_right = 37.0
+offset_bottom = 16.0
+text = "100"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Rubys" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
+visible = false
+layout_mode = 2
+offset_left = 37.0
+offset_right = 74.0
+offset_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Rubys"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+offset_right = 15.0
+offset_bottom = 16.0
+texture = ExtResource("102_5c0r3")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Rubys"]
+layout_mode = 2
+offset_left = 19.0
+offset_right = 37.0
+offset_bottom = 16.0
+text = "100"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Emeralds" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
+visible = false
+layout_mode = 2
+offset_left = 37.0
+offset_right = 74.0
+offset_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Emeralds"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+offset_right = 15.0
+offset_bottom = 16.0
+texture = ExtResource("103_gdgjj")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Emeralds"]
+layout_mode = 2
+offset_left = 19.0
+offset_right = 37.0
+offset_bottom = 16.0
+text = "100"
+label_settings = ExtResource("109_7gow4")
+
+[node name="Diamonds" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
+visible = false
+layout_mode = 2
+offset_left = 37.0
+offset_right = 74.0
+offset_bottom = 16.0
+
+[node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Diamonds"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+offset_right = 15.0
+offset_bottom = 16.0
+texture = ExtResource("104_f77sk")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Diamonds"]
+layout_mode = 2
+offset_left = 19.0
+offset_right = 37.0
+offset_bottom = 16.0
+text = "100"
+label_settings = ExtResource("109_7gow4")
+
 [node name="LevelSelection" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 19.0
+offset_left = 15.0
 offset_top = 187.0
-offset_right = 138.0
+offset_right = 134.0
 offset_bottom = 229.0
 theme = ExtResource("91_32fso")
 theme_override_styles/panel = ExtResource("92_1g8l5")
+metadata/_edit_group_ = true
 
 [node name="BtnLevelSelection" type="Button" parent="LevelSelection"]
 layout_mode = 0
@@ -432,6 +1039,29 @@ offset_right = 104.0
 offset_bottom = 27.0
 mouse_default_cursor_shape = 2
 text = "Level Selection"
+
+[node name="ConfirmPanel" type="Panel" parent="."]
+layout_mode = 1
+offset_left = 139.0
+offset_top = 185.0
+offset_right = 211.0
+offset_bottom = 230.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("91_32fso")
+theme_override_styles/panel = ExtResource("104_w6aq7")
+metadata/_edit_group_ = true
+
+[node name="BtnConfirm" type="Button" parent="ConfirmPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+mouse_default_cursor_shape = 2
+disabled = true
+text = "Confirm"
 
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
@@ -443,4 +1073,10 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_lock_ = true
 
+[connection signal="pressed" from="ShopPanel/VBoxContainer/PotionContainer/BtnDecrease" to="." method="_on_hp_decrease_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/PotionContainer/BtnIncrease" to="." method="_on_hp_increase_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/PoisonContainer/BtnDecrease" to="." method="_on_pb_decrease_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/PoisonContainer/BtnIncrease" to="." method="_on_pb_increase_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/StatPotionContainer/BtnDecrease" to="." method="_on_sp_decrease_pressed"]
+[connection signal="pressed" from="ShopPanel/VBoxContainer/StatPotionContainer/BtnIncrease" to="." method="_on_sp_increase_pressed"]
 [connection signal="pressed" from="LevelSelection/BtnLevelSelection" to="." method="_on_btn_level_selection_pressed"]

@@ -50,40 +50,40 @@
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/chase.gd" id="43_prodk"]
 [ext_resource type="Script" path="res://enemies/fierce_tooth/states/attack.gd" id="44_girl4"]
 
-[sub_resource type="Resource" id="Resource_xhtl2"]
+[sub_resource type="Resource" id="Resource_jpmii"]
 script = ExtResource("3_lxi8o")
 _item = ExtResource("3_1q8q7")
 _quantity = 10
 _drop_chance = 15.0
 
-[sub_resource type="Resource" id="Resource_4m77y"]
+[sub_resource type="Resource" id="Resource_cbkwa"]
 script = ExtResource("3_lxi8o")
 _item = ExtResource("5_bjnib")
 _quantity = 3
 _drop_chance = 15.0
 
-[sub_resource type="Resource" id="Resource_xe8mp"]
+[sub_resource type="Resource" id="Resource_i4d8g"]
 script = ExtResource("3_lxi8o")
 _item = ExtResource("6_vvvam")
 _quantity = 2
 _drop_chance = 10.0
 
-[sub_resource type="Resource" id="Resource_i33wl"]
+[sub_resource type="Resource" id="Resource_lr4kv"]
 script = ExtResource("3_lxi8o")
 _item = ExtResource("7_j6wjx")
 _quantity = 1
 _drop_chance = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gkek"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3f1rx"]
 size = Vector2(29, 22)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rw0y4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqb65"]
 size = Vector2(25, 21)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyd66"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvnwf"]
 size = Vector2(17, 21)
 
-[sub_resource type="Animation" id="Animation_jsp2v"]
+[sub_resource type="Animation" id="Animation_hlaji"]
 resource_name = "Anticipation"
 length = 0.6
 step = 0.05
@@ -112,7 +112,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_s61pc"]
+[sub_resource type="Animation" id="Animation_6tlps"]
 resource_name = "Attack"
 length = 0.5
 tracks/0/type = "value"
@@ -140,7 +140,7 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_jg5jd"]
+[sub_resource type="Animation" id="Animation_o14ul"]
 resource_name = "Death"
 length = 1.6
 tracks/0/type = "value"
@@ -230,7 +230,7 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ivcny"]
+[sub_resource type="Animation" id="Animation_tgbrn"]
 resource_name = "Fall"
 length = 0.1
 tracks/0/type = "value"
@@ -258,7 +258,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_hdl8b"]
+[sub_resource type="Animation" id="Animation_3xaif"]
 resource_name = "Ground"
 length = 0.2
 tracks/0/type = "value"
@@ -286,7 +286,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_uij0a"]
+[sub_resource type="Animation" id="Animation_veydv"]
 resource_name = "Stagger"
 length = 0.25
 step = 0.05
@@ -315,7 +315,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_hd841"]
+[sub_resource type="Animation" id="Animation_r52w4"]
 resource_name = "idle"
 length = 0.8
 loop_mode = 1
@@ -344,7 +344,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_5y8ec"]
+[sub_resource type="Animation" id="Animation_0gmp3"]
 resource_name = "Jump"
 length = 0.3
 tracks/0/type = "value"
@@ -360,7 +360,7 @@ tracks/0/keys = {
 "values": [ExtResource("35_8xcr0"), ExtResource("36_oy2wd"), ExtResource("37_e0eyy")]
 }
 
-[sub_resource type="Animation" id="Animation_6ujl8"]
+[sub_resource type="Animation" id="Animation_fhwd7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -459,7 +459,7 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_slxkl"]
+[sub_resource type="Animation" id="Animation_opx1t"]
 resource_name = "Run"
 length = 0.6
 loop_mode = 1
@@ -488,35 +488,32 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hn2ji"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t54q0"]
 _data = {
-"Anticipation": SubResource("Animation_jsp2v"),
-"Attack": SubResource("Animation_s61pc"),
-"Death": SubResource("Animation_jg5jd"),
-"Fall": SubResource("Animation_ivcny"),
-"Ground": SubResource("Animation_hdl8b"),
-"Hurt": SubResource("Animation_uij0a"),
-"Idle": SubResource("Animation_hd841"),
-"Jump": SubResource("Animation_5y8ec"),
-"RESET": SubResource("Animation_6ujl8"),
-"Run": SubResource("Animation_slxkl")
+"Anticipation": SubResource("Animation_hlaji"),
+"Attack": SubResource("Animation_6tlps"),
+"Death": SubResource("Animation_o14ul"),
+"Fall": SubResource("Animation_tgbrn"),
+"Ground": SubResource("Animation_3xaif"),
+"Hurt": SubResource("Animation_veydv"),
+"Idle": SubResource("Animation_r52w4"),
+"Jump": SubResource("Animation_0gmp3"),
+"RESET": SubResource("Animation_fhwd7"),
+"Run": SubResource("Animation_opx1t")
 }
 
 [node name="FierceTooth" instance=ExtResource("1_q3016")]
 script = ExtResource("1_ja8wv")
 speed = 160.0
-loot_table = [SubResource("Resource_xhtl2"), SubResource("Resource_4m77y"), SubResource("Resource_xe8mp"), SubResource("Resource_i33wl")]
+loot_table = [SubResource("Resource_jpmii"), SubResource("Resource_cbkwa"), SubResource("Resource_i4d8g"), SubResource("Resource_lr4kv")]
 
 [node name="Sprite" parent="." index="0"]
 position = Vector2(0, 1)
 texture = ExtResource("2_t7y6h")
 
-[node name="Hitbox" parent="Sprite" index="0"]
-visible = false
-
 [node name="RegularAttack" parent="Sprite/Hitbox" index="0"]
 position = Vector2(-4.5, 2)
-shape = SubResource("RectangleShape2D_4gkek")
+shape = SubResource("RectangleShape2D_3f1rx")
 disabled = true
 
 [node name="Hurtbox" parent="Sprite" index="1"]
@@ -524,10 +521,7 @@ visible = false
 
 [node name="EnemyHurtbox" parent="Sprite/Hurtbox" index="0"]
 position = Vector2(0.5, 2.5)
-shape = SubResource("RectangleShape2D_rw0y4")
-
-[node name="AttackRange" parent="Sprite" index="2"]
-visible = false
+shape = SubResource("RectangleShape2D_vqb65")
 
 [node name="Range" parent="Sprite/AttackRange" index="0"]
 position = Vector2(-15, 1.5)
@@ -541,11 +535,11 @@ position = Vector2(0, -41)
 [node name="Collision" parent="." index="2"]
 visible = false
 position = Vector2(0.5, 3.5)
-shape = SubResource("RectangleShape2D_oyd66")
+shape = SubResource("RectangleShape2D_fvnwf")
 
 [node name="Animations" parent="." index="3"]
 libraries = {
-"": SubResource("AnimationLibrary_hn2ji")
+"": SubResource("AnimationLibrary_t54q0")
 }
 
 [node name="Chase" parent="StateMachine" index="2"]

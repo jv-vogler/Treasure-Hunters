@@ -2,4 +2,5 @@ extends Level
 
 
 func _ready() -> void:
-	pass
+	GameStateManager.inventory.add_item("health_potion", 5)
+	GameStateManager.inventory.add_item("poison_bottle", 5)

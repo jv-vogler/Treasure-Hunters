@@ -26,13 +26,14 @@ size = Vector2(30, 28)
 size = Vector2(28, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gppxq"]
-size = Vector2(48, 23)
+size = Vector2(44, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qjc6o"]
 size = Vector2(342, 110)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yslpf"]
-height = 24.0
+radius = 14.0
+height = 28.0
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1

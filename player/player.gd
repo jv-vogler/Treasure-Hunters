@@ -92,7 +92,11 @@ func take_damage(damage) -> void:
 		current_adrenaline += damage * 1.5
 
 	# Change to use check for KEY ITEM
-	if current_adrenaline == stats.max_adrenaline and current_health <= stats.max_health * 0.25:
+	if (
+		current_adrenaline == stats.max_adrenaline
+		and current_health <= stats.max_health * 0.25
+		and !buffs & Buff.ADRENALINE
+	):
 		call_deferred("_activate_adrenaline")
 
 	print_rich(

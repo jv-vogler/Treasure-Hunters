@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scenes/title_screen.gd" id="1_avx8x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yu7ga"]
+font_size = 25
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -14,6 +15,17 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_74fe6")
 script = ExtResource("1_avx8x")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+text = "Treasure Hunters"
+label_settings = SubResource("LabelSettings_yu7ga")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 anchors_preset = 8
@@ -70,17 +82,6 @@ offset_bottom = 63.0
 size_flags_vertical = 6
 mouse_default_cursor_shape = 2
 text = "Quit"
-
-[node name="Title" type="Label" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 1.0
-offset_bottom = 42.0
-grow_horizontal = 2
-text = "Treasure Hunters"
-label_settings = SubResource("LabelSettings_yu7ga")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Buttons/NewGame" to="." method="_on_new_game_pressed"]

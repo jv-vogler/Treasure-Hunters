@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c7pmcbxqfmup8"]
+
+[ext_resource type="Texture2D" uid="uid://svtxf8ar5xd4" path="res://interface/theme/assets/inventory.png" id="1_qn0ku"]
+
+[resource]
+texture = ExtResource("1_qn0ku")
+margin_left = 7.0
+margin_top = 10.0
+margin_right = 7.0
+margin_bottom = 8.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 86, 90)

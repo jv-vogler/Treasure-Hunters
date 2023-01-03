@@ -1,26 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl3gbcbk6iqoy"]
+[gd_scene load_steps=3 format=3 uid="uid://cl3gbcbk6iqoy"]
 
-[ext_resource type="Texture2D" uid="uid://dmuty14hotpxp" path="res://interface/theme/assets/yellow_paper.png" id="1_jru8l"]
-[ext_resource type="FontFile" uid="uid://c4u0evm70kgi4" path="res://assets/fonts/monogram.ttf" id="2_k0oic"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vlcya"]
-texture = ExtResource("1_jru8l")
-margin_left = 3.0
-margin_top = 3.0
-margin_right = 3.0
-margin_bottom = 3.0
-expand_margin_left = 4.0
-expand_margin_right = 4.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-region_rect = Rect2(0, 0, 70, 66)
-
-[sub_resource type="LabelSettings" id="LabelSettings_rw3n3"]
-font = ExtResource("2_k0oic")
-font_color = Color(0.901961, 0.901961, 0.901961, 1)
-outline_size = 3
-outline_color = Color(0.1, 0.1, 0.1, 1)
-shadow_color = Color(0.1, 0.1, 0.1, 0.0784314)
+[ext_resource type="StyleBox" uid="uid://bvjf0ilhkn377" path="res://interface/theme/tooltip.tres" id="1_nproj"]
+[ext_resource type="LabelSettings" uid="uid://dlc7svip7nnte" path="res://interface/theme/tooltip_font.tres" id="2_ayk37"]
 
 [node name="Tooltip" type="Label"]
 anchors_preset = 8
@@ -34,8 +15,8 @@ offset_right = 4.0
 offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_vlcya")
+theme_override_styles/normal = ExtResource("1_nproj")
 text = "Health Potion"
-label_settings = SubResource("LabelSettings_rw3n3")
+label_settings = ExtResource("2_ayk37")
 horizontal_alignment = 1
 vertical_alignment = 1

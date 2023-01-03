@@ -72,6 +72,8 @@ func _toggle_inventory() -> void:
 	var new_pause_state = !get_tree().paused
 	get_tree().paused = new_pause_state
 	visible = new_pause_state
+	if visible:
+		_tooltips.visible = false
 	_update()
 
 

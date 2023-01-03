@@ -134,7 +134,7 @@ _data = [Vector2(0, -83.6364), 0.0, 883.117, 0, 0, Vector2(1, 200), -146.366, 0.
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtued"]
-size = Vector2(100, 1)
+size = Vector2(100, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ss804"]
 size = Vector2(14, 24.25)
@@ -1221,6 +1221,7 @@ shadow_color = Color(0, 0, 0, 0.164706)
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-1, 0)
 z_index = 2
+y_sort_enabled = true
 collision_layer = 2
 collision_mask = 5
 platform_on_leave = 2
@@ -1229,6 +1230,7 @@ script = ExtResource("1_jwel6")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 use_parent_material = true
+y_sort_enabled = true
 texture = ExtResource("1_rwikk")
 region_rect = Rect2(150, 153, 260, 71)
 
@@ -1307,6 +1309,7 @@ color = Color(0.435294, 0.988235, 0.564706, 0.419608)
 polygon = PackedVector2Array(-7.5457, 10.0989, -9.66701, 19.2913, -20.9807, 22.1197, -37.9513, 17.8771, -37.9513, 15.0487, -20.9807, 12.2202, -20.2736, 10.0989, -14.9058, 10.0989)
 
 [node name="LootDetection" type="Area2D" parent="Sprite"]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -1316,6 +1319,7 @@ shape = SubResource("RectangleShape2D_rtued")
 debug_color = Color(0.94902, 0.941176, 0.419608, 0.419608)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_ss804")
 debug_color = Color(0, 0.6, 0.7, 0.42)
@@ -1452,7 +1456,6 @@ theme = ExtResource("81_ius1r")
 script = ExtResource("81_24b8e")
 
 [node name="BlackOverlay" type="ColorRect" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1461,7 +1464,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.686275)
 
 [node name="Title" type="Label" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.298
@@ -1478,7 +1480,6 @@ label_settings = SubResource("LabelSettings_fk3h7")
 horizontal_alignment = 1
 
 [node name="ItemPanel" type="Panel" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1494,7 +1495,6 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_qvdm5")
 
 [node name="ItemGrid" type="GridContainer" parent="Interface/UIInventory/ItemPanel"]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1511,7 +1511,7 @@ columns = 3
 [node name="Slot1" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_right = 19.0
 offset_bottom = 19.0
@@ -1520,7 +1520,6 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1531,7 +1530,6 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
-layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1539,7 +1537,6 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1552,7 +1549,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot2" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_left = 24.0
 offset_right = 43.0
@@ -1562,7 +1559,6 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1573,7 +1569,6 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
-layout_mode = 1
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1581,7 +1576,6 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1594,7 +1588,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot3" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_left = 48.0
 offset_right = 67.0
@@ -1604,7 +1598,6 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1615,7 +1608,6 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
-layout_mode = 1
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1623,7 +1615,6 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1636,7 +1627,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot4" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_top = 24.0
 offset_right = 19.0
@@ -1646,7 +1637,6 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1657,7 +1647,6 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
-layout_mode = 1
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1665,7 +1654,6 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1678,7 +1666,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot5" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_left = 24.0
 offset_top = 24.0
@@ -1689,7 +1677,6 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1700,7 +1687,6 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
-layout_mode = 1
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1708,7 +1694,6 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1721,7 +1706,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot6" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 2
+layout_mode = 3
 anchors_preset = 0
 offset_left = 48.0
 offset_top = 24.0
@@ -1732,7 +1717,6 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1743,7 +1727,6 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
-layout_mode = 1
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1751,7 +1734,6 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1761,7 +1743,6 @@ texture_pressed = ExtResource("89_oodv3")
 texture_hover = ExtResource("88_xq8l1")
 
 [node name="CloseBtn" type="TextureButton" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.596
 anchor_top = 0.387
@@ -1778,7 +1759,6 @@ texture_normal = ExtResource("88_rv8q3")
 texture_pressed = ExtResource("91_hm35o")
 
 [node name="LeftBtn" type="TextureButton" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.383
 anchor_top = 0.5
@@ -1794,7 +1774,6 @@ texture_normal = ExtResource("89_sjsna")
 texture_pressed = ExtResource("93_ud7be")
 
 [node name="RightBtn" type="TextureButton" parent="Interface/UIInventory"]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.62
 anchor_top = 0.5
@@ -1811,7 +1790,7 @@ texture_pressed = ExtResource("94_eoduu")
 
 [node name="Tooltips" type="Control" parent="Interface/UIInventory"]
 visible = false
-layout_mode = 1
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1821,7 +1800,6 @@ mouse_filter = 2
 
 [node name="ItemName" parent="Interface/UIInventory/Tooltips" instance=ExtResource("87_ugyth")]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.671
 anchor_bottom = 0.671
@@ -1832,7 +1810,6 @@ offset_bottom = 16.96
 
 [node name="ItemDescription" parent="Interface/UIInventory/Tooltips" instance=ExtResource("87_ugyth")]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.779
 anchor_top = 0.45
@@ -1856,7 +1833,6 @@ mouse_filter = 2
 script = ExtResource("81_jkqwj")
 
 [node name="HealthBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 79.0
@@ -1865,15 +1841,12 @@ scale = Vector2(1, 1)
 
 [node name="Recoil" parent="Interface/HUD/HealthBar" index="0"]
 self_modulate = Color(0.741176, 0.243137, 0.243137, 1)
-layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/HealthBar" index="1"]
 modulate = Color(0.862745, 0.286275, 0.286275, 1)
-layout_mode = 1
 value = 100.0
 
 [node name="AdrenalineBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 24.0
 offset_right = 79.0
@@ -1883,14 +1856,11 @@ texture_under = ExtResource("83_6rqxv")
 
 [node name="Recoil" parent="Interface/HUD/AdrenalineBar" index="0"]
 self_modulate = Color(0.862745, 0.592157, 0.286275, 1)
-layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/AdrenalineBar" index="1"]
 self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
-layout_mode = 1
 
 [node name="PoisonBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
-layout_mode = 0
 offset_left = 4.0
 offset_top = 44.0
 offset_right = 79.0
@@ -1900,14 +1870,11 @@ texture_under = ExtResource("84_60bv8")
 
 [node name="Recoil" parent="Interface/HUD/PoisonBar" index="0"]
 self_modulate = Color(0.2552, 0.58, 0.330987, 1)
-layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/PoisonBar" index="1"]
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
-layout_mode = 1
 
 [node name="Coins" type="HBoxContainer" parent="Interface/HUD"]
-layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1916,14 +1883,12 @@ offset_bottom = 24.0
 grow_horizontal = 0
 
 [node name="Icon" type="TextureRect" parent="Interface/HUD/Coins"]
-layout_mode = 2
 offset_right = 16.0
 offset_bottom = 24.0
 texture = ExtResource("98_upgls")
 stretch_mode = 6
 
 [node name="Amount" type="Label" parent="Interface/HUD/Coins"]
-layout_mode = 2
 offset_left = 20.0
 offset_top = 2.0
 offset_right = 28.0

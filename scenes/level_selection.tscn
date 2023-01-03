@@ -73,14 +73,14 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thb1q"]
 shader = ExtResource("23_edhbm")
-shader_parameter/detail = 1.0
+shader_parameter/detail = 1.1
 shader_parameter/distortion = 0.0
-shader_parameter/heightOffset = 0.75
+shader_parameter/heightOffset = 0.0
 shader_parameter/interval = 3.5
 shader_parameter/maxStrength = 0.1
 shader_parameter/minStrength = 0.05
 shader_parameter/offset = 0.0
-shader_parameter/speed = 1.0
+shader_parameter/speed = 1.02
 shader_parameter/strengthScale = 100.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fedk2"]
@@ -97,11 +97,11 @@ shader_parameter/detail = 1.0
 shader_parameter/distortion = null
 shader_parameter/heightOffset = null
 shader_parameter/interval = 3.5
-shader_parameter/maxStrength = 0.03
+shader_parameter/maxStrength = 0.05
 shader_parameter/minStrength = 0.05
 shader_parameter/offset = 0.0
 shader_parameter/speed = 1.0
-shader_parameter/strengthScale = 100.0
+shader_parameter/strengthScale = 75.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0x76"]
 animations = [{
