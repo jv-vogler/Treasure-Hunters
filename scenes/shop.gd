@@ -2,6 +2,10 @@ extends Control
 
 enum Currency { RUBY, EMERALD, DIAMOND }
 
+const _health_potion_cost := [10, 3]
+const _poison_bottle_cost := [20, 4]
+const _stat_potion_cost := [100, 5]
+
 var _coins_amount: int:
 	set(value):
 		_coins_amount = value
@@ -31,10 +35,6 @@ var _stat_potions_amount: int:
 	set(value):
 		_stat_potions_amount = value
 		_stat_potions_label.text = str(_stat_potions_amount)
-
-var _health_potion_cost := [10, 3]
-var _poison_bottle_cost := [20, 4]
-var _stat_potion_cost := [100, 5]
 
 var _total_coins: int = 0:
 	set(value):
@@ -77,6 +77,10 @@ var _scroll_x := 0.0
 @onready var _total_diamonds_container: HBoxContainer = $ShopPanel/VBoxContainer/Total/Diamonds
 @onready var _total_diamonds_label: Label = $ShopPanel/VBoxContainer/Total/Diamonds/Label
 
+@onready var _health_pots_inventory: Label = $InventoryPanel/HBoxContainer/HealthPot/Label
+@onready var _poison_bottles_inventory: Label = $InventoryPanel/HBoxContainer/PoisonBottle/Label
+@onready var _stat_potions_inventory: Label = $InventoryPanel/HBoxContainer/StatPotion/Label
+
 @onready var _ship: Node2D = $Ship
 @onready var _captain_clown_nose: AnimatedSprite2D = $TileMap/CaptainClownNose
 
@@ -96,10 +100,11 @@ func _load_currency() -> void:
 	_rubys_amount = GameStateManager.inventory.get_quantity("ruby")
 	_emeralds_amount = GameStateManager.inventory.get_quantity("emerald")
 	_diamonds_amount = GameStateManager.inventory.get_quantity("diamond")
+	_health_pots_inventory.text = str(GameStateManager.inventory.get_quantity("health_potion"))
+	_poison_bottles_inventory.text = str(GameStateManager.inventory.get_quantity("poison_bottle"))
+	_stat_potions_inventory.text = str(GameStateManager.inventory.get_quantity("stat_potion"))
 
 
-
-#-------------------------
 func _init_scene() -> void:
 	$MouseBlocker.visible = true
 	_animate_boat()
@@ -129,6 +134,33 @@ func _on_btn_level_selection_pressed() -> void:
 	$MouseBlocker.visible = true
 	await _animate_character(-50, -1, 0.7)
 	SceneManager.change_to(Scene.LEVEL_SELECTION)
+
+
+func _buy_items() -> void:
+	if _health_potions_amount:
+		GameStateManager.inventory.add_item("health_potion", _health_potions_amount)
+		GameStateManager.inventory.remove_item("gold_coin", _total_coins)
+		GameStateManager.inventory.remove_item("ruby", _total_rubys)
+		_total_coins -= _health_potion_cost[0] * _health_potions_amount
+		_total_rubys -= _health_potion_cost[1] * _health_potions_amount
+		_health_potions_amount = 0
+		_health_pots_inventory.text = str(GameStateManager.inventory.get_quantity("health_potion"))
+	if _poison_bottles_amount:
+		GameStateManager.inventory.add_item("poison_bottle", _poison_bottles_amount)
+		GameStateManager.inventory.remove_item("gold_coin", _total_coins)
+		GameStateManager.inventory.remove_item("emerald", _total_emeralds)
+		_total_coins -= _poison_bottle_cost[0] * _poison_bottles_amount
+		_total_emeralds -= _poison_bottle_cost[1] * _poison_bottles_amount
+		_poison_bottles_amount = 0
+		_poison_bottles_inventory.text = str(GameStateManager.inventory.get_quantity("poison_bottle"))
+	if _stat_potions_amount:
+		GameStateManager.inventory.add_item("stat_potion", _stat_potions_amount)
+		GameStateManager.inventory.remove_item("gold_coin", _total_coins)
+		GameStateManager.inventory.remove_item("diamond", _total_diamonds)
+		_total_coins -= _stat_potion_cost[0] * _stat_potions_amount
+		_total_diamonds -= _stat_potion_cost[1] * _stat_potions_amount
+		_stat_potions_amount = 0
+		_stat_potions_inventory.text = str(GameStateManager.inventory.get_quantity("stat_potion"))
 
 
 func _increase_item(cost: Array, currency: Currency) -> void:
@@ -206,3 +238,7 @@ func _on_sp_increase_pressed() -> void:
 		return
 	_stat_potions_amount += 1
 	_increase_item(_stat_potion_cost, Currency.DIAMOND)
+
+
+func _on_btn_confirm_pressed() -> void:
+	_buy_items()

@@ -2,10 +2,11 @@ extends Control
 
 @onready var _continue: Button = $Buttons/Continue
 @onready var _new_game: Button = $Buttons/NewGame
-@onready var _load_game: Button = $"Buttons/Load Game"
+@onready var _load_game: Button = $Buttons/LoadGame
 
 
 func _ready() -> void:
+	GameStateManager.reset_state()
 	_check_saves()
 	_continue.grab_focus() if _continue.visible else _new_game.grab_focus()
 

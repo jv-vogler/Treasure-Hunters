@@ -11,7 +11,7 @@ var _level_props := {}
 
 
 func _ready() -> void:
-	_reset_state()
+	reset_state()
 	_init_save_dir()
 	SceneManager.connect("scene_reloaded", Callable(self, "_on_scene_reloaded"))
 
@@ -76,6 +76,13 @@ func get_props(scene_path: String) -> Dictionary:
 	return {}
 
 
+func reset_state() -> void:
+	stats.reset_to_default()
+	inventory.reset_to_default()
+	_level_props = {}
+	_write_current_state()
+
+
 func _write_current_state() -> void:
 	var current_state = {
 		"stats": {
@@ -112,13 +119,6 @@ func _reload_state() -> void:
 	stats.jump_velocity = _game_state.stats.jump_velocity
 	stats.luck = _game_state.stats.luck
 	inventory.set_items(_game_state.inventory)
-
-
-func _reset_state() -> void:
-	stats.reset_to_default()
-	inventory.reset_to_default()
-	_level_props = {}
-	_write_current_state()
 
 
 func _init_save_dir() -> void:
