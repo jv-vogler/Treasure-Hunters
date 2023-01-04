@@ -70,7 +70,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		GameStateManager.save_file("autosave")
 
 
-
 func _physics_process(delta: float) -> void:
 	state_machine.physics_process(delta)
 	_handle_buffs()

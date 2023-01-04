@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://bqwgnurc7iidx"]
+[gd_scene load_steps=19 format=3]
 
 [ext_resource type="PackedScene" uid="uid://thmgkxfrb7qi" path="res://player/player.tscn" id="1_43vtj"]
-[ext_resource type="Script" path="res://levels/test_level.gd" id="1_cltf6"]
+[ext_resource type="Script" path="res://_test/test_level.gd" id="1_cltf6"]
 [ext_resource type="Script" path="res://levels/props/props_manager.gd" id="1_qdv0w"]
 [ext_resource type="TileSet" uid="uid://0jwjlym8akge" path="res://tilesets/palm_tree_island.tres" id="1_r2sey"]
 [ext_resource type="PackedScene" uid="uid://b5hqk51j0m14j" path="res://enemies/fierce_tooth/fierce_tooth.tscn" id="2_x7h73"]

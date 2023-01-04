@@ -1,0 +1,186 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1gcas0ku77mv"]
+
+[ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="1_rrs62"]
+[ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="2_0vv1l"]
+[ext_resource type="Script" path="res://scenes/save_slot.gd" id="2_bv076"]
+[ext_resource type="StyleBox" uid="uid://bhu1hckkx4ulb" path="res://interface/theme/resources/yellow_paper.tres" id="2_on4ef"]
+[ext_resource type="LabelSettings" uid="uid://dlc7svip7nnte" path="res://interface/theme/tooltip_font.tres" id="3_yu4eu"]
+[ext_resource type="Texture2D" uid="uid://cuh3x0wxpvb31" path="res://resources/items/assets/emerald/01.png" id="4_wqt5s"]
+[ext_resource type="LabelSettings" uid="uid://bx7wy64tb1vuv" path="res://interface/theme/number_font.tres" id="5_rtfse"]
+[ext_resource type="Texture2D" uid="uid://chefcv71x8y63" path="res://resources/items/assets/ruby/01.png" id="5_x5kcr"]
+[ext_resource type="Texture2D" uid="uid://cuhi5cl1fcr73" path="res://resources/items/assets/diamond/01.png" id="6_fwrrw"]
+[ext_resource type="Texture2D" uid="uid://bvn58ql030fp6" path="res://interface/theme/assets/btn_close.png" id="8_7ewlq"]
+[ext_resource type="Texture2D" uid="uid://brbfda71ilpxq" path="res://interface/theme/assets/btn_close_pressed.png" id="9_ytd64"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_iy3r3"]
+font_size = 11
+font_color = Color(0.117647, 0.117647, 0.117647, 1)
+
+[node name="Slot" type="Button"]
+custom_minimum_size = Vector2(0, 50)
+offset_right = 379.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_rrs62")
+theme_override_styles/normal = ExtResource("2_on4ef")
+theme_override_styles/hover = ExtResource("2_on4ef")
+theme_override_styles/pressed = ExtResource("2_on4ef")
+theme_override_styles/focus = ExtResource("2_on4ef")
+text = "Autosave"
+script = ExtResource("2_bv076")
+metadata/_edit_lock_ = true
+
+[node name="Currency" type="VFlowContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 12.0
+offset_top = -20.5
+offset_right = 91.0
+offset_bottom = 21.5
+grow_vertical = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Coins" type="HBoxContainer" parent="Currency"]
+offset_right = 22.0
+offset_bottom = 21.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Currency/Coins"]
+custom_minimum_size = Vector2(12, 0)
+offset_right = 12.0
+offset_bottom = 21.0
+texture = ExtResource("2_0vv1l")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Currency/Coins"]
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 18.0
+text = "0"
+label_settings = ExtResource("5_rtfse")
+horizontal_alignment = 1
+
+[node name="Emeralds" type="HBoxContainer" parent="Currency"]
+offset_top = 21.0
+offset_right = 22.0
+offset_bottom = 42.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Currency/Emeralds"]
+custom_minimum_size = Vector2(12, 0)
+offset_right = 12.0
+offset_bottom = 21.0
+texture = ExtResource("4_wqt5s")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Currency/Emeralds"]
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 18.0
+text = "0"
+label_settings = ExtResource("5_rtfse")
+horizontal_alignment = 1
+
+[node name="Rubys" type="HBoxContainer" parent="Currency"]
+offset_left = 34.0
+offset_right = 56.0
+offset_bottom = 21.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Currency/Rubys"]
+custom_minimum_size = Vector2(12, 0)
+offset_right = 12.0
+offset_bottom = 21.0
+texture = ExtResource("5_x5kcr")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Currency/Rubys"]
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 18.0
+text = "0"
+label_settings = ExtResource("5_rtfse")
+horizontal_alignment = 1
+
+[node name="Diamonds" type="HBoxContainer" parent="Currency"]
+offset_left = 34.0
+offset_top = 21.0
+offset_right = 56.0
+offset_bottom = 42.0
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Currency/Diamonds"]
+custom_minimum_size = Vector2(12, 0)
+offset_right = 12.0
+offset_bottom = 21.0
+texture = ExtResource("6_fwrrw")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Currency/Diamonds"]
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 18.0
+text = "0"
+label_settings = ExtResource("5_rtfse")
+horizontal_alignment = 1
+
+[node name="Metadata" type="Label" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -22.5
+offset_right = -25.0
+offset_bottom = 26.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "Level 1
+03/01/2023
+17:15"
+label_settings = ExtResource("3_yu4eu")
+horizontal_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="DeleteSaveBtn" type="TextureButton" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -18.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 18.0
+grow_horizontal = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_7ewlq")
+texture_pressed = ExtResource("9_ytd64")
+metadata/_edit_lock_ = true
+
+[node name="FileName" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.0
+offset_right = 36.0
+offset_bottom = 14.0
+grow_horizontal = 2
+text = "save1.sav"
+label_settings = SubResource("LabelSettings_iy3r3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="DeleteSaveBtn" to="." method="_on_delete_save_pressed"]

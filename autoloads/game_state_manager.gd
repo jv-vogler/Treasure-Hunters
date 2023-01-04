@@ -6,6 +6,7 @@ const _VERSION = "1.0"
 var settings := {}
 var stats: Stats = preload("res://resources/stats.gd").new()
 var inventory: Inventory = preload("res://resources/inventory.gd").new()
+var levels_unlocked := []
 var _game_state := {}
 var _level_props := {}
 
@@ -50,8 +51,19 @@ func load_file(file_name: String) -> void:
 	inventory.set_items(data.inventory)
 
 	_level_props = data.level_props
+	levels_unlocked = data.levels_unlocked
 	settings = data.settings
 	_write_current_state()
+
+
+func delete_file(file_name: String) -> void:
+	if file_name == "":
+		printerr("No file name provided.")
+		return
+
+	var error = DirAccess.remove_absolute("%s/%s.sav" % [_SAVE_PATH, file_name])
+	if error != OK:
+		printerr("Failed to delete %s. Error: %s" % [file_name, error])
 
 
 func get_save_names() -> Array:
@@ -63,6 +75,39 @@ func get_save_names() -> Array:
 		file_names.push_back(file)
 
 	return file_names
+
+
+func get_saves_metadata() -> Dictionary:
+	var meta_data := {}
+	var file_names: Array[String] = get_save_names()
+
+	for file_name in file_names:
+		file_name = file_name.trim_suffix(".sav")
+
+		var file = FileAccess.open(
+			"%s/%s.sav" % [_SAVE_PATH, file_name], FileAccess.READ
+		)
+		var data = file.get_var()
+		var currency := { "gold_coin": 0, "ruby": 0, "emerald": 0, "diamond": 0 }
+
+		for i in data.inventory:
+			match i.id:
+				"gold_coin":
+					currency["gold_coin"] = i.quantity
+				"ruby":
+					currency["ruby"] = i.quantity
+				"emerald":
+					currency["emerald"] = i.quantity
+				"diamond":
+					currency["diamond"] = i.quantity
+
+		var unix_time = Time.get_unix_time_from_datetime_dict(data.current_datetime)
+		meta_data[unix_time] = {
+			"name": file_name,
+			"levels_unlocked": data.levels_unlocked,
+			"currency": currency,
+		}
+	return meta_data
 
 
 func set_props(scene_path: String, props: Dictionary) -> void:
@@ -80,6 +125,7 @@ func reset_state() -> void:
 	stats.reset_to_default()
 	inventory.reset_to_default()
 	_level_props = {}
+	levels_unlocked = ["res://levels/tutorial.tscn", "res://levels/level_1.tscn"]
 	_write_current_state()
 
 
@@ -99,6 +145,7 @@ func _write_current_state() -> void:
 		},
 		"inventory": inventory.get_items(),
 		"level_props": _level_props,
+		"levels_unlocked": levels_unlocked,
 		"settings": settings,
 		"current_datetime": Time.get_datetime_dict_from_system(),
 		"version": _VERSION,

@@ -5,9 +5,9 @@
 [resource]
 texture = ExtResource("1_l6otx")
 margin_left = 11.0
-margin_top = 8.0
+margin_top = 10.0
 margin_right = 10.0
-margin_bottom = 8.0
+margin_bottom = 10.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 86, 86)

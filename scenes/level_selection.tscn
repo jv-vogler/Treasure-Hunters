@@ -323,6 +323,7 @@ playing = true
 metadata/_edit_lock_ = true
 
 [node name="WoodenPanel" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -337,6 +338,7 @@ theme_override_styles/panel = ExtResource("34_nyfus")
 metadata/_edit_group_ = true
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="WoodenPanel"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -350,6 +352,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="BtnTitleScreen" type="Button" parent="WoodenPanel/ButtonsContainer"]
+layout_mode = 2
 offset_top = 8.0
 offset_right = 72.0
 offset_bottom = 21.0
@@ -362,6 +365,7 @@ shortcut_in_tooltip = false
 text = "Title Screen"
 
 [node name="BtnShop" type="Button" parent="WoodenPanel/ButtonsContainer"]
+layout_mode = 2
 offset_left = 127.0
 offset_top = 8.0
 offset_right = 151.0
@@ -374,6 +378,7 @@ mouse_default_cursor_shape = 2
 text = "Shop"
 
 [node name="LevelSelectionMap" type="Panel" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -386,116 +391,8 @@ grow_vertical = 2
 theme = SubResource("Theme_5gpg7")
 theme_override_styles/panel = SubResource("StyleBoxTexture_r44y3")
 
-[node name="XTutorial" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 6.0
-offset_top = 103.0
-offset_right = 17.0
-offset_bottom = 130.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel1" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 49.0
-offset_top = 95.0
-offset_right = 60.0
-offset_bottom = 122.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel2" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 82.0
-offset_top = 103.0
-offset_right = 93.0
-offset_bottom = 130.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel3" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 116.0
-offset_top = 72.0
-offset_right = 127.0
-offset_bottom = 99.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel4" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 73.0
-offset_top = 63.0
-offset_right = 84.0
-offset_bottom = 90.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel5" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 11.0
-offset_top = 61.0
-offset_right = 22.0
-offset_bottom = 88.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel6" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 33.0
-offset_top = 30.0
-offset_right = 44.0
-offset_bottom = 57.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel7" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 108.0
-offset_top = 31.0
-offset_right = 119.0
-offset_bottom = 58.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel8" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 120.0
-offset_top = -1.0
-offset_right = 131.0
-offset_bottom = 26.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XLevel9" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 64.0
-offset_right = 75.0
-offset_bottom = 27.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
-[node name="XFinalLevel" type="Label" parent="LevelSelectionMap"]
-visible = false
-modulate = Color(1, 1, 1, 0.654902)
-offset_left = 14.0
-offset_top = 10.0
-offset_right = 25.0
-offset_bottom = 37.0
-text = "x"
-label_settings = SubResource("LabelSettings_i8kq6")
-
 [node name="Tutorial" type="Button" parent="LevelSelectionMap"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.344
 anchor_top = 0.472
@@ -510,6 +407,7 @@ shortcut_in_tooltip = false
 text = "Tutorial"
 
 [node name="Level1" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 31.0
 offset_top = 88.0
 offset_right = 79.0
@@ -519,6 +417,7 @@ shortcut_in_tooltip = false
 text = "Level 1"
 
 [node name="Level2" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 111.0
 offset_right = 114.0
@@ -529,6 +428,7 @@ shortcut_in_tooltip = false
 text = "Level 2"
 
 [node name="Level3" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 120.0
 offset_top = 76.0
 offset_right = 168.0
@@ -539,6 +439,7 @@ shortcut_in_tooltip = false
 text = "Level 3"
 
 [node name="Level4" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 56.0
 offset_right = 104.0
@@ -549,6 +450,7 @@ shortcut_in_tooltip = false
 text = "Level 4"
 
 [node name="Level5" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = -35.0
 offset_top = 64.0
 offset_right = 13.0
@@ -559,6 +461,7 @@ shortcut_in_tooltip = false
 text = "Level 5"
 
 [node name="Level6" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 23.0
 offset_right = 63.0
@@ -569,6 +472,7 @@ shortcut_in_tooltip = false
 text = "Level 6"
 
 [node name="Level7" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 113.0
 offset_top = 31.0
 offset_right = 161.0
@@ -579,6 +483,7 @@ shortcut_in_tooltip = false
 text = "Level 7"
 
 [node name="Level8" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 125.0
 offset_right = 173.0
 offset_bottom = 13.0
@@ -588,6 +493,7 @@ shortcut_in_tooltip = false
 text = "Level 8"
 
 [node name="Level9" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_left = 45.0
 offset_top = -8.0
 offset_right = 93.0
@@ -598,7 +504,8 @@ shortcut_in_tooltip = false
 text = "Level 9
 "
 
-[node name="FinalLevel" type="Button" parent="LevelSelectionMap"]
+[node name="Level10" type="Button" parent="LevelSelectionMap"]
+layout_mode = 0
 offset_top = 2.0
 offset_right = 48.0
 offset_bottom = 15.0
@@ -607,9 +514,131 @@ disabled = true
 shortcut_in_tooltip = false
 text = "???"
 
+[node name="Xs" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Tutorial" type="Label" parent="Xs"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 154.0
+offset_top = 117.0
+offset_right = 165.0
+offset_bottom = 144.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level1" type="Label" parent="Xs"]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 197.0
+offset_top = 109.0
+offset_right = 208.0
+offset_bottom = 136.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level2" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 230.0
+offset_top = 117.0
+offset_right = 241.0
+offset_bottom = 144.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level3" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 264.0
+offset_top = 86.0
+offset_right = 275.0
+offset_bottom = 113.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level4" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 221.0
+offset_top = 77.0
+offset_right = 232.0
+offset_bottom = 104.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level5" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 159.0
+offset_top = 75.0
+offset_right = 170.0
+offset_bottom = 102.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level6" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 181.0
+offset_top = 44.0
+offset_right = 192.0
+offset_bottom = 71.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level7" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 256.0
+offset_top = 45.0
+offset_right = 267.0
+offset_bottom = 72.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level8" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 268.0
+offset_top = 13.0
+offset_right = 279.0
+offset_bottom = 40.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level9" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 212.0
+offset_top = 14.0
+offset_right = 223.0
+offset_bottom = 41.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
+[node name="Level10" type="Label" parent="Xs"]
+modulate = Color(1, 1, 1, 0.654902)
+layout_mode = 0
+offset_left = 162.0
+offset_top = 24.0
+offset_right = 173.0
+offset_bottom = 51.0
+text = "x"
+label_settings = SubResource("LabelSettings_i8kq6")
+
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

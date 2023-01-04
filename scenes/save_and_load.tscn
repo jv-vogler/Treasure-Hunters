@@ -1,4 +1,33 @@
-[gd_scene format=3 uid="uid://hwylcp30pn55"]
+[gd_scene load_steps=13 format=3 uid="uid://hwylcp30pn55"]
+
+[ext_resource type="Script" path="res://scenes/save_and_load.gd" id="1_buk0o"]
+[ext_resource type="StyleBox" uid="uid://bln77op2l5jle" path="res://interface/theme/wooden_board.tres" id="1_j2ndl"]
+[ext_resource type="LabelSettings" uid="uid://dlc7svip7nnte" path="res://interface/theme/tooltip_font.tres" id="3_4h8m8"]
+[ext_resource type="StyleBox" uid="uid://bvjf0ilhkn377" path="res://interface/theme/tooltip.tres" id="3_nlcho"]
+[ext_resource type="StyleBox" uid="uid://glp0pvqqgcqw" path="res://interface/theme/resources/green_board.tres" id="6_eblc7"]
+[ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="6_kxsub"]
+[ext_resource type="StyleBox" uid="uid://bhu1hckkx4ulb" path="res://interface/theme/resources/yellow_paper.tres" id="8_1h8wg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5qio"]
+bg_color = Color(0, 0, 0, 0.34902)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="InputEventAction" id="InputEventAction_fpmww"]
+action = &"ui_accept"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_2wfuc"]
+events = [SubResource("InputEventAction_fpmww")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_kr6gj"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_5vgk0"]
+events = [SubResource("InputEventAction_kr6gj")]
 
 [node name="SaveAndLoad" type="Control"]
 layout_mode = 3
@@ -7,3 +36,361 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_buk0o")
+metadata/_edit_lock_ = true
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_j2ndl")
+metadata/_edit_lock_ = true
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 165.0
+offset_top = 13.0
+offset_right = -165.0
+offset_bottom = 43.0
+grow_horizontal = 2
+theme_override_styles/normal = ExtResource("3_nlcho")
+text = "Load Game"
+label_settings = ExtResource("3_4h8m8")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_lock_ = true
+
+[node name="TitleScreen" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 11.0
+offset_right = 126.0
+offset_bottom = 49.0
+theme_override_styles/panel = ExtResource("6_eblc7")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="TitleScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -36.0
+offset_top = -6.5
+offset_right = 36.0
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_kxsub")
+text = "Title Screen"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 64.0
+offset_right = 400.0
+offset_bottom = 226.0
+theme = ExtResource("6_kxsub")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+offset_right = 379.0
+offset_bottom = 162.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 379.0
+
+[node name="EmptySlot" type="Button" parent="ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_top = 4.0
+offset_right = 379.0
+offset_bottom = 65.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("6_kxsub")
+theme_override_styles/normal = ExtResource("8_1h8wg")
+theme_override_styles/hover = ExtResource("8_1h8wg")
+theme_override_styles/pressed = ExtResource("8_1h8wg")
+theme_override_styles/focus = ExtResource("8_1h8wg")
+text = "Empty Slot"
+
+[node name="NoSaves" type="Label" parent="ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 147.0
+offset_top = 4.0
+offset_right = 231.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_y5qio")
+text = "No saves found"
+label_settings = ExtResource("3_4h8m8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Popup" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="DeletePrompt" type="Panel" parent="Popup"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -23.0
+offset_right = 99.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_nlcho")
+
+[node name="Label" type="Label" parent="Popup/DeletePrompt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Delete Autosave permanently?"
+label_settings = ExtResource("3_4h8m8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Popup/DeletePrompt"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -23.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_kxsub")
+theme_override_constants/separation = 15
+
+[node name="ConfirmDelete" type="Button" parent="Popup/DeletePrompt/Buttons"]
+layout_mode = 2
+offset_right = 42.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_2wfuc")
+text = "Confirm"
+
+[node name="CancelDelete" type="Button" parent="Popup/DeletePrompt/Buttons"]
+layout_mode = 2
+offset_left = 57.0
+offset_right = 93.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_5vgk0")
+text = "Cancel"
+
+[node name="SavePrompt" type="Panel" parent="Popup"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -23.0
+offset_right = 99.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_kxsub")
+theme_override_styles/panel = ExtResource("3_nlcho")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Popup/SavePrompt"]
+layout_mode = 0
+offset_left = 13.0
+offset_right = 191.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Popup/SavePrompt/HBoxContainer"]
+layout_mode = 2
+offset_top = 12.0
+offset_right = 60.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "File Name:"
+label_settings = ExtResource("3_4h8m8")
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="Popup/SavePrompt/HBoxContainer"]
+custom_minimum_size = Vector2(110, 20)
+layout_mode = 2
+offset_left = 66.0
+offset_top = 10.0
+offset_right = 176.0
+offset_bottom = 30.0
+size_flags_horizontal = 6
+size_flags_vertical = 4
+max_length = 14
+context_menu_enabled = false
+caret_blink = true
+
+[node name="Buttons" type="HBoxContainer" parent="Popup/SavePrompt"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -23.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="ConfirmSave" type="Button" parent="Popup/SavePrompt/Buttons"]
+layout_mode = 2
+offset_right = 42.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_2wfuc")
+text = "Confirm"
+
+[node name="CancelSave" type="Button" parent="Popup/SavePrompt/Buttons"]
+layout_mode = 2
+offset_left = 57.0
+offset_right = 93.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_5vgk0")
+text = "Cancel"
+
+[node name="OverwritePrompt" type="Panel" parent="Popup"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -23.0
+offset_right = 99.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_nlcho")
+
+[node name="Label" type="Label" parent="Popup/OverwritePrompt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Overwrite Autosave?"
+label_settings = ExtResource("3_4h8m8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="HBoxContainer" parent="Popup/OverwritePrompt"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -23.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("6_kxsub")
+theme_override_constants/separation = 15
+
+[node name="ConfirmOverwrite" type="Button" parent="Popup/OverwritePrompt/Buttons"]
+layout_mode = 2
+offset_right = 42.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_2wfuc")
+text = "Confirm"
+
+[node name="CancelOverwrite" type="Button" parent="Popup/OverwritePrompt/Buttons"]
+layout_mode = 2
+offset_left = 57.0
+offset_right = 93.0
+offset_bottom = 20.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_5vgk0")
+text = "Cancel"
+
+[connection signal="pressed" from="TitleScreen/Button" to="." method="_on_title_screen_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/EmptySlot" to="." method="_on_empty_slot_pressed"]
+[connection signal="pressed" from="Popup/DeletePrompt/Buttons/ConfirmDelete" to="." method="_on_confirm_delete_pressed"]
+[connection signal="pressed" from="Popup/DeletePrompt/Buttons/CancelDelete" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Popup/SavePrompt/Buttons/ConfirmSave" to="." method="_on_confirm_save_pressed"]
+[connection signal="pressed" from="Popup/SavePrompt/Buttons/CancelSave" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="Popup/OverwritePrompt/Buttons/ConfirmOverwrite" to="." method="_on_confirm_overwrite_pressed"]
+[connection signal="pressed" from="Popup/OverwritePrompt/Buttons/CancelOverwrite" to="." method="_on_cancel_pressed"]

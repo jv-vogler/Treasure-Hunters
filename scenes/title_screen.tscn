@@ -17,7 +17,6 @@ theme = ExtResource("1_74fe6")
 script = ExtResource("1_avx8x")
 
 [node name="Title" type="Label" parent="."]
-layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = 1.0
@@ -29,7 +28,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,7 +43,6 @@ alignment = 1
 
 [node name="Continue" type="Button" parent="Buttons"]
 visible = false
-layout_mode = 2
 offset_right = 80.0
 offset_bottom = 13.0
 size_flags_vertical = 6
@@ -53,7 +50,6 @@ mouse_default_cursor_shape = 2
 text = "Continue"
 
 [node name="NewGame" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 3.0
 offset_right = 80.0
 offset_bottom = 16.0
@@ -62,7 +58,6 @@ mouse_default_cursor_shape = 2
 text = "New Game"
 
 [node name="LoadGame" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 26.0
 offset_right = 80.0
 offset_bottom = 39.0
@@ -73,7 +68,6 @@ text = "Load Game"
 
 [node name="Settings" type="Button" parent="Buttons"]
 visible = false
-layout_mode = 2
 offset_top = 35.0
 offset_right = 80.0
 offset_bottom = 48.0
@@ -82,7 +76,6 @@ mouse_default_cursor_shape = 2
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Buttons"]
-layout_mode = 2
 offset_top = 50.0
 offset_right = 80.0
 offset_bottom = 63.0

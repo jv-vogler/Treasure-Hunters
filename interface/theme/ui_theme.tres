@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bq0x77m6hp8c1"]
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://bq0x77m6hp8c1"]
 
 [ext_resource type="FontFile" uid="uid://c4u0evm70kgi4" path="res://assets/fonts/monogram.ttf" id="1_6pg82"]
 [ext_resource type="Texture2D" uid="uid://m41dourhk71q" path="res://interface/theme/assets/hslider_btn.png" id="3_ibda7"]
 [ext_resource type="StyleBox" uid="uid://cfpprfrwgynk0" path="res://interface/theme/resources/hslider.tres" id="4_klujo"]
+[ext_resource type="Texture2D" uid="uid://bg50fk7hla4eu" path="res://interface/theme/assets/v_slider.png" id="5_7t7y6"]
 [ext_resource type="StyleBox" uid="uid://b42gc1e7ov2s0" path="res://interface/theme/resources/yellow_board.tres" id="5_htbwp"]
 [ext_resource type="Texture2D" uid="uid://ckkyg2g8ghigf" path="res://interface/theme/assets/vslider_btn.png" id="6_skgal"]
 [ext_resource type="StyleBox" uid="uid://chxkagctqfmoo" path="res://interface/theme/resources/vslider.tres" id="7_kdlcr"]
@@ -17,6 +18,36 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jibm2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_817ao"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4vukv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jau21"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ftuwd"]
+bg_color = Color(0.933333, 0.741176, 0.541176, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueycw"]
+bg_color = Color(0.780392, 0.584314, 0.372549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nli0l"]
+texture = ExtResource("5_7t7y6")
+margin_left = 2.0
+margin_top = 5.0
+margin_right = 2.0
+margin_bottom = 5.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 6, 30)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nc13m"]
 
 [resource]
 default_font = ExtResource("1_6pg82")
@@ -38,7 +69,22 @@ HSlider/icons/grabber = ExtResource("3_ibda7")
 HSlider/icons/grabber_highlight = ExtResource("3_ibda7")
 HSlider/styles/grabber_area = ExtResource("4_klujo")
 HSlider/styles/grabber_area_highlight = ExtResource("4_klujo")
+LineEdit/colors/caret_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_color = Color(0.941176, 0.941176, 0.941176, 1)
+LineEdit/colors/font_outline_color = Color(0.117647, 0.117647, 0.117647, 1)
+LineEdit/colors/font_placeholder_color = Color(0.941176, 0.941176, 0.941176, 0.6)
+LineEdit/colors/font_selected_color = Color(0.988235, 0.819608, 0.447059, 1)
+LineEdit/colors/selection_color = Color(0.988235, 0.819608, 0.447059, 1)
+LineEdit/constants/caret_width = 1
+LineEdit/constants/outline_size = 3
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_4vukv")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_jau21")
 Panel/styles/panel = ExtResource("5_htbwp")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_ftuwd")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_ftuwd")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_ueycw")
+VScrollBar/styles/scroll = SubResource("StyleBoxTexture_nli0l")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_nc13m")
 VSlider/icons/grabber = ExtResource("6_skgal")
 VSlider/icons/grabber_disabled = ExtResource("6_skgal")
 VSlider/icons/grabber_highlight = ExtResource("6_skgal")
