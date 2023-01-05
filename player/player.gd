@@ -232,4 +232,4 @@ func _on_used_poison_bottle() -> void:
 
 
 func _on_used_stat_potion() -> void:
-	print("used stat potion")
+	$Interface/StatPrompt.open_prompt()

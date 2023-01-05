@@ -1,4 +1,4 @@
-[gd_scene load_steps=140 format=3 uid="uid://thmgkxfrb7qi"]
+[gd_scene load_steps=147 format=3 uid="uid://thmgkxfrb7qi"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -104,6 +104,8 @@
 [ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="102_an7b3"]
 [ext_resource type="LabelSettings" uid="uid://bx7wy64tb1vuv" path="res://interface/theme/number_font.tres" id="103_fvt2p"]
 [ext_resource type="Script" path="res://interface/pause.gd" id="103_s6hbn"]
+[ext_resource type="Script" path="res://interface/stat_prompt.gd" id="105_0no4w"]
+[ext_resource type="StyleBox" uid="uid://bln77op2l5jle" path="res://interface/theme/wooden_board.tres" id="105_t7mj1"]
 
 [sub_resource type="Resource" id="Resource_nj300"]
 script = ExtResource("4_s0ugl")
@@ -1215,6 +1217,22 @@ outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 0, 0.164706)
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_ywgd1"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_fpmww"]
+action = &"ui_accept"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_6sy7a"]
+events = [SubResource("InputEventAction_fpmww")]
+
+[sub_resource type="InputEventAction" id="InputEventAction_kr6gj"]
+action = &"ui_cancel"
+pressed = true
+
+[sub_resource type="Shortcut" id="Shortcut_vg5pl"]
+events = [SubResource("InputEventAction_kr6gj")]
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(-1, 0)
 z_index = 2
@@ -1224,12 +1242,15 @@ collision_mask = 5
 platform_on_leave = 2
 platform_floor_layers = 1
 script = ExtResource("1_jwel6")
+metadata/_edit_lock_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
 use_parent_material = true
 y_sort_enabled = true
 texture = ExtResource("1_rwikk")
 region_rect = Rect2(150, 153, 260, 71)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Hitbox" type="Area2D" parent="Sprite"]
 visible = false
@@ -1320,6 +1341,8 @@ visible = false
 position = Vector2(0, -1.125)
 shape = SubResource("RectangleShape2D_ss804")
 debug_color = Color(0, 0.6, 0.7, 0.42)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="Camera" type="Camera2D" parent="."]
 current = true
@@ -1332,7 +1355,7 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_vertical_offset = -1.0
 drag_top_margin = 0.7
-editor_draw_limits = true
+editor_draw_screen = false
 
 [node name="Animations" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1451,8 +1474,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("81_ius1r")
 script = ExtResource("81_24b8e")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="BlackOverlay" type="ColorRect" parent="Interface/UIInventory"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1461,6 +1487,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.686275)
 
 [node name="Title" type="Label" parent="Interface/UIInventory"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.298
@@ -1477,6 +1504,7 @@ label_settings = SubResource("LabelSettings_fk3h7")
 horizontal_alignment = 1
 
 [node name="ItemPanel" type="Panel" parent="Interface/UIInventory"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1492,6 +1520,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_qvdm5")
 
 [node name="ItemGrid" type="GridContainer" parent="Interface/UIInventory/ItemPanel"]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1508,7 +1537,7 @@ columns = 3
 [node name="Slot1" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_right = 19.0
 offset_bottom = 19.0
@@ -1517,6 +1546,7 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1527,6 +1557,7 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1534,6 +1565,7 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot1"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1546,7 +1578,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot2" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_left = 24.0
 offset_right = 43.0
@@ -1556,6 +1588,7 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1566,6 +1599,7 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1573,6 +1607,7 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot2"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1585,7 +1620,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot3" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_left = 48.0
 offset_right = 67.0
@@ -1595,6 +1630,7 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1605,6 +1641,7 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
+layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1612,6 +1649,7 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot3"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1624,7 +1662,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot4" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_top = 24.0
 offset_right = 19.0
@@ -1634,6 +1672,7 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1644,6 +1683,7 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
+layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1651,6 +1691,7 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot4"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1663,7 +1704,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot5" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_left = 24.0
 offset_top = 24.0
@@ -1674,6 +1715,7 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1684,6 +1726,7 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
+layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1691,6 +1734,7 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot5"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1703,7 +1747,7 @@ texture_hover = ExtResource("88_xq8l1")
 [node name="Slot6" type="Control" parent="Interface/UIInventory/ItemPanel/ItemGrid"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
-layout_mode = 3
+layout_mode = 2
 anchors_preset = 0
 offset_left = 48.0
 offset_top = 24.0
@@ -1714,6 +1758,7 @@ size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
 
 [node name="ItemTexture" type="TextureRect" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -1724,6 +1769,7 @@ grow_horizontal = 2
 stretch_mode = 3
 
 [node name="Quantity" type="Label" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
+layout_mode = 0
 offset_left = 10.5
 offset_top = 10.5
 offset_right = 17.5
@@ -1731,6 +1777,7 @@ offset_bottom = 22.5
 label_settings = SubResource("LabelSettings_g157k")
 
 [node name="Btn" type="TextureButton" parent="Interface/UIInventory/ItemPanel/ItemGrid/Slot6"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1740,6 +1787,7 @@ texture_pressed = ExtResource("89_oodv3")
 texture_hover = ExtResource("88_xq8l1")
 
 [node name="CloseBtn" type="TextureButton" parent="Interface/UIInventory"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.596
 anchor_top = 0.387
@@ -1755,6 +1803,7 @@ texture_normal = ExtResource("88_rv8q3")
 texture_pressed = ExtResource("91_hm35o")
 
 [node name="LeftBtn" type="TextureButton" parent="Interface/UIInventory"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.383
 anchor_top = 0.5
@@ -1770,6 +1819,7 @@ texture_normal = ExtResource("89_sjsna")
 texture_pressed = ExtResource("93_ud7be")
 
 [node name="RightBtn" type="TextureButton" parent="Interface/UIInventory"]
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.62
 anchor_top = 0.5
@@ -1786,7 +1836,7 @@ texture_pressed = ExtResource("94_eoduu")
 
 [node name="Tooltips" type="Control" parent="Interface/UIInventory"]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1796,6 +1846,7 @@ mouse_filter = 2
 
 [node name="ItemName" parent="Interface/UIInventory/Tooltips" instance=ExtResource("87_ugyth")]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.671
 anchor_bottom = 0.671
@@ -1806,6 +1857,7 @@ offset_bottom = 16.96
 
 [node name="ItemDescription" parent="Interface/UIInventory/Tooltips" instance=ExtResource("87_ugyth")]
 unique_name_in_owner = true
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.779
 anchor_top = 0.45
@@ -1827,8 +1879,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("81_jkqwj")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="HealthBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 79.0
@@ -1837,12 +1892,15 @@ scale = Vector2(1, 1)
 
 [node name="Recoil" parent="Interface/HUD/HealthBar" index="0"]
 self_modulate = Color(0.741176, 0.243137, 0.243137, 1)
+layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/HealthBar" index="1"]
 modulate = Color(0.862745, 0.286275, 0.286275, 1)
+layout_mode = 1
 value = 100.0
 
 [node name="AdrenalineBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 24.0
 offset_right = 79.0
@@ -1852,11 +1910,14 @@ texture_under = ExtResource("83_6rqxv")
 
 [node name="Recoil" parent="Interface/HUD/AdrenalineBar" index="0"]
 self_modulate = Color(0.862745, 0.592157, 0.286275, 1)
+layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/AdrenalineBar" index="1"]
 self_modulate = Color(0.988235, 0.819608, 0.447059, 1)
+layout_mode = 1
 
 [node name="PoisonBar" parent="Interface/HUD" instance=ExtResource("82_kund3")]
+layout_mode = 0
 offset_left = 4.0
 offset_top = 44.0
 offset_right = 79.0
@@ -1866,11 +1927,14 @@ texture_under = ExtResource("84_60bv8")
 
 [node name="Recoil" parent="Interface/HUD/PoisonBar" index="0"]
 self_modulate = Color(0.2552, 0.58, 0.330987, 1)
+layout_mode = 1
 
 [node name="Progress" parent="Interface/HUD/PoisonBar" index="1"]
 self_modulate = Color(0.435294, 0.988235, 0.564706, 1)
+layout_mode = 1
 
 [node name="Coins" type="HBoxContainer" parent="Interface/HUD"]
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -1879,12 +1943,14 @@ offset_bottom = 24.0
 grow_horizontal = 0
 
 [node name="Icon" type="TextureRect" parent="Interface/HUD/Coins"]
+layout_mode = 2
 offset_right = 16.0
 offset_bottom = 24.0
 texture = ExtResource("98_upgls")
 stretch_mode = 6
 
 [node name="Amount" type="Label" parent="Interface/HUD/Coins"]
+layout_mode = 2
 offset_left = 20.0
 offset_top = 2.0
 offset_right = 28.0
@@ -1904,8 +1970,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("102_an7b3")
 script = ExtResource("103_s6hbn")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="BlackOverlay" type="ColorRect" parent="Interface/Pause"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1914,6 +1983,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.686275)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Interface/Pause"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1927,6 +1997,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="Interface/Pause/VBoxContainer"]
+layout_mode = 2
 offset_right = 126.0
 offset_bottom = 16.0
 text = "Pause"
@@ -1935,6 +2006,7 @@ horizontal_alignment = 1
 uppercase = true
 
 [node name="Resume" type="Button" parent="Interface/Pause/VBoxContainer"]
+layout_mode = 2
 offset_top = 20.0
 offset_right = 126.0
 offset_bottom = 33.0
@@ -1943,6 +2015,7 @@ text = "Resume"
 
 [node name="Settings" type="Button" parent="Interface/Pause/VBoxContainer"]
 visible = false
+layout_mode = 2
 offset_top = 37.0
 offset_right = 126.0
 offset_bottom = 50.0
@@ -1950,11 +2023,124 @@ mouse_default_cursor_shape = 2
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Interface/Pause/VBoxContainer"]
+layout_mode = 2
 offset_top = 37.0
 offset_right = 126.0
 offset_bottom = 50.0
 mouse_default_cursor_shape = 2
 text = "Quit"
+
+[node name="StatPrompt" type="Control" parent="Interface"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("102_an7b3")
+script = ExtResource("105_0no4w")
+
+[node name="Panel" type="Panel" parent="Interface/StatPrompt"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -50.0
+offset_right = 99.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("105_t7mj1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/StatPrompt/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -34.0
+offset_right = 66.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Option1" type="CheckBox" parent="Interface/StatPrompt/Panel/VBoxContainer"]
+layout_mode = 2
+offset_right = 132.0
+offset_bottom = 16.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+button_pressed = true
+button_group = SubResource("ButtonGroup_ywgd1")
+text = "Improve Health"
+
+[node name="Option2" type="CheckBox" parent="Interface/StatPrompt/Panel/VBoxContainer"]
+layout_mode = 2
+offset_top = 20.0
+offset_right = 132.0
+offset_bottom = 36.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+button_group = SubResource("ButtonGroup_ywgd1")
+text = "Improve Adrenaline"
+
+[node name="Option3" type="CheckBox" parent="Interface/StatPrompt/Panel/VBoxContainer"]
+layout_mode = 2
+offset_top = 40.0
+offset_right = 132.0
+offset_bottom = 56.0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+button_group = SubResource("ButtonGroup_ywgd1")
+text = "Improve Poison"
+
+[node name="Buttons" type="HBoxContainer" parent="Interface/StatPrompt/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -117.0
+offset_top = -31.0
+offset_bottom = -3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("102_an7b3")
+theme_override_constants/separation = 15
+
+[node name="Confirm" type="Button" parent="Interface/StatPrompt/Panel/Buttons"]
+layout_mode = 2
+offset_right = 42.0
+offset_bottom = 28.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_6sy7a")
+text = "Confirm"
+
+[node name="Cancel" type="Button" parent="Interface/StatPrompt/Panel/Buttons"]
+layout_mode = 2
+offset_left = 57.0
+offset_right = 93.0
+offset_bottom = 28.0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
+shortcut_in_tooltip = false
+shortcut = SubResource("Shortcut_vg5pl")
+text = "Cancel"
 
 [node name="AdrenalineFXTimer" type="Timer" parent="."]
 wait_time = 0.2
@@ -1981,6 +2167,8 @@ one_shot = true
 [connection signal="pressed" from="Interface/UIInventory/RightBtn" to="Interface/UIInventory" method="_on_right_btn_pressed"]
 [connection signal="pressed" from="Interface/Pause/VBoxContainer/Resume" to="Interface/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="Interface/Pause/VBoxContainer/Quit" to="Interface/Pause" method="_on_quit_pressed"]
+[connection signal="pressed" from="Interface/StatPrompt/Panel/Buttons/Confirm" to="Interface/StatPrompt" method="_on_confirm_pressed"]
+[connection signal="pressed" from="Interface/StatPrompt/Panel/Buttons/Cancel" to="Interface/StatPrompt" method="_on_cancel_pressed"]
 [connection signal="timeout" from="AdrenalineFXTimer" to="." method="_on_adrenalinefx_timer_timeout"]
 [connection signal="timeout" from="AdrenalineBurstTimer" to="." method="_on_adrenaline_burst_timer_timeout"]
 

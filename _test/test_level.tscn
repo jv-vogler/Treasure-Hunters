@@ -72,11 +72,11 @@ position = Vector2(1136, -19)
 position = Vector2(745, 54)
 
 [node name="Crabby" parent="Enemies" instance=ExtResource("5_nfmcp")]
-position = Vector2(290, 116)
+position = Vector2(710, 111)
 loot_table = [SubResource("Resource_7dlu3"), SubResource("Resource_2l5hy"), SubResource("Resource_lf0ef"), SubResource("Resource_scc06")]
 
 [node name="Crabby2" parent="Enemies" instance=ExtResource("5_nfmcp")]
-position = Vector2(250, 126)
+position = Vector2(670, 121)
 loot_table = [SubResource("Resource_7dlu3"), SubResource("Resource_2l5hy"), SubResource("Resource_lf0ef"), SubResource("Resource_scc06"), SubResource("Resource_cj60i")]
 
 [node name="Level" type="Node2D" parent="."]

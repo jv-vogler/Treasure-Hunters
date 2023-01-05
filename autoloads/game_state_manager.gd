@@ -7,6 +7,7 @@ var settings := {}
 var stats: Stats = preload("res://resources/stats.gd").new()
 var inventory: Inventory = preload("res://resources/inventory.gd").new()
 var levels_unlocked := []
+var upgrades := {}
 var _game_state := {}
 var _level_props := {}
 
@@ -52,6 +53,7 @@ func load_file(file_name: String) -> void:
 
 	_level_props = data.level_props
 	levels_unlocked = data.levels_unlocked
+	upgrades = data.upgrades
 	settings = data.settings
 	_write_current_state()
 
@@ -125,6 +127,7 @@ func reset_state() -> void:
 	stats.reset_to_default()
 	inventory.reset_to_default()
 	_level_props = {}
+	upgrades = { "health": 0, "poison": 0, "adrenaline": 0 }
 	levels_unlocked = ["res://levels/tutorial.tscn", "res://levels/level_1.tscn"]
 	_write_current_state()
 
@@ -146,6 +149,7 @@ func _write_current_state() -> void:
 		"inventory": inventory.get_items(),
 		"level_props": _level_props,
 		"levels_unlocked": levels_unlocked,
+		"upgrades": upgrades,
 		"settings": settings,
 		"current_datetime": Time.get_datetime_dict_from_system(),
 		"version": _VERSION,
