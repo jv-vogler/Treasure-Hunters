@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3]
+[gd_scene load_steps=21 format=3 uid="uid://bmlqhfkaqsj00"]
 
 [ext_resource type="PackedScene" uid="uid://thmgkxfrb7qi" path="res://player/player.tscn" id="1_43vtj"]
 [ext_resource type="Script" path="res://_test/test_level.gd" id="1_cltf6"]
@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://l1vpe07okhb2" path="res://resources/items/diamond.tres" id="8_lbqc5"]
 [ext_resource type="Resource" uid="uid://d8x1eburfs86" path="res://resources/items/emerald.tres" id="9_ch76n"]
 [ext_resource type="Resource" uid="uid://cfqkldboyg78" path="res://resources/items/ruby.tres" id="10_xv6ee"]
+[ext_resource type="Resource" uid="uid://dxpng6c6hw607" path="res://resources/items/stat_potion.tres" id="11_sqqca"]
 
 [sub_resource type="Resource" id="Resource_7dlu3"]
 script = ExtResource("7_tj4o2")
@@ -36,6 +37,12 @@ _drop_chance = 100.0
 script = ExtResource("7_tj4o2")
 _item = ExtResource("10_xv6ee")
 _quantity = 51
+_drop_chance = 100.0
+
+[sub_resource type="Resource" id="Resource_cj60i"]
+script = ExtResource("7_tj4o2")
+_item = ExtResource("11_sqqca")
+_quantity = 5
 _drop_chance = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5p7fa"]
@@ -70,7 +77,7 @@ loot_table = [SubResource("Resource_7dlu3"), SubResource("Resource_2l5hy"), SubR
 
 [node name="Crabby2" parent="Enemies" instance=ExtResource("5_nfmcp")]
 position = Vector2(250, 126)
-loot_table = [SubResource("Resource_7dlu3"), SubResource("Resource_2l5hy"), SubResource("Resource_lf0ef"), SubResource("Resource_scc06")]
+loot_table = [SubResource("Resource_7dlu3"), SubResource("Resource_2l5hy"), SubResource("Resource_lf0ef"), SubResource("Resource_scc06"), SubResource("Resource_cj60i")]
 
 [node name="Level" type="Node2D" parent="."]
 

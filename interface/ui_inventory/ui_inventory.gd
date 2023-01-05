@@ -14,6 +14,7 @@ var _current_category = Categories.CONSUMABLES
 @onready var _tooltips: Control = $Tooltips
 @onready var _item_name: Label = %ItemName
 @onready var _item_description: Label = %ItemDescription
+@onready var _pause: Control = $"../Pause"
 
 
 func _ready() -> void:
@@ -27,7 +28,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("toggle_inventory"):
-		if owner.current_state != "Dead":
+		if owner.current_state != "Dead" and !_pause.visible:
 			_toggle_inventory()
 
 	if visible:

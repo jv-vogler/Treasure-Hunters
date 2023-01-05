@@ -1,4 +1,4 @@
-[gd_scene load_steps=139 format=3 uid="uid://thmgkxfrb7qi"]
+[gd_scene load_steps=140 format=3 uid="uid://thmgkxfrb7qi"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_jwel6"]
 [ext_resource type="Texture2D" uid="uid://bdw0lavbdwhlj" path="res://player/assets/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_rwikk"]
@@ -101,6 +101,9 @@
 [ext_resource type="Texture2D" uid="uid://cwgd8vpuaetbd" path="res://interface/theme/assets/btn_left_pressed.png" id="93_ud7be"]
 [ext_resource type="Texture2D" uid="uid://dqrh0kdxkodim" path="res://interface/theme/assets/btn_right_pressed.png" id="94_eoduu"]
 [ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="98_upgls"]
+[ext_resource type="Theme" uid="uid://bq0x77m6hp8c1" path="res://interface/theme/ui_theme.tres" id="102_an7b3"]
+[ext_resource type="LabelSettings" uid="uid://bx7wy64tb1vuv" path="res://interface/theme/number_font.tres" id="103_fvt2p"]
+[ext_resource type="Script" path="res://interface/pause.gd" id="103_s6hbn"]
 
 [sub_resource type="Resource" id="Resource_nj300"]
 script = ExtResource("4_s0ugl")
@@ -1205,12 +1208,6 @@ font_size = 9
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="InputEventAction" id="InputEventAction_pprci"]
-action = &"ui_cancel"
-
-[sub_resource type="Shortcut" id="Shortcut_e8lem"]
-events = [SubResource("InputEventAction_pprci")]
-
 [sub_resource type="LabelSettings" id="LabelSettings_m54f3"]
 font = ExtResource("87_5vt5y")
 font_size = 20
@@ -1754,7 +1751,6 @@ offset_right = 7.10399
 offset_bottom = 0.119995
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
-shortcut = SubResource("Shortcut_e8lem")
 texture_normal = ExtResource("88_rv8q3")
 texture_pressed = ExtResource("91_hm35o")
 
@@ -1898,6 +1894,68 @@ label_settings = SubResource("LabelSettings_m54f3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Pause" type="Control" parent="Interface"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("102_an7b3")
+script = ExtResource("103_s6hbn")
+
+[node name="BlackOverlay" type="ColorRect" parent="Interface/Pause"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.686275)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Interface/Pause"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -20.0
+offset_right = 63.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Interface/Pause/VBoxContainer"]
+offset_right = 126.0
+offset_bottom = 16.0
+text = "Pause"
+label_settings = ExtResource("103_fvt2p")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Resume" type="Button" parent="Interface/Pause/VBoxContainer"]
+offset_top = 20.0
+offset_right = 126.0
+offset_bottom = 33.0
+mouse_default_cursor_shape = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Interface/Pause/VBoxContainer"]
+visible = false
+offset_top = 37.0
+offset_right = 126.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Interface/Pause/VBoxContainer"]
+offset_top = 37.0
+offset_right = 126.0
+offset_bottom = 50.0
+mouse_default_cursor_shape = 2
+text = "Quit"
+
 [node name="AdrenalineFXTimer" type="Timer" parent="."]
 wait_time = 0.2
 
@@ -1921,6 +1979,8 @@ one_shot = true
 [connection signal="pressed" from="Interface/UIInventory/CloseBtn" to="Interface/UIInventory" method="_on_close_btn_pressed"]
 [connection signal="pressed" from="Interface/UIInventory/LeftBtn" to="Interface/UIInventory" method="_on_left_btn_pressed"]
 [connection signal="pressed" from="Interface/UIInventory/RightBtn" to="Interface/UIInventory" method="_on_right_btn_pressed"]
+[connection signal="pressed" from="Interface/Pause/VBoxContainer/Resume" to="Interface/Pause" method="_on_resume_pressed"]
+[connection signal="pressed" from="Interface/Pause/VBoxContainer/Quit" to="Interface/Pause" method="_on_quit_pressed"]
 [connection signal="timeout" from="AdrenalineFXTimer" to="." method="_on_adrenalinefx_timer_timeout"]
 [connection signal="timeout" from="AdrenalineBurstTimer" to="." method="_on_adrenaline_burst_timer_timeout"]
 
