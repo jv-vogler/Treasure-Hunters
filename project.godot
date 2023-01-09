@@ -210,6 +210,7 @@ shapes/collision/shape_color=Color(1, 1, 1, 0.419608)
 
 window/size/viewport_width=426
 window/size/viewport_height=240
+window/size/mode=3
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
