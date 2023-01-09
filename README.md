@@ -11,7 +11,10 @@ O jogo ainda está em fase de desenvolvimento, mas já conta com mecânicas e si
 - Sistema de Salvar e Carregar jogos salvos.
 - Loja do contrabandista para reabastecer seu estoque de poções.
 
-<!-- ## Videos -->
+## Videos
+https://user-images.githubusercontent.com/111630063/211342850-803cbfc5-8617-4906-9f5f-7412567c18e8.mp4
+
+https://user-images.githubusercontent.com/111630063/211343023-f063291c-8797-4b44-a007-e4791053ee05.mp4
 
 ## Demo
 Uma versão demo no browser será disponibilizada em breve.
@@ -20,3 +23,6 @@ Uma versão demo no browser será disponibilizada em breve.
 [Pixel Frog Studio](https://pixelfrog-assets.itch.io/) por todos sprites e arte.
 
 [Godot Engine](https://godotengine.org/)
+
+
+
