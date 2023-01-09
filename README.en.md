@@ -11,7 +11,10 @@ The game is still under development, but already counts with mechanics and funct
 - Saving and Loading system.
 - Smuggler's shop to restock your potions.
 
-<!-- ## Videos -->
+## Videos
+https://user-images.githubusercontent.com/111630063/211342850-803cbfc5-8617-4906-9f5f-7412567c18e8.mp4
+
+https://user-images.githubusercontent.com/111630063/211343023-f063291c-8797-4b44-a007-e4791053ee05.mp4
 
 
 ## Demo
