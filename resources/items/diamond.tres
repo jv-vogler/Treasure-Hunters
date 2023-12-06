@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://l1vpe07okhb2"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://l1vpe07okhb2"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_38u07"]
 [ext_resource type="Texture2D" uid="uid://cuhi5cl1fcr73" path="res://resources/items/assets/diamond/01.png" id="1_ck54c"]
@@ -8,7 +8,19 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qlnrg"]
 animations = [{
-"frames": [ExtResource("1_ck54c"), ExtResource("2_xui80"), ExtResource("3_okpe3"), ExtResource("4_qday7")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ck54c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xui80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_okpe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qday7")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0

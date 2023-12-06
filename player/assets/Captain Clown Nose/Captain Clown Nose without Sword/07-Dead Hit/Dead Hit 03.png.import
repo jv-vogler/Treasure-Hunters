@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Dead Hit 03.png-00bfd8e1b54da56f8250a4d52aa46
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

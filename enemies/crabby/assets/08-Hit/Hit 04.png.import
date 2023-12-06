@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Hit 04.png-622ad0a250620d6c1d9ec69bf8eb4fe0.c
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

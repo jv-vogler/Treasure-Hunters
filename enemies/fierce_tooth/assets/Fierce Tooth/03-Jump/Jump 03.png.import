@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Jump 03.png-70a6312c01ae535e4faac7e57913f738.
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

@@ -79,7 +79,7 @@ func get_save_names() -> Array:
 
 func get_saves_metadata() -> Dictionary:
 	var meta_data := {}
-	var file_names: Array[String] = get_save_names()
+	var file_names: Array = get_save_names()
 
 	for file_name in file_names:
 		file_name = file_name.trim_suffix(".sav")

@@ -4,6 +4,6 @@
 
 [resource]
 shader = ExtResource("1_70pcw")
-shader_parameter/angle = 240.0
-shader_parameter/speed = 1.5
 shader_parameter/strength = 0.15
+shader_parameter/speed = 1.5
+shader_parameter/angle = 240.0

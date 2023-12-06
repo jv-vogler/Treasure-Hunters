@@ -1185,8 +1185,6 @@ _data = {
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eey10"]
 texture = ExtResource("83_ur7a0")
-margin_left = 15.0
-margin_right = 15.0
 expand_margin_bottom = 5.0
 region_rect = Rect2(0, 0, 78, 17)
 
@@ -1194,12 +1192,10 @@ region_rect = Rect2(0, 0, 78, 17)
 font = ExtResource("84_6wlm3")
 font_color = Color(0.1, 0.1, 0.1, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qvdm5"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvemo"]
 texture = ExtResource("82_6hwvk")
-margin_left = 7.0
-margin_top = 8.0
-margin_right = 7.0
-margin_bottom = 8.0
+texture_margin_top = 8.0
+texture_margin_bottom = 8.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 86, 90)
@@ -1234,9 +1230,9 @@ pressed = true
 events = [SubResource("InputEventAction_kr6gj")]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
-position = Vector2(-1, 0)
 z_index = 2
 y_sort_enabled = true
+position = Vector2(-1, 0)
 collision_layer = 2
 collision_mask = 5
 platform_on_leave = 2
@@ -1245,8 +1241,8 @@ script = ExtResource("1_jwel6")
 metadata/_edit_lock_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-use_parent_material = true
 y_sort_enabled = true
+use_parent_material = true
 texture = ExtResource("1_rwikk")
 region_rect = Rect2(150, 153, 260, 71)
 metadata/_edit_group_ = true
@@ -1299,9 +1295,9 @@ polygon = PackedVector2Array(-10, 20, -5.011, 20, -1.16779, 20, 2, 20, 2, 22.444
 
 [node name="Particles" type="CPUParticles2D" parent="Sprite/PoisonFX"]
 modulate = Color(0.435294, 0.988235, 0.564706, 0.713726)
-position = Vector2(-5, 24)
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(-5, 24)
 emitting = false
 amount = 20
 lifetime = 1.5
@@ -1345,7 +1341,6 @@ metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="Camera" type="Camera2D" parent="."]
-current = true
 limit_left = -96
 limit_bottom = 190
 limit_smoothed = true
@@ -1516,7 +1511,7 @@ offset_right = 43.5
 offset_bottom = 26.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_qvdm5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_rvemo")
 
 [node name="ItemGrid" type="GridContainer" parent="Interface/UIInventory/ItemPanel"]
 unique_name_in_owner = true
@@ -1538,9 +1533,6 @@ columns = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
 layout_mode = 2
-anchors_preset = 0
-offset_right = 19.0
-offset_bottom = 19.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
@@ -1579,10 +1571,6 @@ texture_hover = ExtResource("88_xq8l1")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
 layout_mode = 2
-anchors_preset = 0
-offset_left = 24.0
-offset_right = 43.0
-offset_bottom = 19.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
@@ -1621,10 +1609,6 @@ texture_hover = ExtResource("88_xq8l1")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
 layout_mode = 2
-anchors_preset = 0
-offset_left = 48.0
-offset_right = 67.0
-offset_bottom = 19.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
@@ -1663,10 +1647,6 @@ texture_hover = ExtResource("88_xq8l1")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
 layout_mode = 2
-anchors_preset = 0
-offset_top = 24.0
-offset_right = 19.0
-offset_bottom = 43.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
@@ -1705,11 +1685,6 @@ texture_hover = ExtResource("88_xq8l1")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
 layout_mode = 2
-anchors_preset = 0
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 43.0
-offset_bottom = 43.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
@@ -1748,11 +1723,6 @@ texture_hover = ExtResource("88_xq8l1")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(19, 19)
 layout_mode = 2
-anchors_preset = 0
-offset_left = 48.0
-offset_top = 24.0
-offset_right = 67.0
-offset_bottom = 43.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 script = ExtResource("86_u8xxi")
@@ -1944,17 +1914,11 @@ grow_horizontal = 0
 
 [node name="Icon" type="TextureRect" parent="Interface/HUD/Coins"]
 layout_mode = 2
-offset_right = 16.0
-offset_bottom = 24.0
 texture = ExtResource("98_upgls")
 stretch_mode = 6
 
 [node name="Amount" type="Label" parent="Interface/HUD/Coins"]
 layout_mode = 2
-offset_left = 20.0
-offset_top = 2.0
-offset_right = 28.0
-offset_bottom = 22.0
 text = "0"
 label_settings = SubResource("LabelSettings_m54f3")
 horizontal_alignment = 1
@@ -1998,8 +1962,6 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="Interface/Pause/VBoxContainer"]
 layout_mode = 2
-offset_right = 126.0
-offset_bottom = 16.0
 text = "Pause"
 label_settings = ExtResource("103_fvt2p")
 horizontal_alignment = 1
@@ -2007,26 +1969,17 @@ uppercase = true
 
 [node name="Resume" type="Button" parent="Interface/Pause/VBoxContainer"]
 layout_mode = 2
-offset_top = 20.0
-offset_right = 126.0
-offset_bottom = 33.0
 mouse_default_cursor_shape = 2
 text = "Resume"
 
 [node name="Settings" type="Button" parent="Interface/Pause/VBoxContainer"]
 visible = false
 layout_mode = 2
-offset_top = 37.0
-offset_right = 126.0
-offset_bottom = 50.0
 mouse_default_cursor_shape = 2
 text = "Settings"
 
 [node name="Quit" type="Button" parent="Interface/Pause/VBoxContainer"]
 layout_mode = 2
-offset_top = 37.0
-offset_right = 126.0
-offset_bottom = 50.0
 mouse_default_cursor_shape = 2
 text = "Quit"
 
@@ -2072,32 +2025,24 @@ grow_vertical = 2
 
 [node name="Option1" type="CheckBox" parent="Interface/StatPrompt/Panel/VBoxContainer"]
 layout_mode = 2
-offset_right = 132.0
-offset_bottom = 16.0
 mouse_default_cursor_shape = 2
-shortcut_in_tooltip = false
 button_pressed = true
 button_group = SubResource("ButtonGroup_ywgd1")
+shortcut_in_tooltip = false
 text = "Improve Health"
 
 [node name="Option2" type="CheckBox" parent="Interface/StatPrompt/Panel/VBoxContainer"]
 layout_mode = 2
-offset_top = 20.0
-offset_right = 132.0
-offset_bottom = 36.0
 mouse_default_cursor_shape = 2
-shortcut_in_tooltip = false
 button_group = SubResource("ButtonGroup_ywgd1")
+shortcut_in_tooltip = false
 text = "Improve Adrenaline"
 
 [node name="Option3" type="CheckBox" parent="Interface/StatPrompt/Panel/VBoxContainer"]
 layout_mode = 2
-offset_top = 40.0
-offset_right = 132.0
-offset_bottom = 56.0
 mouse_default_cursor_shape = 2
-shortcut_in_tooltip = false
 button_group = SubResource("ButtonGroup_ywgd1")
+shortcut_in_tooltip = false
 text = "Improve Poison"
 
 [node name="Buttons" type="HBoxContainer" parent="Interface/StatPrompt/Panel"]
@@ -2117,29 +2062,24 @@ theme_override_constants/separation = 15
 
 [node name="Confirm" type="Button" parent="Interface/StatPrompt/Panel/Buttons"]
 layout_mode = 2
-offset_right = 42.0
-offset_bottom = 28.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
 theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_6sy7a")
+shortcut_in_tooltip = false
 text = "Confirm"
 
 [node name="Cancel" type="Button" parent="Interface/StatPrompt/Panel/Buttons"]
 layout_mode = 2
-offset_left = 57.0
-offset_right = 93.0
-offset_bottom = 28.0
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
 theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_vg5pl")
+shortcut_in_tooltip = false
 text = "Cancel"
 
 [node name="AdrenalineFXTimer" type="Timer" parent="."]

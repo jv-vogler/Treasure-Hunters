@@ -46,7 +46,7 @@ var _ghost_effect = preload("res://player/particles/ghost_effect.tscn")
 
 func _ready() -> void:
 	state_machine.init()
-	camera.current = true
+	camera.make_current()
 	stats.connect("resource_stat_changed", Callable(self, "_on_resource_stat_changed"))
 	stats.connect("strength_changed", Callable(self, "_update_strength"))
 	_ui_inventory.connect("used_health_potion", Callable(self, "_on_used_health_potion"))

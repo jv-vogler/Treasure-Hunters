@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://c3sorbgxefje6"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://c3sorbgxefje6"]
 
 [ext_resource type="Texture2D" uid="uid://cxpsbkdico0rf" path="res://resources/items/assets/gold_coin/01.png" id="1_vq8ra"]
 [ext_resource type="Texture2D" uid="uid://bc2dhy71bmuql" path="res://resources/items/assets/gold_coin/02.png" id="2_ce1hj"]
@@ -8,7 +8,19 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c0bc3"]
 animations = [{
-"frames": [ExtResource("1_vq8ra"), ExtResource("2_ce1hj"), ExtResource("3_8c8vg"), ExtResource("4_oebkx")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vq8ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ce1hj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8c8vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oebkx")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0

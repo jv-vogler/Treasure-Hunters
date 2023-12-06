@@ -40,7 +40,7 @@ script = ExtResource("1_buk0o")
 metadata/_edit_lock_ = true
 
 [node name="Background" type="Panel" parent="."]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -49,7 +49,7 @@ theme_override_styles/panel = ExtResource("1_j2ndl")
 metadata/_edit_lock_ = true
 
 [node name="Title" type="Label" parent="."]
-anchors_preset = 10
+layout_mode = 0
 anchor_right = 1.0
 offset_left = 165.0
 offset_top = 13.0
@@ -65,6 +65,7 @@ uppercase = true
 metadata/_edit_lock_ = true
 
 [node name="TitleScreen" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 18.0
 offset_top = 11.0
 offset_right = 126.0
@@ -74,7 +75,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="TitleScreen"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -90,6 +91,7 @@ theme = ExtResource("6_kxsub")
 text = "Title Screen"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
 offset_left = 21.0
 offset_top = 64.0
 offset_right = 400.0
@@ -99,21 +101,18 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-offset_right = 379.0
-offset_bottom = 162.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SlotsContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
-offset_right = 379.0
+layout_mode = 2
 
 [node name="EmptySlot" type="Button" parent="ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(0, 50)
-offset_top = 4.0
-offset_right = 379.0
-offset_bottom = 65.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("6_kxsub")
 theme_override_styles/normal = ExtResource("8_1h8wg")
@@ -125,10 +124,7 @@ text = "Empty Slot"
 [node name="NoSaves" type="Label" parent="ScrollContainer/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
-offset_left = 147.0
-offset_top = 4.0
-offset_right = 231.0
-offset_bottom = 20.0
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_y5qio")
@@ -138,7 +134,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Popup" type="ColorRect" parent="."]
-anchors_preset = 15
+visible = false
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -146,7 +143,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
 
 [node name="DeletePrompt" type="Panel" parent="Popup"]
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -160,7 +157,7 @@ grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_nlcho")
 
 [node name="Label" type="Label" parent="Popup/DeletePrompt"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -10.0
@@ -172,7 +169,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="HBoxContainer" parent="Popup/DeletePrompt"]
-anchors_preset = 3
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -186,33 +183,30 @@ theme = ExtResource("6_kxsub")
 theme_override_constants/separation = 15
 
 [node name="ConfirmDelete" type="Button" parent="Popup/DeletePrompt/Buttons"]
-offset_right = 42.0
-offset_bottom = 20.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
 theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_2wfuc")
+shortcut_in_tooltip = false
 text = "Confirm"
 
 [node name="CancelDelete" type="Button" parent="Popup/DeletePrompt/Buttons"]
-offset_left = 57.0
-offset_right = 93.0
-offset_bottom = 20.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
 theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_5vgk0")
+shortcut_in_tooltip = false
 text = "Cancel"
 
 [node name="SavePrompt" type="Panel" parent="Popup"]
 visible = false
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -227,26 +221,20 @@ theme = ExtResource("6_kxsub")
 theme_override_styles/panel = ExtResource("3_nlcho")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popup/SavePrompt"]
+layout_mode = 0
 offset_left = 13.0
 offset_right = 191.0
 offset_bottom = 40.0
 
 [node name="Label" type="Label" parent="Popup/SavePrompt/HBoxContainer"]
-offset_top = 12.0
-offset_right = 60.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 text = "File Name:"
 label_settings = ExtResource("3_4h8m8")
 vertical_alignment = 1
 
 [node name="LineEdit" type="LineEdit" parent="Popup/SavePrompt/HBoxContainer"]
 custom_minimum_size = Vector2(110, 20)
-offset_left = 66.0
-offset_top = 10.0
-offset_right = 176.0
-offset_bottom = 30.0
+layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 max_length = 14
@@ -254,7 +242,7 @@ context_menu_enabled = false
 caret_blink = true
 
 [node name="Buttons" type="HBoxContainer" parent="Popup/SavePrompt"]
-anchors_preset = 3
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -267,33 +255,30 @@ grow_vertical = 0
 theme_override_constants/separation = 15
 
 [node name="ConfirmSave" type="Button" parent="Popup/SavePrompt/Buttons"]
-offset_right = 42.0
-offset_bottom = 20.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
 theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_2wfuc")
+shortcut_in_tooltip = false
 text = "Confirm"
 
 [node name="CancelSave" type="Button" parent="Popup/SavePrompt/Buttons"]
-offset_left = 57.0
-offset_right = 93.0
-offset_bottom = 20.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
 theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_5vgk0")
+shortcut_in_tooltip = false
 text = "Cancel"
 
 [node name="OverwritePrompt" type="Panel" parent="Popup"]
 visible = false
-anchors_preset = 8
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -307,7 +292,7 @@ grow_vertical = 2
 theme_override_styles/panel = ExtResource("3_nlcho")
 
 [node name="Label" type="Label" parent="Popup/OverwritePrompt"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -10.0
@@ -319,7 +304,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="HBoxContainer" parent="Popup/OverwritePrompt"]
-anchors_preset = 3
+layout_mode = 0
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -333,28 +318,25 @@ theme = ExtResource("6_kxsub")
 theme_override_constants/separation = 15
 
 [node name="ConfirmOverwrite" type="Button" parent="Popup/OverwritePrompt/Buttons"]
-offset_right = 42.0
-offset_bottom = 20.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
 theme_override_colors/font_hover_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_focus_color = Color(0.435294, 0.988235, 0.564706, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.27451, 0.890196, 0.419608, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_2wfuc")
+shortcut_in_tooltip = false
 text = "Confirm"
 
 [node name="CancelOverwrite" type="Button" parent="Popup/OverwritePrompt/Buttons"]
-offset_left = 57.0
-offset_right = 93.0
-offset_bottom = 20.0
+layout_mode = 2
 mouse_default_cursor_shape = 2
 theme_override_colors/font_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
 theme_override_colors/font_hover_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_focus_color = Color(0.862745, 0.286275, 0.286275, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.780392, 0.172549, 0.172549, 1)
-shortcut_in_tooltip = false
 shortcut = SubResource("Shortcut_5vgk0")
+shortcut_in_tooltip = false
 text = "Cancel"
 
 [connection signal="pressed" from="TitleScreen/Button" to="." method="_on_title_screen_pressed"]

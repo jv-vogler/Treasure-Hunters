@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=7 format=3 uid="uid://cfqkldboyg78"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=7 format=3 uid="uid://cfqkldboyg78"]
 
 [ext_resource type="Script" path="res://resources/item_data.gd" id="1_byuet"]
 [ext_resource type="Texture2D" uid="uid://chefcv71x8y63" path="res://resources/items/assets/ruby/01.png" id="1_xjv76"]
@@ -8,7 +8,19 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xie5l"]
 animations = [{
-"frames": [ExtResource("1_xjv76"), ExtResource("2_rr640"), ExtResource("4_nxoff"), ExtResource("3_4vu8a")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xjv76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rr640")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nxoff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4vu8a")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0

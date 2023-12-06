@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Ship Helm Idle 05.png-bf907aa0cf5394f9ad56602
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

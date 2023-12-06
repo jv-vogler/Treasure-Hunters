@@ -3,7 +3,7 @@ extends Node
 signal scene_reloaded
 
 var current_scene: PackedScene = null
-var previous_scene: PackedScene =-null
+var previous_scene: PackedScene = null
 
 @onready var _Animation: AnimationPlayer = get_parent().get_node("Game/SceneTransition/Animation")
 @onready var _Scene: Control = get_parent().get_node("Game/Scene")

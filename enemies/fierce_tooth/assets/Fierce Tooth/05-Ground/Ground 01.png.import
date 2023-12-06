@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Ground 01.png-bb90cf51262b07c041fc3141950f667
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Fall 01.png-d66b3d25512a5123f0441006384fd954.
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

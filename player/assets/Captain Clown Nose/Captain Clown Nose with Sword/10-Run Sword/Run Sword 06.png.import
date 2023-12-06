@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Run Sword 06.png-2680b17519471b454c95f0bbcb77
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

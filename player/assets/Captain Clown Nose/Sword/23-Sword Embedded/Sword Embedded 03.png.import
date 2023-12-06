@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Sword Embedded 03.png-03a41c8daf10e8f7fc32000
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

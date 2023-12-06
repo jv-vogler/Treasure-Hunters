@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://o0oea01t4d6k"]
+[gd_scene load_steps=136 format=3 uid="uid://o0oea01t4d6k"]
 
 [ext_resource type="Texture2D" uid="uid://cwq8e5xktt0vy" path="res://tilesets/assets/Background/Additional Water.png" id="1_a3gdx"]
 [ext_resource type="Script" path="res://scenes/shop.gd" id="1_e188i"]
@@ -107,7 +107,6 @@
 [ext_resource type="Texture2D" uid="uid://chefcv71x8y63" path="res://resources/items/assets/ruby/01.png" id="102_5c0r3"]
 [ext_resource type="Texture2D" uid="uid://cuh3x0wxpvb31" path="res://resources/items/assets/emerald/01.png" id="103_gdgjj"]
 [ext_resource type="Texture2D" uid="uid://cuhi5cl1fcr73" path="res://resources/items/assets/diamond/01.png" id="104_f77sk"]
-[ext_resource type="StyleBox" uid="uid://glp0pvqqgcqw" path="res://interface/theme/resources/green_board.tres" id="104_w6aq7"]
 [ext_resource type="LabelSettings" uid="uid://bx7wy64tb1vuv" path="res://interface/theme/number_font.tres" id="109_7gow4"]
 [ext_resource type="StyleBox" uid="uid://bvjf0ilhkn377" path="res://interface/theme/tooltip.tres" id="110_2ghj6"]
 [ext_resource type="Texture2D" uid="uid://bg7sivskojwr6" path="res://interface/theme/assets/btn_left.png" id="110_4ahdf"]
@@ -117,12 +116,25 @@
 [ext_resource type="Texture2D" uid="uid://btjiyvqr80eox" path="res://resources/items/assets/health_potion/06.png" id="112_kexjo"]
 [ext_resource type="Texture2D" uid="uid://0po21tny6ny5" path="res://interface/theme/assets/btn_right.png" id="113_ldsik"]
 [ext_resource type="Texture2D" uid="uid://dqrh0kdxkodim" path="res://interface/theme/assets/btn_right_pressed.png" id="114_ohi0p"]
+[ext_resource type="Texture2D" uid="uid://c8va16el3v4ek" path="res://interface/theme/assets/yellow_board.png" id="117_sfbqm"]
 [ext_resource type="StyleBox" uid="uid://c7pmcbxqfmup8" path="res://interface/theme/inventory_panel.tres" id="118_c3mmm"]
 [ext_resource type="FontFile" uid="uid://b2sg4sn82cjex" path="res://assets/fonts/MatchupPro.ttf" id="119_jiro2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pvmmo"]
 animations = [{
-"frames": [ExtResource("4_kyna8"), ExtResource("5_1qv6i"), ExtResource("6_hqmkt"), ExtResource("7_qmhx3")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kyna8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1qv6i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_hqmkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qmhx3")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -130,7 +142,25 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mmyrd"]
 animations = [{
-"frames": [ExtResource("4_ou0xn"), ExtResource("5_ad7ir"), ExtResource("6_2w778"), ExtResource("7_d3omb"), ExtResource("8_3u1nb"), ExtResource("9_0ldtv")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ou0xn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ad7ir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2w778")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d3omb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3u1nb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0ldtv")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -138,7 +168,19 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qnijj"]
 animations = [{
-"frames": [ExtResource("10_l26ff"), ExtResource("11_qddiq"), ExtResource("12_d5p6c"), ExtResource("13_ei3q0")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_l26ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qddiq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_d5p6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ei3q0")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -146,7 +188,19 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gky27"]
 animations = [{
-"frames": [ExtResource("4_121gq"), ExtResource("5_w6ibl"), ExtResource("6_380cp"), ExtResource("7_oqk1c")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_121gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w6ibl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_380cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oqk1c")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -154,7 +208,25 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebtba"]
 animations = [{
-"frames": [ExtResource("9_n6j01"), ExtResource("10_45p3h"), ExtResource("11_28m76"), ExtResource("12_0qicm"), ExtResource("13_j80r7"), ExtResource("14_kbdt0")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_n6j01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_45p3h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_28m76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0qicm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j80r7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kbdt0")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -162,7 +234,25 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6nat"]
 animations = [{
-"frames": [ExtResource("15_o8f81"), ExtResource("16_7fphi"), ExtResource("17_7yum0"), ExtResource("18_eveik"), ExtResource("19_ugmfm"), ExtResource("20_q1pa7")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_o8f81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7fphi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_7yum0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_eveik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ugmfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_q1pa7")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -170,19 +260,31 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dkgjv"]
 shader = ExtResource("43_o51cc")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.01
+shader_parameter/strengthScale = 200.0
+shader_parameter/interval = 10.0
 shader_parameter/detail = 3.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
-shader_parameter/interval = 10.0
-shader_parameter/maxStrength = 0.01
-shader_parameter/minStrength = 0.05
 shader_parameter/offset = 0.0
-shader_parameter/speed = 1.0
-shader_parameter/strengthScale = 200.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gltxy"]
 animations = [{
-"frames": [ExtResource("43_q03uf"), ExtResource("44_bjto3"), ExtResource("45_qf7mo"), ExtResource("46_qmknc")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_q03uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_bjto3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_qf7mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_qmknc")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -190,19 +292,31 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b85t5"]
 shader = ExtResource("43_o51cc")
+shader_parameter/speed = 0.5
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.02
+shader_parameter/strengthScale = 50.0
+shader_parameter/interval = 3.5
 shader_parameter/detail = 5.0
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
-shader_parameter/interval = 3.5
-shader_parameter/maxStrength = 0.02
-shader_parameter/minStrength = 0.05
 shader_parameter/offset = 0.0
-shader_parameter/speed = 0.5
-shader_parameter/strengthScale = 50.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sk68b"]
 animations = [{
-"frames": [ExtResource("95_5snkr"), ExtResource("96_ckg0e"), ExtResource("97_j7jab"), ExtResource("98_sfmnb")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("95_5snkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_ckg0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_j7jab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_sfmnb")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -210,7 +324,109 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bwgqj"]
 animations = [{
-"frames": [ExtResource("41_3ibpm"), ExtResource("42_vvwwf"), ExtResource("43_wspjg"), ExtResource("44_q5ax5"), ExtResource("45_etnwn"), ExtResource("46_d5jbp"), ExtResource("47_mkeli"), ExtResource("48_mvb7a"), ExtResource("49_egufu"), ExtResource("50_26vmm"), ExtResource("51_vbn7d"), ExtResource("52_vjhv7"), ExtResource("53_c4b62"), ExtResource("54_t41nw"), ExtResource("55_6geqo"), ExtResource("56_ultrl"), ExtResource("57_yp3fu"), ExtResource("58_sam1r"), ExtResource("59_dl3vb"), ExtResource("60_6yg7b"), ExtResource("61_2k0lr"), ExtResource("62_qupsv"), ExtResource("63_m7gg1"), ExtResource("64_2wff4"), ExtResource("65_aspcl"), ExtResource("66_lips3"), ExtResource("67_08pqe"), ExtResource("68_65oae"), ExtResource("69_0ifnb"), ExtResource("70_dkpu5"), ExtResource("71_ghelr"), ExtResource("72_dkunf"), ExtResource("73_8gopk"), ExtResource("74_1qj1p")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_3ibpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_vvwwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_wspjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_q5ax5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_etnwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_d5jbp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_mkeli")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_mvb7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_egufu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_26vmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_vbn7d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_vjhv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_c4b62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_t41nw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_6geqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_ultrl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_yp3fu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_sam1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_dl3vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_6yg7b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_2k0lr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_qupsv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_m7gg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_2wff4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_aspcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_lips3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_08pqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_65oae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_0ifnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_dkpu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_ghelr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_dkunf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_8gopk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_1qj1p")
+}],
 "loop": true,
 "name": &"default",
 "speed": 20.0
@@ -218,16 +434,69 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mvp3c"]
 animations = [{
-"frames": [ExtResource("75_458nf"), ExtResource("76_fgbuu"), ExtResource("77_kn3c0"), ExtResource("78_om71a"), ExtResource("79_rf1dk")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("75_458nf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_fgbuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_kn3c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_om71a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_rf1dk")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 10.0
 }, {
-"frames": [ExtResource("80_81a1s"), ExtResource("81_mbwqr"), ExtResource("82_2u4ur"), ExtResource("83_4so6p"), ExtResource("84_pvlu6"), ExtResource("85_18tj7")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("80_81a1s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_mbwqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_2u4ur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_4so6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_pvlu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_18tj7")
+}],
 "loop": true,
 "name": &"run",
 "speed": 10.0
 }]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ervlk"]
+texture = ExtResource("117_sfbqm")
+texture_margin_left = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 86, 86)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rawy2"]
+load_path = "res://.godot/imported/green_board.png-4b5f6fb75929ee7fa92298aa396dfddf.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esciq"]
+texture = SubResource("CompressedTexture2D_rawy2")
+texture_margin_right = 20.0
+texture_margin_bottom = 10.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(1, 3, 94, 90)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xi0u7"]
 font = ExtResource("119_jiro2")
@@ -253,8 +522,7 @@ metadata/_edit_lock_ = true
 
 [node name="WaterReflex" type="AnimatedSprite2D" parent="."]
 position = Vector2(307, 176)
-frames = SubResource("SpriteFrames_pvmmo")
-playing = true
+sprite_frames = SubResource("SpriteFrames_pvmmo")
 metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -336,13 +604,11 @@ flip_h = true
 
 [node name="Ship" type="AnimatedSprite2D" parent="Ship"]
 position = Vector2(10, 5)
-frames = SubResource("SpriteFrames_mmyrd")
-playing = true
+sprite_frames = SubResource("SpriteFrames_mmyrd")
 
 [node name="Sail" type="AnimatedSprite2D" parent="Ship"]
 position = Vector2(22, -31)
-frames = SubResource("SpriteFrames_qnijj")
-playing = true
+sprite_frames = SubResource("SpriteFrames_qnijj")
 
 [node name="Anchor" type="Sprite2D" parent="Ship"]
 position = Vector2(-9, 18)
@@ -358,13 +624,11 @@ metadata/_edit_lock_ = true
 
 [node name="Water1" type="AnimatedSprite2D" parent="Water"]
 position = Vector2(258, 209)
-frames = SubResource("SpriteFrames_gky27")
-playing = true
+sprite_frames = SubResource("SpriteFrames_gky27")
 
 [node name="Water2" type="AnimatedSprite2D" parent="Water"]
 position = Vector2(354, 209)
-frames = SubResource("SpriteFrames_gky27")
-playing = true
+sprite_frames = SubResource("SpriteFrames_gky27")
 
 [node name="Water3" type="Sprite2D" parent="Water"]
 position = Vector2(305, 233)
@@ -373,13 +637,11 @@ texture = ExtResource("8_ur8t2")
 
 [node name="Reflexes1" type="AnimatedSprite2D" parent="Water"]
 position = Vector2(257, 213)
-frames = SubResource("SpriteFrames_ebtba")
-playing = true
+sprite_frames = SubResource("SpriteFrames_ebtba")
 
 [node name="Reflexes2" type="AnimatedSprite2D" parent="Water"]
 position = Vector2(331, 213)
-frames = SubResource("SpriteFrames_v6nat")
-playing = true
+sprite_frames = SubResource("SpriteFrames_v6nat")
 
 [node name="Trees" type="Node2D" parent="."]
 metadata/_edit_group_ = true
@@ -388,20 +650,17 @@ metadata/_edit_lock_ = true
 [node name="PalmTree1" type="AnimatedSprite2D" parent="Trees"]
 material = SubResource("ShaderMaterial_dkgjv")
 position = Vector2(369, 138)
-frames = SubResource("SpriteFrames_gltxy")
-playing = true
+sprite_frames = SubResource("SpriteFrames_gltxy")
 
 [node name="PalmTree2" type="AnimatedSprite2D" parent="Trees"]
 material = ExtResource("48_duexa")
 position = Vector2(374, 155)
-frames = SubResource("SpriteFrames_gltxy")
-playing = true
+sprite_frames = SubResource("SpriteFrames_gltxy")
 
 [node name="PalmTree3" type="AnimatedSprite2D" parent="Trees"]
 material = SubResource("ShaderMaterial_b85t5")
 position = Vector2(263, 136)
-frames = SubResource("SpriteFrames_sk68b")
-playing = true
+sprite_frames = SubResource("SpriteFrames_sk68b")
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = ExtResource("51_yjbs5")
@@ -439,17 +698,16 @@ texture = ExtResource("40_2tli6")
 [node name="Vendor" type="AnimatedSprite2D" parent="TileMap"]
 position = Vector2(208, 144)
 scale = Vector2(0.5, 0.5)
-frames = SubResource("SpriteFrames_bwgqj")
-playing = true
+sprite_frames = SubResource("SpriteFrames_bwgqj")
 flip_h = true
 
 [node name="CaptainClownNose" type="AnimatedSprite2D" parent="TileMap"]
 position = Vector2(115, 148)
-frames = SubResource("SpriteFrames_mvp3c")
+sprite_frames = SubResource("SpriteFrames_mvp3c")
 animation = &"idle"
-playing = true
 
 [node name="CurrencyPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 101.0
 offset_top = 2.0
 offset_right = 326.0
@@ -458,7 +716,7 @@ theme_override_styles/panel = ExtResource("92_1g8l5")
 metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CurrencyPanel"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 14.0
@@ -466,102 +724,79 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Coins" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
-offset_top = 8.0
-offset_right = 49.0
-offset_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Coins"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("101_uyh8p")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Coins"]
-offset_left = 16.0
-offset_right = 22.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Rubys" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
-offset_left = 53.0
-offset_top = 8.0
-offset_right = 103.0
-offset_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Rubys"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("102_5c0r3")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Rubys"]
-offset_left = 16.0
-offset_right = 22.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Emeralds" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
-offset_left = 107.0
-offset_top = 8.0
-offset_right = 157.0
-offset_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Emeralds"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("103_gdgjj")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Emeralds"]
-offset_left = 16.0
-offset_right = 22.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Diamonds" type="HBoxContainer" parent="CurrencyPanel/HBoxContainer"]
-offset_left = 161.0
-offset_top = 8.0
-offset_right = 211.0
-offset_bottom = 24.0
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="Texture" type="TextureRect" parent="CurrencyPanel/HBoxContainer/Diamonds"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("104_f77sk")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="CurrencyPanel/HBoxContainer/Diamonds"]
-offset_left = 16.0
-offset_right = 22.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 
 [node name="ShopPanel" type="Panel" parent="."]
-anchors_preset = 5
+layout_mode = 0
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -108.0
@@ -574,7 +809,7 @@ theme_override_styles/panel = ExtResource("110_2ghj6")
 metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ShopPanel"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 9.0
@@ -585,14 +820,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PotionContainer" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
-offset_right = 200.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="BtnDecrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PotionContainer"]
-offset_top = 2.0
-offset_right = 8.0
-offset_bottom = 14.0
+layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("110_4ahdf")
@@ -601,19 +833,14 @@ stretch_mode = 3
 
 [node name="Icon" type="TextureRect" parent="ShopPanel/VBoxContainer/PotionContainer"]
 custom_minimum_size = Vector2(10, 12)
-offset_left = 12.0
-offset_right = 22.0
-offset_bottom = 12.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("112_kexjo")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="BtnIncrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PotionContainer"]
-offset_left = 26.0
-offset_top = 2.0
-offset_right = 34.0
-offset_bottom = 14.0
+layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("113_ldsik")
@@ -621,18 +848,14 @@ texture_pressed = ExtResource("114_ohi0p")
 stretch_mode = 3
 
 [node name="LabelAmount" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer"]
-offset_left = 38.0
-offset_right = 44.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LabelItemName" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer"]
-offset_left = 48.0
-offset_right = 142.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Health Potion"
 label_settings = ExtResource("109_7gow4")
@@ -640,54 +863,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cost" type="HBoxContainer" parent="ShopPanel/VBoxContainer/PotionContainer"]
-offset_left = 146.0
-offset_right = 200.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="CoinTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("101_uyh8p")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="CoinLabel" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
-offset_left = 16.0
-offset_right = 28.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "10"
 label_settings = ExtResource("109_7gow4")
 
 [node name="RubyTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
 custom_minimum_size = Vector2(12, 15)
-offset_left = 32.0
-offset_right = 44.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("102_5c0r3")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="RubyLabel" type="Label" parent="ShopPanel/VBoxContainer/PotionContainer/Cost"]
-offset_left = 48.0
-offset_right = 54.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "3"
 label_settings = ExtResource("109_7gow4")
 
 [node name="PoisonContainer" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
-offset_top = 20.0
-offset_right = 200.0
-offset_bottom = 36.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="BtnDecrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PoisonContainer"]
-offset_top = 2.0
-offset_right = 8.0
-offset_bottom = 14.0
+layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("110_4ahdf")
@@ -696,19 +906,14 @@ stretch_mode = 3
 
 [node name="Icon" type="TextureRect" parent="ShopPanel/VBoxContainer/PoisonContainer"]
 custom_minimum_size = Vector2(10, 12)
-offset_left = 12.0
-offset_right = 22.0
-offset_bottom = 12.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("110_ctbn7")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="BtnIncrease" type="TextureButton" parent="ShopPanel/VBoxContainer/PoisonContainer"]
-offset_left = 26.0
-offset_top = 2.0
-offset_right = 34.0
-offset_bottom = 14.0
+layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("113_ldsik")
@@ -716,18 +921,14 @@ texture_pressed = ExtResource("114_ohi0p")
 stretch_mode = 3
 
 [node name="LabelAmount" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer"]
-offset_left = 38.0
-offset_right = 44.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LabelItemName" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer"]
-offset_left = 48.0
-offset_right = 142.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Poison Bottle"
 label_settings = ExtResource("109_7gow4")
@@ -735,54 +936,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cost" type="HBoxContainer" parent="ShopPanel/VBoxContainer/PoisonContainer"]
-offset_left = 146.0
-offset_right = 200.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="CoinTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("101_uyh8p")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="CoinLabel" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
-offset_left = 16.0
-offset_right = 28.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "20"
 label_settings = ExtResource("109_7gow4")
 
 [node name="EmeraldTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
 custom_minimum_size = Vector2(12, 15)
-offset_left = 32.0
-offset_right = 44.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("103_gdgjj")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="EmeraldLabel" type="Label" parent="ShopPanel/VBoxContainer/PoisonContainer/Cost"]
-offset_left = 48.0
-offset_right = 54.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "4"
 label_settings = ExtResource("109_7gow4")
 
 [node name="StatPotionContainer" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
-offset_top = 40.0
-offset_right = 200.0
-offset_bottom = 56.0
+layout_mode = 2
 size_flags_vertical = 3
 
 [node name="BtnDecrease" type="TextureButton" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
-offset_top = 2.0
-offset_right = 8.0
-offset_bottom = 14.0
+layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("110_4ahdf")
@@ -791,19 +979,14 @@ stretch_mode = 3
 
 [node name="Icon" type="TextureRect" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
 custom_minimum_size = Vector2(10, 12)
-offset_left = 12.0
-offset_right = 22.0
-offset_bottom = 12.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("111_rye6e")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="BtnIncrease" type="TextureButton" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
-offset_left = 26.0
-offset_top = 2.0
-offset_right = 34.0
-offset_bottom = 14.0
+layout_mode = 2
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("113_ldsik")
@@ -811,18 +994,14 @@ texture_pressed = ExtResource("114_ohi0p")
 stretch_mode = 3
 
 [node name="LabelAmount" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
-offset_left = 38.0
-offset_right = 44.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "0"
 label_settings = ExtResource("109_7gow4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LabelItemName" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
-offset_left = 48.0
-offset_right = 136.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_horizontal = 3
 text = "Stat Potion"
 label_settings = ExtResource("109_7gow4")
@@ -830,152 +1009,122 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Cost" type="HBoxContainer" parent="ShopPanel/VBoxContainer/StatPotionContainer"]
-offset_left = 140.0
-offset_right = 200.0
-offset_bottom = 16.0
+layout_mode = 2
 size_flags_horizontal = 8
 
 [node name="CoinTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
 custom_minimum_size = Vector2(12, 15)
-offset_right = 12.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("101_uyh8p")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="CoinLabel" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
-offset_left = 16.0
-offset_right = 34.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "100"
 label_settings = ExtResource("109_7gow4")
 
 [node name="DiamondTexture" type="TextureRect" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
 custom_minimum_size = Vector2(12, 15)
-offset_left = 38.0
-offset_right = 50.0
-offset_bottom = 15.0
+layout_mode = 2
 size_flags_vertical = 0
 texture = ExtResource("104_f77sk")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="DiamondLabel" type="Label" parent="ShopPanel/VBoxContainer/StatPotionContainer/Cost"]
-offset_left = 54.0
-offset_right = 60.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "5"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Total" type="HBoxContainer" parent="ShopPanel/VBoxContainer"]
-offset_top = 60.0
-offset_right = 33.0
-offset_bottom = 76.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
 alignment = 1
 
 [node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total"]
-offset_right = 33.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "Total:"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Coins" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
 visible = false
-offset_left = 37.0
-offset_right = 74.0
-offset_bottom = 16.0
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Coins"]
 custom_minimum_size = Vector2(15, 0)
-offset_right = 15.0
-offset_bottom = 16.0
+layout_mode = 2
 texture = ExtResource("101_uyh8p")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Coins"]
-offset_left = 19.0
-offset_right = 37.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "100"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Rubys" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
 visible = false
-offset_left = 37.0
-offset_right = 74.0
-offset_bottom = 16.0
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Rubys"]
 custom_minimum_size = Vector2(15, 0)
-offset_right = 15.0
-offset_bottom = 16.0
+layout_mode = 2
 texture = ExtResource("102_5c0r3")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Rubys"]
-offset_left = 19.0
-offset_right = 37.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "100"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Emeralds" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
 visible = false
-offset_left = 37.0
-offset_right = 74.0
-offset_bottom = 16.0
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Emeralds"]
 custom_minimum_size = Vector2(15, 0)
-offset_right = 15.0
-offset_bottom = 16.0
+layout_mode = 2
 texture = ExtResource("103_gdgjj")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Emeralds"]
-offset_left = 19.0
-offset_right = 37.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "100"
 label_settings = ExtResource("109_7gow4")
 
 [node name="Diamonds" type="HBoxContainer" parent="ShopPanel/VBoxContainer/Total"]
 visible = false
-offset_left = 37.0
-offset_right = 74.0
-offset_bottom = 16.0
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="ShopPanel/VBoxContainer/Total/Diamonds"]
 custom_minimum_size = Vector2(15, 0)
-offset_right = 15.0
-offset_bottom = 16.0
+layout_mode = 2
 texture = ExtResource("104_f77sk")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="ShopPanel/VBoxContainer/Total/Diamonds"]
-offset_left = 19.0
-offset_right = 37.0
-offset_bottom = 16.0
+layout_mode = 2
 text = "100"
 label_settings = ExtResource("109_7gow4")
 
 [node name="LevelSelection" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 187.0
 offset_right = 134.0
 offset_bottom = 229.0
 theme = ExtResource("91_32fso")
-theme_override_styles/panel = ExtResource("92_1g8l5")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ervlk")
 metadata/_edit_group_ = true
 
 [node name="BtnLevelSelection" type="Button" parent="LevelSelection"]
+layout_mode = 0
 offset_left = 14.0
 offset_top = 14.0
 offset_right = 104.0
@@ -984,17 +1133,18 @@ mouse_default_cursor_shape = 2
 text = "Level Selection"
 
 [node name="ConfirmPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 139.0
 offset_top = 185.0
 offset_right = 211.0
 offset_bottom = 230.0
 mouse_default_cursor_shape = 2
 theme = ExtResource("91_32fso")
-theme_override_styles/panel = ExtResource("104_w6aq7")
+theme_override_styles/panel = SubResource("StyleBoxTexture_esciq")
 metadata/_edit_group_ = true
 
 [node name="BtnConfirm" type="Button" parent="ConfirmPanel"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -1005,7 +1155,7 @@ text = "Confirm"
 
 [node name="MouseBlocker" type="Control" parent="."]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1014,6 +1164,7 @@ grow_vertical = 2
 metadata/_edit_lock_ = true
 
 [node name="InventoryPanel" type="Panel" parent="."]
+layout_mode = 0
 offset_left = 8.0
 offset_top = 3.0
 offset_right = 94.0
@@ -1021,7 +1172,7 @@ offset_bottom = 45.0
 theme_override_styles/panel = ExtResource("118_c3mmm")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="InventoryPanel"]
-anchors_preset = 15
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 12.0
@@ -1031,12 +1182,12 @@ grow_vertical = 2
 theme_override_constants/separation = 11
 
 [node name="HealthPot" type="TextureRect" parent="InventoryPanel/HBoxContainer"]
-offset_right = 13.0
-offset_bottom = 42.0
+layout_mode = 2
 texture = ExtResource("112_kexjo")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="InventoryPanel/HBoxContainer/HealthPot"]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 10.0
 offset_right = 17.0
@@ -1045,13 +1196,12 @@ text = "0"
 label_settings = SubResource("LabelSettings_xi0u7")
 
 [node name="PoisonBottle" type="TextureRect" parent="InventoryPanel/HBoxContainer"]
-offset_left = 24.0
-offset_right = 37.0
-offset_bottom = 42.0
+layout_mode = 2
 texture = ExtResource("110_ctbn7")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="InventoryPanel/HBoxContainer/PoisonBottle"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 10.0
 offset_right = 18.0
@@ -1061,14 +1211,13 @@ label_settings = SubResource("LabelSettings_xi0u7")
 
 [node name="StatPotion" type="TextureRect" parent="InventoryPanel/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
-offset_left = 48.0
-offset_right = 63.0
-offset_bottom = 42.0
+layout_mode = 2
 texture = ExtResource("111_rye6e")
-ignore_texture_size = true
+expand_mode = 1
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="InventoryPanel/HBoxContainer/StatPotion"]
+layout_mode = 0
 offset_left = 11.0
 offset_top = 10.0
 offset_right = 17.0

@@ -4,10 +4,6 @@
 
 [resource]
 texture = ExtResource("1_5ajet")
-margin_left = 10.0
-margin_top = 2.0
-margin_right = 10.0
-margin_bottom = 2.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 30, 6)

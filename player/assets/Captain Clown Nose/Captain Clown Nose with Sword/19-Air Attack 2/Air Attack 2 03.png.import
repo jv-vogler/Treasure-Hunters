@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Air Attack 2 03.png-130c79856873c3b326d6c80de
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

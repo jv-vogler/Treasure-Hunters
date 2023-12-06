@@ -49,7 +49,19 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wgo4i"]
 animations = [{
-"frames": [ExtResource("6_xd2am"), ExtResource("7_h1fpw"), ExtResource("8_jjfmm"), ExtResource("9_ylph3")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xd2am")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_h1fpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jjfmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ylph3")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -57,7 +69,19 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c1h73"]
 animations = [{
-"frames": [ExtResource("14_64sn6"), ExtResource("15_3ngud"), ExtResource("16_of5og"), ExtResource("17_lduny")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_64sn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3ngud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_of5og")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lduny")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -65,7 +89,19 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hg1jl"]
 animations = [{
-"frames": [ExtResource("18_7e33q"), ExtResource("19_wlpid"), ExtResource("20_8pkcj"), ExtResource("21_s5t01")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_7e33q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_wlpid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_8pkcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_s5t01")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0
@@ -73,19 +109,31 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_thb1q"]
 shader = ExtResource("23_edhbm")
+shader_parameter/speed = 1.02
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.1
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 3.5
 shader_parameter/detail = 1.1
 shader_parameter/distortion = 0.0
 shader_parameter/heightOffset = 0.0
-shader_parameter/interval = 3.5
-shader_parameter/maxStrength = 0.1
-shader_parameter/minStrength = 0.05
 shader_parameter/offset = 0.0
-shader_parameter/speed = 1.02
-shader_parameter/strengthScale = 100.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fedk2"]
 animations = [{
-"frames": [ExtResource("23_qskw7"), ExtResource("24_4sftw"), ExtResource("25_60llv"), ExtResource("26_dfn66")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_qskw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4sftw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_60llv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_dfn66")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -93,19 +141,31 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_03ppl"]
 shader = ExtResource("23_edhbm")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.05
+shader_parameter/strengthScale = 75.0
+shader_parameter/interval = 3.5
 shader_parameter/detail = 1.0
 shader_parameter/distortion = null
 shader_parameter/heightOffset = null
-shader_parameter/interval = 3.5
-shader_parameter/maxStrength = 0.05
-shader_parameter/minStrength = 0.05
 shader_parameter/offset = 0.0
-shader_parameter/speed = 1.0
-shader_parameter/strengthScale = 75.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i0x76"]
 animations = [{
-"frames": [ExtResource("28_57ywn"), ExtResource("29_g3nmu"), ExtResource("30_idcyq"), ExtResource("31_6aubn")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_57ywn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_g3nmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_idcyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_6aubn")
+}],
 "loop": true,
 "name": &"default",
 "speed": 10.0
@@ -113,12 +173,45 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a1p6c"]
 animations = [{
-"frames": [ExtResource("5_n56da"), ExtResource("6_00jhv"), ExtResource("7_u3x8x"), ExtResource("8_ixsyk"), ExtResource("9_x4e5h")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n56da")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_00jhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_u3x8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ixsyk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x4e5h")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 10.0
 }, {
-"frames": [ExtResource("10_4mr5c"), ExtResource("11_jvchw"), ExtResource("12_b67xw"), ExtResource("13_rvnhw"), ExtResource("14_qyy3j"), ExtResource("15_b72q3")],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_4mr5c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jvchw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_b67xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rvnhw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qyy3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_b72q3")
+}],
 "loop": true,
 "name": &"run",
 "speed": 10.0
@@ -129,10 +222,6 @@ Button/colors/font_color = Color(0.87451, 0.87451, 0.87451, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r44y3"]
 texture = ExtResource("3_oqpee")
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 5.0
-margin_bottom = 5.0
 region_rect = Rect2(0, 0, 70, 66)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i8kq6"]
@@ -240,50 +329,42 @@ metadata/_edit_lock_ = true
 [node name="WaterReflex" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(-9.77982, -9)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
+sprite_frames = SubResource("SpriteFrames_wgo4i")
 
 [node name="WaterReflex2" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(-13.6768, 0)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_c1h73")
-playing = true
+sprite_frames = SubResource("SpriteFrames_c1h73")
 
 [node name="WaterReflex3" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(11.2037, -9)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
+sprite_frames = SubResource("SpriteFrames_wgo4i")
 
 [node name="WaterReflex4" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(-3.25994, 0)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
+sprite_frames = SubResource("SpriteFrames_wgo4i")
 
 [node name="WaterReflex8" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(5.80794, -1)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_wgo4i")
-playing = true
+sprite_frames = SubResource("SpriteFrames_wgo4i")
 
 [node name="WaterReflex5" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(-1.911, -13)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_c1h73")
-playing = true
+sprite_frames = SubResource("SpriteFrames_c1h73")
 
 [node name="WaterReflex6" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(13.9016, 2)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_hg1jl")
-playing = true
+sprite_frames = SubResource("SpriteFrames_hg1jl")
 
 [node name="WaterReflex7" type="AnimatedSprite2D" parent="Ocean"]
 position = Vector2(2.88523, -11)
 scale = Vector2(0.0749412, 1)
-frames = SubResource("SpriteFrames_hg1jl")
-playing = true
+sprite_frames = SubResource("SpriteFrames_hg1jl")
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = ExtResource("22_8k585")
@@ -292,14 +373,12 @@ format = 2
 [node name="PalmTree1" type="AnimatedSprite2D" parent="TileMap2"]
 material = SubResource("ShaderMaterial_thb1q")
 position = Vector2(108, 192)
-frames = SubResource("SpriteFrames_fedk2")
-playing = true
+sprite_frames = SubResource("SpriteFrames_fedk2")
 
 [node name="PalmTree2" type="AnimatedSprite2D" parent="TileMap2"]
 material = SubResource("ShaderMaterial_03ppl")
 position = Vector2(91, 194)
-frames = SubResource("SpriteFrames_i0x76")
-playing = true
+sprite_frames = SubResource("SpriteFrames_i0x76")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("5_laa7r")
@@ -317,9 +396,8 @@ metadata/_edit_group_ = true
 
 [node name="CaptainClownNose" type="AnimatedSprite2D" parent="."]
 position = Vector2(218, 212)
-frames = SubResource("SpriteFrames_a1p6c")
+sprite_frames = SubResource("SpriteFrames_a1p6c")
 animation = &"idle"
-playing = true
 metadata/_edit_lock_ = true
 
 [node name="WoodenPanel" type="Panel" parent="."]
@@ -353,10 +431,6 @@ grow_vertical = 0
 
 [node name="BtnTitleScreen" type="Button" parent="WoodenPanel/ButtonsContainer"]
 layout_mode = 2
-offset_top = 8.0
-offset_right = 72.0
-offset_bottom = 21.0
-grow_vertical = 0
 size_flags_horizontal = 2
 size_flags_vertical = 4
 focus_neighbor_right = NodePath("../BtnShop")
@@ -366,11 +440,6 @@ text = "Title Screen"
 
 [node name="BtnShop" type="Button" parent="WoodenPanel/ButtonsContainer"]
 layout_mode = 2
-offset_left = 127.0
-offset_top = 8.0
-offset_right = 151.0
-offset_bottom = 21.0
-grow_vertical = 0
 size_flags_horizontal = 10
 size_flags_vertical = 4
 focus_neighbor_left = NodePath("../BtnTitleScreen")

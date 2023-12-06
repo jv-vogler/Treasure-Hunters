@@ -16,9 +16,9 @@ dest_files=["res://.godot/imported/Flag 09.png-e6ea7816e45c03fd0f8c4efb4de5c283.
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false
