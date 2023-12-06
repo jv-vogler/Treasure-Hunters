@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ihv8g33wyh3v"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_2ixcs"]
+[ext_resource type="Script" path="res://Main.gd" id="1_g3j5p"]
 
 [sub_resource type="Animation" id="Animation_c6v55"]
 resource_name = "Dissolve"
@@ -81,7 +81,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("1_2ixcs")
+script = ExtResource("1_g3j5p")
 metadata/_edit_horizontal_guides_ = [200.0]
 
 [node name="Scene" type="Control" parent="."]
